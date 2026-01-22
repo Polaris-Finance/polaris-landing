@@ -1,6 +1,6 @@
 ---
 title: "Why Polaris?"
-description: "Why yet another stablecoin, in a space where USDC, USDT, USDe, USDS dominate? Because pUSD can do what they cannot, by design."
+description: "Analyzing where USDC, USDS, USDe, and LUSD fall short—and how pUSD delivers scalable, yield-bearing stability without counterparty risk."
 date: "2026-01-21"
 author: "Polaris Team"
 ---

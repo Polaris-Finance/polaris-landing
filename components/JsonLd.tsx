@@ -23,7 +23,7 @@ export const organizationSchema = {
     "https://t.me/polaris_ann",
   ],
   description:
-    "Polaris re-architects onchain activity to generate uncorrelated, scalable returns, without T-Bills, without CEXs, without compromises.",
+    "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
 };
 
 export const websiteSchema = {
@@ -32,7 +32,7 @@ export const websiteSchema = {
   name: "Polaris Protocol",
   url: "https://polarisfinance.io",
   description:
-    "Self-Scaling Stablecoin Operating System - Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
+    "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
   publisher: {
     "@type": "Organization",
     name: "Polaris Protocol",

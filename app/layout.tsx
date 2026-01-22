@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
   description:
-    "Polaris re-architects onchain activity to generate uncorrelated, scalable returns, without T-Bills, without CEXs, without compromises.",
+    "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
   metadataBase: new URL("https://polarisfinance.io"),
   applicationName: "Polaris Protocol",
   authors: [{ name: "Polaris Team", url: "https://polarisfinance.io" }],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
     description:
-      "Polaris re-architects onchain activity to generate uncorrelated, scalable returns.",
+      "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
     url: "https://polarisfinance.io",
     siteName: "Polaris Protocol",
     images: [
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
     description:
-      "Polaris re-architects onchain activity to generate uncorrelated, scalable returns.",
+      "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
     images: ["/polaris-og.png"],
     creator: "@polarisfinance_",
   },
