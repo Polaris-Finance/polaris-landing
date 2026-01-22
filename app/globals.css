@@ -1,0 +1,1622 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Polaris Celestial Theme - Deep Navy Night Sky */
+:root {
+  /* Primary colors - Deep Navy Blues */
+  --polaris-navy-darkest: #050a14;
+  --polaris-navy-dark: #0a1628;
+  --polaris-navy: #0d1f3c;
+  --polaris-navy-mid: #122a4d;
+  --polaris-navy-light: #1a3a5c;
+
+  /* Accent colors - Celestial */
+  --polaris-star: #E8DCC4;
+  --polaris-star-bright: #FFFFFF;
+  --polaris-star-glow: rgba(232, 220, 196, 0.6);
+  --polaris-cream: #F5F0E6;
+  --polaris-cream-muted: rgba(245, 240, 230, 0.7);
+
+  /* Water/Ocean colors */
+  --polaris-water-dark: #0a1a2e;
+  --polaris-water-light: #1a3a5c;
+  --polaris-water-reflection: rgba(232, 220, 196, 0.15);
+
+  /* Mountain silhouette */
+  --polaris-mountain: #0d1f3c;
+
+  /* Token colors - refined */
+  --polaris-pusd: #E8DCC4;
+  --polaris-peth: #7BA5C9;
+  --polaris-polar: #9B8FCF;
+
+  /* Typography */
+  --font-serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-sans: "Inter", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", "Menlo", "Roboto Mono", monospace;
+
+  /* Spacing */
+  --radius: 0.75rem;
+
+  /* Hero star zone - responsive heights for grid layout */
+  /* Calculated as: star_center_position + depth_ring_visual_radius + buffer */
+  --star-zone-height: 52vh;
+  --star-top-position: 26%;
+  --depth-ring-scale: 0.7; /* Reduced on mobile */
+  --horizon-offset: 14rem; /* Offset from star-zone for horizon line */
+
+  /* Legacy theme vars */
+  --background: var(--polaris-navy-darkest);
+  --foreground: var(--polaris-cream);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* Fonts loaded via next/font in layout.tsx */
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+  body {
+    background: var(--polaris-navy-darkest);
+    color: var(--polaris-cream);
+  }
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes twinkleSlow {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px var(--polaris-star-glow)) drop-shadow(0 0 40px var(--polaris-star-glow));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px var(--polaris-star-glow)) drop-shadow(0 0 60px var(--polaris-star-glow));
+    transform: scale(1.02);
+  }
+}
+
+@keyframes starGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes waterRipple {
+  0% { transform: translateX(0) scaleY(1); }
+  50% { transform: translateX(-2%) scaleY(0.98); }
+  100% { transform: translateX(0) scaleY(1); }
+}
+
+@keyframes waterGlow {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes reflectionShimmer {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes driftSlow {
+  0%, 100% { transform: translateX(-5px) rotate(-0.5deg); }
+  50% { transform: translateX(5px) rotate(0.5deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes waveMotion {
+  0%, 100% {
+    d: path("M0,50 Q150,45 300,50 T600,50 T900,50 T1200,50 T1500,50 V100 H0 Z");
+  }
+  25% {
+    d: path("M0,48 Q150,52 300,48 T600,52 T900,48 T1200,52 T1500,48 V100 H0 Z");
+  }
+  50% {
+    d: path("M0,52 Q150,48 300,52 T600,48 T900,52 T1200,48 T1500,52 V100 H0 Z");
+  }
+  75% {
+    d: path("M0,50 Q150,46 300,50 T600,46 T900,50 T1200,46 T1500,50 V100 H0 Z");
+  }
+}
+
+/* Rotating glow ring around Polaris star */
+@keyframes rotateGlow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Wave divider drift */
+@keyframes waveDrift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-20px); }
+}
+
+/* Starfield parallax drift */
+@keyframes starDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(2px, 1px); }
+}
+
+/* Hero content entrance animation */
+@keyframes heroFadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enhanced star pulse with more pronounced glow */
+@keyframes starPulseEnhanced {
+  0%, 100% {
+    filter: drop-shadow(0 0 30px var(--polaris-star-glow)) drop-shadow(0 0 60px var(--polaris-star-glow));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 50px var(--polaris-star-glow)) drop-shadow(0 0 100px var(--polaris-star-glow));
+    transform: scale(1.03);
+  }
+}
+
+/* Bright star twinkle */
+@keyframes brightStarTwinkle {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+    box-shadow: 0 0 8px var(--polaris-star-glow), 0 0 16px var(--polaris-star-glow);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+    box-shadow: 0 0 12px var(--polaris-star-glow), 0 0 24px var(--polaris-star-glow), 0 0 40px var(--polaris-star-glow);
+  }
+}
+
+/* Water ripple horizontal drift */
+@keyframes rippleDrift {
+  0%, 100% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateX(-50%) scaleX(1.1);
+    opacity: 0.25;
+  }
+}
+
+/* CTA button idle glow pulse */
+@keyframes ctaGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(232, 220, 196, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(232, 220, 196, 0.35);
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Responsive star zone overrides */
+@media (min-width: 640px) {
+  :root {
+    --star-zone-height: 48vh;
+    --star-top-position: 28%;
+    --depth-ring-scale: 0.8;
+    --horizon-offset: 16rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --star-zone-height: 46vh;
+    --star-top-position: 30%;
+    --depth-ring-scale: 0.9;
+    --horizon-offset: 18rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --star-zone-height: 44vh;
+    --star-top-position: 32%;
+    --depth-ring-scale: 1;
+    --horizon-offset: 20rem;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+  }
+
+  /* Text colors */
+  .text-star {
+    color: var(--polaris-star);
+  }
+
+  .text-cream {
+    color: var(--polaris-cream);
+  }
+
+  .text-cream-muted {
+    color: var(--polaris-cream-muted);
+  }
+
+  /* Background utilities */
+  .bg-navy-darkest {
+    background-color: var(--polaris-navy-darkest);
+  }
+
+  .bg-navy-dark {
+    background-color: var(--polaris-navy-dark);
+  }
+
+  .bg-navy {
+    background-color: var(--polaris-navy);
+  }
+
+  /* ============================================
+     HERO SCENE - CELESTIAL BACKGROUND
+     ============================================ */
+
+  .hero-scene {
+    position: relative;
+    min-height: 75vh;
+    overflow: hidden;
+    background: linear-gradient(
+      to bottom,
+      var(--polaris-navy-darkest) 0%,
+      var(--polaris-navy-dark) 30%,
+      var(--polaris-navy) 50%,
+      var(--polaris-navy-mid) 70%,
+      var(--polaris-water-dark) 100%
+    );
+  }
+
+  /* Starfield layer */
+  .starfield {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .star {
+    position: absolute;
+    background: var(--polaris-star);
+    border-radius: 50%;
+  }
+
+  .star--tiny {
+    width: 1px;
+    height: 1px;
+    opacity: 0.4;
+  }
+
+  .star--small {
+    width: 2px;
+    height: 2px;
+    opacity: 0.6;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  .star--medium {
+    width: 3px;
+    height: 3px;
+    opacity: 0.8;
+    box-shadow: 0 0 4px var(--polaris-star-glow);
+    animation: twinkleSlow 4s ease-in-out infinite;
+  }
+
+  /* Mountain silhouettes */
+  .mountains {
+    position: absolute;
+    top: calc(var(--star-zone-height) + var(--horizon-offset) - 2rem);
+    left: 0;
+    right: 0;
+    height: 10rem;
+    pointer-events: none;
+  }
+
+  .mountain {
+    position: absolute;
+    bottom: 0;
+    fill: var(--polaris-navy);
+    opacity: 0.6;
+  }
+
+  .mountain--left {
+    left: -5%;
+    width: 45%;
+    height: 100%;
+  }
+
+  .mountain--right {
+    right: -5%;
+    width: 50%;
+    height: 90%;
+    opacity: 0.4;
+  }
+
+  /* Ocean/Water layer */
+  .ocean {
+    position: absolute;
+    top: calc(var(--star-zone-height) + var(--horizon-offset));
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--polaris-water-dark) 0%,
+      var(--polaris-navy-darkest) 100%
+    );
+    overflow: hidden;
+  }
+
+  .ocean::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(232, 220, 196, 0.1) 20%,
+      rgba(232, 220, 196, 0.25) 50%,
+      rgba(232, 220, 196, 0.1) 80%,
+      transparent 100%
+    );
+  }
+
+  /* Animated wave surface lines */
+  .wave-surface {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .wave-surface svg {
+    width: 200%;
+    height: 100%;
+    animation: waveDrift 8s ease-in-out infinite;
+  }
+
+  /* Horizontal light ripples */
+  .water-ripple {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(232, 220, 196, 0.15) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .water-ripple--1 {
+    top: 15%;
+    width: 50%;
+    height: 8px;
+    animation: rippleDrift 6s ease-in-out infinite;
+  }
+
+  .water-ripple--2 {
+    top: 35%;
+    width: 35%;
+    height: 6px;
+    animation: rippleDrift 8s ease-in-out infinite 2s;
+  }
+
+  .water-ripple--3 {
+    top: 55%;
+    width: 25%;
+    height: 4px;
+    animation: rippleDrift 10s ease-in-out infinite 4s;
+  }
+
+  /* Soft ambient water glow - no hard edges */
+  .water-glow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(232, 220, 196, 0.12) 0%,
+      rgba(232, 220, 196, 0.05) 40%,
+      transparent 70%
+    );
+    filter: blur(20px);
+    pointer-events: none;
+  }
+
+  .water-glow--1 {
+    top: 5%;
+    width: 80%;
+    height: 30%;
+    animation: waterGlow 8s ease-in-out infinite;
+  }
+
+  .water-glow--2 {
+    top: 25%;
+    width: 60%;
+    height: 40%;
+    opacity: 0.7;
+    animation: waterGlow 10s ease-in-out infinite 2s;
+  }
+
+  .water-glow--3 {
+    top: 50%;
+    width: 40%;
+    height: 35%;
+    opacity: 0.5;
+    animation: waterGlow 12s ease-in-out infinite 4s;
+  }
+
+  /* Star reflection on water - enhanced */
+  .star-reflection {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 70%;
+    background: linear-gradient(
+      to bottom,
+      rgba(232, 220, 196, 0.5) 0%,
+      rgba(232, 220, 196, 0.3) 15%,
+      rgba(232, 220, 196, 0.15) 40%,
+      rgba(232, 220, 196, 0.05) 70%,
+      transparent 100%
+    );
+    filter: blur(3px);
+    animation: reflectionShimmer 4s ease-in-out infinite;
+  }
+
+  .star-reflection::before,
+  .star-reflection::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(232, 220, 196, 0.2);
+    border-radius: 50%;
+    filter: blur(4px);
+  }
+
+  .star-reflection::before {
+    top: 10%;
+    width: 50px;
+    height: 8px;
+  }
+
+  .star-reflection::after {
+    top: 30%;
+    width: 35px;
+    height: 6px;
+  }
+
+  /* Additional shimmer bands */
+  .star-reflection-band {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(232, 220, 196, 0.12);
+    border-radius: 50%;
+    filter: blur(5px);
+    pointer-events: none;
+  }
+
+  .star-reflection-band--1 {
+    top: 5%;
+    width: 80px;
+    height: 10px;
+    animation: reflectionShimmer 3s ease-in-out infinite;
+  }
+
+  .star-reflection-band--2 {
+    top: 20%;
+    width: 60px;
+    height: 6px;
+    animation: reflectionShimmer 4s ease-in-out infinite 1s;
+  }
+
+  .star-reflection-band--3 {
+    top: 50%;
+    width: 30px;
+    height: 4px;
+    animation: reflectionShimmer 5s ease-in-out infinite 2s;
+  }
+
+  /* ============================================
+     POLARIS STAR (Main focal point)
+     ============================================ */
+
+  .polaris-star-container {
+    position: absolute;
+    left: 50%;
+    top: var(--star-top-position);
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+
+  .polaris-star {
+    position: relative;
+    z-index: 3;
+    animation: starPulseEnhanced 6s ease-in-out infinite;
+  }
+
+  .polaris-star-glow {
+    position: absolute;
+    inset: -60%;
+    background: radial-gradient(
+      circle at center,
+      rgba(232, 220, 196, 0.35) 0%,
+      rgba(232, 220, 196, 0.15) 30%,
+      transparent 70%
+    );
+    animation: starGlow 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Concentric depth rings behind the star */
+  .polaris-depth-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .polaris-depth-ring--1 {
+    width: calc(180% * var(--depth-ring-scale));
+    height: calc(180% * var(--depth-ring-scale));
+    background: radial-gradient(
+      circle at center,
+      transparent 40%,
+      rgba(232, 220, 196, 0.06) 50%,
+      rgba(232, 220, 196, 0.03) 60%,
+      transparent 70%
+    );
+    z-index: 0;
+  }
+
+  .polaris-depth-ring--2 {
+    width: calc(260% * var(--depth-ring-scale));
+    height: calc(260% * var(--depth-ring-scale));
+    background: radial-gradient(
+      circle at center,
+      transparent 50%,
+      rgba(232, 220, 196, 0.04) 60%,
+      rgba(232, 220, 196, 0.02) 70%,
+      transparent 80%
+    );
+    z-index: 0;
+  }
+
+  .polaris-depth-ring--3 {
+    width: calc(340% * var(--depth-ring-scale));
+    height: calc(340% * var(--depth-ring-scale));
+    background: radial-gradient(
+      circle at center,
+      transparent 55%,
+      rgba(232, 220, 196, 0.025) 65%,
+      rgba(232, 220, 196, 0.01) 75%,
+      transparent 85%
+    );
+    z-index: 0;
+  }
+
+  /* Rotating outer glow ring */
+  .polaris-glow-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(220% * var(--depth-ring-scale));
+    height: calc(220% * var(--depth-ring-scale));
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(232, 220, 196, 0.08) 15%,
+      transparent 30%,
+      rgba(232, 220, 196, 0.05) 45%,
+      transparent 60%,
+      rgba(232, 220, 196, 0.08) 75%,
+      transparent 90%,
+      rgba(232, 220, 196, 0.05) 100%
+    );
+    animation: rotateGlow 60s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ============================================
+     ENHANCED STARFIELD
+     ============================================ */
+
+  .star--bright {
+    width: 5px;
+    height: 5px;
+    background: var(--polaris-star-bright);
+    animation: brightStarTwinkle 5s ease-in-out infinite;
+  }
+
+  .starfield--drift {
+    animation: starDrift 20s ease-in-out infinite;
+  }
+
+  /* Stars concentrated near Polaris */
+  .star--near-polaris {
+    filter: brightness(1.2);
+  }
+
+  /* ============================================
+     WAVE DIVIDER
+     ============================================ */
+
+  .wave-divider {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .wave-divider svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    animation: waveDrift 12s ease-in-out infinite;
+  }
+
+  .wave-divider path {
+    fill: none;
+    stroke: rgba(232, 220, 196, 0.15);
+    stroke-width: 1;
+  }
+
+  /* ============================================
+     COMPASS ROSE SECTION DIVIDER
+     ============================================ */
+
+  .compass-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0;
+    margin: 0;
+    overflow: visible;
+    z-index: 10;
+  }
+
+  .compass-divider::before,
+  .compass-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(232, 220, 196, 0.15) 50%,
+      transparent 100%
+    );
+  }
+
+  .compass-divider svg {
+    width: 40px;
+    height: 40px;
+    opacity: 0.2;
+    margin: 0 1.5rem;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .compass-divider svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  /* ============================================
+     HERO CONTENT
+     ============================================ */
+
+  .hero-content {
+    position: relative;
+    z-index: 20;
+    display: grid;
+    grid-template-rows: var(--star-zone-height) auto;
+    text-align: center;
+  }
+
+  /* Star zone spacer - ensures text never overlaps star */
+  .hero-star-zone {
+    /* Empty spacer that reserves space for the star and its visual effects */
+  }
+
+  /* Text content container */
+  .hero-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem 0;
+  }
+
+  .hero-logo {
+    animation: heroFadeInUp 1s ease-out 0.2s both;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    color: var(--polaris-star);
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 0 0 40px rgba(232, 220, 196, 0.3);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-serif);
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    font-weight: 300;
+    letter-spacing: 0.5em;
+    color: var(--polaris-cream-muted);
+    text-transform: uppercase;
+    margin-top: 0.75rem;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 400;
+    color: var(--polaris-cream-muted);
+    max-width: 600px;
+    margin: 2rem auto 0;
+    line-height: 1.7;
+    animation: heroFadeInUp 1s ease-out 0.4s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    animation: heroFadeInUp 1s ease-out 0.6s both;
+  }
+
+  @media (min-width: 640px) {
+    .hero-cta {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+
+  /* ============================================
+     BUTTONS
+     ============================================ */
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--polaris-navy-darkest);
+    background: var(--polaris-star);
+    border: 1px solid var(--polaris-star);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    animation: ctaGlow 3s ease-in-out infinite;
+  }
+
+  .btn-primary:hover {
+    background: var(--polaris-cream);
+    border-color: var(--polaris-cream);
+    box-shadow: 0 0 40px rgba(232, 220, 196, 0.4);
+    transform: translateY(-2px);
+    animation: none;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--polaris-cream);
+    background: transparent;
+    border: 1px solid rgba(232, 220, 196, 0.3);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--polaris-star);
+    color: var(--polaris-star);
+    transform: translateY(-2px);
+  }
+
+  /* ============================================
+     LAUNCH INDICATOR
+     ============================================ */
+
+  .launch-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--polaris-cream-muted);
+    margin-top: 0.75rem;
+  }
+
+  .launch-dot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+  }
+
+  .launch-dot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--polaris-star);
+    border-radius: 50%;
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .launch-dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    background: var(--polaris-star);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: twinkle 2s ease-in-out infinite 0.5s;
+  }
+
+  /* ============================================
+     SECTIONS
+     ============================================ */
+
+  .section {
+    position: relative;
+    padding: 2.5rem 1.5rem 2.5rem;
+    background: var(--polaris-navy-darkest);
+  }
+
+  @media (min-width: 640px) {
+    .section {
+      padding: 3rem 2.5rem 3rem;
+    }
+  }
+
+  .section--gradient {
+    background: linear-gradient(
+      to bottom,
+      var(--polaris-navy-darkest) 0%,
+      var(--polaris-navy-dark) 100%
+    );
+  }
+
+  .section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--polaris-star);
+    background: rgba(232, 220, 196, 0.08);
+    border: 1px solid rgba(232, 220, 196, 0.15);
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--polaris-star);
+    margin-bottom: 1rem;
+  }
+
+  .section-description {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--polaris-cream-muted);
+    max-width: 48rem;
+  }
+
+  /* ============================================
+     CARDS
+     ============================================ */
+
+  .card {
+    position: relative;
+    padding: 1.75rem;
+    background: rgba(13, 31, 60, 0.6);
+    border: 1px solid rgba(232, 220, 196, 0.1);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(232, 220, 196, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(232, 220, 196, 0.08);
+    border: 1px solid rgba(232, 220, 196, 0.15);
+    border-radius: 1rem;
+    color: var(--polaris-star);
+    margin-bottom: 1.25rem;
+  }
+
+  .card__title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--polaris-star);
+    margin-bottom: 0.75rem;
+  }
+
+  .card__description {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--polaris-cream-muted);
+  }
+
+  /* ============================================
+     STAT CARDS
+     ============================================ */
+
+  .stat-card {
+    position: relative;
+    padding: 1.5rem;
+    background: rgba(13, 31, 60, 0.4);
+    border: 1px solid rgba(232, 220, 196, 0.08);
+    border-radius: 1.25rem;
+    transition: all 0.3s ease;
+  }
+
+  .stat-card:hover {
+    border-color: rgba(232, 220, 196, 0.15);
+    background: rgba(13, 31, 60, 0.6);
+  }
+
+  .stat-card__icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: rgba(232, 220, 196, 0.06);
+    border-radius: 0.75rem;
+    color: var(--polaris-star);
+    opacity: 0.7;
+  }
+
+  .stat-card__value {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--polaris-star);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-card__label {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--polaris-cream-muted);
+  }
+
+  /* ============================================
+     TOKEN CARDS
+     ============================================ */
+
+  .token-card {
+    position: relative;
+    padding: 2rem;
+    background: rgba(13, 31, 60, 0.5);
+    border: 1px solid rgba(232, 220, 196, 0.1);
+    border-radius: 1.75rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .token-card:hover {
+    border-color: rgba(232, 220, 196, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .token-card--pusd {
+    border-color: rgba(232, 220, 196, 0.15);
+  }
+
+  .token-card--pusd:hover {
+    border-color: rgba(232, 220, 196, 0.3);
+    box-shadow: 0 0 40px rgba(232, 220, 196, 0.1);
+  }
+
+  .token-card--peth {
+    border-color: rgba(123, 165, 201, 0.2);
+  }
+
+  .token-card--peth:hover {
+    border-color: rgba(123, 165, 201, 0.4);
+    box-shadow: 0 0 40px rgba(123, 165, 201, 0.1);
+  }
+
+  .token-card--polar {
+    border-color: rgba(155, 143, 207, 0.2);
+  }
+
+  .token-card--polar:hover {
+    border-color: rgba(155, 143, 207, 0.4);
+    box-shadow: 0 0 40px rgba(155, 143, 207, 0.1);
+  }
+
+  .token-card__icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0 auto 1.25rem;
+  }
+
+  .token-card__name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--polaris-star);
+    margin-bottom: 0.25rem;
+  }
+
+  .token-card__tagline {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--polaris-cream);
+    margin-bottom: 0.75rem;
+  }
+
+  .token-card__description {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--polaris-cream-muted);
+  }
+
+  /* ============================================
+     NARRATIVE TIMELINE
+     ============================================ */
+
+  .narrative-timeline {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    padding-left: 0.5rem;
+  }
+
+  .narrative-timeline::before {
+    content: "";
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      rgba(232, 220, 196, 0.3) 0%,
+      rgba(232, 220, 196, 0.1) 100%
+    );
+  }
+
+  .narrative-step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(13, 31, 60, 0.4);
+    border: 1px solid rgba(232, 220, 196, 0.08);
+    border-radius: 1.25rem;
+    transition: all 0.3s ease;
+  }
+
+  .narrative-step:hover {
+    border-color: rgba(232, 220, 196, 0.15);
+    background: rgba(13, 31, 60, 0.6);
+  }
+
+  .narrative-step__index {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(232, 220, 196, 0.08);
+    border: 1px solid rgba(232, 220, 196, 0.15);
+    border-radius: 0.75rem;
+    font-family: var(--font-serif);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    color: var(--polaris-star);
+  }
+
+  .narrative-step__body {
+    flex: 1;
+  }
+
+  .narrative-step__title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--polaris-star);
+    margin-bottom: 0.5rem;
+  }
+
+  .narrative-step__description {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--polaris-cream-muted);
+  }
+
+  .narrative-step__description li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ============================================
+     BENEFIT CARDS
+     ============================================ */
+
+  .benefit-card {
+    position: relative;
+    padding: 1.75rem;
+    background: rgba(13, 31, 60, 0.5);
+    border: 1px solid rgba(232, 220, 196, 0.08);
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    border-color: rgba(232, 220, 196, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .benefit-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: rgba(232, 220, 196, 0.08);
+    border: 1px solid rgba(232, 220, 196, 0.12);
+    border-radius: 0.875rem;
+    color: var(--polaris-star);
+    margin-bottom: 1.25rem;
+  }
+
+  .benefit-card__title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--polaris-star);
+    margin-bottom: 0.75rem;
+  }
+
+  .benefit-card__description {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--polaris-cream-muted);
+  }
+
+  .benefit-card__description li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ============================================
+     SYSTEM DIAGRAM
+     ============================================ */
+
+  .system-diagram {
+    position: relative;
+    padding: 1rem;
+    background: rgba(13, 31, 60, 0.3);
+    border: 1px solid rgba(232, 220, 196, 0.1);
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+
+  .system-diagram img {
+    width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+
+  .footer {
+    position: relative;
+    padding: 3rem 1.5rem;
+    background: var(--polaris-navy-darkest);
+    border-top: 1px solid rgba(232, 220, 196, 0.08);
+  }
+
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .footer__content {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .footer__brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer__logo {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    background: rgba(232, 220, 196, 0.06);
+    border: 1px solid rgba(232, 220, 196, 0.1);
+    border-radius: 1rem;
+  }
+
+  .footer__name {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--polaris-star);
+  }
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer__links {
+      align-items: flex-end;
+    }
+  }
+
+  .footer__nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer__link {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--polaris-cream-muted);
+    transition: color 0.3s ease;
+  }
+
+  .footer__link:hover {
+    color: var(--polaris-star);
+  }
+
+  .footer__email {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--polaris-cream-muted);
+    transition: color 0.3s ease;
+  }
+
+  .footer__email:hover {
+    color: var(--polaris-star);
+  }
+
+  /* ============================================
+     TOP BANNER
+     ============================================ */
+
+  .top-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    background: rgba(232, 220, 196, 0.05);
+    border-bottom: 1px solid rgba(232, 220, 196, 0.08);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--polaris-cream-muted);
+  }
+
+  .top-banner a {
+    color: var(--polaris-star);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s ease;
+  }
+
+  .top-banner a:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 640px) {
+    .top-banner {
+      height: 40px;
+      font-size: 0.7rem;
+      padding-inline: 1rem;
+      text-align: center;
+    }
+  }
+
+  /* ============================================
+     TRUST STRIP (Token display)
+     ============================================ */
+
+  .trust-strip {
+    margin-top: 2rem;
+  }
+
+  .trust-strip__items {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .trust-strip__items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .trust-strip__items {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .trust-strip__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: rgba(13, 31, 60, 0.5);
+    border: 1px solid rgba(232, 220, 196, 0.1);
+    border-radius: 1.25rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .trust-strip__item:hover {
+    border-color: rgba(232, 220, 196, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .trust-strip__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .trust-strip__logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(232, 220, 196, 0.06);
+    border-radius: 1rem;
+  }
+
+  .trust-strip__logo--full {
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 0;
+  }
+
+  .trust-strip__logo-image {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+  }
+
+  .trust-strip__logo-image--full {
+    width: auto;
+    height: 2.5rem;
+    max-width: 10rem;
+  }
+
+  .trust-strip__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .trust-strip__meta-label {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--polaris-star);
+  }
+
+  .trust-strip__meta-value {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--polaris-cream-muted);
+  }
+
+  /* ============================================
+     PROSE STYLES (Blog)
+     ============================================ */
+
+  .prose-polaris {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--polaris-cream-muted);
+  }
+
+  .prose-polaris h1,
+  .prose-polaris h2,
+  .prose-polaris h3 {
+    font-family: var(--font-serif);
+    color: var(--polaris-star);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose-polaris h1 { font-size: 2rem; }
+  .prose-polaris h2 { font-size: 1.5rem; }
+  .prose-polaris h3 { font-size: 1.25rem; }
+
+  .prose-polaris a {
+    color: var(--polaris-star);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose-polaris a:hover {
+    opacity: 0.8;
+  }
+
+  .prose-polaris code {
+    background: rgba(232, 220, 196, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+
+  .prose-polaris pre {
+    background: var(--polaris-navy);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+  }
+
+  .prose-polaris blockquote {
+    border-left: 2px solid var(--polaris-star);
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--polaris-cream-muted);
+  }
+}

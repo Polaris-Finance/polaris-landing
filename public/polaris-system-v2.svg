@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" fill="none">
+  <defs>
+    <!-- Gradients - Updated for dark theme -->
+    <linearGradient id="ethGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7BA5C9"/>
+      <stop offset="100%" style="stop-color:#5A84A8"/>
+    </linearGradient>
+    <linearGradient id="pethGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ECBEB"/>
+      <stop offset="100%" style="stop-color:#7BA5C9"/>
+    </linearGradient>
+    <linearGradient id="pusdGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6"/>
+      <stop offset="100%" style="stop-color:#E8DCC4"/>
+    </linearGradient>
+    <linearGradient id="polarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#B8A8DF"/>
+      <stop offset="100%" style="stop-color:#9B8FCF"/>
+    </linearGradient>
+    <linearGradient id="curveGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#122a4d"/>
+      <stop offset="100%" style="stop-color:#1a3a5c"/>
+    </linearGradient>
+
+    <!-- Shadows - Updated for dark theme -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="shadowSmall" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow markers - Updated colors -->
+    <marker id="arrowCream" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10" fill="none" stroke="#E8DCC4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10" fill="none" stroke="#7BA5C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowSlate" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10" fill="none" stroke="#627D92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10" fill="none" stroke="#9B8FCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background - Dark theme -->
+  <rect width="1200" height="510" fill="#0a1628"/>
+
+  <!-- Step Labels at Top - cream color -->
+  <text x="120" y="45" font-family="'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="500" fill="#E8DCC4" letter-spacing="0.15em" text-anchor="middle">STEP 1</text>
+  <text x="380" y="45" font-family="'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="500" fill="#E8DCC4" letter-spacing="0.15em" text-anchor="middle">STEP 2</text>
+  <text x="630" y="45" font-family="'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="500" fill="#E8DCC4" letter-spacing="0.15em" text-anchor="middle">STEP 3</text>
+  <text x="870" y="45" font-family="'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="500" fill="#E8DCC4" letter-spacing="0.15em" text-anchor="middle">STEP 4</text>
+  <text x="1100" y="45" font-family="'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="500" fill="#E8DCC4" letter-spacing="0.15em" text-anchor="middle">OUTCOME</text>
+
+  <!-- ==================== STEP 1: ETH ==================== -->
+  <g transform="translate(70, 120)">
+    <!-- ETH Circle -->
+    <circle cx="50" cy="50" r="50" fill="#0d1f3c" stroke="#627D92" stroke-width="2" filter="url(#shadow)"/>
+    <!-- ETH Diamond Logo - darker slate blue to differentiate from pETH -->
+    <g transform="translate(50, 50)">
+      <polygon points="0,-26 17,0 0,10 -17,0" fill="#627D92" opacity="0.95"/>
+      <polygon points="0,10 17,0 0,26 -17,0" fill="#465A6B" opacity="0.9"/>
+    </g>
+    <!-- Label -->
+    <text x="50" y="125" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="500" fill="#E8DCC4" text-anchor="middle">ETH</text>
+    <text x="50" y="148" font-family="Inter, system-ui, sans-serif" font-size="13" fill="rgba(232,220,196,0.6)" text-anchor="middle">Deposit</text>
+  </g>
+
+  <!-- Arrow 1: ETH to Bonding Curve -->
+  <line x1="180" y1="170" x2="270" y2="170" stroke="#627D92" stroke-width="2" stroke-dasharray="8,4" marker-end="url(#arrowSlate)" opacity="0.8"/>
+
+  <!-- ==================== STEP 2: BONDING CURVE ==================== -->
+  <g transform="translate(280, 80)">
+    <!-- Card Background -->
+    <rect x="0" y="0" width="200" height="200" rx="24" fill="#0d1f3c" stroke="rgba(232,220,196,0.15)" stroke-width="1" filter="url(#shadow)"/>
+
+    <!-- Mini Bonding Curve Graph -->
+    <g transform="translate(30, 30)">
+      <!-- Box border -->
+      <rect x="0" y="0" width="120" height="100" fill="#122a4d" stroke="rgba(232,220,196,0.2)" stroke-width="1" rx="4"/>
+
+      <!-- Purple area - UNDER the curve, left of dashed line -->
+      <path d="M0,100 L0,100 C0,55 12,35 30,22 L30,100 Z" fill="#9B8FCF" opacity="0.4"/>
+
+      <!-- Blue area - ABOVE the curve, from dashed line to right edge -->
+      <path d="M30,22 C45,14 60,8 80,4 C95,2 110,0 120,0 L120,100 L30,100 Z" fill="#7BA5C9" opacity="0.3"/>
+
+      <!-- Curve Line -->
+      <path d="M0,100 C0,55 12,35 30,22 C45,14 60,8 80,4 C95,2 110,0 120,0" stroke="#E8DCC4" stroke-width="2" fill="none"/>
+
+      <!-- Burned supply vertical dashed line -->
+      <line x1="30" y1="22" x2="30" y2="100" stroke="#E8DCC4" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.6"/>
+    </g>
+
+    <!-- Title -->
+    <text x="100" y="165" font-family="'Cormorant Garamond', Georgia, serif" font-size="16" font-weight="500" fill="#E8DCC4" text-anchor="middle">Bonding Curve</text>
+    <text x="100" y="185" font-family="Inter, system-ui, sans-serif" font-size="11" fill="rgba(232,220,196,0.6)" text-anchor="middle">Capture volatility</text>
+  </g>
+
+  <!-- Arrow 2: Bonding Curve to pETH -->
+  <g>
+    <line x1="490" y1="170" x2="560" y2="170" stroke="#7BA5C9" stroke-width="2" marker-end="url(#arrowBlue)" opacity="0.8"/>
+    <text x="525" y="158" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7BA5C9" text-anchor="middle" font-weight="500">issues</text>
+  </g>
+
+  <!-- ==================== STEP 3: pETH ==================== -->
+  <g transform="translate(580, 120)">
+    <!-- pETH Circle -->
+    <circle cx="50" cy="50" r="50" fill="#0d1f3c" stroke="#7BA5C9" stroke-width="2" filter="url(#shadow)"/>
+    <!-- Small star above - 20% bigger -->
+    <polygon points="50,22 51.6,27.5 57.9,27.5 52.9,31.6 54.6,37.2 50,33.0 45.4,37.2 47.1,31.6 42.1,27.5 48.4,27.5" fill="#7BA5C9" fill-opacity="0.7"/>
+    <!-- pETH Diamond - 20% bigger -->
+    <g transform="translate(50, 58)">
+      <polygon points="0,-22 17,0 0,8 -17,0" fill="#9ECBEB" opacity="0.9"/>
+      <polygon points="0,8 17,0 0,24 -17,0" fill="#7BA5C9" opacity="0.8"/>
+    </g>
+    <!-- Label -->
+    <text x="50" y="125" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="500" fill="#E8DCC4" text-anchor="middle">pETH</text>
+    <text x="50" y="148" font-family="Inter, system-ui, sans-serif" font-size="13" fill="rgba(232,220,196,0.6)" text-anchor="middle">Collateral</text>
+  </g>
+
+  <!-- Arrow 3: pETH to CDP/pUSD -->
+  <g>
+    <line x1="690" y1="170" x2="760" y2="170" stroke="#7BA5C9" stroke-width="2" marker-end="url(#arrowBlue)" opacity="0.8"/>
+    <text x="725" y="158" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7BA5C9" text-anchor="middle" font-weight="500">lock</text>
+  </g>
+
+  <!-- ==================== STEP 4: CDPs → pUSD ==================== -->
+  <g transform="translate(780, 80)">
+    <!-- Card Background -->
+    <rect x="0" y="0" width="180" height="200" rx="24" fill="#0d1f3c" stroke="rgba(232,220,196,0.15)" stroke-width="1" filter="url(#shadow)"/>
+
+    <!-- CDPs Container -->
+    <g transform="translate(90, 70)">
+      <!-- Container outline -->
+      <rect x="-70" y="-40" width="140" height="90" rx="8" fill="#122a4d" stroke="rgba(232,220,196,0.1)" stroke-width="1"/>
+
+      <!-- CDP 1 (large) -->
+      <g transform="translate(-52, 5)">
+        <rect x="0" y="-30" width="8" height="50" rx="2" fill="#7BA5C9" opacity="0.7"/>
+        <rect x="10" y="-18" width="8" height="38" rx="2" fill="#E8DCC4" opacity="0.7"/>
+      </g>
+
+      <!-- CDP 2 (medium) -->
+      <g transform="translate(-22, 5)">
+        <rect x="0" y="-20" width="8" height="40" rx="2" fill="#7BA5C9" opacity="0.7"/>
+        <rect x="10" y="-8" width="8" height="28" rx="2" fill="#E8DCC4" opacity="0.7"/>
+      </g>
+
+      <!-- CDP 3 (small) -->
+      <g transform="translate(8, 5)">
+        <rect x="0" y="-12" width="8" height="32" rx="2" fill="#7BA5C9" opacity="0.7"/>
+        <rect x="10" y="-2" width="8" height="22" rx="2" fill="#E8DCC4" opacity="0.7"/>
+      </g>
+
+      <!-- CDP 4 (medium-large) -->
+      <g transform="translate(38, 5)">
+        <rect x="0" y="-25" width="8" height="45" rx="2" fill="#7BA5C9" opacity="0.7"/>
+        <rect x="10" y="-12" width="8" height="32" rx="2" fill="#E8DCC4" opacity="0.7"/>
+      </g>
+
+      <!-- Labels -->
+      <text x="-35" y="42" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#7BA5C9" text-anchor="middle">pETH</text>
+      <text x="35" y="42" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#E8DCC4" text-anchor="middle">pUSD</text>
+    </g>
+
+    <!-- Title -->
+    <text x="90" y="165" font-family="'Cormorant Garamond', Georgia, serif" font-size="16" font-weight="500" fill="#E8DCC4" text-anchor="middle">CDPs</text>
+    <text x="90" y="185" font-family="Inter, system-ui, sans-serif" font-size="11" fill="rgba(232,220,196,0.6)" text-anchor="middle">Borrow pUSD</text>
+  </g>
+
+  <!-- Arrow 4: CDP to pUSD/Yield -->
+  <g>
+    <line x1="970" y1="170" x2="1040" y2="170" stroke="#E8DCC4" stroke-width="2" marker-end="url(#arrowCream)" opacity="0.8"/>
+    <text x="1005" y="158" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#E8DCC4" text-anchor="middle" font-weight="500">mint</text>
+  </g>
+
+  <!-- ==================== OUTCOME: pUSD + Yield ==================== -->
+  <g transform="translate(1050, 120)">
+    <!-- pUSD Circle -->
+    <circle cx="50" cy="50" r="50" fill="#0d1f3c" stroke="#E8DCC4" stroke-width="2" filter="url(#shadow)"/>
+    <!-- pUSD Dollar Symbol - 20% bigger -->
+    <text x="50" y="70" font-family="'Cormorant Garamond', Georgia, serif" font-size="43" font-weight="500" fill="url(#pusdGradient)" text-anchor="middle">$</text>
+    <!-- Small star above - 20% bigger -->
+    <polygon points="50,22 51.6,27.5 57.9,27.5 52.9,31.6 54.6,37.2 50,33.0 45.4,37.2 47.1,31.6 42.1,27.5 48.4,27.5" fill="#E8DCC4" fill-opacity="0.7"/>
+    <!-- Label -->
+    <text x="50" y="125" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="500" fill="#E8DCC4" text-anchor="middle">pUSD</text>
+
+    <!-- Yield Badge -->
+    <g transform="translate(50, 145)">
+      <rect x="-45" y="0" width="90" height="28" rx="14" fill="#122a4d" stroke="#E8DCC4" stroke-width="1" filter="url(#shadowSmall)"/>
+      <text x="0" y="19" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500" fill="#E8DCC4" text-anchor="middle">Scalable Yield</text>
+    </g>
+  </g>
+
+  <!-- ==================== POLAR SECTION (Bottom) ==================== -->
+  <!-- Curved arrow from pETH down to POLAR -->
+  <path d="M630 280 L630 350 Q630 380 590 380 L520 380" stroke="#9B8FCF" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arrowPurple)" opacity="0.8"/>
+  <text x="655" y="330" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#9B8FCF" font-weight="500">burn pETH</text>
+
+  <!-- POLAR Circle -->
+  <g transform="translate(420, 330)">
+    <circle cx="50" cy="50" r="50" fill="#0d1f3c" stroke="#9B8FCF" stroke-width="2" filter="url(#shadow)"/>
+    <!-- POLAR Eight-pointed star - 20% bigger -->
+    <g transform="translate(50, 50)">
+      <!-- Cardinal points -->
+      <polygon points="0,-26 2,0 0,0 -2,0" fill="#B8A8DF"/>
+      <polygon points="0,26 -2,0 0,0 2,0" fill="#B8A8DF" opacity="0.85"/>
+      <polygon points="-26,0 0,-2 0,0 0,2" fill="#B8A8DF" opacity="0.85"/>
+      <polygon points="26,0 0,2 0,0 0,-2" fill="#B8A8DF" opacity="0.85"/>
+      <!-- Diagonal points -->
+      <polygon points="-18,-18 -4,-4 0,0 -5,-5" fill="#B8A8DF" opacity="0.6"/>
+      <polygon points="18,-18 4,-4 0,0 5,-5" fill="#B8A8DF" opacity="0.6"/>
+      <polygon points="-18,18 -4,4 0,0 -5,5" fill="#B8A8DF" opacity="0.6"/>
+      <polygon points="18,18 4,4 0,0 5,5" fill="#B8A8DF" opacity="0.6"/>
+      <!-- Center -->
+      <circle cx="0" cy="0" r="4" fill="#B8A8DF"/>
+    </g>
+    <!-- Label -->
+    <text x="50" y="125" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="500" fill="#E8DCC4" text-anchor="middle">POLAR</text>
+    <text x="50" y="148" font-family="Inter, system-ui, sans-serif" font-size="13" fill="rgba(232,220,196,0.6)" text-anchor="middle">Governance</text>
+  </g>
+
+  <!-- Arrow from POLAR back to Bonding Curve (raises floor) -->
+  <path d="M420 380 L340 380 Q300 380 300 340 L300 290" stroke="#9B8FCF" stroke-width="2" fill="none" marker-end="url(#arrowPurple)" opacity="0.8"/>
+  <text x="410" y="398" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#9B8FCF" font-weight="500" text-anchor="end">raises pETH floor price</text>
+
+</svg>
