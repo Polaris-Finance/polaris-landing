@@ -1,6 +1,8 @@
 import { ArrowLeftIcon, GithubIcon, TelegramIcon } from "@/components/icons";
+import { JsonLd, createArticleSchema, createBreadcrumbSchema } from "@/components/JsonLd";
 import { basePath } from "@/lib/basePath";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -26,14 +28,45 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found | Polaris" };
 
+  const url = `https://polarisfinance.io/blog/${slug}`;
+
   return {
     title: `${post.title} | Polaris Blog`,
     description: post.description,
+    authors: [{ name: post.author }],
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url,
+      siteName: "Polaris Protocol",
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [
+        {
+          url: "/polaris-og.png",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: ["/polaris-og.png"],
+      creator: "@polarisfinance_",
+    },
   };
 }
 
@@ -45,8 +78,18 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const articleSchema = createArticleSchema(post);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://polarisfinance.io" },
+    { name: "Blog", url: "https://polarisfinance.io/blog" },
+    { name: post.title, url: `https://polarisfinance.io/blog/${slug}` },
+  ]);
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[var(--polaris-navy-darkest)]">
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
+
       <header className="px-6 py-8 sm:px-10">
         <div className="mx-auto max-w-3xl">
           <Link href="/" className="inline-flex items-center gap-3 transition hover:opacity-80">

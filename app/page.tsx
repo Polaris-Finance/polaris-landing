@@ -8,6 +8,7 @@ import {
   TrendingUpIcon,
   ZapIcon,
 } from "@/components/icons";
+import { JsonLd, organizationSchema, websiteSchema } from "@/components/JsonLd";
 import Image from "next/image";
 import Link from "next/link";
 import { basePath } from "@/lib/basePath";
@@ -347,6 +348,9 @@ function CompassDivider() {
 export default function Home() {
   return (
     <main className="relative overflow-hidden">
+      <JsonLd data={organizationSchema} />
+      <JsonLd data={websiteSchema} />
+
       {/* ============================================
           HERO SECTION - Celestial Scene
           ============================================ */}

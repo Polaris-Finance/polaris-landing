@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "./analytics";
@@ -22,6 +22,23 @@ export const metadata: Metadata = {
   description:
     "Polaris re-architects onchain activity to generate uncorrelated, scalable returns, without T-Bills, without CEXs, without compromises.",
   metadataBase: new URL("https://polarisfinance.io"),
+  applicationName: "Polaris Protocol",
+  authors: [{ name: "Polaris Team", url: "https://polarisfinance.io" }],
+  keywords: [
+    "stablecoin",
+    "DeFi",
+    "yield",
+    "Ethereum",
+    "decentralized finance",
+    "CDP",
+    "bonding curve",
+    "pUSD",
+    "pETH",
+    "POLAR",
+  ],
+  alternates: {
+    canonical: "https://polarisfinance.io",
+  },
   openGraph: {
     title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
     description:
@@ -30,10 +47,10 @@ export const metadata: Metadata = {
     siteName: "Polaris Protocol",
     images: [
       {
-        url: "/polaris-system-social.png",
+        url: "/polaris-og.png",
         width: 1200,
-        height: 510,
-        alt: "Polaris Protocol System Overview",
+        height: 630,
+        alt: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
       },
     ],
     locale: "en_US",
@@ -44,7 +61,7 @@ export const metadata: Metadata = {
     title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
     description:
       "Polaris re-architects onchain activity to generate uncorrelated, scalable returns.",
-    images: ["/polaris-system-social.png"],
+    images: ["/polaris-og.png"],
     creator: "@polarisfinance_",
   },
   icons: {
@@ -55,6 +72,10 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/brand-mark.svg",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a1628",
 };
 
 export default function RootLayout({

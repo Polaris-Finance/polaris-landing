@@ -1,0 +1,88 @@
+type JsonLdProps = {
+  data: Record<string, unknown>;
+};
+
+export function JsonLd({ data }: JsonLdProps) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Polaris Protocol",
+  url: "https://polarisfinance.io",
+  logo: "https://polarisfinance.io/brand-mark.svg",
+  sameAs: [
+    "https://x.com/polarisfinance_",
+    "https://github.com/Polaris-Finance",
+    "https://t.me/polaris_ann",
+  ],
+  description:
+    "Polaris re-architects onchain activity to generate uncorrelated, scalable returns, without T-Bills, without CEXs, without compromises.",
+};
+
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Polaris Protocol",
+  url: "https://polarisfinance.io",
+  description:
+    "Self-Scaling Stablecoin Operating System - Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
+  publisher: {
+    "@type": "Organization",
+    name: "Polaris Protocol",
+    url: "https://polarisfinance.io",
+  },
+};
+
+export function createArticleSchema(post: {
+  title: string;
+  description: string;
+  date: string;
+  author: string;
+  slug: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Polaris Protocol",
+      url: "https://polarisfinance.io",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://polarisfinance.io/brand-mark.svg",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://polarisfinance.io/blog/${post.slug}`,
+    },
+  };
+}
+
+export function createBreadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}

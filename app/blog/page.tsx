@@ -1,12 +1,39 @@
 import { GithubIcon, TelegramIcon } from "@/components/icons";
 import { basePath } from "@/lib/basePath";
 import { getAllPosts } from "@/lib/blog";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Blog | Polaris",
+export const metadata: Metadata = {
+  title: "Blog | Polaris Protocol",
   description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
+  alternates: {
+    canonical: "https://polarisfinance.io/blog",
+  },
+  openGraph: {
+    title: "Blog | Polaris Protocol",
+    description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
+    url: "https://polarisfinance.io/blog",
+    siteName: "Polaris Protocol",
+    images: [
+      {
+        url: "/polaris-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Polaris Protocol Blog",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Polaris Protocol",
+    description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
+    images: ["/polaris-og.png"],
+    creator: "@polarisfinance_",
+  },
 };
 
 export default function BlogPage() {
