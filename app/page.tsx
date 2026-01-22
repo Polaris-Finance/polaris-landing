@@ -38,12 +38,12 @@ type BenefitHighlight = {
 const heroStats: HeroStat[] = [
   {
     value: "Counterparty free",
-    label: "Polaris is free of RWAs or other offchain dependencies: the whole protocol lives onchain; transparent and auditable",
+    label: "Polaris is free of trusted assets or other offchain dependencies: the whole protocol lives onchain; transparent and auditable",
     Icon: Link2OffIcon,
   },
   {
     value: "Untapped yield source",
-    label: "Harnesses an endogenous and uncorrelated yield by monetizing ETH volatility via a bonding curve",
+    label: "Harnesses novel, uncorrelated yield sources by monetizing volatility and growth via a bonding curve",
     Icon: ZapIcon,
   },
   {
@@ -69,14 +69,14 @@ const tokens: TokenInfo[] = [
   {
     name: "pETH",
     tagline: "Supercharged ETH with a safety net",
-    description: "Atoken backed by ETH held within a bonding curve that benefits from an ever rising price floor",
+    description: "A token backed by ETH held within a bonding curve that benefits from an ever rising price floor growing with pAssets adoption",
     iconSrc: "/components/peth-icon.svg",
     color: "peth",
   },
   {
     name: "POLAR",
     tagline: "Stable beta, real yield",
-    description: "Stewardship token minted via 1-way auctions, burning pETH to raise its floor price and generate yield",
+    description: "Stewardship token minted via 1-way conversions, burning pETH to raise its floor price and generate yield",
     iconSrc: "/components/polar-icon.svg",
     color: "polar",
   },
@@ -92,13 +92,13 @@ const narrativeMilestones = [
   {
     title: "CDP Architecture",
     bullets: [
-      "Polaris harnesses a CDP infrastructure optimized for growth and stability: it provides maximal guarantees to pUSD holders and compelling borrowing terms to pUSD borrowers.",
+      "Polaris harnesses a CDP infrastructure optimized for growth and stability: it provides maximal guarantees to pUSD holders and compelling borrowing terms to pUSD borrowers. It's flexible and can cater for assets with negative interest rate, such as gold.",
     ],
   },
   {
     title: "POLAR Conversion",
     bullets: [
-      "New POLAR can only be minted by achieving the most synergetic action possible for the protocol: burning pETH, which raises its floor price, increasing pUSD's collateralization ratio.",
+      "New POLAR can only be minted by achieving the most synergetic action possible for the protocol: burning pETH, which raises its floor price, increasing pUSD's collateralization ratio and releases additional yield.",
     ],
   },
 ];
@@ -115,16 +115,16 @@ const privacyMilestones = [
   {
     title: "Forkable infrastructure, shared liquidity",
     bullets: [
-      "The Polaris CDP infrastructure can be forked to deliver stablecoin tracking any currency or commodities: pCHF, pGOLD, etc.",
+      "The Polaris CDP infrastructure can be forked to deliver stablecoins tracking any currency or commodities: pCHF, pGOLD, etc.",
       "Obtaining the licensing right over the CDP infrastructure requires the avail of vePOLAR holders.",
-      "Many pFiats/pCommodities, but one pETH: all stable share the same collateral, further contributing to the resilience of the whole ecosystem.",
+      "Many pFiats/pCommodities, but one pETH: all stablecoins share the same collateral, further contributing to the resilience of the whole ecosystem.",
     ],
   },
   {
     title: "True community ownership",
     bullets: [
       "Any participant of the Polaris ecosystem, not just the forks can join the StablecoinOS: integrators, frontends, etc.",
-      "Doing so requires sharing revenues with vePOLAR holders, and gain access to a stream of POLAR proportional to the gauge-voting they receive to grow their application.",
+      "Doing so requires sharing revenues with vePOLAR holders, enabling them to gain access to a stream of incentives proportional to the gauge-voting they receive to grow their application.",
       "vePOLAR holders are the ones allocating resources within the ecosystem to foster its growth.",
     ],
   },
@@ -134,7 +134,7 @@ const benefitHighlights: BenefitHighlight[] = [
   {
     title: "Zero value leakage, maximal growth potential",
     bullets: [
-      "From the bonding curve fees to the pUSD swap fees on PolarEX, Polaris knows no value leakage and capture all pETH/pUSD/POLAR-related revenue streams, redirected to best support the protocol and its ecosystem.",
+      "From the bonding curve fees to the pUSD swap fees on PolarEX, Polaris has no value leakage and capture all pETH/pUSD/POLAR-related revenue streams, redirected to best support the protocol and its ecosystem.",
     ],
     Icon: LockKeyholeIcon,
   },
@@ -460,7 +460,7 @@ export default function Home() {
           <span className="section-kicker">Yield</span>
           <h2 className="section-heading">How It Works: Scalable Yield</h2>
           <p className="section-description">
-            Polaris is a triple-engine stablecoin protocol built to solve the stablecoin &ldquo;Yield Trap&rdquo;. By monetizing ETH volatility via a bonding curve, speculative conversion mechanics, and CDP architecture, Polaris generates uncorrelated yield that scales as the system grows without counterparty or credit risk.
+            Polaris is a triple-engine stablecoin protocol built to solve the stablecoin &ldquo;Yield Trap&rdquo;. By monetizing pETH volatility via a bonding curve, speculative conversion mechanics, and CDP architecture, Polaris generates uncorrelated yield that scales as the system grows without counterparty or credit risk.
           </p>
 
           <div className="system-diagram mt-10">

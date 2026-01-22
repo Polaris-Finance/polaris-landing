@@ -73,7 +73,7 @@
     </g>
     <!-- Label -->
     <text x="50" y="125" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="500" fill="#E8DCC4" text-anchor="middle">ETH</text>
-    <text x="50" y="148" font-family="Inter, system-ui, sans-serif" font-size="13" fill="rgba(232,220,196,0.6)" text-anchor="middle">Deposit</text>
+    <text x="50" y="148" font-family="Inter, system-ui, sans-serif" font-size="13" fill="rgba(232,220,196,0.6)" text-anchor="middle">Swap</text>
   </g>
 
   <!-- Arrow 1: ETH to Bonding Curve -->
@@ -132,7 +132,7 @@
   <!-- Arrow 3: pETH to CDP/pUSD -->
   <g>
     <line x1="690" y1="170" x2="760" y2="170" stroke="#7BA5C9" stroke-width="2" marker-end="url(#arrowBlue)" opacity="0.8"/>
-    <text x="725" y="158" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7BA5C9" text-anchor="middle" font-weight="500">lock</text>
+    <text x="725" y="158" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#7BA5C9" text-anchor="middle" font-weight="500">deposit</text>
   </g>
 
   <!-- ==================== STEP 4: CDPs → pUSD ==================== -->
@@ -205,8 +205,8 @@
 
   <!-- ==================== POLAR SECTION (Bottom) ==================== -->
   <!-- Curved arrow from pETH down to POLAR -->
-  <path d="M630 280 L630 350 Q630 380 590 380 L520 380" stroke="#9B8FCF" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arrowPurple)" opacity="0.8"/>
-  <text x="655" y="330" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#9B8FCF" font-weight="500">burn pETH</text>
+  <path d="M630 280 L630 380 L520 380" stroke="#9B8FCF" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arrowPurple)" opacity="0.8"/>
+  <text x="605" y="330" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#9B8FCF" font-weight="500" text-anchor="end">burn pETH</text>
 
   <!-- POLAR Circle -->
   <g transform="translate(420, 330)">
@@ -234,5 +234,9 @@
   <!-- Arrow from POLAR back to Bonding Curve (raises floor) -->
   <path d="M420 380 L340 380 Q300 380 300 340 L300 290" stroke="#9B8FCF" stroke-width="2" fill="none" marker-end="url(#arrowPurple)" opacity="0.8"/>
   <text x="410" y="398" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#9B8FCF" font-weight="500" text-anchor="end">raises pETH floor price</text>
+
+  <!-- Arrow from burn pETH path to Scalable Yield -->
+  <path d="M630 380 L1060 380 Q1100 380 1100 340 L1100 295" stroke="#9B8FCF" stroke-width="2" fill="none" stroke-dasharray="6,4" marker-end="url(#arrowPurple)" opacity="0.8"/>
+  <text x="1075" y="330" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#9B8FCF" font-weight="500" text-anchor="end">release ETH</text>
 
 </svg>
