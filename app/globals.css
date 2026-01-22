@@ -1620,3 +1620,42 @@
     color: var(--polaris-cream-muted);
   }
 }
+
+/* ============================================
+   REDUCED MOTION - Accessibility & Performance
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .starfield--drift,
+  .polaris-star,
+  .polaris-star-glow,
+  .polaris-glow-ring,
+  .star--small,
+  .star--medium,
+  .star--bright,
+  .water-ripple,
+  .water-glow,
+  .star-reflection,
+  .star-reflection-band,
+  .wave-surface svg,
+  .wave-divider svg,
+  .btn-primary {
+    animation: none !important;
+  }
+
+  .hero-logo,
+  .hero-tagline,
+  .hero-cta {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

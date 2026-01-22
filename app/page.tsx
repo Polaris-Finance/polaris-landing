@@ -1,13 +1,24 @@
-import type { LucideIcon } from "lucide-react";
-import { Award, Github, Link2Off, LockKeyhole, ShieldCheck, TrendingUp, Zap } from "lucide-react";
+import {
+  AwardIcon,
+  GithubIcon,
+  Link2OffIcon,
+  LockKeyholeIcon,
+  ShieldCheckIcon,
+  TelegramIcon,
+  TrendingUpIcon,
+  ZapIcon,
+} from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { basePath } from "@/lib/basePath";
+import { ComponentType, SVGProps } from "react";
+
+type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 type HeroStat = {
   value: string;
   label: string;
-  Icon: LucideIcon;
+  Icon: IconComponent;
 };
 
 type TokenInfo = {
@@ -21,29 +32,29 @@ type TokenInfo = {
 type BenefitHighlight = {
   title: string;
   bullets: string[];
-  Icon: LucideIcon;
+  Icon: IconComponent;
 };
 
 const heroStats: HeroStat[] = [
   {
     value: "Counterparty free",
     label: "Polaris is free of RWAs or other offchain dependencies: the whole protocol lives onchain; transparent and auditable",
-    Icon: Link2Off,
+    Icon: Link2OffIcon,
   },
   {
     value: "Untapped yield source",
     label: "Harnesses an endogenous and uncorrelated yield by monetizing ETH volatility via a bonding curve",
-    Icon: Zap,
+    Icon: ZapIcon,
   },
   {
     value: "Scalable yields",
     label: "pUSD and pETH harness self-correlated yield sources as their adoption and supply grow",
-    Icon: TrendingUp,
+    Icon: TrendingUpIcon,
   },
   {
     value: "Immutable & trustless",
     label: "Fully onchain, immutable and extensively verified: simulations, agent-based modeling and Tier1 audits planned.",
-    Icon: ShieldCheck,
+    Icon: ShieldCheckIcon,
   },
 ];
 
@@ -125,28 +136,28 @@ const benefitHighlights: BenefitHighlight[] = [
     bullets: [
       "From the bonding curve fees to the pUSD swap fees on PolarEX, Polaris knows no value leakage and capture all pETH/pUSD/POLAR-related revenue streams, redirected to best support the protocol and its ecosystem.",
     ],
-    Icon: LockKeyhole,
+    Icon: LockKeyholeIcon,
   },
   {
     title: "Scalable, without offchain dependencies",
     bullets: [
       "Unlike other stablecoins that might experience fast early growth, but eventually plateau and turn into T-bill wrappers; Polaris creates and nurtures its own yield source as it grows, enabling yield as competitive when $10M or $10B pUSD are minted.",
     ],
-    Icon: TrendingUp,
+    Icon: TrendingUpIcon,
   },
   {
     title: "Immutable core, agile operating system",
     bullets: [
       "Polaris provides maximal guarantees to its users thanks to its immutability while still being able to evolve and incorporate new product offerings thanks to its stewards and operating system.",
     ],
-    Icon: ShieldCheck,
+    Icon: ShieldCheckIcon,
   },
   {
     title: "Built by a team with 7 years of stablecoin experience",
     bullets: [
       "The Polaris team is composed of experienced Solidity developers who shipped several stablecoins. They learned from their experience, and are joined by DeFi legends to face the final boss.",
     ],
-    Icon: Award,
+    Icon: AwardIcon,
   },
 ];
 
@@ -168,10 +179,11 @@ function generateStars(count: number, type: "tiny" | "small" | "medium" | "brigh
   });
 }
 
-const tinyStars = generateStars(60, "tiny");
-const smallStars = generateStars(35, "small");
-const mediumStars = generateStars(10, "medium");
-const brightStars = generateStars(5, "bright");
+// Reduced star counts for better performance (50 total vs 110)
+const tinyStars = generateStars(30, "tiny");
+const smallStars = generateStars(15, "small");
+const mediumStars = generateStars(5, "medium");
+const brightStars = generateStars(3, "bright");
 
 // Polaris Star SVG Component
 function PolarisStar({ className }: { className?: string }) {
@@ -292,18 +304,6 @@ function Ocean() {
       <div className="star-reflection-band star-reflection-band--1" />
       <div className="star-reflection-band star-reflection-band--2" />
       <div className="star-reflection-band star-reflection-band--3" />
-    </div>
-  );
-}
-
-// Wave Divider SVG Component
-function WaveDivider() {
-  return (
-    <div className="wave-divider">
-      <svg viewBox="0 0 1200 30" preserveAspectRatio="none">
-        <path d="M0,15 Q150,10 300,15 T600,15 T900,15 T1200,15" />
-        <path d="M0,20 Q150,25 300,20 T600,20 T900,20 T1200,20" opacity="0.5" />
-      </svg>
     </div>
   );
 }
@@ -627,7 +627,7 @@ export default function Home() {
                 rel="noreferrer"
                 aria-label="GitHub"
               >
-                <Github className="h-4 w-4" />
+                <GithubIcon className="h-4 w-4" />
               </a>
               <a
                 href="https://t.me/polaris_ann"
@@ -636,9 +636,7 @@ export default function Home() {
                 rel="noreferrer"
                 aria-label="Telegram"
               >
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-                </svg>
+                <TelegramIcon className="h-4 w-4" />
               </a>
             </div>
             <a href="mailto:hello@polarisfinance.io" className="footer__email">
