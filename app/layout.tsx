@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     siteName: "Polaris Protocol",
     images: [
       {
-        url: "/logo-social.png",
-        width: 1200,
-        height: 630,
-        alt: "Polaris Protocol",
+        url: "/why-polaris/competitive-positioning.png",
+        width: 1929,
+        height: 1085,
+        alt: "Polaris Protocol - Competitive Positioning",
       },
     ],
     locale: "en_US",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
     description:
       "Polaris re-architects onchain activity to generate uncorrelated, scalable returns.",
-    images: ["/logo-social.png"],
+    images: ["/why-polaris/competitive-positioning.png"],
     creator: "@polarisfinance_",
   },
   icons: {
