@@ -69,7 +69,7 @@ const tokens: TokenInfo[] = [
   {
     name: "pETH",
     tagline: "Supercharged ETH with a safety net",
-    description: "ETH derivative token backed by ETH held within a bonding curve that benefits from an ever rising price floor",
+    description: "Atoken backed by ETH held within a bonding curve that benefits from an ever rising price floor",
     iconSrc: "/components/peth-icon.svg",
     color: "peth",
   },
