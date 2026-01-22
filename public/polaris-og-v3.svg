@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050a14"/>
+      <stop offset="50%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+
+    <!-- Star gradients -->
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1"/>
+      <stop offset="30%" style="stop-color:#E8DCC4;stop-opacity:0.8"/>
+      <stop offset="70%" style="stop-color:#E8DCC4;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#E8DCC4;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="starBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="50%" style="stop-color:#E8DCC4"/>
+      <stop offset="100%" style="stop-color:#C4B8A0"/>
+    </linearGradient>
+
+    <!-- Diagram gradients -->
+    <linearGradient id="ethGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7BA5C9"/>
+      <stop offset="100%" style="stop-color:#5A84A8"/>
+    </linearGradient>
+    <linearGradient id="pethGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ECBEB"/>
+      <stop offset="100%" style="stop-color:#7BA5C9"/>
+    </linearGradient>
+    <linearGradient id="pusdGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0E6"/>
+      <stop offset="100%" style="stop-color:#E8DCC4"/>
+    </linearGradient>
+    <linearGradient id="polarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#B8A8DF"/>
+      <stop offset="100%" style="stop-color:#9B8FCF"/>
+    </linearGradient>
+    <linearGradient id="curveGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#122a4d"/>
+      <stop offset="100%" style="stop-color:#1a3a5c"/>
+    </linearGradient>
+
+    <!-- Radial gradients for token circle backgrounds -->
+    <radialGradient id="ethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#142d4f"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+    <radialGradient id="pethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#0f2a4a"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+    <radialGradient id="pusdCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#1a2f48"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+    <radialGradient id="polarCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#1a254a"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+
+    <!-- Bonding curve area gradients -->
+    <linearGradient id="burnedAreaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9B8FCF"/>
+      <stop offset="100%" style="stop-color:#7B6FAF"/>
+    </linearGradient>
+    <linearGradient id="availableAreaGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#5A84A8"/>
+      <stop offset="100%" style="stop-color:#7BA5C9"/>
+    </linearGradient>
+
+    <!-- Shadows and glows -->
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="shadowSmall" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow markers -->
+    <marker id="arrowCream" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L8,5 L2,8" fill="none" stroke="#E8DCC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L8,5 L2,8" fill="none" stroke="#7BA5C9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowSlate" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L8,5 L2,8" fill="none" stroke="#627D92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L8,5 L2,8" fill="none" stroke="#9B8FCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- ==================== HEADER SECTION ==================== -->
+  <!-- Brand mark (star) -->
+  <g transform="translate(95, 30) scale(0.55)">
+    <!-- Outer glow -->
+    <circle cx="100" cy="100" r="80" fill="url(#starGlow)" opacity="0.6"/>
+    <!-- Eight-pointed star -->
+    <polygon points="100,10 103,85 100,100 97,85" fill="url(#starBody)"/>
+    <polygon points="100,190 97,115 100,100 103,115" fill="url(#starBody)" fill-opacity="0.9"/>
+    <polygon points="190,100 115,103 100,100 115,97" fill="url(#starBody)" fill-opacity="0.9"/>
+    <polygon points="10,100 85,97 100,100 85,103" fill="url(#starBody)" fill-opacity="0.9"/>
+    <polygon points="163,37 112,88 100,100 108,92" fill="url(#starBody)" fill-opacity="0.7"/>
+    <polygon points="37,37 88,88 100,100 92,92" fill="url(#starBody)" fill-opacity="0.7"/>
+    <polygon points="163,163 112,112 100,100 108,108" fill="url(#starBody)" fill-opacity="0.7"/>
+    <polygon points="37,163 88,112 100,100 92,108" fill="url(#starBody)" fill-opacity="0.7"/>
+    <circle cx="100" cy="100" r="6" fill="#FFFFFF"/>
+    <circle cx="100" cy="100" r="3" fill="#FFFFFF" opacity="0.9"/>
+  </g>
+
+  <!-- POLARIS title -->
+  <text x="210" y="95" font-family="'Cormorant Garamond', Georgia, serif" font-size="52" font-weight="400" fill="#E8DCC4" letter-spacing="0.35em">POLARIS</text>
+
+  <!-- Tagline -->
+  <text x="210" y="130" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(232,220,196,0.7)" letter-spacing="0.08em">Self-Scaling Stablecoin Operating System</text>
+
+  <!-- ==================== DIAGRAM SECTION ==================== -->
+  <g transform="translate(0, 150) scale(0.85)">
+    <!-- Diagram background overlay -->
+    <rect width="1412" height="470" fill="url(#curveGradient)" opacity="0.2"/>
+
+    <!-- Subtle divider between main flow and POLAR section -->
+    <line x1="70" y1="265" x2="1340" y2="265" stroke="rgba(232,220,196,0.06)" stroke-width="1"/>
+
+    <!-- Step Labels at Top -->
+    <g font-family="'Cormorant Garamond', Georgia, serif" font-size="12" font-weight="600" fill="#E8DCC4" letter-spacing="0.15em">
+      <text x="141" y="40" text-anchor="middle">STEP 1</text>
+      <text x="447" y="40" text-anchor="middle">STEP 2</text>
+      <text x="741" y="40" text-anchor="middle">STEP 3</text>
+      <text x="1024" y="40" text-anchor="middle">STEP 4</text>
+      <text x="1294" y="40" text-anchor="middle">OUTCOME</text>
+    </g>
+
+    <!-- ==================== STEP 1: ETH ==================== -->
+    <g transform="translate(100, 100)">
+      <circle cx="41" cy="41" r="48" fill="none" stroke="#627D92" stroke-width="1" opacity="0.2"/>
+      <circle cx="41" cy="41" r="41" fill="url(#ethCircleBg)" stroke="#627D92" stroke-width="1.5" filter="url(#shadow)"/>
+      <g transform="translate(41, 41)">
+        <polygon points="0,-21 14,0 0,8 -14,0" fill="#7BA5C9" opacity="0.95"/>
+        <polygon points="0,8 14,0 0,21 -14,0" fill="#5A84A8" opacity="0.85"/>
+        <polygon points="0,-21 6,-4 0,-6 -6,-4" fill="#9ECBEB" opacity="0.3"/>
+      </g>
+      <text x="41" y="102" font-family="'Cormorant Garamond', Georgia, serif" font-size="15" font-weight="500" fill="#E8DCC4" text-anchor="middle">ETH</text>
+      <text x="41" y="120" font-family="Inter, system-ui, sans-serif" font-size="10" fill="rgba(232,220,196,0.55)" text-anchor="middle" letter-spacing="0.05em">Swap</text>
+    </g>
+
+    <!-- Arrow 1: ETH to Bonding Curve -->
+    <line x1="196" y1="141" x2="280" y2="141" stroke="#627D92" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowSlate)" opacity="0.85"/>
+
+    <!-- ==================== STEP 2: BONDING CURVE ==================== -->
+    <g transform="translate(295, 60)">
+      <rect x="0" y="0" width="165" height="165" rx="20" fill="#0d1f3c" stroke="rgba(232,220,196,0.12)" stroke-width="1" filter="url(#shadow)"/>
+      <rect x="3" y="3" width="159" height="159" rx="18" fill="none" stroke="rgba(232,220,196,0.03)" stroke-width="1"/>
+
+      <g transform="translate(25, 25)">
+        <rect x="0" y="0" width="100" height="82" fill="#122a4d" stroke="rgba(232,220,196,0.15)" stroke-width="1" rx="5"/>
+        <line x1="0" y1="41" x2="100" y2="41" stroke="rgba(232,220,196,0.05)" stroke-width="1"/>
+        <line x1="50" y1="0" x2="50" y2="82" stroke="rgba(232,220,196,0.05)" stroke-width="1"/>
+        <path d="M0,82 C0,45 10,29 25,18 C37,12 50,7 66,3 C79,2 91,0 100,0 L100,82 L25,82 Z" fill="url(#availableAreaGradient)" opacity="0.2"/>
+        <path d="M0,82 L0,82 C0,45 10,29 25,18 L25,82 Z" fill="url(#burnedAreaGradient)" opacity="0.35"/>
+        <path d="M0,82 C0,45 10,29 25,18 C37,12 50,7 66,3 C79,2 91,0 100,0" stroke="#E8DCC4" stroke-width="2" fill="none" filter="url(#softGlow)"/>
+        <line x1="25" y1="18" x2="25" y2="82" stroke="#E8DCC4" stroke-width="1.2" stroke-dasharray="3,2" opacity="0.5"/>
+        <circle cx="25" cy="18" r="2.5" fill="#E8DCC4" opacity="0.8"/>
+      </g>
+
+      <text x="82" y="133" font-family="'Cormorant Garamond', Georgia, serif" font-size="13" font-weight="500" fill="#E8DCC4" text-anchor="middle">Bonding Curve</text>
+      <text x="82" y="150" font-family="Inter, system-ui, sans-serif" font-size="9" fill="rgba(232,220,196,0.55)" text-anchor="middle" letter-spacing="0.03em">Capture volatility</text>
+    </g>
+
+    <!-- Arrow 2: Bonding Curve to pETH -->
+    <g>
+      <line x1="465" y1="141" x2="540" y2="141" stroke="#7BA5C9" stroke-width="1.5" marker-end="url(#arrowBlue)" opacity="0.85"/>
+      <rect x="480" y="117" width="36" height="15" rx="7" fill="#0d1f3c" stroke="rgba(123,165,201,0.3)" stroke-width="1"/>
+      <text x="498" y="128" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#7BA5C9" text-anchor="middle" font-weight="500">issue</text>
+    </g>
+
+    <!-- ==================== STEP 3: pETH ==================== -->
+    <g transform="translate(555, 100)">
+      <circle cx="41" cy="41" r="48" fill="none" stroke="#7BA5C9" stroke-width="1" opacity="0.2"/>
+      <circle cx="41" cy="41" r="41" fill="url(#pethCircleBg)" stroke="#7BA5C9" stroke-width="1.5" filter="url(#shadow)"/>
+      <g filter="url(#softGlow)">
+        <polygon points="41,18 42.3,22.5 47.5,22.5 43.4,25.8 44.8,30 41,27 37.2,30 38.6,25.8 34.5,22.5 39.7,22.5" fill="#9ECBEB" fill-opacity="0.8"/>
+      </g>
+      <g transform="translate(41, 47)">
+        <polygon points="0,-18 14,0 0,7 -14,0" fill="#9ECBEB" opacity="0.9"/>
+        <polygon points="0,7 14,0 0,20 -14,0" fill="#7BA5C9" opacity="0.8"/>
+        <polygon points="0,-18 6,-3 0,-5 -6,-3" fill="#B8D4F0" opacity="0.3"/>
+      </g>
+      <text x="41" y="102" font-family="'Cormorant Garamond', Georgia, serif" font-size="15" font-weight="500" fill="#E8DCC4" text-anchor="middle">pETH</text>
+      <text x="41" y="120" font-family="Inter, system-ui, sans-serif" font-size="10" fill="rgba(232,220,196,0.55)" text-anchor="middle" letter-spacing="0.05em">Collateral</text>
+    </g>
+
+    <!-- Arrow 3: pETH to CDP -->
+    <g>
+      <line x1="651" y1="141" x2="726" y2="141" stroke="#7BA5C9" stroke-width="1.5" marker-end="url(#arrowBlue)" opacity="0.85"/>
+      <rect x="663" y="117" width="41" height="15" rx="7" fill="#0d1f3c" stroke="rgba(123,165,201,0.3)" stroke-width="1"/>
+      <text x="683" y="128" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#7BA5C9" text-anchor="middle" font-weight="500">deposit</text>
+    </g>
+
+    <!-- ==================== STEP 4: CDPs ==================== -->
+    <g transform="translate(740, 60)">
+      <rect x="0" y="0" width="150" height="165" rx="20" fill="#0d1f3c" stroke="rgba(232,220,196,0.12)" stroke-width="1" filter="url(#shadow)"/>
+      <rect x="3" y="3" width="144" height="159" rx="18" fill="none" stroke="rgba(232,220,196,0.03)" stroke-width="1"/>
+
+      <g transform="translate(75, 57)">
+        <rect x="-58" y="-33" width="116" height="75" rx="8" fill="#122a4d" stroke="rgba(232,220,196,0.08)" stroke-width="1"/>
+        <line x1="0" y1="-29" x2="0" y2="38" stroke="rgba(232,220,196,0.08)" stroke-width="1" stroke-dasharray="2,2"/>
+
+        <g transform="translate(-43, 4)">
+          <rect x="0" y="-25" width="7" height="41" rx="2" fill="#7BA5C9" opacity="0.75" filter="url(#shadowSmall)"/>
+          <rect x="0" y="-25" width="7" height="12" rx="2" fill="#9ECBEB" opacity="0.3"/>
+          <rect x="9" y="-15" width="7" height="31" rx="2" fill="#E8DCC4" opacity="0.75" filter="url(#shadowSmall)"/>
+          <rect x="9" y="-15" width="7" height="10" rx="2" fill="#F5F0E6" opacity="0.3"/>
+        </g>
+        <g transform="translate(-18, 4)">
+          <rect x="0" y="-17" width="7" height="33" rx="2" fill="#7BA5C9" opacity="0.75" filter="url(#shadowSmall)"/>
+          <rect x="0" y="-17" width="7" height="10" rx="2" fill="#9ECBEB" opacity="0.3"/>
+          <rect x="9" y="-7" width="7" height="23" rx="2" fill="#E8DCC4" opacity="0.75" filter="url(#shadowSmall)"/>
+          <rect x="9" y="-7" width="7" height="7" rx="2" fill="#F5F0E6" opacity="0.3"/>
+        </g>
+        <g transform="translate(7, 4)">
+          <rect x="0" y="-10" width="7" height="26" rx="2" fill="#7BA5C9" opacity="0.75" filter="url(#shadowSmall)"/>
+          <rect x="0" y="-10" width="7" height="8" rx="2" fill="#9ECBEB" opacity="0.3"/>
+          <rect x="9" y="-2" width="7" height="18" rx="2" fill="#E8DCC4" opacity="0.75" filter="url(#shadowSmall)"/>
+          <rect x="9" y="-2" width="7" height="6" rx="2" fill="#F5F0E6" opacity="0.3"/>
+        </g>
+        <g transform="translate(32, 4)">
+          <rect x="0" y="-21" width="7" height="37" rx="2" fill="#7BA5C9" opacity="0.75" filter="url(#shadowSmall)"/>
+          <rect x="0" y="-21" width="7" height="11" rx="2" fill="#9ECBEB" opacity="0.3"/>
+          <rect x="9" y="-10" width="7" height="26" rx="2" fill="#E8DCC4" opacity="0.75" filter="url(#shadowSmall)"/>
+          <rect x="9" y="-10" width="7" height="8" rx="2" fill="#F5F0E6" opacity="0.3"/>
+        </g>
+
+        <rect x="-43" y="41" width="28" height="12" rx="6" fill="rgba(123,165,201,0.1)"/>
+        <text x="-29" y="50" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#7BA5C9" text-anchor="middle" font-weight="500">pETH</text>
+        <rect x="15" y="41" width="28" height="12" rx="6" fill="rgba(232,220,196,0.1)"/>
+        <text x="29" y="50" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#E8DCC4" text-anchor="middle" font-weight="500">pUSD</text>
+      </g>
+
+      <text x="75" y="133" font-family="'Cormorant Garamond', Georgia, serif" font-size="13" font-weight="500" fill="#E8DCC4" text-anchor="middle">CDPs</text>
+      <text x="75" y="150" font-family="Inter, system-ui, sans-serif" font-size="9" fill="rgba(232,220,196,0.55)" text-anchor="middle" letter-spacing="0.03em">Borrow pUSD</text>
+    </g>
+
+    <!-- Arrow 4: CDP to pUSD -->
+    <g>
+      <line x1="895" y1="141" x2="970" y2="141" stroke="#E8DCC4" stroke-width="1.5" marker-end="url(#arrowCream)" opacity="0.85"/>
+      <rect x="910" y="117" width="28" height="15" rx="7" fill="#0d1f3c" stroke="rgba(232,220,196,0.25)" stroke-width="1"/>
+      <text x="924" y="128" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#E8DCC4" text-anchor="middle" font-weight="500">mint</text>
+    </g>
+
+    <!-- ==================== OUTCOME: pUSD ==================== -->
+    <g transform="translate(985, 100)">
+      <circle cx="41" cy="41" r="48" fill="none" stroke="#E8DCC4" stroke-width="1" opacity="0.25"/>
+      <circle cx="41" cy="41" r="51" fill="none" stroke="#E8DCC4" stroke-width="0.5" opacity="0.12"/>
+      <circle cx="41" cy="41" r="41" fill="url(#pusdCircleBg)" stroke="#E8DCC4" stroke-width="2" filter="url(#shadow)"/>
+      <text x="41" y="56" font-family="'Cormorant Garamond', Georgia, serif" font-size="35" font-weight="500" fill="url(#pusdGradient)" text-anchor="middle" filter="url(#softGlow)">$</text>
+      <g filter="url(#softGlow)">
+        <polygon points="41,18 42.3,22.5 47.5,22.5 43.4,25.8 44.8,30 41,27 37.2,30 38.6,25.8 34.5,22.5 39.7,22.5" fill="#F5F0E6" fill-opacity="0.85"/>
+      </g>
+      <text x="41" y="102" font-family="'Cormorant Garamond', Georgia, serif" font-size="15" font-weight="600" fill="#E8DCC4" text-anchor="middle">pUSD</text>
+
+      <g transform="translate(41, 118)">
+        <rect x="-41" y="0" width="82" height="24" rx="12" fill="#122a4d" stroke="#E8DCC4" stroke-width="1.2" filter="url(#shadowSmall)"/>
+        <text x="0" y="16" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#E8DCC4" text-anchor="middle" letter-spacing="0.05em">Scalable Yield</text>
+      </g>
+    </g>
+
+    <!-- ==================== POLAR SECTION ==================== -->
+    <!-- Arrow from pETH down to POLAR -->
+    <path d="M596 230 L596 350 L500 350" stroke="#9B8FCF" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowPurple)" opacity="0.8" stroke-linejoin="round"/>
+    <rect x="605" y="265" width="50" height="15" rx="7" fill="#0d1f3c" stroke="rgba(155,143,207,0.3)" stroke-width="1"/>
+    <text x="630" y="276" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#9B8FCF" font-weight="500" text-anchor="middle">burn pETH</text>
+
+    <!-- POLAR Circle -->
+    <g transform="translate(400, 310)">
+      <circle cx="41" cy="41" r="48" fill="none" stroke="#9B8FCF" stroke-width="1" opacity="0.2"/>
+      <circle cx="41" cy="41" r="41" fill="url(#polarCircleBg)" stroke="#9B8FCF" stroke-width="1.5" filter="url(#shadow)"/>
+      <g transform="translate(41, 41)">
+        <polygon points="0,-21 2.5,-2.5 0,0 -2.5,-2.5" fill="#B8A8DF" opacity="1"/>
+        <polygon points="0,21 -2.5,2.5 0,0 2.5,2.5" fill="#B8A8DF" opacity="0.9"/>
+        <polygon points="-21,0 -2.5,-2.5 0,0 -2.5,2.5" fill="#B8A8DF" opacity="0.9"/>
+        <polygon points="21,0 2.5,2.5 0,0 2.5,-2.5" fill="#B8A8DF" opacity="0.9"/>
+        <polygon points="-15,-15 -3.3,-3.3 0,0 -4,-4" fill="#B8A8DF" opacity="0.55"/>
+        <polygon points="15,-15 3.3,-3.3 0,0 4,-4" fill="#B8A8DF" opacity="0.55"/>
+        <polygon points="-15,15 -3.3,3.3 0,0 -4,4" fill="#B8A8DF" opacity="0.55"/>
+        <polygon points="15,15 3.3,3.3 0,0 4,4" fill="#B8A8DF" opacity="0.55"/>
+        <circle cx="0" cy="0" r="4" fill="#B8A8DF" filter="url(#softGlow)"/>
+      </g>
+      <text x="41" y="102" font-family="'Cormorant Garamond', Georgia, serif" font-size="15" font-weight="500" fill="#E8DCC4" text-anchor="middle">POLAR</text>
+      <text x="41" y="120" font-family="Inter, system-ui, sans-serif" font-size="10" fill="rgba(232,220,196,0.55)" text-anchor="middle" letter-spacing="0.05em">Stewardship</text>
+    </g>
+
+    <!-- Arrow from POLAR back to Bonding Curve -->
+    <path d="M393 350 L370 350 L370 230" stroke="#9B8FCF" stroke-width="1.5" fill="none" marker-end="url(#arrowPurple)" opacity="0.8" stroke-linejoin="round"/>
+    <rect x="230" y="330" width="105" height="15" rx="7" fill="#0d1f3c" stroke="rgba(155,143,207,0.3)" stroke-width="1"/>
+    <text x="282" y="341" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#9B8FCF" font-weight="500" text-anchor="middle">raise pETH floor price</text>
+
+    <!-- Arrow from burn pETH to Scalable Yield -->
+    <path d="M596 350 L1026 350 L1026 247" stroke="#9B8FCF" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrowPurple)" opacity="0.8" stroke-linejoin="round"/>
+    <rect x="770" y="330" width="55" height="15" rx="7" fill="#0d1f3c" stroke="rgba(155,143,207,0.3)" stroke-width="1"/>
+    <text x="797" y="341" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#9B8FCF" font-weight="500" text-anchor="middle">release ETH</text>
+  </g>
+</svg>

@@ -574,7 +574,7 @@ export default function Home() {
           <span className="section-kicker">Principles</span>
           <h2 className="section-heading">The North Star of Ethereum</h2>
           <p className="section-description">
-            We&apos;ve been in the trenches for too long to see the space we&apos;ve dedicated our life to end up neutralized like the Internet was: Polaris is our magnus opus and ultimate answer to the centralization and institutional capture of DeFi.
+            We&apos;ve been in the trenches for too long to see the space we&apos;ve dedicated our life to end up neutralized like the Internet was: Polaris is our magnum opus and ultimate answer to the centralization and institutional capture of DeFi.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
