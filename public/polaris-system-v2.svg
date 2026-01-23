@@ -130,7 +130,7 @@
   <line x1="60" y1="305" x2="1140" y2="305" stroke="rgba(232,220,196,0.06)" stroke-width="1"/>
 
   <!-- Step Labels at Top - cream color with enhanced styling -->
-  <g font-family="'Cormorant Garamond', Georgia, serif" font-size="14" font-weight="600" fill="#E8DCC4" letter-spacing="0.15em">
+  <g font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#E8DCC4" letter-spacing="0.15em">
     <text x="120" y="48" text-anchor="middle">STEP 1</text>
     <text x="380" y="48" text-anchor="middle">STEP 2</text>
     <text x="630" y="48" text-anchor="middle">STEP 3</text>
