@@ -41,8 +41,6 @@ Liquity rose where Maker failed, delivering a pure ETH-backed stablecoin emitted
 
 Yet both v1 and v2 designs have limited yield sources and suffer from capital inefficiencies. LUSD & BOLD are great stablecoins to hold, but **not the most attractive to borrow/mint**. The growth is limited to a **trustless-focused niche**, as more centralized but also lucrative alternatives are favored by regular users.
 
-![competitive-positioning](/why-polaris/competitive-positioning.png)
-
 ## pUSD: Yields That Scale with DeFi
 
 The examples above show why the market believes stablecoins must choose between scalability, yield, or trustlessness. This is primarily because high offchain rates in recent years have allowed centralized stablecoins to tap into offchain yield sources and bring them onchain. 

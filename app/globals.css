@@ -1100,8 +1100,9 @@
   .stat-card__value {
     font-family: var(--font-serif);
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--polaris-star);
+    letter-spacing: 0.02em;
     margin-bottom: 0.5rem;
   }
 
@@ -1240,7 +1241,6 @@
     border-radius: 0.75rem;
     font-family: var(--font-serif);
     font-size: 0.875rem;
-    letter-spacing: 0.1em;
     color: var(--polaris-star);
   }
 

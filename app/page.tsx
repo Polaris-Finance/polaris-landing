@@ -54,7 +54,7 @@ const heroStats: HeroStat[] = [
   },
   {
     value: "Immutable & trustless",
-    label: "Fully onchain, immutable and extensively verified: simulations, agent-based modeling and Tier1 audits planned.",
+    label: "Fully onchain, immutable and extensively verified: simulations, agent-based modeling and Tier-1 audits.",
     Icon: ShieldCheckIcon,
   },
 ];
@@ -63,21 +63,21 @@ const tokens: TokenInfo[] = [
   {
     name: "pUSD",
     tagline: "Stability that pays you back",
-    description: "Yield-bearing stablecoin minted against pETH, backed by pristine collateral with yield that scales with volume",
+    description: "Yield-bearing stablecoin minted against pETH, backed by pristine collateral with yield that scales with supply",
     iconSrc: "/components/pusd-icon.svg",
     color: "pusd",
   },
   {
     name: "pETH",
     tagline: "Supercharged ETH with a safety net",
-    description: "A token backed by ETH held within a bonding curve that benefits from an ever rising price floor growing with pAssets adoption",
+    description: "A token backed by ETH held within the bonding curve that benefits from an ever rising price floor growing with activity",
     iconSrc: "/components/peth-icon.svg",
     color: "peth",
   },
   {
     name: "POLAR",
     tagline: "Stable beta, real yield",
-    description: "Stewardship token minted via 1-way conversions, burning pETH to raise its floor price and generate yield",
+    description: "Stewardship token minted via 1-way conversions, generating yield and increasing stability",
     iconSrc: "/components/polar-icon.svg",
     color: "polar",
   },
@@ -87,19 +87,19 @@ const narrativeMilestones = [
   {
     title: "Bonding Curve",
     bullets: [
-      "pETH, the protocol's collateral, is minted by depositing ETH into a Bonding Curve, enabling to capture volatility and translate it into yield for pUSD borrowers.",
+      "pETH, the protocol's collateral, is minted by depositing ETH into a bonding curve, capturing volatility and translating it into yield for pUSD borrowers.",
     ],
   },
   {
     title: "CDP Architecture",
     bullets: [
-      "Polaris harnesses a CDP infrastructure optimized for growth and stability: it provides maximal guarantees to pUSD holders and compelling borrowing terms to pUSD borrowers. It's flexible and can cater for assets with negative interest rate, such as gold.",
+      "Polaris harnesses a CDP architecture optimized for growth and stability: it provides maximal guarantees to pUSD holders and compelling borrowing terms to pUSD borrowers. It's flexible and can cater for assets with negative interest rates, such as gold.",
     ],
   },
   {
-    title: "POLAR Conversion",
+    title: "POLAR Issuance",
     bullets: [
-      "New POLAR can only be minted by achieving the most synergetic action possible for the protocol: burning pETH, which raises its floor price, increasing pUSD's collateralization ratio and releases additional yield.",
+      "New POLAR is minted by performing the most synergetic action possible for the protocol: burning pETH, which raises its floor price, increasing pUSD's collateralization ratio and releasing additional yield.",
     ],
   },
 ];
@@ -135,21 +135,21 @@ const benefitHighlights: BenefitHighlight[] = [
   {
     title: "Zero value leakage, maximal growth potential",
     bullets: [
-      "From the bonding curve fees to the pUSD swap fees on PolarEX, Polaris has no value leakage and capture all pETH/pUSD/POLAR-related revenue streams, redirected to best support the protocol and its ecosystem.",
+      "By internalizing all system activity, Polaris ensures no value is leaked to external parties, capturing all revenue streams and redirecting them to best support the protocol and overall ecosystem.",
     ],
     Icon: LockKeyholeIcon,
   },
   {
     title: "Scalable, without offchain dependencies",
     bullets: [
-      "Unlike other stablecoins that might experience fast early growth, but eventually plateau and turn into T-bill wrappers; Polaris creates and nurtures its own yield source as it grows, enabling yield as competitive when $10M or $10B pUSD are minted.",
+      "Unlike other stablecoins that might experience fast early growth, but eventually plateau and turn into T-bill wrappers; Polaris creates and nurtures its own yield source as it grows, enabling yield that scales regardless of whether $10M or $10B pUSD are minted.",
     ],
     Icon: TrendingUpIcon,
   },
   {
-    title: "Immutable core, agile operating system",
+    title: "Immutable core, unlimited growth",
     bullets: [
-      "Polaris provides maximal guarantees to its users thanks to its immutability while still being able to evolve and incorporate new product offerings thanks to its stewards and operating system.",
+      "Polaris provides maximal guarantees to its users thanks to its immutability while still being able to evolve and incorporate new product offerings thanks to its stewards",
     ],
     Icon: ShieldCheckIcon,
   },
@@ -417,7 +417,6 @@ export default function Home() {
           <div className="hero-text-content">
             <div className="hero-logo">
               <h1 className="hero-title">Polaris</h1>
-              <p className="hero-subtitle">Protocol</p>
             </div>
 
             <p className="hero-tagline">
@@ -574,7 +573,7 @@ export default function Home() {
           <span className="section-kicker">Principles</span>
           <h2 className="section-heading">The North Star of Ethereum</h2>
           <p className="section-description">
-            We&apos;ve been in the trenches for too long to see the space we&apos;ve dedicated our life to end up neutralized like the Internet was: Polaris is our magnum opus and ultimate answer to the centralization and institutional capture of DeFi.
+            We&apos;ve been in the trenches for too long to see the space we&apos;ve dedicated our lives to end up neutralized. Polaris is our ultimate answer to the centralization of DeFi.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
