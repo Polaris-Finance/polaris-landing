@@ -1576,19 +1576,48 @@
     color: var(--polaris-cream-muted);
   }
 
+  /* Paragraphs - Primary fix for cramped spacing */
+  .prose-polaris p {
+    margin-top: 0;
+    margin-bottom: 1.75em; /* ~28px - exceeds line-height for clear separation */
+  }
+
+  /* Headings */
   .prose-polaris h1,
   .prose-polaris h2,
-  .prose-polaris h3 {
+  .prose-polaris h3,
+  .prose-polaris h4 {
     font-family: var(--font-serif);
     color: var(--polaris-star);
-    margin-top: 2rem;
+    margin-top: 2.5em; /* Increased for better section separation */
     margin-bottom: 1rem;
+    line-height: 1.3; /* Tighter for multi-line headings */
   }
 
   .prose-polaris h1 { font-size: 2rem; }
   .prose-polaris h2 { font-size: 1.5rem; }
   .prose-polaris h3 { font-size: 1.25rem; }
+  .prose-polaris h4 { font-size: 1.125rem; }
 
+  /* First heading shouldn't have top margin */
+  .prose-polaris > h1:first-child,
+  .prose-polaris > h2:first-child,
+  .prose-polaris > h3:first-child,
+  .prose-polaris > h4:first-child {
+    margin-top: 0;
+  }
+
+  /* Strong/Emphasis */
+  .prose-polaris strong {
+    font-weight: 600;
+    color: var(--polaris-cream); /* Full opacity vs muted body text */
+  }
+
+  .prose-polaris em {
+    font-style: italic;
+  }
+
+  /* Links */
   .prose-polaris a {
     color: var(--polaris-star);
     text-decoration: underline;
@@ -1599,6 +1628,47 @@
     opacity: 0.8;
   }
 
+  /* Lists */
+  .prose-polaris ul,
+  .prose-polaris ol {
+    margin: 1.25em 0;
+    padding-left: 1.5em;
+  }
+
+  .prose-polaris li {
+    margin-bottom: 0.5em;
+  }
+
+  .prose-polaris li::marker {
+    color: var(--polaris-star); /* Brand-aligned bullet/number color */
+  }
+
+  .prose-polaris ul ul,
+  .prose-polaris ol ol,
+  .prose-polaris ul ol,
+  .prose-polaris ol ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  /* Images */
+  .prose-polaris img {
+    margin: 2em 0;
+    border-radius: 0.75rem; /* Matches card/pre styling */
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Horizontal Rules */
+  .prose-polaris hr {
+    margin: 3em 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--polaris-star) 20%, var(--polaris-star) 80%, transparent);
+    opacity: 0.3;
+  }
+
+  /* Inline Code */
   .prose-polaris code {
     background: rgba(232, 220, 196, 0.1);
     padding: 0.2rem 0.4rem;
@@ -1606,18 +1676,57 @@
     font-size: 0.875em;
   }
 
+  /* Code Blocks */
   .prose-polaris pre {
     background: var(--polaris-navy);
     padding: 1rem;
     border-radius: 0.75rem;
+    border: 1px solid rgba(232, 220, 196, 0.1); /* Subtle border matching cards */
+    margin: 1.5em 0;
     overflow-x: auto;
   }
 
+  .prose-polaris pre code {
+    background: transparent; /* Reset nested code styling */
+    padding: 0;
+    border-radius: 0;
+  }
+
+  /* Blockquotes */
   .prose-polaris blockquote {
     border-left: 2px solid var(--polaris-star);
     padding-left: 1rem;
+    margin: 1.5em 0;
     font-style: italic;
     color: var(--polaris-cream-muted);
+  }
+
+  .prose-polaris blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Tables (Future-proofing) */
+  .prose-polaris table {
+    width: 100%;
+    margin: 1.5em 0;
+    border-collapse: collapse;
+  }
+
+  .prose-polaris th,
+  .prose-polaris td {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(232, 220, 196, 0.15);
+    text-align: left;
+  }
+
+  .prose-polaris th {
+    background: rgba(232, 220, 196, 0.08);
+    font-weight: 600;
+    color: var(--polaris-star);
+  }
+
+  .prose-polaris tr:hover {
+    background: rgba(232, 220, 196, 0.03);
   }
 }
 
