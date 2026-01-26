@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
     shortcut: "/favicon.ico",
-    apple: "/brand-mark.svg",
+    apple: "/apple-touch-icon.png",
   },
 };
 

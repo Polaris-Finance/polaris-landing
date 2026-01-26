@@ -1,4 +1,5 @@
 import {
+  ArrowRightIcon,
   AwardIcon,
   GithubIcon,
   Link2OffIcon,
@@ -352,6 +353,27 @@ export default function Home() {
       <JsonLd data={websiteSchema} />
 
       {/* ============================================
+          TOP NAVIGATION
+          ============================================ */}
+      <nav className="top-nav">
+        <Link href="/" className="top-nav__brand">
+          <Image
+            src={`${basePath}/full-logo.svg`}
+            alt="Polaris"
+            width={126}
+            height={44}
+            className="top-nav__logo"
+          />
+        </Link>
+        <div className="top-nav__links">
+          <Link href="/blog" className="top-nav__link">Blog</Link>
+          <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">X.com</a>
+          <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">Telegram</a>
+        </div>
+        <span className="top-nav__cta">Whitepaper coming soon</span>
+      </nav>
+
+      {/* ============================================
           HERO SECTION - Celestial Scene
           ============================================ */}
       <section className="hero-scene">
@@ -404,8 +426,15 @@ export default function Home() {
           <div className="polaris-glow-ring" />
           {/* Main glow */}
           <div className="polaris-star-glow" />
-          {/* Star - increased size ~40% */}
-          <PolarisStar className="polaris-star w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80" />
+          {/* Star emblem */}
+          <Image
+            src={`${basePath}/emblem.svg`}
+            alt="Polaris star"
+            width={320}
+            height={320}
+            className="polaris-star w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80"
+            priority
+          />
         </div>
 
         {/* Hero Content - CSS Grid with star zone and text zone */}
@@ -416,17 +445,19 @@ export default function Home() {
           {/* Row 2: Text content */}
           <div className="hero-text-content">
             <div className="hero-logo">
-              <h1 className="hero-title">Polaris</h1>
+              <h1 className="hero-title">Self-Scaling Stablecoin Operating System</h1>
             </div>
 
             <p className="hero-tagline">
-              Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.
+              We&apos;re building uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.
             </p>
 
             <div className="hero-cta">
+              <Link href="https://x.com/polarisfinance_" className="btn-primary">
+                Get updates on X
+              </Link>
               <Link href="https://t.me/polaris_ann" className="btn-primary">
-                <span>Get Launch Updates</span>
-                <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                Get updates on Telegram
               </Link>
             </div>
           </div>
@@ -460,8 +491,7 @@ export default function Home() {
           ============================================ */}
       <section className="section">
         <div className="mx-auto max-w-7xl">
-          <span className="section-kicker">Yield</span>
-          <h2 className="section-heading">How It Works: Scalable Yield</h2>
+          <h2 className="section-heading">How Scalable Yield Works</h2>
           <p className="section-description">
             Polaris is a triple-engine stablecoin protocol built to solve the stablecoin &ldquo;Yield Trap&rdquo;. By monetizing pETH volatility via a bonding curve, speculative conversion mechanics, and CDP architecture, Polaris generates uncorrelated yield that scales as the system grows without counterparty or credit risk.
           </p>
@@ -478,9 +508,9 @@ export default function Home() {
           </div>
 
           <div className="narrative-timeline mt-10">
-            {narrativeMilestones.map((milestone, index) => (
+            {narrativeMilestones.map((milestone) => (
               <div key={milestone.title} className="narrative-step">
-                <span className="narrative-step__index">{index + 1}</span>
+                <span className="narrative-step__marker" aria-hidden="true" />
                 <div className="narrative-step__body">
                   <h3 className="narrative-step__title">{milestone.title}</h3>
                   <ul className="narrative-step__description space-y-2">
@@ -503,7 +533,6 @@ export default function Home() {
           ============================================ */}
       <section className="section section--gradient">
         <div className="mx-auto max-w-7xl">
-          <span className="section-kicker">Tokens</span>
           <h2 className="section-heading">Triple-Engine Architecture</h2>
           <p className="section-description">
             Three interlocking primitives power the Polaris ecosystem, designed to generate sustainable yield while maintaining robust stability mechanisms.
@@ -527,6 +556,22 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {/* Blog callout */}
+          <div className="blog-callout mt-10">
+            <div className="blog-callout__content">
+              <div className="blog-callout__text">
+                <p>We analyzed where USDC, USDS, USDe, and LUSD fall short.</p>
+                <p>And how pUSD delivers scalable, yield-bearing stability without counterparty risk.</p>
+              </div>
+            </div>
+            <div className="blog-callout__action">
+              <Link href="/blog/why-polaris" className="blog-callout__link">
+                Read the article
+                <ArrowRightIcon className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -538,16 +583,15 @@ export default function Home() {
           ============================================ */}
       <section className="section">
         <div className="mx-auto max-w-7xl">
-          <span className="section-kicker">Stablecoin OS</span>
           <h2 className="section-heading">Stablecoin Operating System</h2>
           <p className="section-description">
             The Polaris StablecoinOS is a framework to steward Polaris growth and enable selected projects to deploy their own decentralized stablecoin while benefiting from shared liquidity and protocol-level integrations.
           </p>
 
           <div className="narrative-timeline mt-10">
-            {privacyMilestones.map((milestone, index) => (
+            {privacyMilestones.map((milestone) => (
               <div key={milestone.title} className="narrative-step">
-                <span className="narrative-step__index">{index + 1}</span>
+                <span className="narrative-step__marker" aria-hidden="true" />
                 <div className="narrative-step__body">
                   <h3 className="narrative-step__title">{milestone.title}</h3>
                   <ul className="narrative-step__description space-y-2">
@@ -570,8 +614,7 @@ export default function Home() {
           ============================================ */}
       <section className="section section--gradient">
         <div className="mx-auto max-w-7xl">
-          <span className="section-kicker">Principles</span>
-          <h2 className="section-heading">The North Star of Ethereum</h2>
+          <h2 className="section-heading">Our Principles: The North Star of Ethereum</h2>
           <p className="section-description">
             We&apos;ve been in the trenches for too long to see the space we&apos;ve dedicated our lives to end up neutralized. Polaris is our ultimate answer to the centralization of DeFi.
           </p>
