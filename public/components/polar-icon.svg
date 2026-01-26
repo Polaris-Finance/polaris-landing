@@ -1,38 +1,43 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<svg width="64" height="64" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="polarBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a3a5c"/>
       <stop offset="100%" style="stop-color:#0d1f3c"/>
     </linearGradient>
-    <linearGradient id="polarAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#B8A8DF"/>
-      <stop offset="100%" style="stop-color:#9B8FCF"/>
-    </linearGradient>
-    <radialGradient id="polarGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#B8A8DF;stop-opacity:0.4"/>
-      <stop offset="100%" style="stop-color:#9B8FCF;stop-opacity:0"/>
+    <radialGradient id="polarGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(43.1475 43.1469) rotate(90) scale(33.9014)">
+      <stop stop-color="#9B8FCF" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#9B8FCF" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="polarLeft" x1="0" y1="43.5285" x2="43.5285" y2="43.5285" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B8FCF" stop-opacity="0"/>
+      <stop offset="0.464207" stop-color="#B8A8DF"/>
+    </linearGradient>
+    <linearGradient id="polarRight" x1="87.0571" y1="43.5285" x2="43.5287" y2="43.5285" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B8FCF" stop-opacity="0"/>
+      <stop offset="0.464207" stop-color="#B8A8DF"/>
+    </linearGradient>
+    <linearGradient id="polarTop" x1="43.5288" y1="0" x2="43.5288" y2="43.5284" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B8FCF" stop-opacity="0"/>
+      <stop offset="0.464207" stop-color="#B8A8DF"/>
+    </linearGradient>
+    <linearGradient id="polarBottom" x1="43.5288" y1="87.0564" x2="43.5288" y2="43.5279" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9B8FCF" stop-opacity="0"/>
+      <stop offset="0.464207" stop-color="#B8A8DF"/>
+    </linearGradient>
   </defs>
 
   <!-- Background circle -->
-  <circle cx="32" cy="32" r="30" fill="url(#polarBg)" stroke="#9B8FCF" stroke-width="1.5" stroke-opacity="0.4"/>
+  <circle cx="44" cy="44" r="42" fill="url(#polarBg)" stroke="#9B8FCF" stroke-width="1.5" stroke-opacity="0.4"/>
 
   <!-- Inner glow -->
-  <circle cx="32" cy="32" r="20" fill="url(#polarGlow)"/>
+  <path d="M43.1475 77.0483C61.8707 77.0483 77.0489 61.8701 77.0489 43.1469C77.0489 24.4237 61.8707 9.24548 43.1475 9.24548C24.4243 9.24548 9.24609 24.4237 9.24609 43.1469C9.24609 61.8701 24.4243 77.0483 43.1475 77.0483Z" fill="url(#polarGlow)"/>
 
-  <!-- Eight-pointed star (Polaris governance token) -->
-  <!-- Cardinal points -->
-  <polygon points="32,12 33,28 32,32 31,28" fill="url(#polarAccent)"/>
-  <polygon points="32,52 31,36 32,32 33,36" fill="url(#polarAccent)" fill-opacity="0.85"/>
-  <polygon points="12,32 28,31 32,32 28,33" fill="url(#polarAccent)" fill-opacity="0.85"/>
-  <polygon points="52,32 36,33 32,32 36,31" fill="url(#polarAccent)" fill-opacity="0.85"/>
-
-  <!-- Diagonal points -->
-  <polygon points="18,18 27,27 32,32 29,29" fill="url(#polarAccent)" fill-opacity="0.6"/>
-  <polygon points="46,18 37,27 32,32 35,29" fill="url(#polarAccent)" fill-opacity="0.6"/>
-  <polygon points="18,46 27,37 32,32 29,35" fill="url(#polarAccent)" fill-opacity="0.6"/>
-  <polygon points="46,46 37,37 32,32 35,35" fill="url(#polarAccent)" fill-opacity="0.6"/>
+  <!-- Four-pointed star - matching emblem shape -->
+  <path d="M0 43.5285L36.2737 39.5989L43.5284 43.5285L36.2737 47.4582L0 43.5285Z" fill="url(#polarLeft)"/>
+  <path d="M87.0571 43.5285L50.7834 39.5989L43.5287 43.5285L50.7834 47.4582L87.0571 43.5285Z" fill="url(#polarRight)"/>
+  <path d="M43.5288 0L47.4585 36.2737L43.5288 43.5284L39.5992 36.2737L43.5288 0Z" fill="url(#polarTop)"/>
+  <path d="M43.5288 87.0564L47.4585 50.7827L43.5288 43.5279L39.5992 50.7827L43.5288 87.0564Z" fill="url(#polarBottom)"/>
 
   <!-- Center point -->
-  <circle cx="32" cy="32" r="3" fill="#B8A8DF"/>
+  <path d="M43.5281 47.8809C45.9321 47.8809 47.8809 45.9321 47.8809 43.5281C47.8809 41.1241 45.9321 39.1753 43.5281 39.1753C41.1241 39.1753 39.1753 41.1241 39.1753 43.5281C39.1753 45.9321 41.1241 47.8809 43.5281 47.8809Z" fill="#B8A8DF"/>
 </svg>
