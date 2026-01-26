@@ -643,14 +643,15 @@ export default function Home() {
       <footer className="footer">
         <div className="footer__content">
           <div className="footer__brand">
-            <Image
-              src={`${basePath}/brand-mark.svg`}
-              alt="Polaris mark"
-              width={48}
-              height={48}
-              className="footer__logo"
-            />
-            <span className="footer__name">Polaris</span>
+            <Link href="/">
+              <Image
+                src={`${basePath}/full-logo.svg`}
+                alt="Polaris"
+                width={126}
+                height={44}
+                className="footer__logo"
+              />
+            </Link>
           </div>
 
           <div className="footer__links">

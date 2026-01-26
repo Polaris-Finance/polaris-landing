@@ -41,22 +41,26 @@ export default function BlogPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[var(--polaris-navy-darkest)]">
-      <header className="px-6 py-8 sm:px-10">
-        <div className="mx-auto max-w-4xl">
-          <Link href="/" className="inline-flex items-center gap-3 transition hover:opacity-80">
-            <Image
-              src={`${basePath}/brand-mark.svg`}
-              alt="Polaris mark"
-              width={40}
-              height={40}
-              className="rounded-xl bg-[rgba(232,220,196,0.06)] p-2 border border-[rgba(232,220,196,0.1)]"
-            />
-            <span className="font-serif text-lg tracking-wider text-star">Polaris</span>
-          </Link>
+      {/* Top Navigation */}
+      <nav className="top-nav">
+        <Link href="/" className="top-nav__brand">
+          <Image
+            src={`${basePath}/full-logo.svg`}
+            alt="Polaris"
+            width={126}
+            height={44}
+            className="top-nav__logo"
+          />
+        </Link>
+        <div className="top-nav__links">
+          <Link href="/blog" className="top-nav__link">Blog</Link>
+          <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">X.com</a>
+          <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">Telegram</a>
         </div>
-      </header>
+        <span className="top-nav__cta">Whitepaper coming soon</span>
+      </nav>
 
-      <section className="px-6 pb-20 pt-8 sm:px-10">
+      <section className="px-6 pb-20 pt-24 sm:px-10">
         <div className="mx-auto max-w-4xl">
           <span className="section-kicker">Blog</span>
           <h1 className="section-heading">Latest Updates</h1>
@@ -103,14 +107,15 @@ export default function BlogPage() {
       <footer className="footer">
         <div className="footer__content">
           <div className="footer__brand">
-            <Image
-              src={`${basePath}/brand-mark.svg`}
-              alt="Polaris mark"
-              width={48}
-              height={48}
-              className="footer__logo"
-            />
-            <span className="footer__name">Polaris</span>
+            <Link href="/">
+              <Image
+                src={`${basePath}/full-logo.svg`}
+                alt="Polaris"
+                width={126}
+                height={44}
+                className="footer__logo"
+              />
+            </Link>
           </div>
 
           <div className="footer__links">

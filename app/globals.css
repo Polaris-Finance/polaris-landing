@@ -1436,24 +1436,11 @@
   .footer__brand {
     display: flex;
     align-items: center;
-    gap: 1rem;
   }
 
   .footer__logo {
-    width: 3rem;
-    height: 3rem;
-    padding: 0.5rem;
-    background: rgba(232, 220, 196, 0.06);
-    border: 1px solid rgba(232, 220, 196, 0.1);
-    border-radius: 1rem;
-  }
-
-  .footer__name {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--polaris-star);
+    height: 36px;
+    width: auto;
   }
 
   .footer__links {
