@@ -497,13 +497,23 @@ export default function Home() {
           </p>
 
           <div className="system-diagram mt-10">
+            {/* Vertical diagram for mobile (< 768px) */}
+            <Image
+              src={`${basePath}/polaris-system-v2-vertical.svg`}
+              alt="Polaris protocol system diagram"
+              width={400}
+              height={1450}
+              sizes="100vw"
+              className="h-auto w-full md:hidden"
+            />
+            {/* Horizontal diagram for tablet/desktop (>= 768px) */}
             <Image
               src={`${basePath}/polaris-system-v2.svg`}
               alt="Polaris protocol system diagram"
               width={1200}
               height={510}
               sizes="(min-width: 1024px) 1024px, 100vw"
-              className="h-auto w-full"
+              className="hidden h-auto w-full md:block"
             />
           </div>
 

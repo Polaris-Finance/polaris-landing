@@ -1400,6 +1400,12 @@
     overflow: hidden;
   }
 
+  @media (max-width: 767px) {
+    .system-diagram {
+      padding: 0.75rem;
+    }
+  }
+
   .system-diagram img {
     width: 100%;
     height: auto;
