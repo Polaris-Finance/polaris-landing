@@ -86,3 +86,33 @@ export function createBreadcrumbSchema(items: { name: string; url: string }[]) {
     })),
   };
 }
+
+export function createCollectionPageSchema(posts: {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+}[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Polaris Protocol Blog",
+    description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
+    url: "https://polarisfinance.io/blog",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Polaris Protocol",
+      url: "https://polarisfinance.io",
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: posts.length,
+      itemListElement: posts.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `https://polarisfinance.io/blog/${post.slug}`,
+        name: post.title,
+      })),
+    },
+  };
+}

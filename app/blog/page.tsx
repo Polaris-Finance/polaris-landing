@@ -1,4 +1,5 @@
-import { GithubIcon, TelegramIcon } from "@/components/icons";
+import { ArticleIcon, GithubIcon, TelegramIcon, XIcon } from "@/components/icons";
+import { JsonLd, createCollectionPageSchema } from "@/components/JsonLd";
 import { basePath } from "@/lib/basePath";
 import { getAllPosts } from "@/lib/blog";
 import { Metadata } from "next";
@@ -38,9 +39,15 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   const posts = getAllPosts();
+  const collectionSchema = createCollectionPageSchema(posts);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[var(--polaris-navy-darkest)]">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      <JsonLd data={collectionSchema} />
+
       {/* Top Navigation */}
       <nav className="top-nav">
         <Link href="/" className="top-nav__brand">
@@ -53,14 +60,23 @@ export default function BlogPage() {
           />
         </Link>
         <div className="top-nav__links">
-          <Link href="/blog" className="top-nav__link">Blog</Link>
-          <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">X.com</a>
-          <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">Telegram</a>
+          <Link href="/blog" className="top-nav__link">
+            <span className="top-nav__link-text">Blog</span>
+            <ArticleIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
+          </Link>
+          <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">
+            <span className="top-nav__link-text">X.com</span>
+            <XIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
+          </a>
+          <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">
+            <span className="top-nav__link-text">Telegram</span>
+            <TelegramIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
+          </a>
         </div>
         <span className="top-nav__cta">Whitepaper coming soon</span>
       </nav>
 
-      <section className="px-6 pb-20 pt-24 sm:px-10">
+      <section id="main-content" className="px-6 pb-20 pt-24 sm:px-10">
         <div className="mx-auto max-w-4xl">
           <span className="section-kicker">Blog</span>
           <h1 className="section-heading">Latest Updates</h1>
@@ -133,7 +149,7 @@ export default function BlogPage() {
               </a>
               <a
                 href="https://github.com/Polaris-Finance"
-                className="footer__link"
+                className="footer__link footer__link--icon"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -142,7 +158,7 @@ export default function BlogPage() {
               </a>
               <a
                 href="https://t.me/polaris_ann"
-                className="footer__link"
+                className="footer__link footer__link--icon"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Telegram"

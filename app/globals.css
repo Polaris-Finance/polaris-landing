@@ -69,6 +69,39 @@
     background: var(--polaris-navy-darkest);
     color: var(--polaris-cream);
   }
+
+  /* Focus-visible styles for accessibility (WCAG 2.4.7) */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--polaris-star);
+    outline-offset: 2px;
+  }
+
+  /* Skip to content link - visually hidden until focused */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--polaris-navy-darkest);
+    background: var(--polaris-star);
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
 }
 
 /* ============================================
@@ -111,6 +144,9 @@
 }
 
 .top-nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 400;
@@ -121,6 +157,15 @@
 
 .top-nav__link:hover {
   color: var(--polaris-star);
+}
+
+/* Text visible by default, icons hidden */
+.top-nav__link-text {
+  display: inline;
+}
+
+.top-nav__link-icon {
+  display: none;
 }
 
 .top-nav__cta {
@@ -143,7 +188,7 @@
   color: var(--polaris-cream);
 }
 
-/* Hide nav links on mobile, show only brand and CTA */
+/* Mobile nav: show icons instead of text */
 @media (max-width: 540px) {
   .top-nav {
     width: calc(100% - 2rem);
@@ -151,11 +196,28 @@
   }
 
   .top-nav__links {
-    display: none;
+    gap: 0.5rem;
   }
 
   .top-nav__logo {
     height: 28px;
+  }
+
+  /* Hide text, show icons on mobile */
+  .top-nav__link-text {
+    display: none;
+  }
+
+  .top-nav__link-icon {
+    display: block;
+  }
+
+  /* Ensure proper touch target for icon links */
+  .top-nav__link:has(.top-nav__link-icon) {
+    min-width: 44px;
+    min-height: 44px;
+    margin: -0.5rem;
+    padding: 0.5rem;
   }
 }
 
@@ -1480,6 +1542,17 @@
 
   .footer__link:hover {
     color: var(--polaris-star);
+  }
+
+  /* Icon-only footer links need larger touch targets (WCAG 2.5.5: 44x44px minimum) */
+  .footer__link--icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    margin: -0.75rem; /* Negative margin to maintain visual spacing */
+    padding: 0.75rem;
   }
 
   .footer__email {

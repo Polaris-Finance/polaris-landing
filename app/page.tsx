@@ -1,5 +1,6 @@
 import {
   ArrowRightIcon,
+  ArticleIcon,
   AwardIcon,
   GithubIcon,
   Link2OffIcon,
@@ -7,6 +8,7 @@ import {
   ShieldCheckIcon,
   TelegramIcon,
   TrendingUpIcon,
+  XIcon,
   ZapIcon,
 } from "@/components/icons";
 import { JsonLd, organizationSchema, websiteSchema } from "@/components/JsonLd";
@@ -349,6 +351,11 @@ function CompassDivider() {
 export default function Home() {
   return (
     <main className="relative overflow-hidden">
+      {/* Skip to content link for keyboard accessibility */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <JsonLd data={organizationSchema} />
       <JsonLd data={websiteSchema} />
 
@@ -366,9 +373,18 @@ export default function Home() {
           />
         </Link>
         <div className="top-nav__links">
-          <Link href="/blog" className="top-nav__link">Blog</Link>
-          <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">X.com</a>
-          <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">Telegram</a>
+          <Link href="/blog" className="top-nav__link">
+            <span className="top-nav__link-text">Blog</span>
+            <ArticleIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
+          </Link>
+          <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">
+            <span className="top-nav__link-text">X.com</span>
+            <XIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
+          </a>
+          <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">
+            <span className="top-nav__link-text">Telegram</span>
+            <TelegramIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
+          </a>
         </div>
         <span className="top-nav__cta">Whitepaper coming soon</span>
       </nav>
@@ -376,7 +392,7 @@ export default function Home() {
       {/* ============================================
           HERO SECTION - Celestial Scene
           ============================================ */}
-      <section className="hero-scene">
+      <section id="main-content" className="hero-scene">
         {/* Starfield with drift animation */}
         <div className="starfield starfield--drift">
           {tinyStars.map((star) => (
@@ -679,7 +695,7 @@ export default function Home() {
               </a>
               <a
                 href="https://github.com/Polaris-Finance"
-                className="footer__link"
+                className="footer__link footer__link--icon"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
@@ -688,7 +704,7 @@ export default function Home() {
               </a>
               <a
                 href="https://t.me/polaris_ann"
-                className="footer__link"
+                className="footer__link footer__link--icon"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Telegram"
