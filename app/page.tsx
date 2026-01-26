@@ -453,12 +453,12 @@ export default function Home() {
             </p>
 
             <div className="hero-cta">
-              <Link href="https://x.com/polarisfinance_" className="btn-primary">
+              <a href="https://x.com/polarisfinance_" className="btn-primary" target="_blank" rel="noreferrer">
                 Get updates on X
-              </Link>
-              <Link href="https://t.me/polaris_ann" className="btn-primary">
+              </a>
+              <a href="https://t.me/polaris_ann" className="btn-primary" target="_blank" rel="noreferrer">
                 Get updates on Telegram
-              </Link>
+              </a>
             </div>
           </div>
         </div>
