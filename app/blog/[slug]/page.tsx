@@ -101,7 +101,14 @@ export default async function BlogPostPage({ params }: Props) {
             alt="Polaris"
             width={126}
             height={44}
-            className="top-nav__logo"
+            className="top-nav__logo top-nav__logo--full"
+          />
+          <Image
+            src={`${basePath}/emblem.svg`}
+            alt="Polaris"
+            width={28}
+            height={28}
+            className="top-nav__logo top-nav__logo--emblem"
           />
         </Link>
         <div className="top-nav__links">
@@ -118,7 +125,10 @@ export default async function BlogPostPage({ params }: Props) {
             <TelegramIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
           </a>
         </div>
-        <span className="top-nav__cta">Whitepaper coming soon</span>
+        <span className="top-nav__cta">
+          <span className="top-nav__cta-full">Whitepaper coming soon</span>
+          <span className="top-nav__cta-short">WP coming soon</span>
+        </span>
       </nav>
 
       <article id="main-content" className="px-6 pb-20 pt-24 sm:px-10">

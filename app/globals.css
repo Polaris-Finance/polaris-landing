@@ -137,6 +137,11 @@
   width: auto;
 }
 
+/* Show full logo by default, hide emblem */
+.top-nav__logo--emblem {
+  display: none;
+}
+
 .top-nav__links {
   display: flex;
   align-items: center;
@@ -188,6 +193,11 @@
   color: var(--polaris-cream);
 }
 
+/* Show full CTA text by default, hide short version */
+.top-nav__cta-short {
+  display: none;
+}
+
 /* Mobile nav: show icons instead of text */
 @media (max-width: 540px) {
   .top-nav {
@@ -218,6 +228,28 @@
     min-height: 44px;
     margin: -0.5rem;
     padding: 0.5rem;
+  }
+}
+
+/* Very narrow screens: switch to emblem logo and short CTA */
+@media (max-width: 374px) {
+  .top-nav__logo--full {
+    display: none;
+  }
+
+  .top-nav__logo--emblem {
+    display: block;
+    height: 28px;
+    width: 28px;
+    flex-shrink: 0;
+  }
+
+  .top-nav__cta-full {
+    display: none;
+  }
+
+  .top-nav__cta-short {
+    display: inline;
   }
 }
 
