@@ -12,6 +12,7 @@ import {
   ZapIcon,
 } from "@/components/icons";
 import { JsonLd, organizationSchema, websiteSchema } from "@/components/JsonLd";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import Image from "next/image";
 import Link from "next/link";
 import { basePath } from "@/lib/basePath";
@@ -358,6 +359,7 @@ export default function Home() {
 
       <JsonLd data={organizationSchema} />
       <JsonLd data={websiteSchema} />
+      <ScrollReveal />
 
       {/* ============================================
           TOP NAVIGATION
@@ -495,7 +497,7 @@ export default function Home() {
           ============================================ */}
       <section className="section section--gradient">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div className="reveal-stagger grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {heroStats.map((stat) => (
               <div key={stat.value} className="stat-card">
                 <span className="stat-card__icon">
@@ -517,12 +519,12 @@ export default function Home() {
           ============================================ */}
       <section className="section">
         <div className="mx-auto max-w-7xl">
-          <h2 className="section-heading">How Scalable Yield Works</h2>
-          <p className="section-description">
+          <h2 className="reveal section-heading">How Scalable Yield Works</h2>
+          <p className="reveal section-description">
             Polaris is a triple-engine stablecoin protocol built to solve the stablecoin &ldquo;Yield Trap&rdquo;. By monetizing pETH volatility via a bonding curve, conversion mechanics, and CDP architecture, Polaris generates uncorrelated yield that scales as the system grows without counterparty or credit risk.
           </p>
 
-          <div className="system-diagram mt-10">
+          <div className="reveal--scale system-diagram mt-10">
             {/* Vertical diagram for mobile (< 768px) */}
             <Image
               src={`${basePath}/polaris-system-v2-vertical.svg`}
@@ -543,7 +545,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="narrative-timeline mt-10">
+          <div className="reveal-stagger narrative-timeline mt-10">
             {narrativeMilestones.map((milestone) => (
               <div key={milestone.title} className="narrative-step">
                 <span className="narrative-step__marker" aria-hidden="true" />
@@ -569,13 +571,13 @@ export default function Home() {
           ============================================ */}
       <section className="section section--gradient">
         <div className="mx-auto max-w-7xl">
-          <h2 className="section-heading">Triple-Engine Architecture</h2>
-          <p className="section-description">
+          <h2 className="reveal section-heading">Triple-Engine Architecture</h2>
+          <p className="reveal section-description">
             Three interlocking primitives power the Polaris ecosystem, designed to generate sustainable yield while maintaining robust stability mechanisms.
           </p>
 
           <div className="trust-strip mt-10">
-            <div className="trust-strip__items">
+            <div className="reveal-stagger trust-strip__items">
               {tokens.map((token) => (
                 <div key={token.name} className={`token-card token-card--${token.color}`}>
                   <Image
@@ -594,7 +596,7 @@ export default function Home() {
           </div>
 
           {/* Blog callout */}
-          <div className="blog-callout mt-10">
+          <div className="reveal blog-callout mt-10">
             <div className="blog-callout__content">
               <div className="blog-callout__text">
                 <p>We analyzed where USDC, USDS, USDe, and LUSD fall short.</p>
@@ -619,12 +621,12 @@ export default function Home() {
           ============================================ */}
       <section className="section">
         <div className="mx-auto max-w-7xl">
-          <h2 className="section-heading">Stablecoin Operating System</h2>
-          <p className="section-description">
+          <h2 className="reveal section-heading">Stablecoin Operating System</h2>
+          <p className="reveal section-description">
             The Polaris StablecoinOS is a framework to steward Polaris growth and enable selected projects to deploy their own decentralized stablecoin while benefiting from shared liquidity and protocol-level integrations.
           </p>
 
-          <div className="narrative-timeline mt-10">
+          <div className="reveal-stagger narrative-timeline mt-10">
             {privacyMilestones.map((milestone) => (
               <div key={milestone.title} className="narrative-step">
                 <span className="narrative-step__marker" aria-hidden="true" />
@@ -650,12 +652,12 @@ export default function Home() {
           ============================================ */}
       <section className="section section--gradient">
         <div className="mx-auto max-w-7xl">
-          <h2 className="section-heading">Our Principles: The North Star of Ethereum</h2>
-          <p className="section-description">
+          <h2 className="reveal section-heading">Our Principles: The North Star of Ethereum</h2>
+          <p className="reveal section-description">
             We&apos;ve been in the trenches for too long to see the space we&apos;ve dedicated our lives to end up neutralized. Polaris is our ultimate answer to the centralization of DeFi.
           </p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="reveal-stagger mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {benefitHighlights.map(({ title, bullets, Icon }) => (
               <div key={title} className="benefit-card">
                 <span className="benefit-card__icon" aria-hidden>
