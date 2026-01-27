@@ -102,7 +102,7 @@ const narrativeMilestones = [
   {
     title: "POLAR Issuance",
     bullets: [
-      "New POLAR is minted by performing the most synergetic action possible for the protocol: burning pETH, which raises its floor price, increasing pUSD's collateralization ratio and releasing additional yield.",
+      "New POLAR is minted by performing the most synergistic action possible for the protocol: burning pETH, which raises its floor price, increasing pUSD's collateralization ratio and releasing additional yield.",
     ],
   },
 ];
@@ -113,21 +113,21 @@ const privacyMilestones = [
     bullets: [
       "While no changes can be made to the core protocol logic, several parameters can be adjusted to adapt to any market situation and protocol growth stage.",
       "Only a small set of quantitative parameters can be adjusted, all within hard-coded safety bounds and subject to onchain voting and delay.",
-      "POLAR holders can lock their token to obtain vePOLAR and weight on those changes and the distribution of incentives to grow the ecosystem.",
+      "POLAR holders can lock their token to obtain vePOLAR and vote on those changes and the distribution of incentives to grow the ecosystem.",
     ],
   },
   {
     title: "Forkable infrastructure, shared liquidity",
     bullets: [
       "The Polaris CDP infrastructure can be forked to deliver stablecoins tracking any currency or commodities: pCHF, pGOLD, etc.",
-      "Obtaining the licensing right over the CDP infrastructure requires the avail of vePOLAR holders.",
+      "Obtaining the licensing right over the CDP infrastructure requires the approval of vePOLAR holders.",
       "Many pFiats/pCommodities, but one pETH: all stablecoins share the same collateral, further contributing to the resilience of the whole ecosystem.",
     ],
   },
   {
     title: "True community ownership",
     bullets: [
-      "Any participant of the Polaris ecosystem, not just the forks can join the StablecoinOS: integrators, frontends, etc.",
+      "Any participant of the Polaris ecosystem, not just the forks, can join the StablecoinOS: integrators, frontends, etc.",
       "Doing so requires sharing revenues with vePOLAR holders, enabling them to gain access to a stream of incentives proportional to the gauge-voting they receive to grow their application.",
       "vePOLAR holders are the ones allocating resources within the ecosystem to foster its growth.",
     ],
@@ -152,7 +152,7 @@ const benefitHighlights: BenefitHighlight[] = [
   {
     title: "Immutable core, unlimited growth",
     bullets: [
-      "Polaris provides maximal guarantees to its users thanks to its immutability while still being able to evolve and incorporate new product offerings thanks to its stewards",
+      "Polaris provides maximal guarantees to its users thanks to its immutability while still being able to evolve and incorporate new product offerings thanks to its stewards.",
     ],
     Icon: ShieldCheckIcon,
   },
@@ -509,7 +509,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <h2 className="section-heading">How Scalable Yield Works</h2>
           <p className="section-description">
-            Polaris is a triple-engine stablecoin protocol built to solve the stablecoin &ldquo;Yield Trap&rdquo;. By monetizing pETH volatility via a bonding curve, speculative conversion mechanics, and CDP architecture, Polaris generates uncorrelated yield that scales as the system grows without counterparty or credit risk.
+            Polaris is a triple-engine stablecoin protocol built to solve the stablecoin &ldquo;Yield Trap&rdquo;. By monetizing pETH volatility via a bonding curve, conversion mechanics, and CDP architecture, Polaris generates uncorrelated yield that scales as the system grows without counterparty or credit risk.
           </p>
 
           <div className="system-diagram mt-10">
