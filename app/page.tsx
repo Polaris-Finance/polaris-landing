@@ -176,10 +176,13 @@ function generateStars(count: number, type: "tiny" | "small" | "medium" | "brigh
 
     return {
       id: `${type}-${i}`,
+      index: i,
       left: `${baseLeft}%`,
       top: `${baseTop}%`,
       delay: `${Math.random() * 5}s`,
       nearPolaris: isNearPolaris,
+      // Mark stars to hide on mobile (keep first ~35% of each type)
+      hideOnMobile: type === "tiny" ? i >= 10 : type === "small" ? i >= 5 : type === "medium" ? i >= 2 : i >= 2,
     };
   });
 }
@@ -410,21 +413,21 @@ export default function Home() {
           {tinyStars.map((star) => (
             <div
               key={star.id}
-              className={`star star--tiny ${star.nearPolaris ? "star--near-polaris" : ""}`}
+              className={`star star--tiny ${star.nearPolaris ? "star--near-polaris" : ""} ${star.hideOnMobile ? "star--hide-mobile" : ""}`}
               style={{ left: star.left, top: star.top }}
             />
           ))}
           {smallStars.map((star) => (
             <div
               key={star.id}
-              className={`star star--small ${star.nearPolaris ? "star--near-polaris" : ""}`}
+              className={`star star--small ${star.nearPolaris ? "star--near-polaris" : ""} ${star.hideOnMobile ? "star--hide-mobile" : ""}`}
               style={{ left: star.left, top: star.top, animationDelay: star.delay }}
             />
           ))}
           {mediumStars.map((star) => (
             <div
               key={star.id}
-              className={`star star--medium ${star.nearPolaris ? "star--near-polaris" : ""}`}
+              className={`star star--medium ${star.nearPolaris ? "star--near-polaris" : ""} ${star.hideOnMobile ? "star--hide-mobile" : ""}`}
               style={{ left: star.left, top: star.top, animationDelay: star.delay }}
             />
           ))}
@@ -432,7 +435,7 @@ export default function Home() {
           {brightStars.map((star) => (
             <div
               key={star.id}
-              className="star star--bright"
+              className={`star star--bright ${star.hideOnMobile ? "star--hide-mobile" : ""}`}
               style={{ left: star.left, top: star.top, animationDelay: star.delay }}
             />
           ))}

@@ -120,10 +120,19 @@
   width: min(600px, calc(100% - 2rem));
   height: 52px;
   padding: 8px 8px 8px 16px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
+  background: rgba(10, 22, 40, 0.9);
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Only enable backdrop-filter blur on desktop - too memory-intensive on iOS */
+@supports (backdrop-filter: blur(12px)) {
+  @media (min-width: 768px) and (hover: hover) {
+    .top-nav {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+    }
+  }
 }
 
 .top-nav__brand {
@@ -231,8 +240,8 @@
   }
 }
 
-/* Very narrow screens: switch to emblem logo and short CTA */
-@media (max-width: 374px) {
+/* Small screens: switch to emblem logo and short CTA */
+@media (max-width: 400px) {
   .top-nav__logo--full {
     display: none;
   }
@@ -923,6 +932,30 @@
     animation: brightStarTwinkle 5s ease-in-out infinite;
   }
 
+  /* ============================================
+     MOBILE PERFORMANCE: Reduce stars on small screens
+     Hides ~65% of stars on mobile to prevent iOS memory crashes
+     Stars marked with .star--hide-mobile are hidden on mobile
+     Reduces from 53 stars to 19 stars on mobile
+     ============================================ */
+  @media (max-width: 767px) {
+    /* Hide marked stars on mobile to reduce GPU memory usage */
+    .star--hide-mobile {
+      display: none !important;
+    }
+
+    /* Disable expensive box-shadow animations on remaining stars */
+    .star--bright,
+    .star--medium {
+      box-shadow: 0 0 4px var(--polaris-star-glow);
+      animation: twinkle 4s ease-in-out infinite;
+    }
+
+    .star--small {
+      animation: twinkle 4s ease-in-out infinite;
+    }
+  }
+
   .starfield--drift {
     animation: starDrift 20s ease-in-out infinite;
   }
@@ -1277,11 +1310,20 @@
   .card {
     position: relative;
     padding: 1.75rem;
-    background: rgba(13, 31, 60, 0.6);
+    background: rgba(13, 31, 60, 0.85);
     border: 1px solid rgba(232, 220, 196, 0.1);
     border-radius: 1.5rem;
-    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+  }
+
+  /* Only enable backdrop-filter on devices that handle it well */
+  @supports (backdrop-filter: blur(10px)) {
+    @media (min-width: 768px) and (hover: hover) {
+      .card {
+        background: rgba(13, 31, 60, 0.6);
+        backdrop-filter: blur(10px);
+      }
+    }
   }
 
   .card:hover {
@@ -1326,7 +1368,7 @@
   .stat-card {
     position: relative;
     padding: 1.5rem;
-    background: rgba(13, 31, 60, 0.4);
+    background: rgba(13, 31, 60, 0.75);
     border: 1px solid rgba(232, 220, 196, 0.08);
     border-radius: 1.25rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

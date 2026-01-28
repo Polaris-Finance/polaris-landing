@@ -338,14 +338,138 @@ test.describe('Mobile Responsiveness', () => {
   });
 });
 
+test.describe('Full Page Scroll Test', () => {
+  // All major sections that should be visible when scrolling
+  // Note: compass-divider is excluded as it has height:0 by design (content overflows)
+  const pageSections = [
+    { selector: '.hero-scene', name: 'Hero' },
+    { selector: '.section', name: 'Content Section', multiple: true },
+    { selector: '.token-card', name: 'Token Cards', multiple: true },
+    { selector: '.stat-card', name: 'Stat Cards', multiple: true },
+    { selector: '.benefit-card', name: 'Benefit Cards', multiple: true },
+    { selector: '.system-diagram', name: 'System Diagram' },
+    { selector: '.blog-callout', name: 'Blog Callout' },
+    { selector: '.footer', name: 'Footer' },
+  ];
+
+  for (const device of mobileDevices) {
+    test(`full page scroll works on ${device.name}`, async ({ page }) => {
+      await page.setViewportSize(device.viewport);
+      await page.goto('/');
+      await page.waitForLoadState('domcontentloaded');
+
+      // Scroll through entire page incrementally
+      const scrollHeight = await page.evaluate(() => document.body.scrollHeight);
+      const viewportHeight = device.viewport.height;
+      const scrollSteps = Math.ceil(scrollHeight / (viewportHeight * 0.8));
+
+      for (let i = 0; i <= scrollSteps; i++) {
+        const scrollY = i * viewportHeight * 0.8;
+        await page.evaluate((y) => window.scrollTo(0, y), scrollY);
+        await page.waitForTimeout(100);
+
+        // Check no horizontal overflow at any scroll position
+        const hasOverflow = await page.evaluate(() =>
+          document.documentElement.scrollWidth > document.documentElement.clientWidth
+        );
+        expect(hasOverflow, `Horizontal overflow at scroll position ${scrollY}px`).toBe(false);
+      }
+
+      // Verify we can reach the footer (bottom of page)
+      await page.locator('.footer').scrollIntoViewIfNeeded();
+      const footer = page.locator('.footer');
+      await expect(footer).toBeVisible();
+    });
+
+    test(`all sections visible and properly sized on ${device.name}`, async ({ page }) => {
+      await page.setViewportSize(device.viewport);
+      await page.goto('/');
+      await page.waitForLoadState('domcontentloaded');
+
+      for (const section of pageSections) {
+        const locator = page.locator(section.selector);
+        const count = await locator.count();
+
+        if (count === 0) {
+          // Section might not exist on all pages, skip
+          continue;
+        }
+
+        // Check first instance (or all if not multiple)
+        const elementsToCheck = section.multiple ? Math.min(count, 2) : 1;
+
+        for (let i = 0; i < elementsToCheck; i++) {
+          const element = locator.nth(i);
+          await element.scrollIntoViewIfNeeded();
+
+          // Element should be visible
+          await expect(element, `${section.name} #${i + 1} should be visible`).toBeVisible();
+
+          // Element should not overflow viewport width
+          const box = await element.boundingBox();
+          if (box) {
+            expect(
+              box.width,
+              `${section.name} #${i + 1} width (${box.width}px) should fit viewport (${device.viewport.width}px)`
+            ).toBeLessThanOrEqual(device.viewport.width + 1);
+
+            // Element should not be positioned off-screen to the left
+            expect(
+              box.x,
+              `${section.name} #${i + 1} should not be off-screen left`
+            ).toBeGreaterThanOrEqual(-1);
+          }
+        }
+      }
+    });
+
+    test(`no content cut off at bottom on ${device.name}`, async ({ page }) => {
+      await page.setViewportSize(device.viewport);
+      await page.goto('/');
+      await page.waitForLoadState('domcontentloaded');
+
+      // Scroll to absolute bottom
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await page.waitForTimeout(200);
+
+      // Footer should be fully visible
+      const footer = page.locator('.footer');
+      const footerBox = await footer.boundingBox();
+      const viewportBottom = await page.evaluate(() => window.scrollY + window.innerHeight);
+
+      if (footerBox) {
+        const footerBottom = footerBox.y + footerBox.height;
+        // Footer bottom should be reachable (within viewport when scrolled to bottom)
+        expect(footerBottom).toBeLessThanOrEqual(viewportBottom + 10);
+      }
+
+      // Check the last element in footer is visible
+      const footerLinks = page.locator('.footer__link');
+      const lastLink = footerLinks.last();
+      await expect(lastLink).toBeVisible();
+    });
+  }
+});
+
 test.describe('Visual Regression Snapshots', () => {
   test('homepage mobile screenshot', async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 667 });
+    await page.setViewportSize({ width: 390, height: 844 }); // iPhone 12
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
     await page.screenshot({
       path: 'tests/screenshots/homepage-mobile.png',
+      fullPage: true
+    });
+  });
+
+  test('homepage small mobile screenshot', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 }); // iPhone SE
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+
+    await page.screenshot({
+      path: 'tests/screenshots/homepage-mobile-small.png',
       fullPage: true
     });
   });
