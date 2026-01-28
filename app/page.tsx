@@ -193,45 +193,6 @@ const smallStars = generateStars(15, "small");
 const mediumStars = generateStars(5, "medium");
 const brightStars = generateStars(3, "bright");
 
-// Polaris Star SVG Component
-function PolarisStar({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 200 200" className={className} xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="heroStarGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" style={{ stopColor: "#FFFFFF", stopOpacity: 1 }} />
-          <stop offset="30%" style={{ stopColor: "#E8DCC4", stopOpacity: 0.8 }} />
-          <stop offset="70%" style={{ stopColor: "#E8DCC4", stopOpacity: 0.3 }} />
-          <stop offset="100%" style={{ stopColor: "#E8DCC4", stopOpacity: 0 }} />
-        </radialGradient>
-        <linearGradient id="heroStarBody" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#FFFFFF" }} />
-          <stop offset="50%" style={{ stopColor: "#E8DCC4" }} />
-          <stop offset="100%" style={{ stopColor: "#C4B8A0" }} />
-        </linearGradient>
-      </defs>
-
-      {/* Outer glow */}
-      <circle cx="100" cy="100" r="80" fill="url(#heroStarGlow)" opacity="0.6" />
-
-      {/* Eight-pointed star - Main cardinal points */}
-      <polygon points="100,10 103,85 100,100 97,85" fill="url(#heroStarBody)" />
-      <polygon points="100,190 97,115 100,100 103,115" fill="url(#heroStarBody)" fillOpacity="0.9" />
-      <polygon points="190,100 115,103 100,100 115,97" fill="url(#heroStarBody)" fillOpacity="0.9" />
-      <polygon points="10,100 85,97 100,100 85,103" fill="url(#heroStarBody)" fillOpacity="0.9" />
-
-      {/* Diagonal points */}
-      <polygon points="163,37 112,88 100,100 108,92" fill="url(#heroStarBody)" fillOpacity="0.7" />
-      <polygon points="37,37 88,88 100,100 92,92" fill="url(#heroStarBody)" fillOpacity="0.7" />
-      <polygon points="163,163 112,112 100,100 108,108" fill="url(#heroStarBody)" fillOpacity="0.7" />
-      <polygon points="37,163 88,112 100,100 92,108" fill="url(#heroStarBody)" fillOpacity="0.7" />
-
-      {/* Center bright point */}
-      <circle cx="100" cy="100" r="6" fill="#FFFFFF" />
-      <circle cx="100" cy="100" r="3" fill="#FFFFFF" opacity="0.9" />
-    </svg>
-  );
-}
 
 // Mountain SVG Component
 function Mountains() {

@@ -14,7 +14,7 @@
  *   --no-backup  Skip creating backups (not recommended)
  */
 
-import { existsSync, mkdirSync, statSync, copyFileSync, unlinkSync } from 'fs';
+import { existsSync, mkdirSync, statSync, copyFileSync } from 'fs';
 import { join, extname } from 'path';
 
 const args = process.argv.slice(2);

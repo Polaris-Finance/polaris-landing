@@ -272,16 +272,11 @@ test.describe('Design Quality & Brand Consistency', () => {
       // Find a reveal element
       const revealElement = page.locator('.reveal').first();
 
-      // Initially should be hidden (opacity 0)
-      const initialOpacity = await revealElement.evaluate(el =>
-        getComputedStyle(el).opacity
-      );
-
       // Scroll to element
       await revealElement.scrollIntoViewIfNeeded();
       await page.waitForTimeout(1000);
 
-      // After scroll, should be visible
+      // After scroll, should have is-visible class
       const hasVisibleClass = await revealElement.evaluate(el =>
         el.classList.contains('is-visible')
       );

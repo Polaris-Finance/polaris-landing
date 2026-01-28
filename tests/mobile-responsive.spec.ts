@@ -1,4 +1,4 @@
-import { test, expect, devices } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 const mobileDevices = [
   { name: 'iPhone SE', viewport: { width: 375, height: 667 } },
