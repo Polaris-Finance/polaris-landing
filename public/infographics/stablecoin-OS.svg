@@ -101,11 +101,11 @@
 
   <!-- ========== Step Labels ========== -->
   <g font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="600" fill="#E8DCC4" letter-spacing="0.15em">
-    <text x="120" y="48" text-anchor="middle">STEP 1</text>
-    <text x="380" y="48" text-anchor="middle">STEP 2</text>
-    <text x="630" y="48" text-anchor="middle">STEP 3</text>
-    <text x="870" y="48" text-anchor="middle">STEP 4</text>
-    <text x="1100" y="48" text-anchor="middle">OUTCOME</text>
+    <text x="120" y="30" text-anchor="middle">STEP 1</text>
+    <text x="380" y="30" text-anchor="middle">STEP 2</text>
+    <text x="630" y="30" text-anchor="middle">STEP 3</text>
+    <text x="870" y="30" text-anchor="middle">STEP 4</text>
+    <text x="1100" y="30" text-anchor="middle">OUTCOME</text>
   </g>
 
   <!-- ==================== STEP 1: ETH (centered at y=340) ==================== -->

@@ -1,0 +1,48 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="i6fBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3a5c"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="i6fBun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8B458"/>
+      <stop offset="100%" style="stop-color:#C48A2A"/>
+    </linearGradient>
+    <linearGradient id="i6fPatty" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A85838"/>
+      <stop offset="100%" style="stop-color:#7A3E20"/>
+    </linearGradient>
+    <radialGradient id="i6fGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D09838;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#D09838;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="32" cy="32" r="30" fill="url(#i6fBg)" stroke="#D09838" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <circle cx="32" cy="36" r="18" fill="url(#i6fGlow)"/>
+
+  <polygon points="32,12 32.8,14.5 35.5,14.5 33.3,16.2 34.2,18.8 32,17 29.8,18.8 30.7,16.2 28.5,14.5 31.2,14.5" fill="#D09838" fill-opacity="0.7"/>
+
+  <!-- Full detail triple stack: sesame + lettuce + cheese + glow -->
+  <g transform="translate(32, 36)">
+    <!-- Top bun (dome) -->
+    <path d="M-9,-9 Q-9,-16 0,-16 Q9,-16 9,-9 L9,-7 L-9,-7 Z" fill="url(#i6fBun)"/>
+    <!-- Sesame seeds -->
+    <ellipse cx="-3" cy="-13" rx="1.4" ry="0.7" fill="#F5E8C0" fill-opacity="0.5" transform="rotate(-20,-3,-13)"/>
+    <ellipse cx="4" cy="-12" rx="1.4" ry="0.7" fill="#F5E8C0" fill-opacity="0.5" transform="rotate(15,4,-12)"/>
+    <ellipse cx="0" cy="-14.5" rx="1.2" ry="0.6" fill="#F5E8C0" fill-opacity="0.4" transform="rotate(-5,0,-14.5)"/>
+    <!-- Lettuce under top bun -->
+    <path d="M-10,-7 Q-7,-8.5 -4,-7 Q-1,-8.5 2,-7 Q5,-8.5 8,-7 L10.5,-7" stroke="#7BAF68" stroke-width="1" fill="none" stroke-opacity="0.55"/>
+    <!-- Top patty -->
+    <rect x="-10.5" y="-6.5" width="21" height="3" rx="1.5" fill="url(#i6fPatty)"/>
+    <!-- Middle bun -->
+    <rect x="-8" y="-3" width="16" height="2.5" rx="1.2" fill="url(#i6fBun)"/>
+    <!-- Cheese drip -->
+    <path d="M-8,-0.5 L8,-0.5 L8,0.3 L5,0.3 L4.5,1.5 L3.5,0.3 L-2,0.3 L-2.5,1.2 L-3.5,0.3 L-8,0.3 Z" fill="#F0D060" fill-opacity="0.5"/>
+    <!-- Bottom patty -->
+    <rect x="-10.5" y="0.5" width="21" height="3" rx="1.5" fill="url(#i6fPatty)"/>
+    <!-- Bottom bun -->
+    <path d="M-9,4 L9,4 L9,6 Q9,9 0,9 Q-9,9 -9,6 Z" fill="url(#i6fBun)"/>
+  </g>
+</svg>
