@@ -563,12 +563,12 @@ export default function Home() {
           <div className="reveal blog-callout mt-10">
             <div className="blog-callout__content">
               <div className="blog-callout__text">
-                <p>We analyzed where USDC, USDS, USDe, and LUSD fall short.</p>
-                <p>And how pUSD delivers scalable, yield-bearing stability without counterparty risk.</p>
+                <p>CDPs mint dollars. Polaris mints anything.</p>
+                <p>From Maker to Liquity, we trace the CDP blueprint — and show how Polaris extends it with pETH, self-adjusting rates, and a factory for stablecoins pegged to anything.</p>
               </div>
             </div>
             <div className="blog-callout__action">
-              <Link href="/blog/why-polaris" className="blog-callout__link">
+              <Link href="/blog/polaris-mints-anything" className="blog-callout__link">
                 Read the article
                 <ArrowRightIcon className="h-4 w-4" aria-hidden />
               </Link>
