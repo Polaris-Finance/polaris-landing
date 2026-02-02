@@ -102,29 +102,40 @@ test.describe('Performance Metrics', () => {
 
   test.describe('Asset Loading', () => {
     test('critical images load', async ({ page }) => {
+      const imageResponses = new Map<string, number>();
+
+      page.on('response', response => {
+        if (response.request().resourceType() === 'image') {
+          imageResponses.set(response.url(), response.status());
+        }
+      });
+
       await page.goto('/');
+      await page.waitForLoadState('networkidle');
 
-      // Check logo loads
-      const logo = page.locator('.top-nav__logo--full');
-      await expect(logo).toBeVisible();
+      const criticalImages = ['full-logo.svg', 'emblem.svg'];
 
-      // Check emblem loads
-      const emblem = page.locator('.polaris-star img, [src*="emblem"]');
-      if (await emblem.count() > 0) {
-        await expect(emblem.first()).toBeVisible();
+      for (const name of criticalImages) {
+        const match = Array.from(imageResponses.entries())
+          .find(([url]) => url.includes(name));
+        expect(match, `${name} should have been requested`).toBeDefined();
+        expect(match![1], `${name} should return 200`).toBeLessThan(400);
       }
     });
 
     test('no broken images', async ({ page }) => {
-      await page.goto('/');
+      const failedImages: string[] = [];
 
-      const brokenImages = await page.evaluate(() => {
-        const images = Array.from(document.querySelectorAll('img'));
-        return images.filter(img => !img.complete || img.naturalWidth === 0)
-          .map(img => img.src);
+      page.on('response', response => {
+        if (response.request().resourceType() === 'image' && !response.ok()) {
+          failedImages.push(`${response.url()} (${response.status()})`);
+        }
       });
 
-      expect(brokenImages).toEqual([]);
+      await page.goto('/');
+      await page.waitForLoadState('networkidle');
+
+      expect(failedImages).toEqual([]);
     });
 
     test('fonts load correctly', async ({ page }) => {

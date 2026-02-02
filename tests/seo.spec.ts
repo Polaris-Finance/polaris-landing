@@ -133,19 +133,19 @@ test.describe('SEO & Metadata', () => {
       const response = await page.goto('/robots.txt');
       expect(response?.status()).toBe(200);
 
-      const content = await page.content();
-      expect(content).toContain('User-agent');
-      expect(content).toContain('sitemap');
+      const text = await response!.text();
+      expect(text).toMatch(/user-agent/i);
+      expect(text).toMatch(/sitemap/i);
     });
 
     test('sitemap.xml is accessible', async ({ page }) => {
       const response = await page.goto('/sitemap.xml');
       expect(response?.status()).toBe(200);
 
-      const content = await page.content();
-      expect(content).toContain('<?xml');
-      expect(content).toContain('https://polarisfinance.io');
-      expect(content).toContain('https://polarisfinance.io/blog');
+      const text = await response!.text();
+      expect(text).toContain('<?xml');
+      expect(text).toContain('https://polarisfinance.io');
+      expect(text).toContain('https://polarisfinance.io/blog');
     });
 
     test('has proper lang attribute', async ({ page }) => {
