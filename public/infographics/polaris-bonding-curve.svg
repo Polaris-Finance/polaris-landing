@@ -99,9 +99,8 @@
   <!-- ==================== CHART CARD ==================== -->
   <rect x="340" y="130" width="580" height="520" rx="24" fill="#0d1f3c" stroke="rgba(232,220,196,0.12)" stroke-width="1.5" filter="url(#shadow)"/>
 
-  <!-- Chart area: origin at (415, 600), width=460, height=420 -->
-  <!-- x-axis: supply (0 to 1), y-axis: price (0 to 1) -->
-  <!-- Mapping: chartX = 415 + x*460, chartY = 600 - y*420 -->
+  <!-- Chart area: origin at (415, 600), end at (885, 180) -->
+  <!-- width=470, height=420 -->
 
   <!-- Axes -->
   <line x1="415" y1="600" x2="885" y2="600" stroke="#3A5068" stroke-width="1.5"/>
@@ -126,59 +125,56 @@
   <line x1="415" y1="180" x2="410" y2="180" stroke="#3A5068" stroke-width="1"/>
 
   <!-- ===== AREA FILLS ===== -->
-  <!-- Parameters: floor_price_y = 0.714, supply_x = 0.75 -->
-  <!-- floor_price chart coords: y=0.714 -> chartY = 600 - 0.714*420 = 300.12 -->
-  <!-- supply chart coords: x=0.75 -> chartX = 415 + 0.75*460 = 760 -->
-  <!-- curve at supply: y = sqrt(1 - (1-0.75)^2) = sqrt(1-0.0625) = sqrt(0.9375) = 0.9682 -> chartY = 600 - 0.9682*420 = 193.4 -->
+  <!-- Curve: y = x^0.33 polyline (76 exact sample points) -->
+  <!-- Floor price at y=300 crosses curve at (586.3, 300) -->
+  <!-- Current supply at x=760, curve at (760, 221.1) -->
 
-  <!-- Area 1: "ETH released" - below curve, x=0 to floor-price x -->
-  <!-- floor-price as x position: we use x=0.3 as a representative floor-price supply boundary -->
-  <!-- Actually, let's interpret: floor-price is a horizontal line. "ETH released" is the area below the curve from x=0 to the point where curve = floor_price -->
-  <!-- curve = floor_price: sqrt(1-(1-x)^2) = 0.714 -> 1-(1-x)^2 = 0.5098 -> (1-x)^2 = 0.4902 -> 1-x = 0.7 -> x = 0.3 -->
-  <!-- So from x=0 to x=0.3, below curve -->
+  <!-- Area 1: "ETH released" (purple) - below curve from origin to floor-price intersection -->
+  <path d="M415.0,600.0 L415.0,591.6 L415.0,583.2 L415.1,574.8 L415.2,566.4 L415.5,558.0 L415.8,549.6 L416.3,541.2 L416.9,532.8 L417.7,524.4 L418.8,516.0 L420.0,507.6 L421.5,499.2 L423.3,490.8 L425.3,482.4 L427.7,474.0 L430.4,465.6 L433.5,457.2 L436.9,448.8 L440.8,440.4 L445.1,432.0 L449.8,423.6 L455.0,415.2 L460.7,406.8 L467.0,398.4 L473.8,390.0 L482.0,380.6 L490.2,372.0 L498.4,364.0 L506.6,356.4 L514.9,349.4 L523.1,342.7 L531.3,336.3 L539.5,330.2 L547.8,324.4 L556.0,318.8 L564.2,313.5 L572.5,308.3 L580.7,303.3 L586.3,300.0 L586.3,600 Z" fill="#9B8FCF" opacity="0.35"/>
 
-  <!-- Area under curve from x=0 to x=0.3 (ETH released) -->
-  <path d="M415,600 A470,420 0 0,1 556,300 L556,600 Z" fill="#9B8FCF" opacity="0.35"/>
+  <!-- Area 2: "pUSD backing" (cream) - Full area under curve from floor-price intersection to current supply -->
+  <path d="M586.3,300.0 L588.9,298.5 L597.1,293.8 L605.4,289.3 L613.6,284.8 L621.8,280.6 L630.0,276.4 L638.2,272.3 L646.5,268.3 L654.7,264.4 L662.9,260.6 L671.1,256.9 L679.4,253.3 L687.6,249.7 L695.8,246.3 L704.0,242.8 L712.3,239.5 L720.5,236.2 L728.7,232.9 L737.0,229.8 L745.2,226.6 L753.4,223.6 L760.0,221.1 L760.0,600 L586.3,600 Z" fill="#E8DCC4" opacity="0.20"/>
 
-  <!-- Area 2: "pUSD" - Rectangle from x=0.3 to x=0.75, below floor-price Y -->
-  <rect x="556" y="300" width="204" height="300" fill="#E8DCC4" opacity="0.20"/>
+  <!-- Area 3: "Mcap pETH" (blue) - Above the curve, from floor-price intersection to curve endpoint, up to chart top -->
+  <path d="M586.3,180 L885.0,180.0 L876.8,182.5 L868.5,185.0 L860.3,187.5 L852.1,190.0 L843.9,192.6 L835.7,195.2 L827.4,197.9 L819.2,200.6 L811.0,203.3 L802.8,206.1 L794.5,208.9 L786.3,211.7 L778.1,214.6 L769.9,217.6 L761.6,220.5 L753.4,223.6 L745.2,226.6 L737.0,229.8 L728.7,232.9 L720.5,236.2 L712.3,239.5 L704.0,242.8 L695.8,246.3 L687.6,249.7 L679.4,253.3 L671.1,256.9 L662.9,260.6 L654.7,264.4 L646.5,268.3 L638.2,272.3 L630.0,276.4 L621.8,280.6 L613.6,284.8 L605.4,289.3 L597.1,293.8 L588.9,298.5 L586.3,300.0 Z" fill="#6BCAA0" opacity="0.22"/>
 
-  <!-- Area 3: "Mcap pETH" - Between floor-price line and curve, x=0.3 to x=0.75 -->
-  <path d="M556,300 A470,420 0 0,1 760,194 L760,300 Z" fill="#9ECBEB" opacity="0.20"/>
-
-  <!-- Area 4: "ETH Reserve" - Below curve, x=0.75 to x=1.0 -->
-  <path d="M760,194 A470,420 0 0,1 885,180 L885,600 L760,600 Z" fill="#7BA5C9" opacity="0.25"/>
+  <!-- Area 4: "ETH Reserve" (steel blue) - Below curve, from current supply to end -->
+  <path d="M760.0,221.1 L761.6,220.5 L769.9,217.6 L778.1,214.6 L786.3,211.7 L794.5,208.9 L802.8,206.1 L811.0,203.3 L819.2,200.6 L827.4,197.9 L835.7,195.2 L843.9,192.6 L852.1,190.0 L860.3,187.5 L868.5,185.0 L876.8,182.5 L885.0,180.0 L885.0,600 L760.0,600 Z" fill="#7BA5C9" opacity="0.25"/>
 
   <!-- ===== REFERENCE LINES ===== -->
-  <!-- Floor-price horizontal dashed line at y=0.714 -->
-  <line x1="415" y1="300" x2="885" y2="300" stroke="#E8DCC4" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
-  <text x="890" y="304" class="label-cream" font-size="10" opacity="0.8">floor price</text>
+  <!-- Floor-price horizontal dashed line at y=300 -->
+  <line x1="415" y1="300" x2="586.3" y2="300" stroke="#E8DCC4" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
 
-  <!-- Current supply vertical dashed line at x=0.75 -->
-  <line x1="760" y1="175" x2="760" y2="600" stroke="#9ECBEB" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
-  <text x="760" y="170" class="label-blue" font-size="10" text-anchor="middle" opacity="0.8">current supply</text>
+  <!-- Current supply vertical dashed line at x=760 -->
+  <line x1="760" y1="221.1" x2="760" y2="600" stroke="#9ECBEB" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
 
   <!-- ===== BONDING CURVE ===== -->
-  <!-- y = sqrt(1 - (1-x)^2) = quarter ellipse centered at (885,600), rx=470, ry=420 -->
-  <path d="M415,600 A470,420 0 0,1 885,180" fill="none" stroke="#F5F0E6" stroke-width="2.5" stroke-linecap="round" filter="url(#chartGlow)"/>
+  <!-- y = x^0.33 polyline: 76 exact sample points, dense near origin for steep section -->
+  <path d="M415.0,600.0 L415.0,591.6 L415.0,583.2 L415.1,574.8 L415.2,566.4 L415.5,558.0 L415.8,549.6 L416.3,541.2 L416.9,532.8 L417.7,524.4 L418.8,516.0 L420.0,507.6 L421.5,499.2 L423.3,490.8 L425.3,482.4 L427.7,474.0 L430.4,465.6 L433.5,457.2 L436.9,448.8 L440.8,440.4 L445.1,432.0 L449.8,423.6 L455.0,415.2 L460.7,406.8 L467.0,398.4 L473.8,390.0 L482.0,380.6 L490.2,372.0 L498.4,364.0 L506.6,356.4 L514.9,349.4 L523.1,342.7 L531.3,336.3 L539.5,330.2 L547.8,324.4 L556.0,318.8 L564.2,313.5 L572.5,308.3 L580.7,303.3 L588.9,298.5 L597.1,293.8 L605.4,289.3 L613.6,284.8 L621.8,280.6 L630.0,276.4 L638.2,272.3 L646.5,268.3 L654.7,264.4 L662.9,260.6 L671.1,256.9 L679.4,253.3 L687.6,249.7 L695.8,246.3 L704.0,242.8 L712.3,239.5 L720.5,236.2 L728.7,232.9 L737.0,229.8 L745.2,226.6 L753.4,223.6 L761.6,220.5 L769.9,217.6 L778.1,214.6 L786.3,211.7 L794.5,208.9 L802.8,206.1 L811.0,203.3 L819.2,200.6 L827.4,197.9 L835.7,195.2 L843.9,192.6 L852.1,190.0 L860.3,187.5 L868.5,185.0 L876.8,182.5 L885.0,180.0" fill="none" stroke="#F5F0E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#chartGlow)"/>
 
-  <!-- Market price dot at curve intersection with supply line (x=0.75, y=0.9682) -->
-  <circle cx="760" cy="194" r="5" fill="#F5F0E6" filter="url(#softGlow)"/>
-  <circle cx="760" cy="194" r="3" fill="#9ECBEB"/>
-  <text x="775" y="213" class="label-bright" font-size="10" font-weight="500">market price</text>
+  <!-- Floor price dot at curve intersection with floor-price line -->
+  <circle cx="586.3" cy="300" r="5" fill="#F5F0E6" filter="url(#softGlow)"/>
+  <circle cx="586.3" cy="300" r="3" fill="#E8DCC4"/>
+  <text x="420" y="295" class="label-cream" font-size="10" font-weight="500">floor price</text>
+
+  <!-- Market price horizontal dashed line from curve endpoint to y-axis -->
+  <line x1="415" y1="180" x2="885" y2="180" stroke="#E8DCC4" stroke-width="1" stroke-dasharray="6,4" opacity="0.5"/>
+  <text x="420" y="175" class="label-bright" font-size="10" font-weight="500">market price</text>
+
+  <!-- Market price dot at curve endpoint -->
+  <circle cx="885" cy="180" r="5" fill="#F5F0E6" filter="url(#softGlow)"/>
+  <circle cx="885" cy="180" r="3" fill="#9ECBEB"/>
 
   <!-- ===== AREA LABELS ===== -->
-  <text x="484" y="540" class="label" font-size="10" text-anchor="middle" fill="#9B8FCF" opacity="0.9">ETH</text>
-  <text x="484" y="554" class="label" font-size="10" text-anchor="middle" fill="#9B8FCF" opacity="0.9">released</text>
+  <text x="500" y="516" class="label" font-size="16" text-anchor="middle" fill="#9B8FCF" opacity="0.9">released</text>
+  <text x="500" y="536" class="label" font-size="16" text-anchor="middle" fill="#9B8FCF" opacity="0.9">ETH</text>
 
-  <text x="656" y="480" class="label" font-size="10" text-anchor="middle" fill="#E8DCC4" opacity="0.9">pUSD</text>
-  <text x="656" y="494" class="label" font-size="10" text-anchor="middle" fill="#E8DCC4" opacity="0.9">backing</text>
+  <text x="673" y="460" class="label" font-size="16" text-anchor="middle" fill="#E8DCC4" opacity="0.9">pUSD</text>
 
-  <text x="680" y="260" class="label" font-size="10" text-anchor="middle" fill="#9ECBEB" opacity="0.9">Mcap</text>
-  <text x="680" y="274" class="label" font-size="10" text-anchor="middle" fill="#9ECBEB" opacity="0.9">pETH</text>
+  <text x="690" y="209" class="label" font-size="16" text-anchor="middle" fill="#6BCAA0" opacity="0.9">pETH</text>
 
-  <text x="830" y="420" class="label" font-size="10" text-anchor="middle" fill="#7BA5C9" opacity="0.9">ETH</text>
-  <text x="830" y="434" class="label" font-size="10" text-anchor="middle" fill="#7BA5C9" opacity="0.9">reserve</text>
+  <text x="830" y="416" class="label" font-size="16" text-anchor="middle" fill="#7BA5C9" opacity="0.9">ETH</text>
+  <text x="830" y="436" class="label" font-size="16" text-anchor="middle" fill="#7BA5C9" opacity="0.9">reserve</text>
 
   <!-- ==================== ETH TOKEN (left) ==================== -->
   <g transform="translate(160, 400)">
@@ -316,13 +312,13 @@
   <g transform="translate(60, 780)">
     <rect x="-10" y="-15" width="260" height="100" rx="16" fill="#0d1f3c" stroke="rgba(232,220,196,0.08)" stroke-width="1"/>
     <rect x="10" y="5" width="12" height="12" rx="2" fill="#9B8FCF" opacity="0.6"/>
-    <text x="30" y="15" class="label" font-size="11">ETH released (redeemable)</text>
+    <text x="30" y="15" class="label" font-size="11">ETH released</text>
     <rect x="10" y="25" width="12" height="12" rx="2" fill="#E8DCC4" opacity="0.4"/>
-    <text x="30" y="35" class="label" font-size="11">pUSD backing value</text>
-    <rect x="10" y="45" width="12" height="12" rx="2" fill="#9ECBEB" opacity="0.4"/>
+    <text x="30" y="35" class="label" font-size="11">pUSD backing reserve</text>
+    <rect x="10" y="45" width="12" height="12" rx="2" fill="#6BCAA0" opacity="0.4"/>
     <text x="30" y="55" class="label" font-size="11">pETH market capitalisation</text>
     <rect x="10" y="65" width="12" height="12" rx="2" fill="#7BA5C9" opacity="0.45"/>
-    <text x="30" y="75" class="label" font-size="11">ETH reserve (unredeemed)</text>
+    <text x="30" y="75" class="label" font-size="11">ETH reserve</text>
   </g>
 
 </svg>

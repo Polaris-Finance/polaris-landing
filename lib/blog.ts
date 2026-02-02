@@ -10,10 +10,17 @@ export type BlogPost = {
   description: string;
   date: string;
   author: string;
+  image?: string;
+  readingTime: number;
   content: string;
 };
 
 export type BlogPostMeta = Omit<BlogPost, "content">;
+
+function estimateReadingTime(text: string): number {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 230));
+}
 
 export function getAllPosts(): BlogPostMeta[] {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -23,7 +30,7 @@ export function getAllPosts(): BlogPostMeta[] {
       const slug = fileName.replace(/\.md$/, "");
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data } = matter(fileContents);
+      const { data, content } = matter(fileContents);
 
       return {
         slug,
@@ -31,6 +38,8 @@ export function getAllPosts(): BlogPostMeta[] {
         description: data.description || "",
         date: data.date || "",
         author: data.author || "Polaris Team",
+        image: data.image,
+        readingTime: estimateReadingTime(content),
       };
     });
 
@@ -49,6 +58,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
       description: data.description || "",
       date: data.date || "",
       author: data.author || "Polaris Team",
+      image: data.image,
+      readingTime: estimateReadingTime(content),
       content,
     };
   } catch {

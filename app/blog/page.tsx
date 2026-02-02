@@ -91,7 +91,7 @@ export default function BlogPage() {
           <span className="section-kicker">Blog</span>
           <h1 className="section-heading">Latest Updates</h1>
           <p className="mt-4 max-w-2xl text-lg text-cream-muted">
-            Insights, updates, and deep dives into the Polaris ecosystem.
+            Exploring the frontiers of trustless stablecoin infrastructure.
           </p>
 
           <div className="mt-12 grid gap-6">
@@ -99,16 +99,29 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(13,31,60,0.5)] p-6 backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(13,31,60,0.7)]"
+                className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(13,31,60,0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(13,31,60,0.7)]"
               >
-                <div className="flex flex-col gap-2">
-                  <time className="text-xs font-medium uppercase tracking-wider text-cream-muted">
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </time>
+                {post.image && (
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img
+                      src={`${basePath}${post.image}`}
+                      alt=""
+                      className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col gap-2 p-6">
+                  <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-cream-muted">
+                    <time>
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </time>
+                    <span aria-hidden="true">·</span>
+                    <span>{post.readingTime} min read</span>
+                  </div>
                   <h2 className="font-serif text-xl text-star transition group-hover:text-[var(--polaris-cream)]">
                     {post.title}
                   </h2>

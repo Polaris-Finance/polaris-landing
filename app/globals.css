@@ -2204,9 +2204,16 @@
 
   .prose-polaris {
     font-family: var(--font-sans);
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 0.9375rem;
+    line-height: 1.75;
     color: var(--polaris-cream-muted);
+  }
+
+  @media (min-width: 640px) {
+    .prose-polaris {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
   }
 
   /* Paragraphs - Primary fix for cramped spacing */
@@ -2228,9 +2235,14 @@
   }
 
   .prose-polaris h1 { font-size: 2rem; }
-  .prose-polaris h2 { font-size: 1.5rem; }
-  .prose-polaris h3 { font-size: 1.25rem; }
+  .prose-polaris h2 { font-size: 1.25rem; }
+  .prose-polaris h3 { font-size: 1.125rem; }
   .prose-polaris h4 { font-size: 1.125rem; }
+
+  @media (min-width: 640px) {
+    .prose-polaris h2 { font-size: 1.5rem; }
+    .prose-polaris h3 { font-size: 1.25rem; }
+  }
 
   /* First heading shouldn't have top margin */
   .prose-polaris > h1:first-child,
@@ -2262,10 +2274,16 @@
   }
 
   /* Lists */
-  .prose-polaris ul,
+  .prose-polaris ul {
+    margin: 1.25em 0;
+    padding-left: 1.5em;
+    list-style-type: disc;
+  }
+
   .prose-polaris ol {
     margin: 1.25em 0;
     padding-left: 1.5em;
+    list-style-type: decimal;
   }
 
   .prose-polaris li {
@@ -2286,7 +2304,7 @@
 
   /* Images */
   .prose-polaris img {
-    margin: 2em 0;
+    margin: 2em auto;
     border-radius: 0.75rem; /* Matches card/pre styling */
     max-width: 100%;
     height: auto;
@@ -2303,6 +2321,7 @@
 
   /* Inline Code */
   .prose-polaris code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     background: rgba(232, 220, 196, 0.1);
     padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
@@ -2340,7 +2359,7 @@
 
   /* Tables (Future-proofing) */
   .prose-polaris table {
-    width: 100%;
+    min-width: 500px;
     margin: 1.5em 0;
     border-collapse: collapse;
   }
@@ -2360,6 +2379,37 @@
 
   .prose-polaris tr:hover {
     background: rgba(232, 220, 196, 0.03);
+  }
+
+  /* Heading anchors */
+  .prose-polaris h2[id],
+  .prose-polaris h3[id] {
+    scroll-margin-top: 5rem;
+    position: relative;
+  }
+
+  .prose-polaris .heading-anchor {
+    position: absolute;
+    left: -1.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--polaris-cream-muted);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.85em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .prose-polaris h2:hover .heading-anchor,
+  .prose-polaris h3:hover .heading-anchor,
+  .prose-polaris .heading-anchor:focus-visible {
+    opacity: 0.6;
+  }
+
+  .prose-polaris .heading-anchor:hover {
+    opacity: 1;
+    color: var(--polaris-star);
   }
 }
 

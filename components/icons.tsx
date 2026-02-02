@@ -1,5 +1,7 @@
 import { SVGProps } from "react";
 
+export { ZoomIn as ZoomInIcon } from "lucide-react";
+
 type IconProps = SVGProps<SVGSVGElement>;
 
 export function AwardIcon(props: IconProps) {
@@ -61,6 +63,26 @@ export function ArrowLeftIcon(props: IconProps) {
     >
       <path d="m12 19-7-7 7-7" />
       <path d="M19 12H5" />
+    </svg>
+  );
+}
+
+export function ArrowUpIcon(props: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="m5 12 7-7 7 7" />
+      <path d="M12 19V5" />
     </svg>
   );
 }
