@@ -1,7 +1,7 @@
 ---
 title: "CDPs Mint Dollars. Polaris Mints Anything"
 description: "From Maker to Liquity, CDP models shaped DeFi lending. Polaris takes the blueprint further with pETH, self-adjusting rates, and a factory for stablecoins pegged to anything."
-date: "2026-02-01"
+date: "2026-02-02"
 author: "Polaris Team"
 image: "/infographics/stablecoin-OS.png"
 ---
