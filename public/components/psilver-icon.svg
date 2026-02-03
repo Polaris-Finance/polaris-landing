@@ -1,0 +1,24 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="psilverBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3a5c"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="psilverAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4DCE4"/>
+      <stop offset="100%" style="stop-color:#A8B5C4"/>
+    </linearGradient>
+    <linearGradient id="psilverDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8A9BAD"/>
+      <stop offset="100%" style="stop-color:#6B7C8E"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#psilverBg)" stroke="#A8B5C4" stroke-width="1.5" stroke-opacity="0.4"/>
+  <polygon points="32,16 32.8,18.5 35.5,18.5 33.3,20.2 34.2,22.8 32,21 29.8,22.8 30.7,20.2 28.5,18.5 31.2,18.5" fill="#A8B5C4" fill-opacity="0.6"/>
+  <!-- Single silver bar -->
+  <g transform="translate(32, 38)">
+    <polygon points="-9,0 9,0 9,6 -9,6" fill="url(#psilverDark)"/>
+    <polygon points="-9,0 -6,-4 12,-4 9,0" fill="url(#psilverAccent)"/>
+    <polygon points="9,0 12,-4 12,2 9,6" fill="#6B7C8E" fill-opacity="0.7"/>
+  </g>
+</svg>

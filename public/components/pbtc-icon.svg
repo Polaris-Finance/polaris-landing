@@ -1,0 +1,15 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pbtcBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3a5c"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </linearGradient>
+    <linearGradient id="pbtcAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB84D"/>
+      <stop offset="100%" style="stop-color:#F7931A"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#pbtcBg)" stroke="#F7931A" stroke-width="1.5" stroke-opacity="0.4"/>
+  <polygon points="32,16 32.8,18.5 35.5,18.5 33.3,20.2 34.2,22.8 32,21 29.8,22.8 30.7,20.2 28.5,18.5 31.2,18.5" fill="#F7931A" fill-opacity="0.7"/>
+  <text x="32" y="43" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="600" fill="url(#pbtcAccent)" text-anchor="middle">₿</text>
+</svg>
