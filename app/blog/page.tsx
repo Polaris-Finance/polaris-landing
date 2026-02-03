@@ -4,6 +4,7 @@ import { TopNav } from "@/components/TopNav";
 import { basePath } from "@/lib/basePath";
 import { getAllPosts } from "@/lib/blog";
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -66,11 +67,12 @@ export default function BlogPage() {
                 className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(13,31,60,0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(13,31,60,0.7)]"
               >
                 {post.image && (
-                  <div className="aspect-video w-full overflow-hidden">
-                    <img
+                  <div className="relative aspect-video w-full overflow-hidden">
+                    <Image
                       src={`${basePath}${post.image}`}
                       alt={post.title}
-                      className="h-full w-full object-cover transition group-hover:scale-[1.02]"
+                      fill
+                      className="object-cover transition group-hover:scale-[1.02]"
                     />
                   </div>
                 )}
