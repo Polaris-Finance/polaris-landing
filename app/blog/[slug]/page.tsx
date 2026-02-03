@@ -148,6 +148,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+
+  // Check if slug exists in valid slugs first
+  const validSlugs = getAllSlugs();
+  if (!validSlugs.includes(slug)) {
+    return { title: "Post Not Found | Polaris Blog" };
+  }
+
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found | Polaris" };
 
@@ -191,8 +198,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
 
+  // Check if slug is valid first (prevents issues with static export)
+  const validSlugs = getAllSlugs();
+  if (!validSlugs.includes(slug)) {
+    notFound();
+  }
+
+  const post = getPostBySlug(slug);
   if (!post) {
     notFound();
   }
