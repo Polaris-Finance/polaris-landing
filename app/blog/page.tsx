@@ -8,13 +8,13 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog | Polaris Protocol",
-  description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
+  description: "Polaris blog: DeFi stablecoin insights, CDP innovations, and protocol updates. Learn how pUSD delivers scalable, trustless yield.",
   alternates: {
     canonical: "https://polarisfinance.io/blog",
   },
   openGraph: {
     title: "Blog | Polaris Protocol",
-    description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
+    description: "Polaris blog: DeFi stablecoin insights, CDP innovations, and protocol updates. Learn how pUSD delivers scalable, trustless yield.",
     url: "https://polarisfinance.io/blog",
     siteName: "Polaris Protocol",
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blog | Polaris Protocol",
-    description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
+    description: "Polaris blog: DeFi stablecoin insights, CDP innovations, and protocol updates. Learn how pUSD delivers scalable, trustless yield.",
     images: ["/polaris-og.png"],
     creator: "@polarisfinance_",
   },

@@ -5,7 +5,7 @@ date: "2026-01-21"
 author: "Polaris Team"
 ---
 
-“Stablecoins are either scalable, yield-bearing, or trustless.” The situation is now commonly accepted and often presented as a pick-two trilemma between decentralization, scalability, and yield capacity. So far, empirical observation confirms the assessment: the few available trustless stablecoins do not scale leading to the vast majority of the stablecoins in circulation (~98%) being **centralized and/or censorable**.
+“Stablecoins are either scalable, yield-bearing, or trustless.” The situation is now commonly accepted and often presented as a trilemma between decentralization, scalability, and yield capacity. So far, empirical observation confirms the assessment: the few available trustless stablecoins do not scale leading to the vast majority of the stablecoins in circulation (~98%) being **centralized and/or censorable**.
 
 To reach mass scale, the next step is to harness the best of what DeFi can offer and deliver it in a package that TradFi can trust. The goal is a trustless, counterparty-free stablecoin that leverages diversified yield sources that scale with volume and can autonomously respond to market conditions through interest rate management automation.
 
