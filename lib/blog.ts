@@ -62,7 +62,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
       readingTime: estimateReadingTime(content),
       content,
     };
-  } catch {
+  } catch (error) {
+    console.error(`Failed to load blog post "${slug}":`, error);
     return null;
   }
 }

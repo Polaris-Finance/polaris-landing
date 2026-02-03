@@ -1,0 +1,23 @@
+{
+  "name": "Polaris Protocol",
+  "short_name": "Polaris",
+  "description": "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050a14",
+  "theme_color": "#0a1628",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

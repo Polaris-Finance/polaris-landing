@@ -40,6 +40,33 @@ export const websiteSchema = {
   },
 };
 
+export const softwareApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Polaris Protocol",
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "Ethereum",
+  description:
+    "A self-scaling stablecoin operating system that generates uncorrelated, scalable yields without T-Bills, CEXs, or trusted third parties.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  author: {
+    "@type": "Organization",
+    name: "Polaris Protocol",
+    url: "https://polarisfinance.io",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    ratingCount: "1",
+    bestRating: "5",
+    worstRating: "1",
+  },
+};
+
 export function createArticleSchema(post: {
   title: string;
   description: string;

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 test.describe('Accessibility', () => {
   test.describe('Keyboard Navigation', () => {
@@ -228,6 +229,54 @@ test.describe('Accessibility', () => {
           expect(box.height, `Footer icon ${i + 1} too short`).toBeGreaterThanOrEqual(44);
         }
       }
+    });
+  });
+
+  test.describe('Automated WCAG Validation (axe-core)', () => {
+    test('homepage passes WCAG 2.1 AA automated checks', async ({ page }) => {
+      await page.goto('/');
+
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+        .analyze();
+
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
+    test('blog listing page passes WCAG 2.1 AA automated checks', async ({ page }) => {
+      await page.goto('/blog');
+
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+        .analyze();
+
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
+    test('blog post page passes WCAG 2.1 AA automated checks', async ({ page }) => {
+      await page.goto('/blog/why-polaris');
+
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+        .analyze();
+
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+
+    test('homepage passes best practices checks', async ({ page }) => {
+      await page.goto('/');
+
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['best-practice'])
+        .analyze();
+
+      // Log violations for review but don't fail on best practices
+      if (accessibilityScanResults.violations.length > 0) {
+        console.log('Best practice violations:', JSON.stringify(accessibilityScanResults.violations, null, 2));
+      }
+
+      // Best practices are recommendations, not requirements
+      expect(accessibilityScanResults.violations.length).toBeLessThanOrEqual(5);
     });
   });
 });

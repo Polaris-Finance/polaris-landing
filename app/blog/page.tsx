@@ -1,9 +1,9 @@
-import { ArticleIcon, GithubIcon, TelegramIcon, XIcon } from "@/components/icons";
+import { Footer } from "@/components/Footer";
 import { JsonLd, createCollectionPageSchema } from "@/components/JsonLd";
+import { TopNav } from "@/components/TopNav";
 import { basePath } from "@/lib/basePath";
 import { getAllPosts } from "@/lib/blog";
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -48,43 +48,7 @@ export default function BlogPage() {
       </a>
       <JsonLd data={collectionSchema} />
 
-      {/* Top Navigation */}
-      <nav className="top-nav">
-        <Link href="/" className="top-nav__brand">
-          <Image
-            src={`${basePath}/full-logo.svg`}
-            alt="Polaris"
-            width={126}
-            height={44}
-            className="top-nav__logo top-nav__logo--full"
-          />
-          <Image
-            src={`${basePath}/emblem.svg`}
-            alt="Polaris"
-            width={28}
-            height={28}
-            className="top-nav__logo top-nav__logo--emblem"
-          />
-        </Link>
-        <div className="top-nav__links">
-          <Link href="/blog" className="top-nav__link">
-            <span className="top-nav__link-text">Blog</span>
-            <ArticleIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
-          </Link>
-          <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">
-            <span className="top-nav__link-text">X.com</span>
-            <XIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
-          </a>
-          <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">
-            <span className="top-nav__link-text">Telegram</span>
-            <TelegramIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
-          </a>
-        </div>
-        <span className="top-nav__cta">
-          <span className="top-nav__cta-full">Whitepaper coming soon</span>
-          <span className="top-nav__cta-short">WP coming soon</span>
-        </span>
-      </nav>
+      <TopNav />
 
       <section id="main-content" className="px-6 pb-20 pt-24 sm:px-10">
         <div className="mx-auto max-w-4xl">
@@ -105,14 +69,14 @@ export default function BlogPage() {
                   <div className="aspect-video w-full overflow-hidden">
                     <img
                       src={`${basePath}${post.image}`}
-                      alt=""
+                      alt={post.title}
                       className="h-full w-full object-cover transition group-hover:scale-[1.02]"
                     />
                   </div>
                 )}
                 <div className="flex flex-col gap-2 p-6">
                   <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-cream-muted">
-                    <time>
+                    <time dateTime={post.date}>
                       {new Date(post.date).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
@@ -143,58 +107,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="footer__content">
-          <div className="footer__brand">
-            <Link href="/">
-              <Image
-                src={`${basePath}/full-logo.svg`}
-                alt="Polaris"
-                width={126}
-                height={44}
-                className="footer__logo"
-              />
-            </Link>
-          </div>
-
-          <div className="footer__links">
-            <div className="footer__nav">
-              <Link href="/blog" className="footer__link">
-                Blog
-              </Link>
-              <a
-                href="https://x.com/polarisfinance_"
-                className="footer__link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                X
-              </a>
-              <a
-                href="https://github.com/Polaris-Finance"
-                className="footer__link footer__link--icon"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-              >
-                <GithubIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="https://t.me/polaris_ann"
-                className="footer__link footer__link--icon"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Telegram"
-              >
-                <TelegramIcon className="h-4 w-4" />
-              </a>
-            </div>
-            <a href="mailto:hello@polarisfinance.io" className="footer__email">
-              hello@polarisfinance.io
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

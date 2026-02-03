@@ -1,10 +1,11 @@
 import { BlogImageLightbox } from "@/components/BlogImageLightbox";
-import { ArrowLeftIcon, ArrowUpIcon, ArticleIcon, GithubIcon, TelegramIcon, XIcon } from "@/components/icons";
+import { Footer } from "@/components/Footer";
+import { ArrowLeftIcon, ArrowUpIcon } from "@/components/icons";
 import { JsonLd, createArticleSchema, createBreadcrumbSchema } from "@/components/JsonLd";
+import { TopNav } from "@/components/TopNav";
 import { basePath } from "@/lib/basePath";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
@@ -69,7 +70,7 @@ function TableOfContents({ entries }: { entries: TocEntry[] }) {
 function HeadingWithAnchor({ id, children }: { id: string; children: ReactNode }) {
   return (
     <>
-      <a href={`#${id}`} className="heading-anchor" aria-hidden="true">
+      <a href={`#${id}`} className="heading-anchor" aria-hidden="true" tabIndex={-1}>
         #
       </a>
       {children}
@@ -212,43 +213,7 @@ export default async function BlogPostPage({ params }: Props) {
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
 
-      {/* Top Navigation */}
-      <nav className="top-nav">
-        <Link href="/" className="top-nav__brand">
-          <Image
-            src={`${basePath}/full-logo.svg`}
-            alt="Polaris"
-            width={126}
-            height={44}
-            className="top-nav__logo top-nav__logo--full"
-          />
-          <Image
-            src={`${basePath}/emblem.svg`}
-            alt="Polaris"
-            width={28}
-            height={28}
-            className="top-nav__logo top-nav__logo--emblem"
-          />
-        </Link>
-        <div className="top-nav__links">
-          <Link href="/blog" className="top-nav__link">
-            <span className="top-nav__link-text">Blog</span>
-            <ArticleIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
-          </Link>
-          <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">
-            <span className="top-nav__link-text">X.com</span>
-            <XIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
-          </a>
-          <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">
-            <span className="top-nav__link-text">Telegram</span>
-            <TelegramIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
-          </a>
-        </div>
-        <span className="top-nav__cta">
-          <span className="top-nav__cta-full">Whitepaper coming soon</span>
-          <span className="top-nav__cta-short">WP coming soon</span>
-        </span>
-      </nav>
+      <TopNav />
 
       <article id="main-content" className="px-6 pb-20 pt-16 sm:px-10 sm:pt-24">
         <div className="mx-auto max-w-3xl">
@@ -261,7 +226,7 @@ export default async function BlogPostPage({ params }: Props) {
           </Link>
 
           <header className="mb-10">
-            <time className="text-xs font-medium uppercase tracking-wider text-cream-muted">
+            <time dateTime={post.date} className="text-xs font-medium uppercase tracking-wider text-cream-muted">
               {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
@@ -295,58 +260,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </article>
 
-      <footer className="footer">
-        <div className="footer__content">
-          <div className="footer__brand">
-            <Link href="/">
-              <Image
-                src={`${basePath}/full-logo.svg`}
-                alt="Polaris"
-                width={126}
-                height={44}
-                className="footer__logo"
-              />
-            </Link>
-          </div>
-
-          <div className="footer__links">
-            <div className="footer__nav">
-              <Link href="/blog" className="footer__link">
-                Blog
-              </Link>
-              <a
-                href="https://x.com/polarisfinance_"
-                className="footer__link"
-                target="_blank"
-                rel="noreferrer"
-              >
-                X
-              </a>
-              <a
-                href="https://github.com/Polaris-Finance"
-                className="footer__link footer__link--icon"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-              >
-                <GithubIcon className="h-4 w-4" />
-              </a>
-              <a
-                href="https://t.me/polaris_ann"
-                className="footer__link footer__link--icon"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Telegram"
-              >
-                <TelegramIcon className="h-4 w-4" />
-              </a>
-            </div>
-            <a href="mailto:hello@polarisfinance.io" className="footer__email">
-              hello@polarisfinance.io
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
