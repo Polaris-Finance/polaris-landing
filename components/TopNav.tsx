@@ -37,11 +37,11 @@ export function TopNav() {
           <span className="top-nav__link-text">Blog</span>
           <ArticleIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
         </Link>
-        <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noreferrer">
+        <a href="https://x.com/polarisfinance_" className="top-nav__link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X (opens in new window)">
           <span className="top-nav__link-text">X.com</span>
           <XIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
         </a>
-        <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noreferrer">
+        <a href="https://t.me/polaris_ann" className="top-nav__link" target="_blank" rel="noopener noreferrer" aria-label="Join our Telegram channel (opens in new window)">
           <span className="top-nav__link-text">Telegram</span>
           <TelegramIcon className="top-nav__link-icon h-4 w-4" aria-hidden />
         </a>

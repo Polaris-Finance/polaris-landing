@@ -3,6 +3,7 @@ title: "Why Polaris?"
 description: "Analyzing where USDC, USDS, USDe, and LUSD fall short—and how pUSD delivers scalable, yield-bearing stability without counterparty risk."
 date: "2026-01-21"
 author: "Polaris Team"
+image: "/polaris-og.png"
 ---
 
 “Stablecoins are either scalable, yield-bearing, or trustless.” The situation is now commonly accepted and often presented as a trilemma between decentralization, scalability, and yield capacity. So far, empirical observation confirms the assessment: the few available trustless stablecoins do not scale leading to the vast majority of the stablecoins in circulation (~98%) being **centralized and/or censorable**.

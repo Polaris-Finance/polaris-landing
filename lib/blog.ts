@@ -9,6 +9,7 @@ export type BlogPost = {
   title: string;
   description: string;
   date: string;
+  updatedDate?: string;
   author: string;
   image?: string;
   readingTime: number;
@@ -37,6 +38,7 @@ export function getAllPosts(): BlogPostMeta[] {
         title: data.title || slug,
         description: data.description || "",
         date: data.date || "",
+        updatedDate: data.updatedDate,
         author: data.author || "Polaris Team",
         image: data.image,
         readingTime: estimateReadingTime(content),
@@ -57,6 +59,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       title: data.title || slug,
       description: data.description || "",
       date: data.date || "",
+      updatedDate: data.updatedDate,
       author: data.author || "Polaris Team",
       image: data.image,
       readingTime: estimateReadingTime(content),

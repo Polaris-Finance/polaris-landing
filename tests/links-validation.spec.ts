@@ -30,7 +30,7 @@ test.describe('Link Validation', () => {
           if (!response.ok()) {
             brokenLinks.push({ href, status: response.status() });
           }
-        } catch (error) {
+        } catch {
           brokenLinks.push({ href, status: 0 });
         }
       }

@@ -10,15 +10,15 @@ export function BenefitsSection() {
         </p>
 
         <div className="reveal-stagger mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {benefitHighlights.map(({ title, bullets, Icon }) => (
-            <div key={title} className="benefit-card">
+          {benefitHighlights.map(({ title, bullets, Icon }, index) => (
+            <div key={`benefit-${index}`} className="benefit-card">
               <span className="benefit-card__icon" aria-hidden>
                 <Icon className="h-5 w-5" />
               </span>
               <h3 className="benefit-card__title">{title}</h3>
               <ul className="benefit-card__description space-y-2">
-                {bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
+                {bullets.map((bullet, bulletIndex) => (
+                  <li key={`benefit-${index}-bullet-${bulletIndex}`}>{bullet}</li>
                 ))}
               </ul>
             </div>

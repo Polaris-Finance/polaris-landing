@@ -106,7 +106,7 @@ test.describe('Security Headers', () => {
         const elements = document.querySelectorAll('*');
         const violations: string[] = [];
 
-        elements.forEach((el, i) => {
+        elements.forEach((el) => {
           const attrs = el.attributes;
           for (let j = 0; j < attrs.length; j++) {
             if (attrs[j].name.startsWith('on') && attrs[j].name !== 'onload') {
@@ -275,8 +275,6 @@ test.describe('Security Headers', () => {
   test.describe('Error Handling Security', () => {
     test('404 page does not leak server info', async ({ page }) => {
       await page.goto('/nonexistent-page-xyz123');
-
-      const content = await page.content();
 
       // Should not contain server stack traces in visible text
       // Note: Next.js may include node_modules paths in build metadata, that's OK

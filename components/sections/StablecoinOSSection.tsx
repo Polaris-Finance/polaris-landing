@@ -10,14 +10,14 @@ export function StablecoinOSSection() {
         </p>
 
         <div className="reveal-stagger narrative-timeline mt-10">
-          {stablecoinOSMilestones.map((milestone) => (
-            <div key={milestone.title} className="narrative-step">
+          {stablecoinOSMilestones.map((milestone, index) => (
+            <div key={`os-milestone-${index}`} className="narrative-step">
               <span className="narrative-step__marker" aria-hidden="true" />
               <div className="narrative-step__body">
                 <h3 className="narrative-step__title">{milestone.title}</h3>
                 <ul className="narrative-step__description space-y-2">
-                  {milestone.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
+                  {milestone.bullets.map((bullet, bulletIndex) => (
+                    <li key={`os-${index}-bullet-${bulletIndex}`}>{bullet}</li>
                   ))}
                 </ul>
               </div>

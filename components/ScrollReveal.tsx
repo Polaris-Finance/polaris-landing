@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+const REVEAL_SELECTOR = ".reveal, .reveal--scale, .reveal-stagger";
+
 export function ScrollReveal() {
   useEffect(() => {
     // Check for reduced motion preference
@@ -11,7 +13,7 @@ export function ScrollReveal() {
 
     if (prefersReducedMotion) {
       // Make all reveal elements visible immediately
-      document.querySelectorAll(".reveal, .reveal--scale, .reveal-stagger").forEach((el) => {
+      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
         el.classList.add("is-visible");
       });
       return;
@@ -33,8 +35,7 @@ export function ScrollReveal() {
       }
     );
 
-    // Observe all reveal elements
-    document.querySelectorAll(".reveal, .reveal--scale, .reveal-stagger").forEach((el) => {
+    document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
       observer.observe(el);
     });
 

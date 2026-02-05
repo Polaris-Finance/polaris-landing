@@ -47,7 +47,7 @@ pETH deployed as collateral in a borrowing position is also eligible for yield g
 1. pETH is an ETH-proxy, with a rising price floor against ETH  
 2. pETH is yield bearing
 
-![polaris-bonding-curve](/infographics/polaris-bonding-curve.png)    
+![Diagram showing the Polaris bonding curve mechanism, where ETH deposits mint pETH with a rising price floor](/infographics/polaris-bonding-curve.png)    
 
 Altogether, that makes **pETH an attractive token on its own**, even if not mobilized as collateral within Polaris: pETH is a standalone product that will deliver **risk-adjusted returns superior to staked ETH**. And pETH is also a key component of the Polaris CDP, its growth will stimulate the growth of the whole protocol and ecosystem.
 
@@ -79,7 +79,7 @@ But remember the bonding curve, which enables the minting mechanism? And that we
 1. Redemption is profitable when pUSD\<$1 ⇒ a spike in redemption volume is a proxy signal for a downward depeg  
 2. Minting is profitable when pUSD\>$1 ⇒ a spike in minting volume is a proxy signal for an upward depeg
 
-![Peg Stability](/infographics/peg-stability.png)
+![Diagram showing pUSD peg stability via redemption and minting arbitrage flows](/infographics/peg-stability.png)
 
 Using these signals, the system can be aware of the peg situation of pUSD, without needing access to its price feed. And there you have it, the “pUSD price oracle”, except it doesn’t need ChainLink or any other provider; it elegantly uses the information already available in the system. 
 
@@ -96,11 +96,11 @@ Enough with the bonding curve for today, we will deep dive into it soon. Let’s
 
 So far, we’ve been working with examples that are one step away from reality: we considered only pUSD. Yet **Polaris is not just a CDP-protocol, but more of a CDP protocols factory**, all neatly integrated within the broader ecosystem - all instances sharing the same pETH collateral minted against the same bonding curve: 
 
-![stablecoin-OS](/infographics/stablecoin-OS.png)    
+![Architecture diagram of the Polaris StablecoinOS showing multiple stablecoins sharing one pETH collateral pool](/infographics/stablecoin-OS.png)    
 
 In that sense, **Polaris will be the first protocol to truly harness one of the key benefits of CDP models: they can produce assets pegged to virtually anything**, assuming that, just like Polaris, their fee flow is flexible enough to support assets with negative borrowing costs such as Gold. We’re working on pUSD and pGold ourselves, and any relevant team can join the StablecoinOS and deliver the stable of their choosing: pCHF, pEUR, pAUD, etc.
 
-![pBigMac](/components/pbigmac-icon.png)
+![pBigMac token icon — a hypothetical stablecoin pegged to the Big Mac Index](/components/pbigmac-icon.png)
 
 **We aren't limited to fiat currencies** either, as pGold shows: pSilver, pCopper, pUranium are all potentially on the table, granted credible teams manifest to bring them to market. We can get even wilder\! Remember: CDP-models are debt-asset agnostic and Polaris can handle all types of interest flows ⇒ **even a pBigMac**, tracking the price of a Big Mac ([Big Mac Index](https://en.wikipedia.org/wiki/Big_Mac_Index)) **is within the realm of possibilities:** we would need a solid team of burgers to carry this one\!
 

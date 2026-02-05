@@ -1,12 +1,19 @@
 import { basePath } from "@/lib/basePath";
 import Image from "next/image";
 
-// Generate random stars for the starfield
+// Star generation constants
+const NEAR_POLARIS_PROBABILITY = 0.3;
+const POLARIS_LEFT_MIN = 40;   // % - left edge of Polaris cluster zone
+const POLARIS_LEFT_RANGE = 20; // % - width of cluster zone
+const POLARIS_TOP_MIN = 20;    // % - top edge of Polaris cluster zone
+const POLARIS_TOP_RANGE = 30;  // % - height of cluster zone
+const SKY_TOP_MAX = 55;        // % - stars only in upper portion of scene
+
 function generateStars(count: number, type: "tiny" | "small" | "medium" | "bright") {
   return Array.from({ length: count }, (_, i) => {
-    const isNearPolaris = type !== "bright" && Math.random() < 0.3;
-    const baseLeft = isNearPolaris ? 40 + Math.random() * 20 : Math.random() * 100;
-    const baseTop = isNearPolaris ? 20 + Math.random() * 30 : Math.random() * 55;
+    const isNearPolaris = type !== "bright" && Math.random() < NEAR_POLARIS_PROBABILITY;
+    const baseLeft = isNearPolaris ? POLARIS_LEFT_MIN + Math.random() * POLARIS_LEFT_RANGE : Math.random() * 100;
+    const baseTop = isNearPolaris ? POLARIS_TOP_MIN + Math.random() * POLARIS_TOP_RANGE : Math.random() * SKY_TOP_MAX;
 
     return {
       id: `${type}-${i}`,
@@ -161,10 +168,10 @@ export function HeroSection() {
             We&apos;re building uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.
           </p>
           <div className="hero-cta">
-            <a href="https://x.com/polarisfinance_" className="btn-primary" target="_blank" rel="noreferrer">
+            <a href="https://x.com/polarisfinance_" className="btn-primary" target="_blank" rel="noopener noreferrer">
               Get updates on X
             </a>
-            <a href="https://t.me/polaris_ann" className="btn-primary" target="_blank" rel="noreferrer">
+            <a href="https://t.me/polaris_ann" className="btn-primary" target="_blank" rel="noopener noreferrer">
               Get updates on Telegram
             </a>
           </div>

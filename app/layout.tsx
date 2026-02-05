@@ -51,6 +51,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
+        type: "image/png",
       },
     ],
     locale: "en_US",
@@ -62,6 +63,7 @@ export const metadata: Metadata = {
     description:
       "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
     images: ["/polaris-og.png"],
+    site: "@polarisfinance_",
     creator: "@polarisfinance_",
   },
   icons: {
@@ -89,6 +91,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="alternate" type="application/rss+xml" title="Polaris Protocol Blog" href="/blog/feed.xml" />
       </head>
       <body className="antialiased">
         {children}

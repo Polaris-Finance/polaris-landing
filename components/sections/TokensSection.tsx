@@ -14,8 +14,8 @@ export function TokensSection() {
 
         <div className="trust-strip mt-10">
           <div className="reveal-stagger trust-strip__items">
-            {tokens.map((token) => (
-              <div key={token.name} className={`token-card token-card--${token.color}`}>
+            {tokens.map((token, index) => (
+              <div key={`token-${index}`} className={`token-card token-card--${token.color}`}>
                 <Image
                   src={token.iconSrc}
                   alt={`${token.name} icon`}

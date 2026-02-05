@@ -16,7 +16,7 @@ export const organizationSchema = {
   "@type": "Organization",
   name: "Polaris Protocol",
   url: "https://polarisfinance.io",
-  logo: "https://polarisfinance.io/brand-mark.svg",
+  logo: "https://polarisfinance.io/emblem.svg",
   sameAs: [
     "https://x.com/polarisfinance_",
     "https://github.com/Polaris-Finance",
@@ -58,19 +58,13 @@ export const softwareApplicationSchema = {
     name: "Polaris Protocol",
     url: "https://polarisfinance.io",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    ratingCount: "1",
-    bestRating: "5",
-    worstRating: "1",
-  },
 };
 
 export function createArticleSchema(post: {
   title: string;
   description: string;
   date: string;
+  updatedDate?: string;
   author: string;
   slug: string;
 }) {
@@ -80,9 +74,9 @@ export function createArticleSchema(post: {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updatedDate || post.date,
     author: {
-      "@type": "Person",
+      "@type": "Organization",
       name: post.author,
     },
     publisher: {
@@ -91,7 +85,7 @@ export function createArticleSchema(post: {
       url: "https://polarisfinance.io",
       logo: {
         "@type": "ImageObject",
-        url: "https://polarisfinance.io/brand-mark.svg",
+        url: "https://polarisfinance.io/emblem.svg",
       },
     },
     mainEntityOfPage: {
