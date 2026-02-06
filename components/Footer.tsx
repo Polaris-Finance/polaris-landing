@@ -1,4 +1,5 @@
-import { GithubIcon, RssIcon, TelegramIcon } from "@/components/icons";
+import { GithubIcon, TelegramIcon } from "@/components/icons";
+import { RssFeedLink } from "@/components/RssFeedLink";
 import { basePath } from "@/lib/basePath";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,13 +52,7 @@ export function Footer() {
             >
               <TelegramIcon className="h-4 w-4" />
             </a>
-            <a
-              href="/blog/feed.xml"
-              className="footer__link footer__link--icon"
-              aria-label="RSS feed"
-            >
-              <RssIcon className="h-4 w-4" />
-            </a>
+            <RssFeedLink />
           </div>
           <a href="mailto:hello@polarisfinance.io" className="footer__email">
             hello@polarisfinance.io

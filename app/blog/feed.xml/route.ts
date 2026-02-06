@@ -20,7 +20,7 @@ export function GET() {
     .map(
       (post) => `    <item>
       <title>${escapeXml(post.title)}</title>
-      <link>${BASE_URL}/blog/${post.slug}</link>
+      <link>${BASE_URL}/blog/${post.slug}?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=blog</link>
       <guid isPermaLink="true">${BASE_URL}/blog/${post.slug}</guid>
       <description>${escapeXml(post.description)}</description>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
