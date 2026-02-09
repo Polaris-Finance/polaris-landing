@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap');
+      .title { font-family: 'Cormorant Garamond', Georgia, serif; fill: #E8DCC4; }
+      .subtitle { font-family: 'Inter', Arial, sans-serif; fill: #E8DCC4; }
+      .label { font-family: 'Inter', Arial, sans-serif; fill: #8BA4B8; }
+      .label-cream { font-family: 'Inter', Arial, sans-serif; fill: #E8DCC4; }
+      .label-bright { font-family: 'Inter', Arial, sans-serif; fill: #F5F0E6; }
+      .token-name { font-family: 'Cormorant Garamond', Georgia, serif; fill: #F5F0E6; }
+    </style>
+
+    <!-- Background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="48%" r="65%">
+      <stop offset="0%" style="stop-color:#0d1f3c"/>
+      <stop offset="100%" style="stop-color:#050a14"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Token gradients -->
+    <radialGradient id="ethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#142d4f"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+    <radialGradient id="pethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#0f2a4a"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+    <linearGradient id="pethAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ECBEB"/>
+      <stop offset="100%" style="stop-color:#7BA5C9"/>
+    </linearGradient>
+    <linearGradient id="pethDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B95B9"/>
+      <stop offset="100%" style="stop-color:#5A84A8"/>
+    </linearGradient>
+    <linearGradient id="ethAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ECBEB"/>
+      <stop offset="100%" style="stop-color:#7BA5C9"/>
+    </linearGradient>
+    <linearGradient id="ethDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B95B9"/>
+      <stop offset="100%" style="stop-color:#5A84A8"/>
+    </linearGradient>
+
+    <!-- Lido orange gradient for stETH -->
+    <linearGradient id="lidoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00A3FF"/>
+      <stop offset="100%" style="stop-color:#00D1FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="720" fill="url(#bgGradient)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.03">
+    <line x1="100" y1="0" x2="100" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="500" y1="0" x2="500" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="1100" y1="0" x2="1100" y2="720" stroke="#F5F0E6" stroke-width="1"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="60" class="title" font-size="36" font-weight="600" text-anchor="middle">pETH vs stETH</text>
+  <text x="600" y="90" class="subtitle" font-size="14" font-weight="400" opacity="0.5" letter-spacing="0.05em" text-anchor="middle">A different set of tradeoffs</text>
+
+  <!-- ==================== stETH CARD (RIGHT) ==================== -->
+  <g transform="translate(640, 130)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="440" height="560" rx="24" fill="#0d1f3c" stroke="rgba(0,163,255,0.15)" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="4" y="4" width="432" height="552" rx="22" fill="none" stroke="rgba(0,163,255,0.05)" stroke-width="1"/>
+
+    <!-- Token icon - stETH (official Lido icon) -->
+    <!-- Scale: 80/512 = 0.15625, translate to center at (220, 70) -->
+    <g transform="translate(180, 30) scale(0.15625)">
+      <path d="M256 512C397.385 512 512 397.385 512 256C512 114.615 397.385 0 256 0C114.615 0 0 114.615 0 256C0 397.385 114.615 512 256 512Z" fill="white"/>
+      <path d="M150.988 237.812L148.122 242.209C115.796 291.798 123.016 356.742 165.48 398.348C190.461 422.826 223.202 435.066 255.944 435.069C255.944 435.069 255.944 435.069 150.988 237.812Z" fill="#00A3FF"/>
+      <path opacity="0.6" d="M255.914 297.764L150.958 237.812C255.914 435.069 255.914 435.069 255.914 435.069C255.914 392.108 255.914 342.88 255.914 297.764Z" fill="#00A3FF"/>
+      <path opacity="0.6" d="M361.012 237.812L363.878 242.209C396.204 291.798 388.984 356.742 346.52 398.348C321.539 422.826 288.798 435.066 256.056 435.069C256.056 435.069 256.056 435.069 361.012 237.812Z" fill="#00A3FF"/>
+      <path opacity="0.2" d="M256.044 297.764L361 237.812C256.045 435.069 256.044 435.069 256.044 435.069C256.044 392.108 256.044 342.88 256.044 297.764Z" fill="#00A3FF"/>
+      <path opacity="0.2" d="M256.083 163.833V267.233L346.491 215.567L256.083 163.833Z" fill="#00A3FF"/>
+      <path opacity="0.6" d="M256.056 163.833L165.583 215.565L256.056 267.233V163.833Z" fill="#00A3FF"/>
+      <path d="M256.056 76.875L165.583 215.599L256.056 163.722V76.875Z" fill="#00A3FF"/>
+      <path opacity="0.6" d="M256.083 163.706L346.56 215.585L256.083 76.7917V163.706Z" fill="#00A3FF"/>
+    </g>
+
+    <!-- Token name -->
+    <text x="220" y="140" class="token-name" font-size="26" font-weight="500" text-anchor="middle">stETH</text>
+    <text x="220" y="162" class="label" font-size="12" text-anchor="middle" opacity="0.5">Lido Staked Ether</text>
+
+    <!-- Divider lines -->
+    <line x1="40" y1="185" x2="400" y2="185" stroke="#3A5068" stroke-width="1" opacity="0.3"/>
+    <line x1="40" y1="268" x2="400" y2="268" stroke="#3A5068" stroke-width="1" opacity="0.15"/>
+    <line x1="40" y1="343" x2="400" y2="343" stroke="#3A5068" stroke-width="1" opacity="0.15"/>
+    <line x1="40" y1="418" x2="400" y2="418" stroke="#3A5068" stroke-width="1" opacity="0.15"/>
+    <line x1="40" y1="493" x2="400" y2="493" stroke="#3A5068" stroke-width="1" opacity="0.15"/>
+
+    <!-- Attribute rows -->
+    <!-- Row 1: Liquidity -->
+    <g transform="translate(40, 210)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">LIQUIDITY</text>
+      <text x="0" y="28" class="label-bright" font-size="16" font-weight="400">LP-dependent</text>
+      <text x="0" y="48" class="label" font-size="12" opacity="0.5">Requires liquidity providers</text>
+    </g>
+
+    <!-- Row 2: Withdrawal -->
+    <g transform="translate(40, 285)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">WITHDRAWAL</text>
+      <text x="0" y="28" class="label-bright" font-size="16" font-weight="400">6-day delay</text>
+      <text x="0" y="48" class="label" font-size="12" opacity="0.5">Or swap via DEX (slippage risk)</text>
+    </g>
+
+    <!-- Row 3: Price Floor -->
+    <g transform="translate(40, 360)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">PRICE FLOOR</text>
+      <text x="0" y="28" class="label-bright" font-size="16" font-weight="400">None</text>
+      <text x="0" y="48" class="label" font-size="12" opacity="0.5">Trades at market price only</text>
+    </g>
+
+    <!-- Row 4: Yield -->
+    <g transform="translate(40, 435)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">YIELD</text>
+      <text x="0" y="28" class="label-bright" font-size="16" font-weight="400">~2.6% APY</text>
+      <text x="0" y="48" class="label" font-size="12" opacity="0.5">ETH staking rewards</text>
+    </g>
+
+    <!-- Row 5: Risks -->
+    <g transform="translate(40, 510)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">RISKS</text>
+      <text x="0" y="28" class="label-bright" font-size="16" font-weight="400">Slashing, smart contract</text>
+    </g>
+  </g>
+
+  <!-- ==================== pETH CARD (LEFT) ==================== -->
+  <g transform="translate(120, 130)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="440" height="560" rx="24" fill="#0d1f3c" stroke="rgba(232,220,196,0.15)" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="4" y="4" width="432" height="552" rx="22" fill="none" stroke="rgba(232,220,196,0.05)" stroke-width="1"/>
+
+    <!-- Token icon - pETH -->
+    <g transform="translate(220, 70)">
+      <circle cx="0" cy="0" r="40" fill="url(#pethCircleBg)" stroke="#7BA5C9" stroke-width="2" stroke-opacity="0.4"/>
+      <!-- Polaris star -->
+      <polygon points="0,-24 1.2,-19 6,-19 2.2,-15.5 3.5,-10.5 0,-14 -3.5,-10.5 -2.2,-15.5 -6,-19 -1.2,-19" fill="#7BA5C9" fill-opacity="0.7"/>
+      <!-- ETH diamond (slightly smaller, shifted down) -->
+      <g transform="translate(0, 6)">
+        <polygon points="0,-16 10,0 0,6 -10,0" fill="url(#pethAccent)" opacity="0.95"/>
+        <polygon points="0,6 10,0 0,16 -10,0" fill="url(#pethDark)" opacity="0.85"/>
+        <polygon points="0,-16 5,-3 0,-5 -5,-3" fill="#9ECBEB" opacity="0.3"/>
+      </g>
+    </g>
+
+    <!-- Token name -->
+    <text x="220" y="140" class="token-name" font-size="26" font-weight="500" text-anchor="middle">pETH</text>
+    <text x="220" y="162" class="label" font-size="12" text-anchor="middle" opacity="0.5">Polaris ETH</text>
+
+    <!-- Divider lines -->
+    <line x1="40" y1="185" x2="400" y2="185" stroke="#3A5068" stroke-width="1" opacity="0.3"/>
+    <line x1="40" y1="268" x2="400" y2="268" stroke="#3A5068" stroke-width="1" opacity="0.15"/>
+    <line x1="40" y1="343" x2="400" y2="343" stroke="#3A5068" stroke-width="1" opacity="0.15"/>
+    <line x1="40" y1="418" x2="400" y2="418" stroke="#3A5068" stroke-width="1" opacity="0.15"/>
+    <line x1="40" y1="493" x2="400" y2="493" stroke="#3A5068" stroke-width="1" opacity="0.15"/>
+
+    <!-- Attribute rows with checkmarks for advantages -->
+    <!-- Row 1: Liquidity (advantage) -->
+    <g transform="translate(40, 210)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">LIQUIDITY</text>
+      <g transform="translate(360, 20)">
+        <circle cx="0" cy="0" r="12" fill="rgba(107,202,160,0.15)" stroke="#6BCAA0" stroke-width="1.5"/>
+        <path d="M-5,0 L-1.5,4 L6,-4" fill="none" stroke="#6BCAA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="0" y="28" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#6BCAA0">Guaranteed</text>
+      <text x="0" y="48" class="label" font-size="12" opacity="0.5">No LPs needed, always liquid thanks to the bonding curve</text>
+    </g>
+
+    <!-- Row 2: Withdrawal (advantage) -->
+    <g transform="translate(40, 285)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">WITHDRAWAL</text>
+      <g transform="translate(360, 20)">
+        <circle cx="0" cy="0" r="12" fill="rgba(107,202,160,0.15)" stroke="#6BCAA0" stroke-width="1.5"/>
+        <path d="M-5,0 L-1.5,4 L6,-4" fill="none" stroke="#6BCAA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="0" y="28" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#6BCAA0">Instant</text>
+      <text x="0" y="48" class="label" font-size="12" opacity="0.5">Redeem anytime via bonding curve</text>
+    </g>
+
+    <!-- Row 3: Price Floor (advantage) -->
+    <g transform="translate(40, 360)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">PRICE FLOOR</text>
+      <g transform="translate(360, 20)">
+        <circle cx="0" cy="0" r="12" fill="rgba(107,202,160,0.15)" stroke="#6BCAA0" stroke-width="1.5"/>
+        <path d="M-5,0 L-1.5,4 L6,-4" fill="none" stroke="#6BCAA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="0" y="28" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#6BCAA0">Ever-rising</text>
+      <text x="0" y="48" class="label" font-size="12" opacity="0.5">Mathematically enforced minimum</text>
+    </g>
+
+    <!-- Row 4: Yield -->
+    <g transform="translate(40, 435)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">YIELD</text>
+      <text x="0" y="28" class="label-bright" font-size="16" font-weight="400">Higher potential</text>
+      <text x="0" y="48" class="label" font-size="12" opacity="0.5">Floor appreciation + DeFi yield</text>
+    </g>
+
+    <!-- Row 5: Risks -->
+    <g transform="translate(40, 510)">
+      <text x="0" y="0" class="label" font-size="11" font-weight="500" letter-spacing="0.05em">RISKS</text>
+      <text x="0" y="28" class="label-bright" font-size="16" font-weight="400">Smart contract, price risk</text>
+    </g>
+  </g>
+
+  <!-- "vs" badge between cards -->
+  <g transform="translate(600, 410)">
+    <circle cx="0" cy="0" r="24" fill="#0a1628" stroke="rgba(232,220,196,0.2)" stroke-width="1"/>
+    <text x="0" y="6" class="label" font-size="14" font-weight="600" text-anchor="middle" fill="#8BA4B8">vs</text>
+  </g>
+
+</svg>
