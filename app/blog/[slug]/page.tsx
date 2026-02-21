@@ -4,22 +4,14 @@ import { ArrowLeftIcon, ArrowUpIcon } from "@/components/icons";
 import { JsonLd, createArticleSchema, createBreadcrumbSchema } from "@/components/JsonLd";
 import { TopNav } from "@/components/TopNav";
 import { basePath } from "@/lib/basePath";
-import { getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { getAllSlugs, getPostBySlug, slugify } from "@/lib/blog";
+import { SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-")
-    .trim();
-}
 
 type TocEntry = {
   id: string;
@@ -46,7 +38,7 @@ function TableOfContents({ entries }: { entries: TocEntry[] }) {
   return (
     <nav
       aria-label="Table of contents"
-      className="mb-10 rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(13,31,60,0.5)] p-5"
+      className="mb-10 rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] p-5"
     >
       <p className="mb-3 text-xs font-medium uppercase tracking-wider text-cream-muted">
         In this article
@@ -158,7 +150,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found | Polaris" };
 
-  const url = `https://polarisfinance.io/blog/${slug}`;
+  const url = `${SITE_URL}/blog/${slug}`;
   const ogImage = post.image || "/polaris-og.png";
 
   return {
@@ -172,7 +164,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.description,
       url,
-      siteName: "Polaris Protocol",
+      siteName: SITE_NAME,
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
@@ -192,7 +184,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.description,
       images: [ogImage],
-      creator: "@polarisfinance_",
+      creator: TWITTER_HANDLE,
     },
   };
 }
@@ -214,9 +206,9 @@ export default async function BlogPostPage({ params }: Props) {
   const toc = extractToc(post.content);
   const articleSchema = createArticleSchema(post);
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://polarisfinance.io" },
-    { name: "Blog", url: "https://polarisfinance.io/blog" },
-    { name: post.title, url: `https://polarisfinance.io/blog/${slug}` },
+    { name: "Home", url: SITE_URL },
+    { name: "Blog", url: `${SITE_URL}/blog` },
+    { name: post.title, url: `${SITE_URL}/blog/${slug}` },
   ]);
 
   return (

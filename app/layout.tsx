@@ -1,3 +1,4 @@
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
@@ -17,13 +18,14 @@ const inter = Inter({
   display: "swap",
 });
 
+const fullTitle = `${SITE_NAME} - Self-Scaling Stablecoin Operating System`;
+
 export const metadata: Metadata = {
-  title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
-  description:
-    "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
-  metadataBase: new URL("https://polarisfinance.io"),
-  applicationName: "Polaris Protocol",
-  authors: [{ name: "Polaris Team", url: "https://polarisfinance.io" }],
+  title: fullTitle,
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  authors: [{ name: "Polaris Team", url: SITE_URL }],
   keywords: [
     "stablecoin",
     "DeFi",
@@ -37,20 +39,19 @@ export const metadata: Metadata = {
     "POLAR",
   ],
   alternates: {
-    canonical: "https://polarisfinance.io",
+    canonical: SITE_URL,
   },
   openGraph: {
-    title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
-    description:
-      "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
-    url: "https://polarisfinance.io",
-    siteName: "Polaris Protocol",
+    title: fullTitle,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     images: [
       {
         url: "/polaris-og.png",
         width: 1200,
         height: 630,
-        alt: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
+        alt: fullTitle,
         type: "image/png",
       },
     ],
@@ -59,12 +60,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Polaris Protocol - Self-Scaling Stablecoin Operating System",
-    description:
-      "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
+    title: fullTitle,
+    description: SITE_DESCRIPTION,
     images: ["/polaris-og.png"],
-    site: "@polarisfinance_",
-    creator: "@polarisfinance_",
+    site: TWITTER_HANDLE,
+    creator: TWITTER_HANDLE,
   },
   icons: {
     icon: [

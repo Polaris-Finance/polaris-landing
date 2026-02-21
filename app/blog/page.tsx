@@ -3,27 +3,31 @@ import { JsonLd, createCollectionPageSchema } from "@/components/JsonLd";
 import { TopNav } from "@/components/TopNav";
 import { basePath } from "@/lib/basePath";
 import { getAllPosts } from "@/lib/blog";
+import { SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+const blogTitle = `Blog | ${SITE_NAME}`;
+const blogDescription = "Polaris blog: DeFi stablecoin insights, CDP innovations, and protocol updates. Learn how pUSD delivers scalable, trustless yield.";
+
 export const metadata: Metadata = {
-  title: "Blog | Polaris Protocol",
-  description: "Polaris blog: DeFi stablecoin insights, CDP innovations, and protocol updates. Learn how pUSD delivers scalable, trustless yield.",
+  title: blogTitle,
+  description: blogDescription,
   alternates: {
-    canonical: "https://polarisfinance.io/blog",
+    canonical: `${SITE_URL}/blog`,
   },
   openGraph: {
-    title: "Blog | Polaris Protocol",
-    description: "Polaris blog: DeFi stablecoin insights, CDP innovations, and protocol updates. Learn how pUSD delivers scalable, trustless yield.",
-    url: "https://polarisfinance.io/blog",
-    siteName: "Polaris Protocol",
+    title: blogTitle,
+    description: blogDescription,
+    url: `${SITE_URL}/blog`,
+    siteName: SITE_NAME,
     images: [
       {
         url: "/polaris-og.png",
         width: 1200,
         height: 630,
-        alt: "Polaris Protocol Blog",
+        alt: `${SITE_NAME} Blog`,
         type: "image/png",
       },
     ],
@@ -32,10 +36,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | Polaris Protocol",
-    description: "Polaris blog: DeFi stablecoin insights, CDP innovations, and protocol updates. Learn how pUSD delivers scalable, trustless yield.",
+    title: blogTitle,
+    description: blogDescription,
     images: ["/polaris-og.png"],
-    creator: "@polarisfinance_",
+    creator: TWITTER_HANDLE,
   },
 };
 
@@ -65,7 +69,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(13,31,60,0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(13,31,60,0.7)]"
+                className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
               >
                 {post.image && (
                   <div className="relative aspect-video w-full overflow-hidden">
@@ -103,7 +107,7 @@ export default function BlogPage() {
           </div>
 
           {posts.length === 0 && (
-            <div className="mt-12 rounded-2xl border border-dashed border-[rgba(232,220,196,0.15)] bg-[rgba(13,31,60,0.3)] p-12 text-center">
+            <div className="mt-12 rounded-2xl border border-dashed border-[rgba(232,220,196,0.15)] bg-[rgba(var(--polaris-navy-rgb),0.3)] p-12 text-center">
               <p className="text-cream-muted">No posts yet. Check back soon!</p>
             </div>
           )}

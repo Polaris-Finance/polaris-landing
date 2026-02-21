@@ -1,5 +1,9 @@
 "use client";
 
+// global-error.tsx renders its own <html> tag outside the normal layout,
+// so CSS variables and shared components are unavailable. Hex values here
+// mirror the design tokens: #050a14 = --polaris-navy-darkest,
+// #E8DCC4 = --polaris-star, #F5F0E6 = --polaris-cream.
 export default function GlobalError({
   error,
   reset,

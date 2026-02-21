@@ -4,6 +4,15 @@ import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "content/blog");
 
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim();
+}
+
 export type BlogPost = {
   slug: string;
   title: string;

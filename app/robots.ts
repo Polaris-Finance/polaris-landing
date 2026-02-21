@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/constants";
 import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
@@ -8,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://polarisfinance.io/sitemap.xml",
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

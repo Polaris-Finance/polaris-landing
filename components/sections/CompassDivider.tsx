@@ -3,8 +3,8 @@ function CompassRose() {
     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="compassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#E8DCC4", stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: "#C4B8A0", stopOpacity: 0.6 }} />
+          <stop offset="0%" style={{ stopColor: "var(--polaris-star)", stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: "var(--polaris-star)", stopOpacity: 0.6 }} />
         </linearGradient>
       </defs>
       <polygon points="50,5 53,45 50,50 47,45" fill="url(#compassGradient)" />

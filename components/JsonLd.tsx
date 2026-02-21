@@ -1,3 +1,5 @@
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
+
 type JsonLdProps = {
   data: Record<string, unknown>;
 };
@@ -14,9 +16,9 @@ export function JsonLd({ data }: JsonLdProps) {
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Polaris Protocol",
-  url: "https://polarisfinance.io",
-  logo: "https://polarisfinance.io/emblem.svg",
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/emblem.svg`,
   sameAs: [
     "https://x.com/polarisfinance_",
     "https://github.com/Polaris-Finance",
@@ -29,21 +31,21 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Polaris Protocol",
-  url: "https://polarisfinance.io",
+  name: SITE_NAME,
+  url: SITE_URL,
   description:
     "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
   publisher: {
     "@type": "Organization",
-    name: "Polaris Protocol",
-    url: "https://polarisfinance.io",
+    name: SITE_NAME,
+    url: SITE_URL,
   },
 };
 
 export const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Polaris Protocol",
+  name: SITE_NAME,
   applicationCategory: "FinanceApplication",
   operatingSystem: "Ethereum",
   description:
@@ -55,8 +57,8 @@ export const softwareApplicationSchema = {
   },
   author: {
     "@type": "Organization",
-    name: "Polaris Protocol",
-    url: "https://polarisfinance.io",
+    name: SITE_NAME,
+    url: SITE_URL,
   },
 };
 
@@ -81,16 +83,16 @@ export function createArticleSchema(post: {
     },
     publisher: {
       "@type": "Organization",
-      name: "Polaris Protocol",
-      url: "https://polarisfinance.io",
+      name: SITE_NAME,
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: "https://polarisfinance.io/emblem.svg",
+        url: `${SITE_URL}/emblem.svg`,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://polarisfinance.io/blog/${post.slug}`,
+      "@id": `${SITE_URL}/blog/${post.slug}`,
     },
   };
 }
@@ -117,13 +119,13 @@ export function createCollectionPageSchema(posts: {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Polaris Protocol Blog",
+    name: `${SITE_NAME} Blog`,
     description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
-    url: "https://polarisfinance.io/blog",
+    url: `${SITE_URL}/blog`,
     isPartOf: {
       "@type": "WebSite",
-      name: "Polaris Protocol",
-      url: "https://polarisfinance.io",
+      name: SITE_NAME,
+      url: SITE_URL,
     },
     mainEntity: {
       "@type": "ItemList",
@@ -131,7 +133,7 @@ export function createCollectionPageSchema(posts: {
       itemListElement: posts.map((post, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `https://polarisfinance.io/blog/${post.slug}`,
+        url: `${SITE_URL}/blog/${post.slug}`,
         name: post.title,
       })),
     },
