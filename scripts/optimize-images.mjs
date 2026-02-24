@@ -14,23 +14,36 @@
  *   --no-backup  Skip creating backups (not recommended)
  */
 
-import { existsSync, mkdirSync, statSync, copyFileSync } from 'fs';
-import { join, extname } from 'path';
+import { existsSync, mkdirSync, statSync, copyFileSync, readdirSync } from 'fs';
+import { join, extname, relative, dirname, resolve } from 'path';
 
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes('--dry-run');
 const SKIP_BACKUP = args.includes('--no-backup');
 
-// Images to optimize (in public/)
-const TARGET_IMAGES = [
-  'polaris-og.png',
-  'cover-image.png',
-  'twitter-cover-1500x500-v4.png',
-  'logo-social.png',
-];
-
 const PUBLIC_DIR = './public';
 const BACKUP_DIR = './public/.backup-originals';
+const BACKUP_DIR_ABS = resolve(BACKUP_DIR);
+
+const RASTER_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp']);
+
+/** Recursively find all raster images under a directory. */
+function findImages(dir) {
+  const results = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      // Skip backup directory
+      if (resolve(fullPath) === BACKUP_DIR_ABS) continue;
+      results.push(...findImages(fullPath));
+    } else if (RASTER_EXTS.has(extname(entry.name).toLowerCase())) {
+      results.push(relative(PUBLIC_DIR, fullPath));
+    }
+  }
+  return results.sort();
+}
+
+const TARGET_IMAGES = findImages(PUBLIC_DIR);
 
 function formatBytes(bytes) {
   if (bytes === 0) return '0 Bytes';
@@ -88,9 +101,10 @@ async function optimizeImages() {
 
     console.log(`   Dimensions: ${metadata.width}x${metadata.height}`);
 
-    // Create backup
+    // Create backup (preserving subdirectory structure)
     if (!SKIP_BACKUP && !DRY_RUN) {
       const backupPath = join(BACKUP_DIR, imageName);
+      mkdirSync(dirname(backupPath), { recursive: true });
       copyFileSync(imagePath, backupPath);
       console.log(`   📦 Backup: ${backupPath}`);
     }
