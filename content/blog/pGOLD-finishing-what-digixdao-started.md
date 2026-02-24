@@ -8,7 +8,7 @@ image: "/blog/pgold-finishing-what-digixdao-started-cover.png"
 
 Gold onchain, and as decentralized as it can be\! This quest is nothing new, it’s even one of the original ones with DigixDAO, a fundamental part of Ethereum’s story: it was **the first major project to use an ICO to launch a DAO**, and fueled the dreams of many back in 2016\. The goal was ambitious: to run an asset tokenization business, and gold was of course a prime target with DGX \- Digix Gold Token. The original plan failed to materialize, and unlike some other DAOs facing similar predicaments, the DigixDAO acknowledged it and took action with the [”Ragnarok”](https://medium.com/digix/digixdaos-dissolution-655be3110196) dissolution.
 
-Just like anywhere else, crypto and DeFi history often comes full circle: with ten years of development of both the chain and application layer since DGX, **Ethereum is now getting ready to welcome a decentralized Go(l)d again**: today, we’re telling you the history in the making with pGOLD.
+Just like anywhere else, crypto and DeFi history often comes full circle: with ten years of development of both the chain and application layer since DGX, **Ethereum is now getting ready to welcome a decentralized Go(l)d again**. Today, we’re telling you the history in the making with pGOLD.
 
 ## Why pGOLD?
 
