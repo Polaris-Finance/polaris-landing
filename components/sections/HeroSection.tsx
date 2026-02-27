@@ -171,7 +171,7 @@ export function HeroSection() {
             <a href="https://x.com/polarisfinance_" className="btn-primary" target="_blank" rel="noopener noreferrer">
               Get updates on X
             </a>
-            <a href="https://t.me/polaris_ann" className="btn-primary" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/polaris_ann" className="btn-secondary" target="_blank" rel="noopener noreferrer">
               Get updates on Telegram
             </a>
           </div>
