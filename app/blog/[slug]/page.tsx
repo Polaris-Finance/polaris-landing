@@ -151,7 +151,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Post Not Found | Polaris" };
 
   const url = `${SITE_URL}/blog/${slug}`;
-  const ogImage = post.image || "/polaris-og.png";
+  const ogImage = `${SITE_URL}${post.image || "/polaris-og.png"}`;
 
   return {
     title: `${post.title} | Polaris Blog`,
