@@ -19,7 +19,7 @@ test.describe('SEO & Metadata', () => {
 
     test('has canonical URL', async ({ page }) => {
       const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-      expect(canonical).toBe('https://polarisfinance.io');
+      expect(canonical).toBe('https://polarisfinance.io/');
     });
 
     test('has Open Graph meta tags', async ({ page }) => {
@@ -31,7 +31,7 @@ test.describe('SEO & Metadata', () => {
 
       expect(ogTitle).toBeTruthy();
       expect(ogDescription).toBeTruthy();
-      expect(ogUrl).toBe('https://polarisfinance.io');
+      expect(ogUrl).toBe('https://polarisfinance.io/');
       expect(ogImage).toContain('polaris-og.png');
       expect(ogType).toBe('website');
     });
@@ -103,10 +103,10 @@ test.describe('SEO & Metadata', () => {
       await expect(page).toHaveTitle(/Blog.*Polaris Protocol/i);
 
       const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-      expect(canonical).toBe('https://polarisfinance.io/blog');
+      expect(canonical).toBe('https://polarisfinance.io/blog/');
 
       const ogUrl = await page.locator('meta[property="og:url"]').getAttribute('content');
-      expect(ogUrl).toBe('https://polarisfinance.io/blog');
+      expect(ogUrl).toBe('https://polarisfinance.io/blog/');
     });
 
     test('blog listing has CollectionPage schema', async ({ page }) => {
