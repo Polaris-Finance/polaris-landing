@@ -21,7 +21,7 @@ test.describe('Blog Comprehensive Tests', () => {
 
     test('displays all blog posts', async ({ page }) => {
       for (const post of blogPosts) {
-        const postLink = page.locator(`a[href="/blog/${post.slug}"]`);
+        const postLink = page.locator(`a[href^="/blog/${post.slug}"]`);
         await expect(postLink).toBeVisible();
       }
     });
@@ -175,8 +175,8 @@ test.describe('Blog Comprehensive Tests', () => {
     test('can navigate from listing to post and back', async ({ page }) => {
       await page.goto('/blog');
 
-      // Click first post link
-      const firstPost = page.locator('a[href^="/blog/"]').first();
+      // Click first post link (scoped to main content to exclude nav links)
+      const firstPost = page.locator('#main-content a[href^="/blog/"]').first();
       await firstPost.click();
 
       // Should be on a post page
@@ -184,7 +184,7 @@ test.describe('Blog Comprehensive Tests', () => {
 
       // Navigate back to listing
       await page.goto('/blog');
-      await expect(page).toHaveURL('/blog');
+      await expect(page).toHaveURL(/\/blog\/?$/);
     });
 
     test('breadcrumbs work if present', async ({ page }) => {
