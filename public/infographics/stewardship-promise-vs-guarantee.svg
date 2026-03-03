@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 456" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap');
+    </style>
+
+    <!-- Background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="48%" r="65%">
+      <stop offset="0%" style="stop-color:#0d1f3c"/>
+      <stop offset="100%" style="stop-color:#050a14"/>
+    </radialGradient>
+
+    <!-- Card shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Soft glow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Emblem star gradients (cream, fading from transparent at tips) -->
+    <linearGradient id="emblemLeft" x1="0" y1="15" x2="15" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E8DCC4" stop-opacity="0"/>
+      <stop offset="46%" stop-color="#E8DCC4" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="emblemRight" x1="30" y1="15" x2="15" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E8DCC4" stop-opacity="0"/>
+      <stop offset="46%" stop-color="#E8DCC4" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="emblemTop" x1="15" y1="0" x2="15" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E8DCC4" stop-opacity="0"/>
+      <stop offset="46%" stop-color="#E8DCC4" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="emblemBottom" x1="15" y1="30" x2="15" y2="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E8DCC4" stop-opacity="0"/>
+      <stop offset="46%" stop-color="#E8DCC4" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Radial glow behind emblem -->
+    <radialGradient id="emblemGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8DCC4" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#E8DCC4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1300" height="456" fill="url(#bgGradient)"/>
+
+  <!-- ===== TITLE ===== -->
+  <text x="650" y="66" font-family="'Cormorant Garamond', Georgia, serif" font-size="36" font-weight="600" fill="#E8DCC4" text-anchor="middle" letter-spacing="0.05em">Promise vs Guarantee</text>
+
+  <!-- ===== LEFT COLUMN — "Promise" ===== -->
+  <g transform="translate(100, 100)">
+    <!-- Card container -->
+    <rect x="0" y="0" width="480" height="316" rx="24" fill="#0d1f3c" stroke="rgba(232,220,196,0.08)" stroke-width="1" filter="url(#shadow)"/>
+
+    <!-- Header -->
+    <text x="40" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="400" fill="rgba(232,220,196,0.35)">Promise</text>
+
+    <!-- Item 1 -->
+    <text x="40" y="108" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(200,120,120,0.4)">&#x2715;</text>
+    <text x="66" y="108" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="400" fill="rgba(232,220,196,0.35)">Trust the team</text>
+
+    <!-- Item 2 -->
+    <text x="40" y="150" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(200,120,120,0.4)">&#x2715;</text>
+    <text x="66" y="150" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="400" fill="rgba(232,220,196,0.35)">Vesting cliffs align incentives</text>
+
+    <!-- Item 3 -->
+    <text x="40" y="192" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(200,120,120,0.4)">&#x2715;</text>
+    <text x="66" y="192" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="400" fill="rgba(232,220,196,0.35)">Governance votes enforce accountability</text>
+
+    <!-- Item 4 -->
+    <text x="40" y="234" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(200,120,120,0.4)">&#x2715;</text>
+    <text x="66" y="234" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="400" fill="rgba(232,220,196,0.35)">Social pressure keeps actors honest</text>
+
+    <!-- Item 5 -->
+    <text x="40" y="276" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(200,120,120,0.4)">&#x2715;</text>
+    <text x="66" y="276" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="400" fill="rgba(232,220,196,0.35)">We won't change the core product</text>
+  </g>
+
+  <!-- ===== RIGHT COLUMN — "Guarantee" ===== -->
+  <g transform="translate(720, 100)">
+    <!-- Card container -->
+    <rect x="0" y="0" width="480" height="316" rx="24" fill="#0d1f3c" stroke="rgba(232,220,196,0.15)" stroke-width="1" filter="url(#shadow)"/>
+
+    <!-- Header -->
+    <text x="40" y="50" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-weight="600" fill="#E8DCC4">Guarantee</text>
+
+    <!-- Item 1 -->
+    <g transform="translate(44, 105)">
+      <polygon points="0,-5 0.8,-3.5 3.5,-3.5 1.5,-2 2.3,-0.2 0,-1.5 -2.3,-0.2 -1.5,-2 -3.5,-3.5 -0.8,-3.5" fill="#E8DCC4" fill-opacity="0.7"/>
+    </g>
+    <text x="66" y="108" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(232,220,196,0.85)">Immutable contracts</text>
+
+    <!-- Item 2 -->
+    <g transform="translate(44, 147)">
+      <polygon points="0,-5 0.8,-3.5 3.5,-3.5 1.5,-2 2.3,-0.2 0,-1.5 -2.3,-0.2 -1.5,-2 -3.5,-3.5 -0.8,-3.5" fill="#E8DCC4" fill-opacity="0.7"/>
+    </g>
+    <text x="66" y="150" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(232,220,196,0.85)">Conversion dilutes founders as protocol grows</text>
+
+    <!-- Item 3 -->
+    <g transform="translate(44, 189)">
+      <polygon points="0,-5 0.8,-3.5 3.5,-3.5 1.5,-2 2.3,-0.2 0,-1.5 -2.3,-0.2 -1.5,-2 -3.5,-3.5 -0.8,-3.5" fill="#E8DCC4" fill-opacity="0.7"/>
+    </g>
+    <text x="66" y="192" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(232,220,196,0.85)">Bounded parameters with hard caps</text>
+
+    <!-- Item 4 -->
+    <g transform="translate(44, 231)">
+      <polygon points="0,-5 0.8,-3.5 3.5,-3.5 1.5,-2 2.3,-0.2 0,-1.5 -2.3,-0.2 -1.5,-2 -3.5,-3.5 -0.8,-3.5" fill="#E8DCC4" fill-opacity="0.7"/>
+    </g>
+    <text x="66" y="234" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(232,220,196,0.85)">All flows verifiable on-chain</text>
+
+    <!-- Item 5 -->
+    <g transform="translate(44, 273)">
+      <polygon points="0,-5 0.8,-3.5 3.5,-3.5 1.5,-2 2.3,-0.2 0,-1.5 -2.3,-0.2 -1.5,-2 -3.5,-3.5 -0.8,-3.5" fill="#E8DCC4" fill-opacity="0.7"/>
+    </g>
+    <text x="66" y="276" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="500" fill="rgba(232,220,196,0.85)">No trust required</text>
+  </g>
+
+  <!-- ===== CENTER DIVIDER ===== -->
+  <!-- Vertical line -->
+  <line x1="650" y1="122" x2="650" y2="396" stroke="rgba(232,220,196,0.1)" stroke-width="1"/>
+
+  <!-- Polaris emblem at midpoint -->
+  <g transform="translate(635, 244)" filter="url(#softGlow)">
+    <!-- Radial glow behind star -->
+    <circle cx="15" cy="15" r="20" fill="url(#emblemGlow)"/>
+    <!-- Four-pointed star arms -->
+    <path d="M0 15L12.4 13.6L15 15L12.4 16.4L0 15Z" fill="url(#emblemLeft)"/>
+    <path d="M30 15L17.6 13.6L15 15L17.6 16.4L30 15Z" fill="url(#emblemRight)"/>
+    <path d="M15 0L16.4 12.4L15 15L13.6 12.4L15 0Z" fill="url(#emblemTop)"/>
+    <path d="M15 30L16.4 17.6L15 15L13.6 17.6L15 30Z" fill="url(#emblemBottom)"/>
+    <!-- Center dot -->
+    <circle cx="15" cy="15" r="1.5" fill="#E8DCC4"/>
+  </g>
+
+</svg>

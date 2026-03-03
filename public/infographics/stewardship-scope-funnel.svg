@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 850" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&amp;family=Inter:wght@400;500;600&amp;display=swap');
+    </style>
+
+    <!-- Background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="48%" r="65%">
+      <stop offset="0%" style="stop-color:#0d1f3c"/>
+      <stop offset="100%" style="stop-color:#050a14"/>
+    </radialGradient>
+
+    <!-- Card shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Soft glow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- POLAR token background -->
+    <radialGradient id="polarBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#1a3a5c"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+
+    <!-- POLAR star arm gradients -->
+    <linearGradient id="polarLeft" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#9B8FCF" stop-opacity="0"/>
+      <stop offset="46%" stop-color="#B8A8DF"/>
+    </linearGradient>
+    <linearGradient id="polarRight" x1="100%" y1="50%" x2="0%" y2="50%">
+      <stop offset="0%" stop-color="#9B8FCF" stop-opacity="0"/>
+      <stop offset="46%" stop-color="#B8A8DF"/>
+    </linearGradient>
+    <linearGradient id="polarTop" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#9B8FCF" stop-opacity="0"/>
+      <stop offset="46%" stop-color="#B8A8DF"/>
+    </linearGradient>
+    <linearGradient id="polarBottom" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#9B8FCF" stop-opacity="0"/>
+      <stop offset="46%" stop-color="#B8A8DF"/>
+    </linearGradient>
+
+    <!-- POLAR radial glow -->
+    <radialGradient id="polarGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9B8FCF" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#9B8FCF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Arrow marker (cream, for dashed connectors) -->
+    <marker id="arrowCream" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L8,5 L2,8" fill="none" stroke="#E8DCC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1300" height="850" fill="url(#bgGradient)"/>
+
+  <!-- Center funnel; slight left offset to balance right-side quotes -->
+  <g transform="translate(-20, 45)">
+
+  <!-- ==================== TITLE SECTION ==================== -->
+
+  <!-- Main title -->
+  <text x="650" y="28" font-family="'Cormorant Garamond', Georgia, serif" font-size="38" font-weight="600" fill="#E8DCC4" text-anchor="middle" letter-spacing="0.05em">From All Decisions to Stewardship</text>
+
+  <!-- Subtitle -->
+  <text x="650" y="56" font-family="'Inter', Arial, sans-serif" font-size="15" font-weight="400" fill="rgba(232,220,196,0.5)" text-anchor="middle" letter-spacing="0.08em">HOW POLARIS MINIMIZES GOVERNANCE SURFACE AREA</text>
+
+  <!-- ==================== vePOLAR TOKEN AT FUNNEL APEX ==================== -->
+  <g transform="translate(650, 155)">
+    <!-- Token circle -->
+    <circle cx="0" cy="0" r="30" fill="url(#polarBg)" stroke="#9B8FCF" stroke-width="1.5" stroke-opacity="0.4"/>
+
+    <!-- Radial glow behind star -->
+    <circle cx="0" cy="0" r="22" fill="url(#polarGlow)"/>
+
+    <!-- Four-pointed star (scaled from 88x88 viewBox to fit r=30 circle) -->
+    <g transform="scale(0.55)">
+      <!-- Left arm -->
+      <path d="M-43.5,0 L-7.3,-3.9 L0,0 L-7.3,3.9 Z" fill="url(#polarLeft)"/>
+      <!-- Right arm -->
+      <path d="M43.5,0 L7.3,-3.9 L0,0 L7.3,3.9 Z" fill="url(#polarRight)"/>
+      <!-- Top arm -->
+      <path d="M0,-43.5 L3.9,-7.3 L0,0 L-3.9,-7.3 Z" fill="url(#polarTop)"/>
+      <!-- Bottom arm -->
+      <path d="M0,43.5 L3.9,7.3 L0,0 L-3.9,7.3 Z" fill="url(#polarBottom)"/>
+      <!-- Centre dot -->
+      <circle cx="0" cy="0" r="4.35" fill="#B8A8DF"/>
+    </g>
+
+    <!-- Label: vePOLAR (above token) -->
+    <text x="0" y="-42" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="500" fill="#E8DCC4" text-anchor="middle">vePOLAR</text>
+  </g>
+
+  <!-- ==================== REVERSED FUNNEL (narrow top → wide bottom) ==================== -->
+  <!--
+    Funnel spans y=205 to y=745.
+    Half-width formula: hw(y) = 125 + 275 * (y - 205) / 540
+    Continuous diagonal edges from (525,205)→(250,745) left and (775,205)→(1050,745) right.
+  -->
+
+  <!-- ===== DASHED ARROW: STEWARD → vePOLAR (upward) ===== -->
+  <line x1="650" y1="201" x2="650" y2="192" stroke="#E8DCC4" stroke-width="1" stroke-dasharray="4,3" opacity="0.3" marker-end="url(#arrowCream)"/>
+
+  <!-- ===== TIER 1 (top): STEWARD ===== -->
+  <!-- y: 205 → 365, narrowest tier -->
+  <g>
+    <!-- Trapezoid shape (widens downward on funnel lines) -->
+    <path d="M525,205 L775,205 L857,365 L443,365 Z" fill="#9B8FCF" fill-opacity="0.15" stroke="#9B8FCF" stroke-opacity="0.25" stroke-width="1"/>
+
+    <!-- Inner subtle border -->
+    <path d="M529,209 L771,209 L853,361 L447,361 Z" fill="none" stroke="#9B8FCF" stroke-opacity="0.06" stroke-width="1"/>
+
+    <!-- Badge: STEWARD (centered) -->
+    <text x="650" y="240" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="600" fill="#9B8FCF" text-anchor="middle" letter-spacing="0.15em">STEWARD</text>
+
+    <!-- Component labels (stacked vertically for narrow tier) -->
+    <g font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" fill="#9B8FCF" fill-opacity="0.8" text-anchor="middle">
+      <text x="650" y="278">CDP licensing</text>
+      <text x="650" y="302">Parameter bounds</text>
+      <text x="650" y="326">Gauge emissions</text>
+      <text x="650" y="348">IP &amp; StablecoinOS</text>
+    </g>
+
+    <!-- Right annotation -->
+    <text x="875" y="265" font-family="'Inter', Arial, sans-serif" font-size="15" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.5)" text-anchor="start">
+      <tspan x="875" dy="0">"Broader distribution</tspan>
+      <tspan x="875" dy="20">= more decentralized"</tspan>
+    </text>
+  </g>
+
+  <!-- ===== DASHED ARROW: INCENTIVIZE → STEWARD (upward) ===== -->
+  <line x1="650" y1="396" x2="650" y2="374" stroke="#E8DCC4" stroke-width="1" stroke-dasharray="4,3" opacity="0.3" marker-end="url(#arrowCream)"/>
+
+  <!-- ===== TIER 2 (middle): INCENTIVIZE ===== -->
+  <!-- y: 400 → 560 -->
+  <g>
+    <!-- Trapezoid shape (widens downward on funnel lines) -->
+    <path d="M426,400 L874,400 L956,560 L344,560 Z" fill="#E8DCC4" fill-opacity="0.10" stroke="#E8DCC4" stroke-opacity="0.15" stroke-width="1"/>
+
+    <!-- Inner subtle border -->
+    <path d="M430,404 L870,404 L952,556 L348,556 Z" fill="none" stroke="#E8DCC4" stroke-opacity="0.04" stroke-width="1"/>
+
+    <!-- Badge: INCENTIVIZE (centered) -->
+    <text x="650" y="438" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="600" fill="#E8DCC4" fill-opacity="0.8" text-anchor="middle" letter-spacing="0.15em">INCENTIVIZE</text>
+
+    <!-- Component labels (two rows) -->
+    <g font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" fill="#E8DCC4" fill-opacity="0.8" text-anchor="middle">
+      <text x="550" y="484">Stability pool supply</text>
+      <circle cx="650" cy="481" r="2" fill="#E8DCC4" fill-opacity="0.3"/>
+      <text x="750" y="484">Liquidity provision</text>
+    </g>
+    <text x="650" y="517" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" fill="#E8DCC4" fill-opacity="0.8" text-anchor="middle">pETH floor growth</text>
+
+    <!-- Right annotation -->
+    <text x="972" y="455" font-family="'Inter', Arial, sans-serif" font-size="15" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.5)" text-anchor="start">
+      <tspan x="972" dy="0">"Rational economic</tspan>
+      <tspan x="972" dy="20">actors make the system</tspan>
+      <tspan x="972" dy="20">work as intended"</tspan>
+    </text>
+  </g>
+
+  <!-- ===== DASHED ARROW: AUTOMATE → INCENTIVIZE (upward) ===== -->
+  <line x1="650" y1="591" x2="650" y2="569" stroke="#E8DCC4" stroke-width="1" stroke-dasharray="4,3" opacity="0.3" marker-end="url(#arrowCream)"/>
+
+  <!-- ===== TIER 3 (bottom): AUTOMATE ===== -->
+  <!-- y: 595 → 745, widest tier -->
+  <g>
+    <!-- Trapezoid shape (widens downward on funnel lines) -->
+    <path d="M326,595 L974,595 L1050,745 L250,745 Z" fill="#7BA5C9" fill-opacity="0.12" stroke="#7BA5C9" stroke-opacity="0.2" stroke-width="1"/>
+
+    <!-- Inner subtle border -->
+    <path d="M330,599 L970,599 L1046,741 L254,741 Z" fill="none" stroke="#7BA5C9" stroke-opacity="0.05" stroke-width="1"/>
+
+    <!-- Badge: AUTOMATE (centered) -->
+    <text x="650" y="634" font-family="'Inter', Arial, sans-serif" font-size="17" font-weight="600" fill="#7BA5C9" text-anchor="middle" letter-spacing="0.15em">AUTOMATE</text>
+
+    <!-- Component labels (centered rows) -->
+    <g font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" fill="#7BA5C9" fill-opacity="0.8" text-anchor="middle">
+      <text x="425" y="678">Bonding curve</text>
+      <circle cx="500" cy="675" r="2" fill="#7BA5C9" fill-opacity="0.35"/>
+      <text x="575" y="678">Redemptions</text>
+      <circle cx="650" cy="675" r="2" fill="#7BA5C9" fill-opacity="0.35"/>
+      <text x="725" y="678">Liquidations</text>
+      <circle cx="800" cy="675" r="2" fill="#7BA5C9" fill-opacity="0.35"/>
+      <text x="875" y="678">Interest accrual</text>
+    </g>
+    <text x="650" y="710" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" fill="#7BA5C9" fill-opacity="0.8" text-anchor="middle">Stability pool</text>
+
+    <!-- Right annotation (Hayden quote) -->
+    <text x="1066" y="650" font-family="'Inter', Arial, sans-serif" font-size="15" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.5)" text-anchor="start">
+      <tspan x="1066" dy="0">"'It just works' is the</tspan>
+      <tspan x="1066" dy="20">best form of</tspan>
+      <tspan x="1066" dy="20">decentralization"</tspan>
+    </text>
+  </g>
+
+  </g>
+</svg>

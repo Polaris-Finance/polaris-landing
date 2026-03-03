@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 960" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&amp;family=Inter:wght@400;500;600&amp;display=swap');
+    </style>
+
+    <!-- Background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="46%" r="65%">
+      <stop offset="0%" style="stop-color:#0d1f3c"/>
+      <stop offset="100%" style="stop-color:#050a14"/>
+    </radialGradient>
+
+    <!-- Core inner glow -->
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#E8DCC4;stop-opacity:0.06"/>
+      <stop offset="100%" style="stop-color:#E8DCC4;stop-opacity:0"/>
+    </radialGradient>
+
+    <!-- Hexagon fill gradient for subtle depth -->
+    <radialGradient id="hexFill" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#112844"/>
+      <stop offset="100%" style="stop-color:#0b1a30"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+
+    <filter id="cardShadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+
+    <filter id="lockGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="connectorGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Connector dot gradient (cream) -->
+    <radialGradient id="dotCream" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" style="stop-color:#F5F0E6"/>
+      <stop offset="100%" style="stop-color:#E8DCC4"/>
+    </radialGradient>
+
+    <!-- Connector dot gradient (purple) -->
+    <radialGradient id="dotPurple" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" style="stop-color:#B8A8DF"/>
+      <stop offset="100%" style="stop-color:#9B8FCF"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ========== BACKGROUND ========== -->
+  <rect width="1400" height="960" fill="url(#bgGradient)"/>
+
+  <!-- Subtle radial rings for depth -->
+  <circle cx="700" cy="470" r="400" fill="none" stroke="rgba(232,220,196,0.02)" stroke-width="1"/>
+  <circle cx="700" cy="470" r="340" fill="none" stroke="rgba(232,220,196,0.015)" stroke-width="1"/>
+  <circle cx="700" cy="470" r="260" fill="none" stroke="rgba(232,220,196,0.01)" stroke-width="1"/>
+
+  <!-- ========== TITLE ========== -->
+  <text x="700" y="62" font-family="'Cormorant Garamond', Georgia, serif" font-size="48" font-weight="600" fill="#E8DCC4" text-anchor="middle" letter-spacing="0.05em">Immutable Core, Bounded Stewardship</text>
+  <text x="700" y="92" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="400" fill="rgba(232,220,196,0.45)" text-anchor="middle" letter-spacing="0.1em">WHAT STEWARDSHIP CAN AND CANNOT TOUCH</text>
+
+  <!-- ========== CENTER: cx=700 cy=470 ========== -->
+
+  <!-- ========== MOAT (dashed boundary circle) ========== -->
+  <circle cx="700" cy="470" r="210" fill="none" stroke="rgba(232,220,196,0.16)" stroke-width="1.5" stroke-dasharray="4,7"/>
+
+  <!-- ========== INNER CORE (hexagon) ========== -->
+  <!-- Flat-top hexagon: center (700,470), r=160 -->
+  <polygon
+    points="860,470 780,608.6 620,608.6 540,470 620,331.4 780,331.4"
+    fill="url(#hexFill)"
+    stroke="rgba(232,220,196,0.2)"
+    stroke-width="1.5"
+    filter="url(#shadow)"/>
+
+  <!-- Inner glow overlay -->
+  <circle cx="700" cy="470" r="135" fill="url(#coreGlow)"/>
+
+  <!-- ========== LOCK ICON (center) ========== -->
+  <g transform="translate(700, 455)" filter="url(#lockGlow)">
+    <!-- Lock body -->
+    <rect x="-12" y="-2" width="24" height="18" rx="3.5" fill="none" stroke="#E8DCC4" stroke-width="1.5" stroke-opacity="0.35"/>
+    <!-- Lock shackle -->
+    <path d="M-7,-2 L-7,-9 Q-7,-16 0,-16 Q7,-16 7,-9 L7,-2" fill="none" stroke="#E8DCC4" stroke-width="1.5" stroke-opacity="0.35" stroke-linecap="round"/>
+    <!-- Keyhole -->
+    <circle cx="0" cy="6" r="3" fill="#E8DCC4" fill-opacity="0.25"/>
+    <rect x="-1.2" y="6" width="2.4" height="5" rx="0.6" fill="#E8DCC4" fill-opacity="0.25"/>
+  </g>
+
+  <!-- "IMMUTABLE" label under lock -->
+  <text x="700" y="496" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="600" fill="rgba(232,220,196,0.25)" text-anchor="middle" letter-spacing="0.18em">IMMUTABLE</text>
+
+  <!-- ========== CORE COMPONENTS (within hexagon) ========== -->
+  <!-- 5 items arranged around the lock, 16px labels, well-spaced -->
+
+  <!-- 1. Bonding Curve — top center -->
+  <g transform="translate(700, 355)">
+    <path d="M-12,8 C-9,-2 -3,-6 12,-8" fill="none" stroke="#E8DCC4" stroke-width="1.5" stroke-opacity="0.45" stroke-linecap="round"/>
+    <text x="0" y="24" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="rgba(232,220,196,0.75)" text-anchor="middle">Bonding Curve</text>
+  </g>
+
+  <!-- 2. CDP Logic — right -->
+  <g transform="translate(775, 430)">
+    <rect x="-10" y="-4" width="5" height="11" rx="0.8" fill="#E8DCC4" fill-opacity="0.4"/>
+    <rect x="-3" y="-9" width="5" height="16" rx="0.8" fill="#E8DCC4" fill-opacity="0.4"/>
+    <rect x="4" y="-6" width="5" height="13" rx="0.8" fill="#E8DCC4" fill-opacity="0.4"/>
+    <text x="0" y="24" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="rgba(232,220,196,0.75)" text-anchor="middle">CDP Logic</text>
+  </g>
+
+  <!-- 3. Liquidations — lower right -->
+  <g transform="translate(755, 555)">
+    <path d="M-4,-9 L2,-1 L0,-1 L6,9 L3,1 L5,1 L-2,-9 Z" fill="#E8DCC4" fill-opacity="0.4"/>
+    <text x="0" y="24" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="rgba(232,220,196,0.75)" text-anchor="middle">Liquidations</text>
+  </g>
+
+  <!-- 4. Redemptions — lower left -->
+  <g transform="translate(645, 555)">
+    <path d="M-4,-6 L6,-6 L4,-9" fill="none" stroke="#E8DCC4" stroke-width="1.4" stroke-opacity="0.45" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4,4 L-6,4 L-4,7" fill="none" stroke="#E8DCC4" stroke-width="1.4" stroke-opacity="0.45" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="24" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="rgba(232,220,196,0.75)" text-anchor="middle">Redemptions</text>
+  </g>
+
+  <!-- 5. Stability Pool — left -->
+  <g transform="translate(620, 430)">
+    <path d="M0,-10 L8,-5 L8,3 Q8,9 0,12 Q-8,9 -8,3 L-8,-5 Z" fill="none" stroke="#E8DCC4" stroke-width="1.4" stroke-opacity="0.45" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="0" y="24" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="rgba(232,220,196,0.75)" text-anchor="middle">Stability Pool</text>
+  </g>
+
+  <!-- ========== CONNECTOR LINES (moat → cards) ========== -->
+  <!-- Each connector: dashed line from moat edge toward card, with a small dot at moat end -->
+
+  <!-- Card 1 (top): moat top → card bottom -->
+  <line x1="700" y1="260" x2="700" y2="158" stroke="rgba(232,220,196,0.12)" stroke-width="1" stroke-dasharray="4,4" filter="url(#connectorGlow)"/>
+  <circle cx="700" cy="260" r="3" fill="url(#dotCream)" fill-opacity="0.5"/>
+
+  <!-- Card 2 (top-right): moat 60° → card left -->
+  <line x1="882" y1="365" x2="930" y2="350" stroke="rgba(232,220,196,0.12)" stroke-width="1" stroke-dasharray="4,4" filter="url(#connectorGlow)"/>
+  <circle cx="882" cy="365" r="3" fill="url(#dotCream)" fill-opacity="0.5"/>
+
+  <!-- Card 3 (bottom-right): moat 120° → card left -->
+  <line x1="882" y1="575" x2="930" y2="590" stroke="rgba(155,143,207,0.12)" stroke-width="1" stroke-dasharray="4,4" filter="url(#connectorGlow)"/>
+  <circle cx="882" cy="575" r="3" fill="url(#dotPurple)" fill-opacity="0.5"/>
+
+  <!-- Card 4 (bottom): moat bottom → card top -->
+  <line x1="700" y1="680" x2="700" y2="744" stroke="rgba(232,220,196,0.12)" stroke-width="1" stroke-dasharray="4,4" filter="url(#connectorGlow)"/>
+  <circle cx="700" cy="680" r="3" fill="url(#dotCream)" fill-opacity="0.5"/>
+
+  <!-- Card 5 (bottom-left): moat 240° → card right -->
+  <line x1="518" y1="575" x2="470" y2="590" stroke="rgba(155,143,207,0.12)" stroke-width="1" stroke-dasharray="4,4" filter="url(#connectorGlow)"/>
+  <circle cx="518" cy="575" r="3" fill="url(#dotPurple)" fill-opacity="0.5"/>
+
+  <!-- Card 6 (top-left): moat 300° → card right -->
+  <line x1="518" y1="365" x2="470" y2="350" stroke="rgba(155,143,207,0.12)" stroke-width="1" stroke-dasharray="4,4" filter="url(#connectorGlow)"/>
+  <circle cx="518" cy="365" r="3" fill="url(#dotPurple)" fill-opacity="0.5"/>
+
+  <!-- ========== OUTER RING: 6 STEWARDSHIP CARDS ========== -->
+  <!-- Cards: 260x130, rx=20 -->
+
+  <!-- === CARD 1: CDP Licensing (top) === -->
+  <g transform="translate(570, 118)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="260" height="130" rx="20" fill="#0d1f3c" stroke="rgba(232,220,196,0.12)" stroke-width="1"/>
+    <!-- Subtle top accent line -->
+    <rect x="30" y="0" width="200" height="1" rx="0.5" fill="rgba(232,220,196,0.08)"/>
+    <text x="130" y="34" font-family="'Inter', Arial, sans-serif" font-size="19" font-weight="500" fill="rgba(232,220,196,0.9)" text-anchor="middle">CDP Licensing</text>
+    <text x="130" y="58" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(232,220,196,0.4)" text-anchor="middle">Grant the right to deploy pAssets</text>
+    <!-- Slider track -->
+    <rect x="60" y="74" width="140" height="3" rx="1.5" fill="rgba(232,220,196,0.08)"/>
+    <rect x="60" y="74" width="70" height="3" rx="1.5" fill="rgba(232,220,196,0.2)"/>
+    <circle cx="130" cy="75.5" r="5" fill="url(#dotCream)" fill-opacity="0.65" stroke="rgba(232,220,196,0.3)" stroke-width="1"/>
+    <text x="130" y="108" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.3)" text-anchor="middle" letter-spacing="0.02em">Standardized license terms</text>
+  </g>
+
+  <!-- === CARD 2: CDP Parametrization (top-right) === -->
+  <g transform="translate(930, 290)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="260" height="130" rx="20" fill="#0d1f3c" stroke="rgba(232,220,196,0.12)" stroke-width="1"/>
+    <rect x="30" y="0" width="200" height="1" rx="0.5" fill="rgba(232,220,196,0.08)"/>
+    <text x="130" y="34" font-family="'Inter', Arial, sans-serif" font-size="19" font-weight="500" fill="rgba(232,220,196,0.9)" text-anchor="middle">CDP Parametrization</text>
+    <text x="130" y="58" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(232,220,196,0.4)" text-anchor="middle">Fee and yield split adjustments</text>
+    <!-- Slider track -->
+    <rect x="60" y="74" width="140" height="3" rx="1.5" fill="rgba(232,220,196,0.08)"/>
+    <rect x="60" y="74" width="105" height="3" rx="1.5" fill="rgba(232,220,196,0.2)"/>
+    <circle cx="165" cy="75.5" r="5" fill="url(#dotCream)" fill-opacity="0.65" stroke="rgba(232,220,196,0.3)" stroke-width="1"/>
+    <text x="130" y="108" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.3)" text-anchor="middle" letter-spacing="0.02em">All parameters bounded min/max</text>
+  </g>
+
+  <!-- === CARD 3: POLAR Conversion (bottom-right) === -->
+  <g transform="translate(930, 530)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="260" height="130" rx="20" fill="#0d1f3c" stroke="rgba(155,143,207,0.12)" stroke-width="1"/>
+    <rect x="30" y="0" width="200" height="1" rx="0.5" fill="rgba(155,143,207,0.08)"/>
+    <text x="130" y="34" font-family="'Inter', Arial, sans-serif" font-size="19" font-weight="500" fill="rgba(155,143,207,0.9)" text-anchor="middle">POLAR Conversion</text>
+    <text x="130" y="58" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(232,220,196,0.4)" text-anchor="middle">pETH &#x2192; POLAR conversion rate</text>
+    <!-- Slider track -->
+    <rect x="60" y="74" width="140" height="3" rx="1.5" fill="rgba(155,143,207,0.08)"/>
+    <rect x="60" y="74" width="50" height="3" rx="1.5" fill="rgba(155,143,207,0.2)"/>
+    <circle cx="110" cy="75.5" r="5" fill="url(#dotPurple)" fill-opacity="0.65" stroke="rgba(155,143,207,0.3)" stroke-width="1"/>
+    <text x="130" y="108" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.3)" text-anchor="middle" letter-spacing="0.02em">Can be 0, hard cap max</text>
+  </g>
+
+  <!-- === CARD 4: StablecoinOS Onboarding (bottom) === -->
+  <g transform="translate(570, 744)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="260" height="130" rx="20" fill="#0d1f3c" stroke="rgba(232,220,196,0.12)" stroke-width="1"/>
+    <rect x="30" y="0" width="200" height="1" rx="0.5" fill="rgba(232,220,196,0.08)"/>
+    <text x="130" y="34" font-family="'Inter', Arial, sans-serif" font-size="19" font-weight="500" fill="rgba(232,220,196,0.9)" text-anchor="middle">StablecoinOS Onboarding</text>
+    <text x="130" y="58" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(232,220,196,0.4)" text-anchor="middle">Whitelist new participants</text>
+    <!-- Slider track -->
+    <rect x="60" y="74" width="140" height="3" rx="1.5" fill="rgba(232,220,196,0.08)"/>
+    <rect x="60" y="74" width="90" height="3" rx="1.5" fill="rgba(232,220,196,0.2)"/>
+    <circle cx="150" cy="75.5" r="5" fill="url(#dotCream)" fill-opacity="0.65" stroke="rgba(232,220,196,0.3)" stroke-width="1"/>
+    <text x="130" y="108" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.3)" text-anchor="middle" letter-spacing="0.02em">Must opt-in to fee sharing</text>
+  </g>
+
+  <!-- === CARD 5: Gauge Emissions (bottom-left) === -->
+  <g transform="translate(210, 530)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="260" height="130" rx="20" fill="#0d1f3c" stroke="rgba(155,143,207,0.12)" stroke-width="1"/>
+    <rect x="30" y="0" width="200" height="1" rx="0.5" fill="rgba(155,143,207,0.08)"/>
+    <text x="130" y="34" font-family="'Inter', Arial, sans-serif" font-size="19" font-weight="500" fill="rgba(155,143,207,0.9)" text-anchor="middle">Gauge Emissions</text>
+    <text x="130" y="58" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(232,220,196,0.4)" text-anchor="middle">Direct POLAR incentives</text>
+    <!-- Slider track -->
+    <rect x="60" y="74" width="140" height="3" rx="1.5" fill="rgba(155,143,207,0.08)"/>
+    <rect x="60" y="74" width="80" height="3" rx="1.5" fill="rgba(155,143,207,0.2)"/>
+    <circle cx="140" cy="75.5" r="5" fill="url(#dotPurple)" fill-opacity="0.65" stroke="rgba(155,143,207,0.3)" stroke-width="1"/>
+    <text x="130" y="108" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.3)" text-anchor="middle" letter-spacing="0.02em">~25% supply over 4 years</text>
+  </g>
+
+  <!-- === CARD 6: Treasury Positions (top-left) === -->
+  <g transform="translate(210, 290)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="260" height="130" rx="20" fill="#0d1f3c" stroke="rgba(155,143,207,0.12)" stroke-width="1"/>
+    <rect x="30" y="0" width="200" height="1" rx="0.5" fill="rgba(155,143,207,0.08)"/>
+    <text x="130" y="34" font-family="'Inter', Arial, sans-serif" font-size="19" font-weight="500" fill="rgba(155,143,207,0.9)" text-anchor="middle">Treasury Positions</text>
+    <text x="130" y="58" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(232,220,196,0.4)" text-anchor="middle">16.4% POLAR for treasury</text>
+    <!-- Slider track -->
+    <rect x="60" y="74" width="140" height="3" rx="1.5" fill="rgba(155,143,207,0.08)"/>
+    <rect x="60" y="74" width="60" height="3" rx="1.5" fill="rgba(155,143,207,0.2)"/>
+    <circle cx="120" cy="75.5" r="5" fill="url(#dotPurple)" fill-opacity="0.65" stroke="rgba(155,143,207,0.3)" stroke-width="1"/>
+    <text x="130" y="108" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="400" font-style="italic" fill="rgba(232,220,196,0.3)" text-anchor="middle" letter-spacing="0.02em">8.2% committed to Polar Council</text>
+  </g>
+
+  <!-- ========== BOTTOM LEGEND ========== -->
+  <g transform="translate(700, 920)">
+    <!-- Core legend item -->
+    <g transform="translate(-280, 0)">
+      <!-- Hexagon mini icon -->
+      <polygon points="0,-8 7,-4 7,4 0,8 -7,4 -7,-4" fill="none" stroke="#8BA4B8" stroke-width="1" stroke-opacity="0.5"/>
+      <text x="16" y="4" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(135,164,184,0.7)">Core — immutable contracts, no governance</text>
+    </g>
+
+    <!-- Shell legend item -->
+    <g transform="translate(120, 0)">
+      <!-- Dashed circle icon mini -->
+      <circle cx="0" cy="-1" r="7" fill="none" stroke="#8BA4B8" stroke-width="1" stroke-opacity="0.5" stroke-dasharray="3,2"/>
+      <text x="16" y="4" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="400" fill="rgba(135,164,184,0.7)">Shell — bounded parameters, stewardship votes</text>
+    </g>
+  </g>
+
+</svg>

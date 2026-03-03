@@ -12,7 +12,7 @@
 
 # testing
 /coverage
-/tests/screenshots/
+/tests/
 /playwright-report/
 /test-results/
 
