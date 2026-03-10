@@ -112,3 +112,26 @@ Examples: `feat: add hero animation`, `fix: mobile nav overflow`
 
 "Celestial Night Sky" theme — deep navy backgrounds, warm cream text/accents, subtle glows.
 Full design system reference: **[docs/design-system.md](docs/design-system.md)** (colors, typography, visual patterns, animations, component hierarchy, do's/don'ts).
+
+## Design Context
+
+### Users
+DeFi power users — experienced with CDPs, bonding curves, and yield strategies. They evaluate protocols critically, value technical depth, and can tell when a project is serious versus hype. The site should respect their intelligence and get to substance quickly.
+
+### Brand Personality
+**Bold, visionary, warm.** Ambitious but approachable — like space exploration with a human touch. Polaris positions itself as a guiding star: confident in its direction, inviting others to follow. The tone is authoritative without being cold, forward-looking without being vaporware.
+
+### Aesthetic Direction
+- **Theme:** Celestial Night Sky — the protocol's own visual identity, not borrowed from any external reference. Deep navy cosmos, warm cream starlight, subtle luminous effects.
+- **Dark mode only.** No light theme.
+- **Typography:** Cormorant Garamond (serif) for headings gives editorial gravitas; Inter (sans) for body gives clean readability. Generous letter-spacing on display text reinforces the premium, unhurried feel.
+- **Color:** Navy blues (`#050a14` to `#1a3a5c`), warm cream/star (`#E8DCC4`, `#F5F0E6`), token accents (pETH blue `#7BA5C9`, POLAR purple `#9B8FCF`). No neons, no saturated gradients.
+- **Motion:** Subtle and purposeful — star twinkle, fade-in-up reveals, gentle card lifts. Always respects `prefers-reduced-motion`.
+- **Anti-references:** Avoid generic DeFi aesthetics — no neon accent gradients, no rotating TVL counters, no "launch app" urgency patterns. Polaris should feel like discovering a constellation, not entering a casino.
+
+### Design Principles
+1. **Substance over spectacle.** Every visual element should reinforce the protocol's credibility. If it doesn't inform or orient, remove it.
+2. **Warm precision.** Combine the warmth of cream-on-navy with precise spacing, alignment, and typographic hierarchy. Premium is in the details.
+3. **Calm confidence.** The site should feel unhurried and assured. No urgency tactics, no visual noise. Let the content breathe.
+4. **Celestial consistency.** Every component should feel like it belongs in the same night sky — same palette, same glass-like surfaces, same subtle luminosity.
+5. **Respect the reader.** DeFi power users skim fast. Clear hierarchy, scannable sections, and direct language over marketing fluff.
