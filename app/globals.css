@@ -211,7 +211,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .top-nav__cta:hover {
@@ -1148,7 +1148,7 @@
     background: var(--polaris-star);
     border: 1px solid var(--polaris-star);
     border-radius: 9999px;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     cursor: pointer;
     animation: ctaGlow 3s ease-in-out infinite;
   }
@@ -1176,7 +1176,7 @@
     background: transparent;
     border: 1px solid rgba(var(--polaris-star-rgb), 0.3);
     border-radius: 9999px;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
   }
 
@@ -1374,7 +1374,7 @@
     background: rgba(var(--polaris-navy-rgb), 0.85);
     border: 1px solid rgba(var(--polaris-star-rgb), 0.1);
     border-radius: 1.5rem;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   /* Only enable backdrop-filter on devices that handle it well */
@@ -1499,7 +1499,7 @@
     border: 1px solid rgba(var(--polaris-star-rgb), 0.1);
     border-radius: 1.5rem;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
   }
 
@@ -1535,7 +1535,7 @@
       rgba(var(--token-rgb), 0) 70%
     );
     pointer-events: none;
-    transition: all 0.4s ease;
+    transition: width 0.4s ease, height 0.4s ease, background 0.4s ease;
   }
 
   .token-card--pusd:hover,
@@ -1621,7 +1621,7 @@
     background: rgba(var(--polaris-navy-rgb), 0.4);
     border: 1px solid rgba(var(--polaris-star-rgb), 0.08);
     border-radius: 1.25rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Add spacing between steps */
@@ -1797,7 +1797,7 @@
     background: rgba(var(--polaris-navy-rgb), 0.5);
     border: 1px solid rgba(var(--polaris-star-rgb), 0.08);
     border-radius: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .benefit-card:hover {
@@ -1817,7 +1817,7 @@
     border-radius: 0.875rem;
     color: var(--polaris-star);
     margin-bottom: 1.25rem;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
   }
 
   .benefit-card:hover .benefit-card__icon {
@@ -2257,7 +2257,7 @@
     border: 1px solid rgba(var(--polaris-star-rgb), 0.1);
     border-radius: 1.25rem;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, transform 0.3s ease;
   }
 
   .trust-strip__item:hover {
@@ -2339,7 +2339,7 @@
     );
     border: 1px solid rgba(var(--polaris-star-rgb), 0.12);
     border-radius: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
   }
 
@@ -2375,7 +2375,7 @@
       transparent 70%
     );
     pointer-events: none;
-    transition: all 0.4s ease;
+    transition: width 0.4s ease, height 0.4s ease, background 0.4s ease;
   }
 
   .blog-callout:hover {
@@ -2459,7 +2459,7 @@
     color: var(--polaris-navy-darkest);
     background: var(--polaris-star);
     border-radius: 9999px;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
     box-shadow: 0 4px 16px rgba(var(--polaris-star-rgb), 0.2);
   }
