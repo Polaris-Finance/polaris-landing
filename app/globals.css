@@ -1628,6 +1628,15 @@
     z-index: 2;
   }
 
+  /* Progressive marker descent — dot drifts lower with each step */
+  .narrative-step:nth-child(2) .narrative-step__marker {
+    margin-top: 1.5rem;
+  }
+
+  .narrative-step:nth-child(3) .narrative-step__marker {
+    margin-top: 3rem;
+  }
+
   /* Connecting line between markers */
   .narrative-step__marker::before {
     content: "";
