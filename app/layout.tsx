@@ -1,4 +1,5 @@
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
+import { homeUrl } from "@/lib/seo";
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
@@ -19,6 +20,7 @@ const inter = Inter({
 });
 
 const fullTitle = `${SITE_NAME} - Self-Scaling Stablecoin Operating System`;
+const canonicalHomeUrl = homeUrl();
 
 export const metadata: Metadata = {
   title: fullTitle,
@@ -26,25 +28,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   authors: [{ name: "Polaris Team", url: SITE_URL }],
-  keywords: [
-    "stablecoin",
-    "DeFi",
-    "yield",
-    "Ethereum",
-    "decentralized finance",
-    "CDP",
-    "bonding curve",
-    "pUSD",
-    "pETH",
-    "POLAR",
-  ],
   alternates: {
-    canonical: SITE_URL,
+    canonical: canonicalHomeUrl,
   },
   openGraph: {
     title: fullTitle,
     description: SITE_DESCRIPTION,
-    url: SITE_URL,
+    url: canonicalHomeUrl,
     siteName: SITE_NAME,
     images: [
       {
@@ -89,8 +79,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="alternate" type="application/rss+xml" title="Polaris Protocol Blog" href="/blog/feed.xml" />
       </head>
       <body className="antialiased">

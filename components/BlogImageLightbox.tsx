@@ -13,9 +13,11 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 type BlogImageLightboxProps = {
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
 };
 
-export function BlogImageLightbox({ src, alt }: BlogImageLightboxProps) {
+export function BlogImageLightbox({ src, alt, width, height }: BlogImageLightboxProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -27,6 +29,8 @@ export function BlogImageLightbox({ src, alt }: BlogImageLightboxProps) {
           <img
             src={src}
             alt={alt}
+            width={width}
+            height={height}
             className="block w-full rounded-lg"
             loading="lazy"
             decoding="async"
@@ -52,6 +56,8 @@ export function BlogImageLightbox({ src, alt }: BlogImageLightboxProps) {
           <img
             src={src}
             alt={alt}
+            width={width}
+            height={height}
             className="max-h-[88vh] max-w-[93vw] rounded-2xl object-contain"
           />
         </div>

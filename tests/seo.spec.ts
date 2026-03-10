@@ -1,4 +1,18 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
+
+async function getJsonLdScripts(page: Page) {
+  const scripts = await page.locator('script[type="application/ld+json"]').all();
+  const payloads = [];
+
+  for (const script of scripts) {
+    const content = await script.textContent();
+    if (content) {
+      payloads.push(JSON.parse(content));
+    }
+  }
+
+  return payloads;
+}
 
 test.describe('SEO & Metadata', () => {
   test.describe('Homepage SEO', () => {
@@ -70,7 +84,7 @@ test.describe('SEO & Metadata', () => {
         if (data['@type'] === 'Organization') {
           hasOrgSchema = true;
           expect(data.name).toBe('Polaris Protocol');
-          expect(data.url).toBe('https://polarisfinance.io');
+          expect(data.url).toBe('https://polarisfinance.io/');
           expect(data.sameAs).toContain('https://x.com/polarisfinance_');
         }
       }
@@ -88,7 +102,7 @@ test.describe('SEO & Metadata', () => {
         if (data['@type'] === 'WebSite') {
           hasWebsiteSchema = true;
           expect(data.name).toBe('Polaris Protocol');
-          expect(data.url).toBe('https://polarisfinance.io');
+          expect(data.url).toBe('https://polarisfinance.io/');
         }
       }
 
@@ -112,19 +126,64 @@ test.describe('SEO & Metadata', () => {
     test('blog listing has CollectionPage schema', async ({ page }) => {
       await page.goto('/blog');
 
-      const scripts = await page.locator('script[type="application/ld+json"]').all();
+      const scripts = await getJsonLdScripts(page);
       let hasCollectionSchema = false;
 
-      for (const script of scripts) {
-        const content = await script.textContent();
-        const data = JSON.parse(content!);
+      for (const data of scripts) {
         if (data['@type'] === 'CollectionPage') {
           hasCollectionSchema = true;
-          expect(data.url).toBe('https://polarisfinance.io/blog');
+          expect(data.url).toBe('https://polarisfinance.io/blog/');
         }
       }
 
       expect(hasCollectionSchema).toBe(true);
+    });
+
+    test('blog listing has breadcrumb schema', async ({ page }) => {
+      await page.goto('/blog');
+
+      const scripts = await getJsonLdScripts(page);
+      const breadcrumb = scripts.find((data) => data['@type'] === 'BreadcrumbList');
+
+      expect(breadcrumb).toBeTruthy();
+      expect(breadcrumb.itemListElement).toHaveLength(2);
+      expect(breadcrumb.itemListElement[1].item).toBe('https://polarisfinance.io/blog/');
+    });
+
+    test('blog post has canonical-aligned metadata', async ({ page }) => {
+      await page.goto('/blog/bonding-curve');
+
+      await expect(page).toHaveTitle(/Bonding Curve.*Polaris Blog/i);
+
+      const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
+      const ogUrl = await page.locator('meta[property="og:url"]').getAttribute('content');
+      const modifiedTime = await page.locator('meta[property="article:modified_time"]').getAttribute('content');
+      const googleBot = await page.locator('meta[name="googlebot"]').getAttribute('content');
+
+      expect(canonical).toBe('https://polarisfinance.io/blog/bonding-curve/');
+      expect(ogUrl).toBe('https://polarisfinance.io/blog/bonding-curve/');
+      expect(modifiedTime).toBeTruthy();
+      expect(googleBot?.toLowerCase()).toContain('max-image-preview:large');
+    });
+
+    test('blog post has BlogPosting schema with image and canonical URL', async ({ page }) => {
+      await page.goto('/blog/bonding-curve');
+
+      const scripts = await getJsonLdScripts(page);
+      const article = scripts.find((data) => data['@type'] === 'BlogPosting');
+
+      expect(article).toBeTruthy();
+      expect(article.url).toBe('https://polarisfinance.io/blog/bonding-curve/');
+      expect(article.dateModified).toBeTruthy();
+      expect(article.image?.url).toContain('bonding-curve-cover.png');
+      expect(article.mainEntityOfPage?.['@id']).toBe('https://polarisfinance.io/blog/bonding-curve/');
+    });
+
+    test('blog post renders its cover image in article body', async ({ page }) => {
+      await page.goto('/blog/bonding-curve');
+
+      const coverImage = page.locator('article img[src*="bonding-curve-cover.png"]').first();
+      await expect(coverImage).toBeVisible();
     });
   });
 
@@ -146,6 +205,17 @@ test.describe('SEO & Metadata', () => {
       expect(text).toContain('<?xml');
       expect(text).toContain('https://polarisfinance.io');
       expect(text).toContain('https://polarisfinance.io/blog');
+      expect(text).toContain('https://polarisfinance.io/blog/bonding-curve/');
+      expect(text).toContain('https://polarisfinance.io/blog/bonding-curve-cover.png');
+    });
+
+    test('rss feed uses canonical blog post URLs without tracking params', async ({ page }) => {
+      const response = await page.goto('/blog/feed.xml');
+      expect(response?.status()).toBe(200);
+
+      const text = await response!.text();
+      expect(text).toContain('<link>https://polarisfinance.io/blog/bonding-curve/</link>');
+      expect(text).not.toContain('utm_source=');
     });
 
     test('has proper lang attribute', async ({ page }) => {
@@ -164,6 +234,16 @@ test.describe('SEO & Metadata', () => {
       await page.goto('/');
       const themeColor = await page.locator('meta[name="theme-color"]').getAttribute('content');
       expect(themeColor).toBeTruthy();
+    });
+
+    test('404 page is not indexable', async ({ page }) => {
+      const response = await page.goto('/does-not-exist');
+      expect(response?.status()).toBe(404);
+
+      const robotsMeta = await page.locator('meta[name="robots"]').evaluateAll((elements) =>
+        elements.map((element) => element.getAttribute('content')?.toLowerCase() || '')
+      );
+      expect(robotsMeta.some((content) => content.includes('noindex'))).toBe(true);
     });
   });
 

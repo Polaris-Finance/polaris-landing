@@ -1,5 +1,5 @@
-import { getAllPosts } from "@/lib/blog";
-import { SITE_URL } from "@/lib/constants";
+import { getAllPosts, getLatestPostLastModified } from "@/lib/blog";
+import { blogIndexUrl, blogPostUrl, rssFeedUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
@@ -14,13 +14,14 @@ function escapeXml(text: string): string {
 
 export function GET() {
   const posts = getAllPosts();
+  const lastBuildDate = getLatestPostLastModified(posts) || new Date().toISOString();
 
   const items = posts
     .map(
       (post) => `    <item>
       <title>${escapeXml(post.title)}</title>
-      <link>${SITE_URL}/blog/${post.slug}?utm_source=rss&amp;utm_medium=feed&amp;utm_campaign=blog</link>
-      <guid isPermaLink="true">${SITE_URL}/blog/${post.slug}</guid>
+      <link>${blogPostUrl(post.slug)}</link>
+      <guid isPermaLink="true">${blogPostUrl(post.slug)}</guid>
       <description>${escapeXml(post.description)}</description>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <author>hello@polarisfinance.io (${escapeXml(post.author)})</author>
@@ -32,11 +33,11 @@ export function GET() {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Polaris Protocol Blog</title>
-    <link>${SITE_URL}/blog</link>
+    <link>${blogIndexUrl()}</link>
     <description>Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.</description>
     <language>en</language>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${SITE_URL}/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>${new Date(lastBuildDate).toUTCString()}</lastBuildDate>
+    <atom:link href="${rssFeedUrl()}" rel="self" type="application/rss+xml"/>
 ${items}
   </channel>
 </rss>`;

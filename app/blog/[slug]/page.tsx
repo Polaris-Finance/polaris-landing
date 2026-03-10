@@ -4,9 +4,11 @@ import { ArrowLeftIcon, ArrowUpIcon } from "@/components/icons";
 import { JsonLd, createArticleSchema, createBreadcrumbSchema } from "@/components/JsonLd";
 import { TopNav } from "@/components/TopNav";
 import { basePath } from "@/lib/basePath";
-import { getAllSlugs, getPostBySlug, slugify } from "@/lib/blog";
-import { SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
+import { getAllPosts, getAllSlugs, getLocalImageMetadataMap, type LocalImageMetadata, getPostBySlug, slugify } from "@/lib/blog";
+import { SITE_NAME, TWITTER_HANDLE } from "@/lib/constants";
+import { blogIndexPath, blogIndexUrl, blogPostPath, blogPostUrl, homeUrl, absoluteUrl } from "@/lib/seo";
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
@@ -70,64 +72,95 @@ function HeadingWithAnchor({ id, children }: { id: string; children: ReactNode }
   );
 }
 
-const markdownComponents: Components = {
-  img: ({ src, alt }) => {
-    const srcStr = typeof src === "string" ? src : "";
-    const imgSrc = srcStr.startsWith("/") ? `${basePath}${srcStr}` : srcStr;
-    const isInfographic = srcStr.includes("/infographics/");
-    if (isInfographic) {
-      return <BlogImageLightbox src={imgSrc} alt={alt || ""} />;
-    }
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
-        src={imgSrc}
-        alt={alt || ""}
-        className="mx-auto my-6 block max-w-xs rounded-lg"
-        loading="lazy"
-        decoding="async"
-      />
-    );
+function formatDisplayDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+const blogRobots: NonNullable<Metadata["robots"]> = {
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
   },
-  table: ({ children }) => (
-    <div className="overflow-x-auto">
-      <table>{children}</table>
-    </div>
-  ),
-  a: ({ href, children, ...props }) => {
-    const isExternal = typeof href === "string" && href.startsWith("http");
-    if (isExternal) {
+};
+
+function createMarkdownComponents(imageMetadataMap: Map<string, LocalImageMetadata>): Components {
+  return {
+    img: ({ src, alt }) => {
+      const srcStr = typeof src === "string" ? src : "";
+      const imgSrc = srcStr.startsWith("/") ? `${basePath}${srcStr}` : srcStr;
+      const imageMetadata = imageMetadataMap.get(srcStr);
+      const isInfographic = srcStr.includes("/infographics/");
+      if (isInfographic) {
+        return (
+          <BlogImageLightbox
+            src={imgSrc}
+            alt={alt || ""}
+            width={imageMetadata?.width}
+            height={imageMetadata?.height}
+          />
+        );
+      }
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={imgSrc}
+          alt={alt || ""}
+          width={imageMetadata?.width}
+          height={imageMetadata?.height}
+          className="mx-auto my-6 block max-w-xs rounded-lg"
+          loading="lazy"
+          decoding="async"
+        />
+      );
+    },
+    table: ({ children }) => (
+      <div className="overflow-x-auto">
+        <table>{children}</table>
+      </div>
+    ),
+    a: ({ href, children, ...props }) => {
+      delete (props as Record<string, unknown>).node;
+      const isExternal = typeof href === "string" && href.startsWith("http");
+      if (isExternal) {
+        return (
+          <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+            {children}
+          </a>
+        );
+      }
+      return (
+        <a href={href} {...props}>
           {children}
         </a>
       );
-    }
-    return (
-      <a href={href} {...props}>
-        {children}
-      </a>
-    );
-  },
-  h2: ({ children }) => {
-    const text = typeof children === "string" ? children : String(children);
-    const id = slugify(text);
-    return (
-      <h2 id={id}>
-        <HeadingWithAnchor id={id}>{children}</HeadingWithAnchor>
-      </h2>
-    );
-  },
-  h3: ({ children }) => {
-    const text = typeof children === "string" ? children : String(children);
-    const id = slugify(text);
-    return (
-      <h3 id={id}>
-        <HeadingWithAnchor id={id}>{children}</HeadingWithAnchor>
-      </h3>
-    );
-  },
-};
+    },
+    h2: ({ children }) => {
+      const text = typeof children === "string" ? children : String(children);
+      const id = slugify(text);
+      return (
+        <h2 id={id}>
+          <HeadingWithAnchor id={id}>{children}</HeadingWithAnchor>
+        </h2>
+      );
+    },
+    h3: ({ children }) => {
+      const text = typeof children === "string" ? children : String(children);
+      const id = slugify(text);
+      return (
+        <h3 id={id}>
+          <HeadingWithAnchor id={id}>{children}</HeadingWithAnchor>
+        </h3>
+      );
+    },
+  };
+}
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -150,13 +183,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return { title: "Post Not Found | Polaris" };
 
-  const url = `${SITE_URL}/blog/${slug}`;
-  const ogImage = `${SITE_URL}${post.image || "/polaris-og.png"}`;
+  const url = blogPostUrl(slug);
+  const ogImageSrc = post.image || "/polaris-og.png";
+  const ogImageMetadata = await getLocalImageMetadataMap([ogImageSrc]);
+  const ogImage = ogImageMetadata.get(ogImageSrc);
 
   return {
     title: `${post.title} | Polaris Blog`,
     description: post.description,
-    authors: [{ name: post.author }],
+    authors: [{ name: post.author, url: homeUrl() }],
     alternates: {
       canonical: url,
     },
@@ -167,14 +202,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: SITE_NAME,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.lastModified,
       authors: [post.author],
       images: [
         {
-          url: ogImage,
-          width: 1200,
-          height: 630,
+          url: absoluteUrl(ogImageSrc),
+          width: ogImage?.width || 1200,
+          height: ogImage?.height || 630,
           alt: post.title,
-          type: "image/png",
+          type: ogImage?.mimeType || "image/png",
         },
       ],
       locale: "en_US",
@@ -183,9 +219,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: [ogImage],
+      images: [absoluteUrl(ogImageSrc)],
       creator: TWITTER_HANDLE,
     },
+    robots: blogRobots,
   };
 }
 
@@ -203,13 +240,23 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const allPosts = getAllPosts();
+  const currentPostIndex = allPosts.findIndex((entry) => entry.slug === slug);
+  const newerPost = currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null;
+  const olderPost = currentPostIndex >= 0 && currentPostIndex < allPosts.length - 1
+    ? allPosts[currentPostIndex + 1]
+    : null;
+  const imageMetadataMap = await getLocalImageMetadataMap(post.imageSources);
+  const postImageMetadata = post.image ? imageMetadataMap.get(post.image) ?? null : null;
   const toc = extractToc(post.content);
-  const articleSchema = createArticleSchema(post);
+  const articleSchema = createArticleSchema(post, postImageMetadata);
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: SITE_URL },
-    { name: "Blog", url: `${SITE_URL}/blog` },
-    { name: post.title, url: `${SITE_URL}/blog/${slug}` },
+    { name: "Home", url: homeUrl() },
+    { name: "Blog", url: blogIndexUrl() },
+    { name: post.title, url: blogPostUrl(slug) },
   ]);
+  const markdownComponents = createMarkdownComponents(imageMetadataMap);
+  const showUpdatedDate = post.lastModified.slice(0, 10) !== post.date;
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[var(--polaris-navy-darkest)]">
@@ -224,7 +271,7 @@ export default async function BlogPostPage({ params }: Props) {
       <article id="main-content" className="px-6 pb-20 pt-16 sm:px-10 sm:pt-24">
         <div className="mx-auto max-w-3xl">
           <Link
-            href="/blog"
+            href={blogIndexPath()}
             className="mb-8 inline-flex items-center gap-2 text-sm text-cream-muted transition hover:text-star"
           >
             <ArrowLeftIcon className="h-4 w-4" />
@@ -232,13 +279,17 @@ export default async function BlogPostPage({ params }: Props) {
           </Link>
 
           <header className="mb-10">
-            <time dateTime={post.date} className="text-xs font-medium uppercase tracking-wider text-cream-muted">
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
+            <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-cream-muted">
+              <time dateTime={post.date}>{formatDisplayDate(post.date)}</time>
+              {showUpdatedDate && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <time dateTime={post.lastModified}>
+                    Updated {formatDisplayDate(post.lastModified)}
+                  </time>
+                </>
+              )}
+            </div>
             <h1 className="mt-3 font-serif text-3xl text-star sm:text-4xl lg:text-[2.75rem]">
               {post.title}
             </h1>
@@ -248,6 +299,19 @@ export default async function BlogPostPage({ params }: Props) {
               <span aria-hidden="true">·</span>
               <span>{post.readingTime} min read</span>
             </div>
+            {post.image && (
+              <div className="mt-8 overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.35)]">
+                <Image
+                  src={`${basePath}${post.image}`}
+                  alt={post.title}
+                  width={postImageMetadata?.width || 1200}
+                  height={postImageMetadata?.height || 630}
+                  className="h-auto w-full object-cover"
+                  priority
+                  sizes="(min-width: 1280px) 768px, (min-width: 640px) calc(100vw - 5rem), calc(100vw - 3rem)"
+                />
+              </div>
+            )}
           </header>
 
           <TableOfContents entries={toc} />
@@ -255,6 +319,31 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="prose-polaris">
             <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{post.content}</ReactMarkdown>
           </div>
+
+          {(newerPost || olderPost) && (
+            <nav aria-label="More articles" className="mt-12 grid gap-4 sm:grid-cols-2">
+              {newerPost ? (
+                <Link
+                  href={blogPostPath(newerPost.slug)}
+                  className="rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.35)] p-5 transition hover:border-[rgba(232,220,196,0.22)] hover:bg-[rgba(var(--polaris-navy-rgb),0.55)]"
+                >
+                  <p className="text-xs font-medium uppercase tracking-wider text-cream-muted">Newer post</p>
+                  <p className="mt-2 font-serif text-xl text-star">{newerPost.title}</p>
+                </Link>
+              ) : (
+                <div className="hidden sm:block" />
+              )}
+              {olderPost && (
+                <Link
+                  href={blogPostPath(olderPost.slug)}
+                  className="rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.35)] p-5 transition hover:border-[rgba(232,220,196,0.22)] hover:bg-[rgba(var(--polaris-navy-rgb),0.55)]"
+                >
+                  <p className="text-xs font-medium uppercase tracking-wider text-cream-muted">Older post</p>
+                  <p className="mt-2 font-serif text-xl text-star">{olderPost.title}</p>
+                </Link>
+              )}
+            </nav>
+          )}
 
           <a
             href="#main-content"

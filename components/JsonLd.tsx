@@ -1,4 +1,6 @@
-import { SITE_NAME, SITE_URL } from "@/lib/constants";
+import { SITE_NAME } from "@/lib/constants";
+import type { LocalImageMetadata } from "@/lib/blog";
+import { absoluteUrl, blogIndexUrl, blogPostUrl, homeUrl } from "@/lib/seo";
 
 type JsonLdProps = {
   data: Record<string, unknown>;
@@ -17,8 +19,8 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: SITE_NAME,
-  url: SITE_URL,
-  logo: `${SITE_URL}/emblem.svg`,
+  url: homeUrl(),
+  logo: absoluteUrl("/emblem.svg"),
   sameAs: [
     "https://x.com/polarisfinance_",
     "https://github.com/Polaris-Finance",
@@ -32,13 +34,13 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: SITE_NAME,
-  url: SITE_URL,
+  url: homeUrl(),
   description:
     "Self-scaling stablecoin operating system. Uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.",
   publisher: {
     "@type": "Organization",
     name: SITE_NAME,
-    url: SITE_URL,
+    url: homeUrl(),
   },
 };
 
@@ -58,7 +60,7 @@ export const softwareApplicationSchema = {
   author: {
     "@type": "Organization",
     name: SITE_NAME,
-    url: SITE_URL,
+    url: homeUrl(),
   },
 };
 
@@ -66,33 +68,51 @@ export function createArticleSchema(post: {
   title: string;
   description: string;
   date: string;
-  updatedDate?: string;
+  lastModified: string;
   author: string;
   slug: string;
-}) {
+  image?: string;
+  wordCount: number;
+}, imageMetadata: LocalImageMetadata | null) {
+  const canonicalUrl = blogPostUrl(post.slug);
+  const articleImage = post.image
+    ? {
+        "@type": "ImageObject",
+        url: absoluteUrl(post.image),
+        width: imageMetadata?.width,
+        height: imageMetadata?.height,
+      }
+    : undefined;
+
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.updatedDate || post.date,
+    dateModified: post.lastModified,
+    inLanguage: "en-US",
+    isAccessibleForFree: true,
+    wordCount: post.wordCount,
+    url: canonicalUrl,
+    image: articleImage,
     author: {
       "@type": "Organization",
       name: post.author,
+      url: homeUrl(),
     },
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
-      url: SITE_URL,
+      url: homeUrl(),
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/emblem.svg`,
+        url: absoluteUrl("/emblem.svg"),
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${SITE_URL}/blog/${post.slug}`,
+      "@id": canonicalUrl,
     },
   };
 }
@@ -114,27 +134,40 @@ export function createCollectionPageSchema(posts: {
   title: string;
   description: string;
   date: string;
+  lastModified: string;
   slug: string;
+  image?: string;
 }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: `${SITE_NAME} Blog`,
     description: "Updates, insights, and deep dives into the Self-Scaling Stablecoin Operating System.",
-    url: `${SITE_URL}/blog`,
+    url: blogIndexUrl(),
+    inLanguage: "en-US",
     isPartOf: {
       "@type": "WebSite",
       name: SITE_NAME,
-      url: SITE_URL,
+      url: homeUrl(),
     },
     mainEntity: {
       "@type": "ItemList",
+      itemListOrder: "https://schema.org/ItemListOrderDescending",
       numberOfItems: posts.length,
       itemListElement: posts.map((post, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `${SITE_URL}/blog/${post.slug}`,
+        url: blogPostUrl(post.slug),
         name: post.title,
+        item: {
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.description,
+          url: blogPostUrl(post.slug),
+          datePublished: post.date,
+          dateModified: post.lastModified,
+          image: post.image ? absoluteUrl(post.image) : undefined,
+        },
       })),
     },
   };

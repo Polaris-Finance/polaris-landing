@@ -1,26 +1,36 @@
 import { Footer } from "@/components/Footer";
-import { JsonLd, createCollectionPageSchema } from "@/components/JsonLd";
+import { JsonLd, createBreadcrumbSchema, createCollectionPageSchema } from "@/components/JsonLd";
 import { TopNav } from "@/components/TopNav";
 import { basePath } from "@/lib/basePath";
 import { getAllPosts } from "@/lib/blog";
-import { SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
+import { SITE_NAME, TWITTER_HANDLE } from "@/lib/constants";
+import { blogIndexUrl, blogPostPath, homeUrl } from "@/lib/seo";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 const blogTitle = `Blog | ${SITE_NAME}`;
 const blogDescription = "Polaris blog: DeFi stablecoin insights, CDP innovations, and protocol updates. Learn how pUSD delivers scalable, trustless yield.";
+const blogRobots: NonNullable<Metadata["robots"]> = {
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+  },
+};
 
 export const metadata: Metadata = {
   title: blogTitle,
   description: blogDescription,
   alternates: {
-    canonical: `${SITE_URL}/blog`,
+    canonical: blogIndexUrl(),
   },
   openGraph: {
     title: blogTitle,
     description: blogDescription,
-    url: `${SITE_URL}/blog`,
+    url: blogIndexUrl(),
     siteName: SITE_NAME,
     images: [
       {
@@ -41,11 +51,16 @@ export const metadata: Metadata = {
     images: ["/polaris-og.png"],
     creator: TWITTER_HANDLE,
   },
+  robots: blogRobots,
 };
 
 export default function BlogPage() {
   const posts = getAllPosts();
   const collectionSchema = createCollectionPageSchema(posts);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: homeUrl() },
+    { name: "Blog", url: blogIndexUrl() },
+  ]);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[var(--polaris-navy-darkest)]">
@@ -53,6 +68,7 @@ export default function BlogPage() {
         Skip to main content
       </a>
       <JsonLd data={collectionSchema} />
+      <JsonLd data={breadcrumbSchema} />
 
       <TopNav />
 
@@ -68,7 +84,7 @@ export default function BlogPage() {
             {posts.map((post) => (
               <Link
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href={blogPostPath(post.slug)}
                 className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
               >
                 {post.image && (
@@ -77,6 +93,7 @@ export default function BlogPage() {
                       src={`${basePath}${post.image}`}
                       alt={post.title}
                       fill
+                      sizes="(min-width: 1024px) 896px, 100vw"
                       className="object-cover transition group-hover:scale-[1.02]"
                     />
                   </div>

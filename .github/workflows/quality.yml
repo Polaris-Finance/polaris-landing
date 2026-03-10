@@ -28,6 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -129,6 +131,7 @@ jobs:
           urls: |
             http://localhost:3000
             http://localhost:3000/blog
+            http://localhost:3000/blog/bonding-curve/
           uploadArtifacts: true
           temporaryPublicStorage: true
           configPath: ./lighthouserc.json
