@@ -14,7 +14,7 @@
   /* Accent colors - Celestial */
   --polaris-star: #E8DCC4;
   --polaris-star-rgb: 232, 220, 196;
-  --polaris-star-bright: #FFFFFF;
+  --polaris-star-bright: #FAF6EE;
   --polaris-star-glow: rgba(var(--polaris-star-rgb), 0.6);
   --polaris-cream: #F5F0E6;
   --polaris-cream-muted: rgba(245, 240, 230, 0.7);

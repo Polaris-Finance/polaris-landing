@@ -18,7 +18,7 @@ A premium, ethereal aesthetic inspired by the Polaris star reflecting over calm 
 **Text & Accents (warm cream/star):**
 ```css
 --polaris-star: #E8DCC4          /* Headings, primary text, CTAs */
---polaris-star-bright: #FFFFFF   /* Star core highlight only */
+--polaris-star-bright: #FAF6EE   /* Near-white warm highlight */
 --polaris-star-glow: rgba(232, 220, 196, 0.6)  /* Glow effects */
 --polaris-cream: #F5F0E6         /* Body text */
 --polaris-cream-muted: rgba(245, 240, 230, 0.7)  /* Secondary text */
