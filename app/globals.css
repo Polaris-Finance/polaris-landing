@@ -404,6 +404,35 @@
   }
 }
 
+/* Shooting star — rare diagonal streak across the sky */
+@keyframes shootingStar1 {
+  0%, 96% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-35deg);
+  }
+  96.5% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-280px, 170px) rotate(-35deg);
+  }
+}
+
+@keyframes shootingStar2 {
+  0%, 97% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-42deg);
+  }
+  97.4% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-220px, 150px) rotate(-42deg);
+  }
+}
+
 /* Water ripple horizontal drift */
 @keyframes rippleDrift {
   0%, 100% {
@@ -476,6 +505,7 @@
   .star-reflection,
   .star-reflection-band,
   .starfield--drift,
+  .shooting-star,
   .btn-primary {
     animation: none !important;
   }
@@ -969,6 +999,35 @@
     animation: brightStarTwinkle 5s ease-in-out infinite;
   }
 
+  /* Shooting stars — rare streaks across the sky */
+  .shooting-star {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(
+      to left,
+      transparent,
+      rgba(var(--polaris-star-rgb), 0.4) 30%,
+      var(--polaris-star-bright)
+    );
+    border-radius: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .shooting-star--1 {
+    top: 12%;
+    right: 8%;
+    width: 80px;
+    animation: shootingStar1 22s ease-in infinite 6s;
+  }
+
+  .shooting-star--2 {
+    top: 28%;
+    right: 22%;
+    width: 60px;
+    animation: shootingStar2 31s ease-in infinite 17s;
+  }
+
   /* ============================================
      MOBILE PERFORMANCE: Reduce stars on small screens
      Hides ~65% of stars on mobile to prevent iOS memory crashes
@@ -1161,6 +1220,12 @@
     animation: none;
   }
 
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 0 20px rgba(var(--polaris-star-rgb), 0.25);
+    transition-duration: 0.1s;
+  }
+
   .btn-secondary {
     display: inline-flex;
     align-items: center;
@@ -1184,6 +1249,11 @@
     border-color: var(--polaris-star);
     color: var(--polaris-star);
     transform: translateY(-2px);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0);
+    transition-duration: 0.1s;
   }
 
   /* ============================================
@@ -2506,6 +2576,7 @@
   .star-reflection,
   .star-reflection-band,
   .wave-surface svg,
+  .shooting-star,
   .btn-primary {
     animation: none !important;
   }

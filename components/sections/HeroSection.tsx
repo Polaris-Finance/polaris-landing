@@ -116,6 +116,9 @@ export function HeroSection() {
     <section id="main-content" className="hero-scene">
       {/* Starfield with drift animation */}
       <div className="starfield starfield--drift" aria-hidden="true">
+        {/* Shooting stars — rare streaks for discovery delight */}
+        <div className="shooting-star shooting-star--1" />
+        <div className="shooting-star shooting-star--2" />
         {tinyStars.map((star) => (
           <div
             key={star.id}
