@@ -1357,87 +1357,65 @@
   }
 
   /* ============================================
-     STAT CARDS
+     DECLARATIONS (bold statement strip)
      ============================================ */
 
-  .stat-card {
-    position: relative;
-    padding: 1.5rem;
-    background: rgba(var(--polaris-navy-rgb), 0.75);
-    border: 1px solid rgba(var(--polaris-star-rgb), 0.08);
-    border-radius: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
+  .section--declarations {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
-  /* Subtle inner glow on hover */
-  .stat-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse at top right,
-      rgba(var(--polaris-star-rgb), 0) 0%,
-      rgba(var(--polaris-star-rgb), 0) 100%
-    );
-    transition: background 0.4s ease;
-    pointer-events: none;
+  @media (min-width: 640px) {
+    .section--declarations {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
   }
 
-  .stat-card:hover {
-    border-color: rgba(var(--polaris-star-rgb), 0.25);
-    background: rgba(var(--polaris-navy-rgb), 0.7);
-    transform: translateY(-4px);
-    box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.25),
-      0 0 0 1px rgba(var(--polaris-star-rgb), 0.1) inset;
+  @media (min-width: 1024px) {
+    .section--declarations {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
   }
 
-  .stat-card:hover::before {
-    background: radial-gradient(
-      ellipse at top right,
-      rgba(var(--polaris-star-rgb), 0.08) 0%,
-      rgba(var(--polaris-star-rgb), 0) 60%
-    );
+  .declarations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  .stat-card__icon {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    background: rgba(var(--polaris-star-rgb), 0.06);
-    border-radius: 0.75rem;
-    color: var(--polaris-star);
-    opacity: 0.7;
-    transition: all 0.3s ease;
+  @media (min-width: 640px) {
+    .declarations-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem 3rem;
+    }
   }
 
-  .stat-card:hover .stat-card__icon {
-    opacity: 1;
-    background: rgba(var(--polaris-star-rgb), 0.12);
-    box-shadow: 0 0 20px rgba(var(--polaris-star-rgb), 0.15);
+  @media (min-width: 1024px) {
+    .declarations-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
   }
 
-  .stat-card__value {
+  .declaration__value {
     font-family: var(--font-serif);
     font-size: 1.35rem;
     font-weight: 600;
-    color: var(--polaris-star-bright);
     letter-spacing: 0.02em;
+    color: var(--polaris-star);
     margin-bottom: 0.5rem;
-    transition: text-shadow 0.3s ease;
+    line-height: 1.2;
   }
 
-  .stat-card:hover .stat-card__value {
-    text-shadow: 0 0 20px rgba(var(--polaris-star-rgb), 0.3);
+  @media (min-width: 768px) {
+    .declaration__value {
+      font-size: 1.5rem;
+    }
   }
 
-  .stat-card__label {
+  .declaration__label {
     font-family: var(--font-sans);
     font-size: 0.875rem;
     line-height: 1.6;

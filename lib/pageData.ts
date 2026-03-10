@@ -2,11 +2,9 @@ import { ComponentType, SVGProps } from "react";
 
 import {
   AwardIcon,
-  Link2OffIcon,
   LockKeyholeIcon,
   ShieldCheckIcon,
   TrendingUpIcon,
-  ZapIcon,
 } from "@/components/icons";
 
 export type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
@@ -14,7 +12,6 @@ export type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 export type HeroStat = {
   value: string;
   label: string;
-  Icon: IconComponent;
 };
 
 export type TokenInfo = {
@@ -51,22 +48,18 @@ export const heroStats: HeroStat[] = [
   {
     value: "Counterparty free",
     label: "Polaris is free of trusted assets or other offchain dependencies: the whole protocol lives onchain; transparent and auditable",
-    Icon: Link2OffIcon,
   },
   {
     value: "Untapped yield source",
     label: "Harnesses novel, uncorrelated yield sources by monetizing volatility and growth via a bonding curve",
-    Icon: ZapIcon,
   },
   {
     value: "Scalable yields",
     label: "pUSD and pETH harness self-correlated yield sources as their adoption and supply grow",
-    Icon: TrendingUpIcon,
   },
   {
     value: "Immutable & trustless",
     label: "Fully onchain, immutable and extensively verified: simulations, agent-based modeling and Tier-1 audits.",
-    Icon: ShieldCheckIcon,
   },
 ];
 
