@@ -1652,6 +1652,57 @@
   }
 
   /* ============================================
+     EDITORIAL BLOCKS (non-sequential content)
+     ============================================ */
+
+  .editorial-blocks {
+    display: grid;
+    gap: 0;
+  }
+
+  .editorial-block {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(var(--polaris-star-rgb), 0.08);
+  }
+
+  .editorial-block:last-child {
+    border-bottom: none;
+  }
+
+  .editorial-block__title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--polaris-star);
+    margin-bottom: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .editorial-block__title {
+      font-size: 1.375rem;
+    }
+  }
+
+  .editorial-block__content {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--polaris-cream-muted);
+    max-width: 52rem;
+  }
+
+  @media (min-width: 768px) {
+    .editorial-block__content {
+      font-size: 0.9375rem;
+    }
+  }
+
+  .editorial-block__content li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ============================================
      BENEFIT CARDS
      ============================================ */
 
