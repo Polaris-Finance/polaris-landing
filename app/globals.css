@@ -1637,12 +1637,12 @@
     margin-top: 3rem;
   }
 
-  /* Connecting line — anchored to the card, not the marker */
+  /* Connecting line — anchored to the card at the first dot's position */
   .narrative-step::before {
     content: "";
     position: absolute;
     left: calc(2rem + 6px); /* card padding-left + half marker width */
-    top: 1.75rem; /* card padding-top */
+    top: calc(1.75rem + 0.4rem + 6px); /* card padding + first dot margin-top + half dot */
     transform: translateX(-50%);
     width: 1px;
     height: calc(100% + 5rem);
