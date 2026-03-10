@@ -14,11 +14,7 @@ export function BenefitsSection() {
             <div key={`benefit-${index}`} className="benefit-item">
               <Icon className="benefit-item__icon" aria-hidden />
               <h3 className="benefit-item__title">{title}</h3>
-              <ul className="benefit-item__description space-y-2">
-                {bullets.map((bullet, bulletIndex) => (
-                  <li key={`benefit-${index}-bullet-${bulletIndex}`}>{bullet}</li>
-                ))}
-              </ul>
+              <p className="benefit-item__description">{bullets.join(" ")}</p>
             </div>
           ))}
         </div>

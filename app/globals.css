@@ -1704,6 +1704,7 @@
   .benefits-grid {
     display: grid;
     grid-template-columns: 1fr;
+    align-items: start;
     gap: 1.25rem;
   }
 
@@ -1744,6 +1745,7 @@
     justify-content: center;
     width: 3rem;
     height: 3rem;
+    padding: 0.625rem;
     background: rgba(var(--polaris-star-rgb), 0.08);
     border: 1px solid rgba(var(--polaris-star-rgb), 0.15);
     border-radius: 1rem;
@@ -1767,8 +1769,10 @@
     color: var(--polaris-cream-muted);
   }
 
-  .benefit-item__description li {
-    margin-bottom: 0.5rem;
+  @media (min-width: 768px) {
+    .benefit-item {
+      padding: 2rem;
+    }
   }
 
   /* ============================================
