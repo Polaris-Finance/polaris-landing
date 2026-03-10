@@ -35,12 +35,12 @@ export function TokensSection() {
         <div className="reveal blog-callout mt-10">
           <div className="blog-callout__content">
             <div className="blog-callout__text">
-              <p>CDPs mint dollars. Polaris mints anything.</p>
-              <p>From Maker to Liquity, we trace the CDP blueprint — and show how Polaris extends it with pETH, self-adjusting rates, and a factory for stablecoins pegged to anything.</p>
+              <p>Stewardship, not Governance.</p>
+              <p>Governance fails because of structure, not people. Here&apos;s how stewardship fixes the structure with immutable foundations and scoped human judgment.</p>
             </div>
           </div>
           <div className="blog-callout__action">
-            <Link href="/blog/polaris-mints-anything" className="blog-callout__link">
+            <Link href="/blog/stewardship-not-governance" className="blog-callout__link">
               Read the article
               <ArrowRightIcon className="h-4 w-4" aria-hidden />
             </Link>

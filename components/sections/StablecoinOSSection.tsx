@@ -31,12 +31,12 @@ export function StablecoinOSSection() {
         <div className="reveal blog-callout mt-10">
           <div className="blog-callout__content">
             <div className="blog-callout__text">
-              <p>Governance is broken. Here&apos;s what replaces it.</p>
-              <p>Why governance fails because of structure, not people &mdash; and how stewardship fixes it with immutable foundations and scoped human judgment.</p>
+              <p>pGOLD: Finishing what DigixDAO started.</p>
+              <p>How pGOLD breaks the XAUT/PAXG duopoly without touching a single gold bar.</p>
             </div>
           </div>
           <div className="blog-callout__action">
-            <Link href="/blog/stewardship-not-governance" className="blog-callout__link">
+            <Link href="/blog/pGOLD-finishing-what-digixdao-started" className="blog-callout__link">
               Read the article
               <ArrowRightIcon className="h-4 w-4" aria-hidden />
             </Link>
