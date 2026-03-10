@@ -80,6 +80,15 @@ export default function RootLayout({
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
         <link rel="alternate" type="application/rss+xml" title="Polaris Protocol Blog" href="/blog/feed.xml" />
+        <noscript>
+          <style>{`
+            .reveal, .reveal--scale, .reveal-stagger > * {
+              opacity: 1 !important;
+              transform: none !important;
+              animation: none !important;
+            }
+          `}</style>
+        </noscript>
       </head>
       <body className="antialiased">
         {children}
