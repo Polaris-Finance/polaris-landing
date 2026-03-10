@@ -1647,9 +1647,9 @@
     pointer-events: none;
   }
 
-  /* Hide connecting line on last item */
+  /* Fade connecting line on last item */
   .narrative-step:last-child .narrative-step__marker::before {
-    display: none;
+    height: 100%;
   }
 
   /* Marker glow intensifies on hover */
