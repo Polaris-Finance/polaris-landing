@@ -1630,11 +1630,11 @@
 
   /* Progressive marker descent — dot drifts lower with each step */
   .narrative-step:nth-child(2) .narrative-step__marker {
-    margin-top: 1.5rem;
+    margin-top: 2.25rem;
   }
 
   .narrative-step:nth-child(3) .narrative-step__marker {
-    margin-top: 3rem;
+    margin-top: 4.5rem;
   }
 
   /* Connecting line — anchored to the card at the first dot's position */
