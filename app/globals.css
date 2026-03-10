@@ -378,14 +378,14 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Enhanced star pulse with more pronounced glow */
+/* Enhanced star pulse — compositor-friendly (opacity + transform only) */
 @keyframes starPulseEnhanced {
   0%, 100% {
-    filter: drop-shadow(0 0 30px var(--polaris-star-glow)) drop-shadow(0 0 60px var(--polaris-star-glow));
+    opacity: 1;
     transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 50px var(--polaris-star-glow)) drop-shadow(0 0 100px var(--polaris-star-glow));
+    opacity: 0.92;
     transform: scale(1.03);
   }
 }
@@ -867,6 +867,7 @@
   .polaris-star {
     position: relative;
     z-index: 3;
+    filter: drop-shadow(0 0 30px var(--polaris-star-glow)) drop-shadow(0 0 60px var(--polaris-star-glow));
     animation: starPulseEnhanced 6s ease-in-out infinite;
   }
 
