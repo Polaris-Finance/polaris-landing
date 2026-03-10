@@ -1619,15 +1619,12 @@
   .narrative-step__marker {
     position: relative;
     flex-shrink: 0;
-    width: 14px;
-    height: 14px;
-    margin-top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    margin-top: 0.4rem;
     background: var(--polaris-star);
     border-radius: 50%;
-    box-shadow:
-      0 0 10px var(--polaris-star-glow),
-      0 0 20px var(--polaris-star-glow),
-      0 0 32px rgba(var(--polaris-star-rgb), 0.35);
+    box-shadow: 0 0 12px rgba(var(--polaris-star-rgb), 0.5);
     z-index: 2;
   }
 
@@ -1657,10 +1654,7 @@
 
   /* Marker glow intensifies on hover */
   .narrative-step:hover .narrative-step__marker {
-    box-shadow:
-      0 0 14px var(--polaris-star-glow),
-      0 0 28px var(--polaris-star-glow),
-      0 0 44px rgba(var(--polaris-star-rgb), 0.45);
+    box-shadow: 0 0 18px rgba(var(--polaris-star-rgb), 0.65);
   }
 
   .narrative-step__body {
