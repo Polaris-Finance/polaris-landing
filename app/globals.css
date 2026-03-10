@@ -1637,15 +1637,15 @@
     margin-top: 3rem;
   }
 
-  /* Connecting line between markers */
-  .narrative-step__marker::before {
+  /* Connecting line — anchored to the card, not the marker */
+  .narrative-step::before {
     content: "";
     position: absolute;
-    left: 50%;
-    top: 100%;
+    left: calc(2rem + 6px); /* card padding-left + half marker width */
+    top: 1.75rem; /* card padding-top */
     transform: translateX(-50%);
     width: 1px;
-    height: calc(100% + 1.75rem + 1.5rem + 1.1rem + 5rem); /* Card padding + gap + next card padding + extra length */
+    height: calc(100% + 5rem);
     background: linear-gradient(
       to bottom,
       var(--polaris-star-glow) 0%,
