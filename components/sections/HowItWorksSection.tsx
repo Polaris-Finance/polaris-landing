@@ -34,30 +34,22 @@ export function HowItWorksSection() {
 
         <div className="reveal-stagger narrative-timeline mt-10">
           {narrativeMilestones.map((milestone, index) => (
-            <div key={`milestone-${index}`} className="narrative-row">
-              <div className="narrative-step">
-                <span className="narrative-step__marker" aria-hidden="true" />
-                <div className="narrative-step__body">
-                  <h3 className="narrative-step__title">{milestone.title}</h3>
-                  <ul className="narrative-step__description space-y-2">
-                    {milestone.bullets.map((bullet, bulletIndex) => (
-                      <li key={`milestone-${index}-bullet-${bulletIndex}`}>{bullet}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              {milestone.blogHref && (
-                <Link href={milestone.blogHref} className="mini-callout">
-                  <div className="mini-callout__text">
-                    <p className="mini-callout__title">{milestone.blogTitle}</p>
-                    <p className="mini-callout__description">{milestone.blogDescription}</p>
-                  </div>
-                  <span className="mini-callout__action">
-                    Read
+            <div key={`milestone-${index}`} className="narrative-step">
+              <span className="narrative-step__marker" aria-hidden="true" />
+              <div className="narrative-step__body">
+                <h3 className="narrative-step__title">{milestone.title}</h3>
+                <ul className="narrative-step__description space-y-2">
+                  {milestone.bullets.map((bullet, bulletIndex) => (
+                    <li key={`milestone-${index}-bullet-${bulletIndex}`}>{bullet}</li>
+                  ))}
+                </ul>
+                {milestone.blogHref && (
+                  <Link href={milestone.blogHref} className="narrative-step__blog-link">
+                    {milestone.blogTitle}
                     <ArrowRightIcon className="h-3.5 w-3.5" aria-hidden />
-                  </span>
-                </Link>
-              )}
+                  </Link>
+                )}
+              </div>
             </div>
           ))}
         </div>
