@@ -1,6 +1,6 @@
 ---
 title: "Burn pETH, Mint POLAR: The Conversion Mechanism"
-description: "How a single primitive connects Polaris' three engines, and why every conversion strengthens the protocol.."
+description: "How a single primitive connects Polaris' three engines, and why every conversion strengthens the protocol."
 date: "2026-03-10"
 author: "Polaris Team"
 image: "/blog/burn-peth-mint-polar-cover.png"
