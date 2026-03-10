@@ -67,6 +67,7 @@ export default function BlogPage() {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
+      <div className="blog-atmosphere" aria-hidden="true" />
       <JsonLd data={collectionSchema} />
       <JsonLd data={breadcrumbSchema} />
 
@@ -80,52 +81,89 @@ export default function BlogPage() {
             Every mechanism, every design choice — covered in depth. Learn how Polaris works before it launches.
           </p>
 
-          <div className="mt-12 grid gap-6">
-            {posts.map((post) => (
-              <Link
-                key={post.slug}
-                href={blogPostPath(post.slug)}
-                className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
-              >
-                {post.image && (
-                  <div className="relative aspect-video w-full overflow-hidden">
-                    <Image
-                      src={`${basePath}${post.image}`}
-                      alt={post.title}
-                      fill
-                      sizes="(min-width: 1024px) 896px, 100vw"
-                      className="object-cover transition group-hover:scale-[1.02]"
-                    />
-                  </div>
-                )}
-                <div className="flex flex-col gap-2 p-6">
-                  <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-cream-muted">
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </time>
-                    <span aria-hidden="true">·</span>
-                    <span>{post.readingTime} min read</span>
-                  </div>
-                  <h2 className="font-serif text-xl text-star transition group-hover:text-[var(--polaris-cream)]">
-                    {post.title}
-                  </h2>
-                  <p className="text-[0.92rem] leading-6 text-cream-muted">{post.description}</p>
-                  <span className="mt-2 inline-flex items-center text-sm font-medium text-star">
-                    Read more
-                    <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-                  </span>
+          {/* Featured latest post */}
+          {posts.length > 0 && (
+            <Link
+              href={blogPostPath(posts[0].slug)}
+              className="group mt-12 block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
+            >
+              {posts[0].image && (
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <Image
+                    src={`${basePath}${posts[0].image}`}
+                    alt={posts[0].title}
+                    fill
+                    sizes="(min-width: 1024px) 896px, 100vw"
+                    className="object-cover transition group-hover:scale-[1.02]"
+                    priority
+                  />
                 </div>
-              </Link>
-            ))}
-          </div>
+              )}
+              <div className="flex flex-col gap-2 p-6 sm:p-8">
+                <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-cream-muted">
+                  <time dateTime={posts[0].date}>
+                    {new Date(posts[0].date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span aria-hidden="true">·</span>
+                  <span>{posts[0].readingTime} min read</span>
+                </div>
+                <h2 className="font-serif text-2xl text-star transition group-hover:text-[var(--polaris-cream)] sm:text-3xl">
+                  {posts[0].title}
+                </h2>
+                <p className="text-[0.95rem] leading-relaxed text-cream-muted sm:text-base">{posts[0].description}</p>
+              </div>
+            </Link>
+          )}
+
+          {/* Remaining posts in two-column grid */}
+          {posts.length > 1 && (
+            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+              {posts.slice(1).map((post) => (
+                <Link
+                  key={post.slug}
+                  href={blogPostPath(post.slug)}
+                  className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
+                >
+                  {post.image && (
+                    <div className="relative aspect-video w-full overflow-hidden">
+                      <Image
+                        src={`${basePath}${post.image}`}
+                        alt={post.title}
+                        fill
+                        sizes="(min-width: 1024px) 448px, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition group-hover:scale-[1.02]"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-col gap-2 p-5">
+                    <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-cream-muted">
+                      <time dateTime={post.date}>
+                        {new Date(post.date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </time>
+                      <span aria-hidden="true">·</span>
+                      <span>{post.readingTime} min read</span>
+                    </div>
+                    <h2 className="font-serif text-xl text-star transition group-hover:text-[var(--polaris-cream)]">
+                      {post.title}
+                    </h2>
+                    <p className="text-[0.92rem] leading-6 text-cream-muted">{post.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
 
           {posts.length === 0 && (
             <div className="mt-12 rounded-2xl border border-dashed border-[rgba(232,220,196,0.15)] bg-[rgba(var(--polaris-navy-rgb),0.3)] p-12 text-center">
-              <p className="text-cream-muted">No posts yet. Check back soon!</p>
+              <p className="text-cream-muted">Nothing here yet — we&apos;re charting the course.</p>
             </div>
           )}
         </div>

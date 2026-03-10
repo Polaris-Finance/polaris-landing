@@ -1,3 +1,4 @@
+import { ActiveTocSidebar } from "@/components/ActiveTocSidebar";
 import { BlogImageLightbox } from "@/components/BlogImageLightbox";
 import { Footer } from "@/components/Footer";
 import { ArrowLeftIcon, ArrowUpIcon } from "@/components/icons";
@@ -37,10 +38,11 @@ function extractToc(markdown: string): TocEntry[] {
 
 function TableOfContents({ entries }: { entries: TocEntry[] }) {
   if (entries.length < 3) return null;
+
   return (
     <nav
       aria-label="Table of contents"
-      className="mb-10 rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] p-5"
+      className="mb-10 rounded-2xl border border-[rgba(232,220,196,0.1)] border-l-2 border-l-[rgba(232,220,196,0.2)] bg-[rgba(var(--polaris-navy-rgb),0.5)] p-5"
     >
       <p className="mb-3 text-xs font-medium uppercase tracking-wider text-cream-muted">
         In this article
@@ -259,10 +261,11 @@ export default async function BlogPostPage({ params }: Props) {
   const showUpdatedDate = post.lastModified.slice(0, 10) !== post.date;
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[var(--polaris-navy-darkest)]">
+    <main className="relative min-h-screen overflow-x-clip bg-[var(--polaris-navy-darkest)]">
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
+      <div className="blog-atmosphere" aria-hidden="true" />
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
 
@@ -314,10 +317,21 @@ export default async function BlogPostPage({ params }: Props) {
             )}
           </header>
 
-          <TableOfContents entries={toc} />
+          {/* Inline TOC — visible below xl */}
+          <div className="xl:hidden">
+            <TableOfContents entries={toc} />
+          </div>
 
-          <div className="prose-polaris">
-            <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{post.content}</ReactMarkdown>
+          {/* Content area with sticky sidebar TOC on xl */}
+          <div className="relative">
+            {/* Sidebar TOC — visible on xl, sticky with active highlighting */}
+            <div className="hidden xl:block absolute right-[calc(100%+1.5rem)] top-0 bottom-0 w-40">
+              <ActiveTocSidebar entries={toc} />
+            </div>
+
+            <div className="prose-polaris">
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{post.content}</ReactMarkdown>
+            </div>
           </div>
 
           {(newerPost || olderPost) && (
