@@ -158,7 +158,7 @@ export const benefitHighlights: BenefitHighlight[] = [
   {
     title: "Scalable, without offchain dependencies",
     bullets: [
-      "Unlike other stablecoins that might experience fast early growth, but eventually plateau and turn into T-bill wrappers; Polaris nurtures its own yield source as it grows, enabling scalable yield regardless of whether $10M or $10B pUSD are minted.",
+      "Unlike other stablecoins that might experience fast early growth, but eventually plateau and turn into T-bill wrappers; Polaris creates and nurtures its own yield source as it grows, enabling yield that scales regardless of its current size.",
     ],
     Icon: TrendingUpIcon,
   },
