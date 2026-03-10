@@ -1455,7 +1455,7 @@
 
   .token-card {
     position: relative;
-    padding: 2rem;
+    padding: 2.25rem 2rem;
     background: rgba(var(--polaris-navy-rgb), 0.5);
     border: 1px solid rgba(var(--polaris-star-rgb), 0.1);
     border-radius: 1.5rem;
@@ -1477,7 +1477,7 @@
   .token-card--pusd,
   .token-card--peth,
   .token-card--polar {
-    border-color: rgba(var(--token-rgb), 0.15);
+    border-color: rgba(var(--token-rgb), 0.18);
   }
 
   .token-card--pusd::before,
@@ -1485,81 +1485,84 @@
   .token-card--polar::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -20%;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     background: radial-gradient(
       circle,
-      rgba(var(--token-rgb), 0.12) 0%,
-      rgba(var(--token-rgb), 0) 70%
+      rgba(var(--token-rgb), 0.18) 0%,
+      rgba(var(--token-rgb), 0) 65%
     );
     pointer-events: none;
-    transition: width 0.4s ease, height 0.4s ease, background 0.4s ease;
+    transition: opacity 0.4s ease;
   }
 
   .token-card--pusd:hover,
   .token-card--peth:hover,
   .token-card--polar:hover {
-    border-color: rgba(var(--token-rgb), 0.4);
+    border-color: rgba(var(--token-rgb), 0.45);
     box-shadow:
-      0 0 60px rgba(var(--token-rgb), 0.15),
-      0 20px 40px rgba(0, 0, 0, 0.2);
+      0 0 80px rgba(var(--token-rgb), 0.18),
+      0 24px 48px rgba(0, 0, 0, 0.25);
   }
 
   .token-card--pusd:hover::before,
   .token-card--peth:hover::before,
   .token-card--polar:hover::before {
-    width: 160px;
-    height: 160px;
-    background: radial-gradient(
-      circle,
-      rgba(var(--token-rgb), 0.2) 0%,
-      rgba(var(--token-rgb), 0) 70%
-    );
+    opacity: 1.5;
   }
 
   .token-card__icon {
     position: relative;
-    width: 4.5rem;
-    height: 4.5rem;
-    margin: 0 auto 1.25rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    margin: 0 auto 1.5rem;
     transition: transform 0.4s ease, filter 0.4s ease;
   }
 
   .token-card:hover .token-card__icon {
-    transform: scale(1.08);
+    transform: scale(1.1);
   }
 
   /* Token-specific icon glows */
   .token-card--pusd:hover .token-card__icon,
   .token-card--peth:hover .token-card__icon,
   .token-card--polar:hover .token-card__icon {
-    filter: drop-shadow(0 0 12px rgba(var(--token-rgb), 0.5));
+    filter: drop-shadow(0 0 16px rgba(var(--token-rgb), 0.55));
   }
 
   .token-card__name {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     color: var(--polaris-star);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .token-card--peth .token-card__name {
+    color: var(--polaris-peth);
+  }
+
+  .token-card--polar .token-card__name {
+    color: var(--polaris-polar);
   }
 
   .token-card__tagline {
     font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     color: var(--polaris-cream);
-    margin-bottom: 0.875rem;
+    margin-bottom: 1.25rem;
   }
 
   .token-card__description {
     font-family: var(--font-sans);
     font-size: 0.9375rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--polaris-cream-muted);
   }
 
@@ -2067,7 +2070,7 @@
 
   .trust-strip__items {
     display: grid;
-    gap: 1rem;
+    gap: 1.25rem;
   }
 
   @media (min-width: 640px) {
