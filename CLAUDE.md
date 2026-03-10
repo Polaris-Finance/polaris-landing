@@ -2,6 +2,19 @@
 
 DeFi protocol landing page built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4. **Statically exported** to GitHub Pages (no SSR).
 
+## Core Principles
+
+- DRY/KISS/YAGNI. Minimal impact. Find root causes, no temp fixes.
+- When adding a data source, update the about page.
+- **Plan first**: Enter plan mode for non-trivial tasks (3+ steps). If stuck, stop and re-plan.
+- **Verify before done**: Prove it works — build, type-check, test. Never claim done without evidence.
+- **Be autonomous**: Fix bugs end-to-end without hand-holding. Chase logs and errors yourself.
+
+## Folder Structure
+
+All agents plans (design or implementation), as well as research and processes documents are placed in the `/agents/` folder.
+**`/docs/` is to be used for application-related documentation only**
+
 ## Quick Commands
 
 ```bash
