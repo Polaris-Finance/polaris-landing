@@ -38,24 +38,24 @@ function Mountains() {
       <svg className="mountain mountain--left" viewBox="0 0 400 200" preserveAspectRatio="none">
         <path
           d="M0,200 L0,120 L50,80 L100,100 L150,60 L200,90 L250,40 L300,70 L350,50 L400,80 L400,200 Z"
-          fill="#0d1f3c"
+          className="mountain__layer--front"
           opacity="0.7"
         />
         <path
           d="M0,200 L0,140 L80,100 L120,120 L180,80 L220,110 L280,70 L340,100 L400,90 L400,200 Z"
-          fill="#122a4d"
+          className="mountain__layer--back"
           opacity="0.5"
         />
       </svg>
       <svg className="mountain mountain--right" viewBox="0 0 400 200" preserveAspectRatio="none">
         <path
           d="M0,200 L0,100 L60,70 L100,90 L160,50 L220,80 L280,30 L340,60 L400,40 L400,200 Z"
-          fill="#0d1f3c"
+          className="mountain__layer--front"
           opacity="0.5"
         />
         <path
           d="M0,200 L0,130 L50,100 L110,120 L170,80 L230,100 L290,60 L350,90 L400,70 L400,200 Z"
-          fill="#122a4d"
+          className="mountain__layer--back"
           opacity="0.3"
         />
       </svg>
@@ -68,15 +68,11 @@ function WaveSurface() {
     <svg viewBox="0 0 1200 30" preserveAspectRatio="none">
       <path
         d="M0,15 Q75,12 150,15 T300,15 T450,15 T600,15 T750,15 T900,15 T1050,15 T1200,15"
-        fill="none"
-        stroke="rgba(232, 220, 196, 0.12)"
-        strokeWidth="1"
+        className="wave-line--primary"
       />
       <path
         d="M0,20 Q75,17 150,20 T300,20 T450,20 T600,20 T750,20 T900,20 T1050,20 T1200,20"
-        fill="none"
-        stroke="rgba(232, 220, 196, 0.08)"
-        strokeWidth="0.5"
+        className="wave-line--secondary"
       />
     </svg>
   );

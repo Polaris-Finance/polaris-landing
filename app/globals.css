@@ -633,6 +633,26 @@
     opacity: 0.4;
   }
 
+  .mountain__layer--front {
+    fill: var(--polaris-navy);
+  }
+
+  .mountain__layer--back {
+    fill: var(--polaris-navy-mid);
+  }
+
+  .wave-line--primary {
+    fill: none;
+    stroke: rgba(var(--polaris-star-rgb), 0.12);
+    stroke-width: 1;
+  }
+
+  .wave-line--secondary {
+    fill: none;
+    stroke: rgba(var(--polaris-star-rgb), 0.08);
+    stroke-width: 0.5;
+  }
+
   /* Ocean/Water layer */
   .ocean {
     position: absolute;
