@@ -977,8 +977,8 @@
      ============================================ */
 
   /* Default (mobile): hide marked stars, use simpler animations */
-  .star--hide-mobile {
-    display: none !important;
+  .starfield .star--hide-mobile {
+    display: none;
   }
 
   .star--bright,
@@ -993,8 +993,8 @@
 
   /* Desktop: show all stars and restore full animations */
   @media (min-width: 768px) {
-    .star--hide-mobile {
-      display: block !important;
+    .starfield .star--hide-mobile {
+      display: block;
     }
 
     .star--bright {
