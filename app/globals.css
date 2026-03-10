@@ -1636,7 +1636,7 @@
     top: 100%;
     transform: translateX(-50%);
     width: 1px;
-    height: calc(100% + 1.75rem + 1.5rem + 1.1rem); /* Card padding + gap + next card padding */
+    height: calc(100% + 1.75rem + 1.5rem + 1.1rem + 5rem); /* Card padding + gap + next card padding + extra length */
     background: linear-gradient(
       to bottom,
       var(--polaris-star-glow) 0%,
