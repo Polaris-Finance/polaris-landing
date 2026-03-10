@@ -112,19 +112,19 @@
 
 .top-nav {
   position: fixed;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: min(600px, calc(100% - 2rem));
+  width: 100%;
   height: 52px;
-  padding: 8px 8px 8px 12px;
+  padding: 8px 16px 8px 16px;
   background: rgba(10, 22, 40, 0.9);
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Only enable backdrop-filter blur on desktop - too memory-intensive on iOS */
@@ -250,7 +250,7 @@
 /* Desktop nav: show text links, increase spacing */
 @media (min-width: 541px) {
   .top-nav {
-    padding: 8px 8px 8px 16px;
+    padding: 8px 24px;
   }
 
   .top-nav__logo {
@@ -2373,13 +2373,13 @@
   }
 
   .prose-polaris h1 { font-size: 2rem; }
-  .prose-polaris h2 { font-size: 1.25rem; }
-  .prose-polaris h3 { font-size: 1.125rem; }
+  .prose-polaris h2 { font-size: 1.375rem; }
+  .prose-polaris h3 { font-size: 1.1875rem; }
   .prose-polaris h4 { font-size: 1.125rem; }
 
   @media (min-width: 640px) {
-    .prose-polaris h2 { font-size: 1.5rem; }
-    .prose-polaris h3 { font-size: 1.25rem; }
+    .prose-polaris h2 { font-size: 1.75rem; }
+    .prose-polaris h3 { font-size: 1.375rem; }
   }
 
   /* First heading shouldn't have top margin */
@@ -2408,7 +2408,7 @@
   }
 
   .prose-polaris a:hover {
-    opacity: 0.8;
+    color: var(--polaris-cream);
   }
 
   /* Lists */
@@ -2519,6 +2519,12 @@
     background: rgba(var(--polaris-star-rgb), 0.03);
   }
 
+  /* H2 left accent — marks section boundaries */
+  .prose-polaris h2 {
+    border-left: 2px solid rgba(var(--polaris-star-rgb), 0.2);
+    padding-left: 0.75rem;
+  }
+
   /* Heading anchors */
   .prose-polaris h2[id],
   .prose-polaris h3[id] {
@@ -2528,7 +2534,7 @@
 
   .prose-polaris .heading-anchor {
     position: absolute;
-    left: -1.5em;
+    left: -1.25em;
     top: 50%;
     transform: translateY(-50%);
     color: var(--polaris-cream-muted);
@@ -2549,6 +2555,27 @@
     opacity: 1;
     color: var(--polaris-star);
   }
+}
+
+/* ============================================
+   BLOG LAYOUT
+   ============================================ */
+
+/* Atmospheric gradient — subtle celestial warmth at page top */
+.blog-atmosphere {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 500px;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(var(--polaris-star-rgb), 0.04) 0%,
+    rgba(var(--polaris-star-rgb), 0.015) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 /* ============================================
