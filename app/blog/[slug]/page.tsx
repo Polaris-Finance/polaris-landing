@@ -281,7 +281,7 @@ export default async function BlogPostPage({ params }: Props) {
             Back to blog
           </Link>
 
-          <header className="mb-10">
+          <header className="mb-12">
             <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wider text-cream-muted">
               <time dateTime={post.date}>{formatDisplayDate(post.date)}</time>
               {showUpdatedDate && (
@@ -293,17 +293,17 @@ export default async function BlogPostPage({ params }: Props) {
                 </>
               )}
             </div>
-            <h1 className="mt-3 font-serif text-3xl text-star sm:text-4xl lg:text-[2.75rem]">
+            <h1 className="mt-6 font-serif text-[2.25rem] leading-[1.1] tracking-tight text-star sm:text-[3rem] lg:text-[3.75rem] xl:text-[4rem]">
               {post.title}
             </h1>
-            <p className="mt-4 text-lg text-cream-muted">{post.description}</p>
-            <div className="mt-4 flex items-center gap-2 text-sm text-cream-muted">
+            <p className="mt-6 text-xl leading-relaxed text-cream-muted">{post.description}</p>
+            <div className="mt-6 flex items-center gap-2 text-sm text-cream-muted">
               <span>By {post.author}</span>
               <span aria-hidden="true">·</span>
               <span>{post.readingTime} min read</span>
             </div>
             {post.image && (
-              <div className="mt-8 overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.35)]">
+              <div className="mt-10 overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.12)]">
                 <Image
                   src={`${basePath}${post.image}`}
                   alt={post.title}
