@@ -1,8 +1,9 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { GithubIcon, TelegramIcon } from "@/components/icons";
 import { RssFeedLink } from "@/components/RssFeedLink";
 import { basePath } from "@/lib/basePath";
-import Image from "next/image";
-import Link from "next/link";
 
 export function Footer() {
   return (

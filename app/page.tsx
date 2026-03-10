@@ -4,6 +4,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import {
   BenefitsSection,
   CompassDivider,
+  FeaturedShowsSection,
   HeroSection,
   HowItWorksSection,
   StablecoinOSSection,
@@ -46,6 +47,10 @@ export default function Home() {
       <CompassDivider />
 
       <BenefitsSection />
+
+      <CompassDivider />
+
+      <FeaturedShowsSection />
 
       <Footer />
     </main>

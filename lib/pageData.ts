@@ -1,3 +1,5 @@
+import { ComponentType, SVGProps } from "react";
+
 import {
   AwardIcon,
   Link2OffIcon,
@@ -6,7 +8,6 @@ import {
   TrendingUpIcon,
   ZapIcon,
 } from "@/components/icons";
-import { ComponentType, SVGProps } from "react";
 
 export type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -33,6 +34,17 @@ export type BenefitHighlight = {
   title: string;
   bullets: string[];
   Icon: IconComponent;
+};
+
+export type FeaturedShow = {
+  name: string;
+  host: string;
+  hostLogoSrc: string;
+  teamMembers: string[];
+  dateIso: string;
+  dateLabel: string;
+  href: string;
+  platform: string;
 };
 
 export const heroStats: HeroStat[] = [
@@ -158,5 +170,28 @@ export const benefitHighlights: BenefitHighlight[] = [
       "The Polaris team is composed of experienced Solidity developers who shipped several stablecoins. They learned from their experience, and are joined by DeFi legends to face the final boss.",
     ],
     Icon: AwardIcon,
+  },
+];
+
+export const featuredShows: FeaturedShow[] = [
+  {
+    name: "Breaking the USDT-USDC Duopoly",
+    host: "Blocmates",
+    hostLogoSrc: "/hosts/blocmates.jpg",
+    teamMembers: ["TokenBrice"],
+    dateIso: "2026-03-10",
+    dateLabel: "March 10, 2026",
+    href: "https://x.com/blocmates/status/2031370732832477651?s=20",
+    platform: "X Space",
+  },
+  {
+    name: "No T-bills, No CEXes, No Compromises - Introducing Polaris",
+    host: "Leviathan News",
+    hostLogoSrc: "/hosts/leviathan-news.jpg",
+    teamMembers: ["TokenBrice", "Robert (0xluude)"],
+    dateIso: "2026-01-29",
+    dateLabel: "January 29, 2026",
+    href: "https://www.youtube.com/watch?v=360Vr23W1_Q",
+    platform: "YouTube",
   },
 ];
