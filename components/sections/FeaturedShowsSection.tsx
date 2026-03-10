@@ -17,9 +17,6 @@ export function FeaturedShowsSection() {
             <p className="reveal featured-shows__description">
               Start here for the long-form interviews and shows that unpack the Polaris thesis in full.
             </p>
-            <p className="reveal featured-shows__note">
-              This shelf links directly to the original recordings and will expand as more conversations go live.
-            </p>
           </div>
 
           <div className="featured-shows__list reveal-stagger">
