@@ -10,8 +10,7 @@ export function FeaturedShowsSection() {
       <div className="mx-auto max-w-7xl">
         <div className="featured-shows__grid">
           <div className="featured-shows__intro">
-            <span className="reveal section-kicker">Polaris on Air</span>
-            <h2 id="featured-shows-heading" className="reveal featured-shows__heading">
+<h2 id="featured-shows-heading" className="reveal featured-shows__heading">
               Transmission Log
             </h2>
             <p className="reveal featured-shows__description">
