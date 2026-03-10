@@ -81,9 +81,9 @@ test.describe('Design Quality & Brand Consistency', () => {
     test('cards have consistent border radius', async ({ page }) => {
       await page.goto('/');
 
-      await page.locator('.stat-card').first().scrollIntoViewIfNeeded();
+      await page.locator('.token-card').first().scrollIntoViewIfNeeded();
 
-      const cardRadius = await page.locator('.stat-card').first().evaluate(el =>
+      const cardRadius = await page.locator('.token-card').first().evaluate(el =>
         getComputedStyle(el).borderRadius
       );
 
@@ -109,10 +109,10 @@ test.describe('Design Quality & Brand Consistency', () => {
     test('cards have backdrop blur', async ({ page }) => {
       await page.goto('/');
 
-      await page.locator('.stat-card').first().scrollIntoViewIfNeeded();
+      await page.locator('.token-card').first().scrollIntoViewIfNeeded();
 
       // Check for backdrop-filter or similar glass effect
-      const bgColor = await page.locator('.stat-card').first().evaluate(el =>
+      const bgColor = await page.locator('.token-card').first().evaluate(el =>
         getComputedStyle(el).backgroundColor
       );
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function TokensSection() {
   return (
-    <section className="section section--gradient">
+    <section className="section section--gradient section--showcase">
       <div className="mx-auto max-w-7xl">
         <h2 className="reveal section-heading">Triple-Engine Architecture</h2>
         <p className="reveal section-description">
