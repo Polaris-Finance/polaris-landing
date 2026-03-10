@@ -10,10 +10,10 @@ export function FeaturedShowsSection() {
       <div className="mx-auto max-w-7xl">
         <div className="featured-shows__grid">
           <div className="featured-shows__intro">
-<h2 id="featured-shows-heading" className="reveal featured-shows__heading">
+<h2 id="featured-shows-heading" className="reveal section-heading">
               Transmission Log
             </h2>
-            <p className="reveal featured-shows__description">
+            <p className="reveal section-description">
               Start here for the long-form interviews and shows that unpack the Polaris thesis in full.
             </p>
           </div>

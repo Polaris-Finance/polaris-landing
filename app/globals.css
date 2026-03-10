@@ -1698,7 +1698,7 @@
   }
 
   /* ============================================
-     BENEFIT ITEMS (borderless editorial layout)
+     BENEFIT CARDS
      ============================================ */
 
   .benefits-grid {
@@ -1717,56 +1717,52 @@
   .benefit-item {
     position: relative;
     padding: 1.75rem;
-    background: rgba(var(--polaris-navy-rgb), 0.5);
-    border: 1px solid rgba(var(--polaris-star-rgb), 0.08);
+    background: rgba(var(--polaris-navy-rgb), 0.85);
+    border: 1px solid rgba(var(--polaris-star-rgb), 0.1);
     border-radius: 1.5rem;
-    transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @supports (backdrop-filter: blur(10px)) {
+    @media (min-width: 768px) and (hover: hover) {
+      .benefit-item {
+        background: rgba(var(--polaris-navy-rgb), 0.6);
+        backdrop-filter: blur(10px);
+      }
+    }
   }
 
   .benefit-item:hover {
     border-color: rgba(var(--polaris-star-rgb), 0.2);
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
   .benefit-item__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3rem;
+    height: 3rem;
     background: rgba(var(--polaris-star-rgb), 0.08);
-    border: 1px solid rgba(var(--polaris-star-rgb), 0.12);
-    border-radius: 0.875rem;
+    border: 1px solid rgba(var(--polaris-star-rgb), 0.15);
+    border-radius: 1rem;
     color: var(--polaris-star);
     margin-bottom: 1.25rem;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .benefit-item:hover .benefit-item__icon {
-    background: rgba(var(--polaris-star-rgb), 0.14);
-    box-shadow: 0 0 16px rgba(var(--polaris-star-rgb), 0.12);
   }
 
   .benefit-item__title {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--polaris-star-bright);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--polaris-star);
     margin-bottom: 0.75rem;
-    line-height: 1.35;
-  }
-
-  @media (min-width: 768px) {
-    .benefit-item__title {
-      font-size: 1.2rem;
-    }
   }
 
   .benefit-item__description {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     line-height: 1.7;
     color: var(--polaris-cream-muted);
   }
@@ -1902,84 +1898,46 @@
     color: var(--polaris-star);
   }
 
-  .featured-shows {
-    padding-top: 4.5rem;
-  }
-
   .featured-shows__grid {
     display: grid;
     gap: 2rem;
   }
 
-  .featured-shows__heading {
-    font-family: var(--font-serif);
-    font-size: clamp(1.9rem, 5vw, 3rem);
-    font-weight: 500;
-    line-height: 0.95;
-    letter-spacing: 0.04em;
-    color: var(--polaris-star);
-    margin-bottom: 1rem;
-  }
-
-  .featured-shows__description {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--polaris-cream);
-  }
-
   .featured-shows__list {
     display: grid;
-    gap: 1rem;
+    gap: 1.25rem;
   }
 
   @media (min-width: 768px) {
     .featured-shows__list {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
   }
 
   .show-card {
     position: relative;
     overflow: hidden;
-    padding: 1.4rem;
-    background:
-      radial-gradient(circle at top right, rgba(var(--polaris-star-rgb), 0.1) 0%, transparent 36%),
-      linear-gradient(135deg, rgba(var(--polaris-navy-rgb), 0.82) 0%, rgba(var(--polaris-navy-rgb), 0.55) 100%);
+    padding: 1.75rem;
+    background: rgba(var(--polaris-navy-rgb), 0.85);
     border: 1px solid rgba(var(--polaris-star-rgb), 0.1);
     border-radius: 1.5rem;
-    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  @supports (backdrop-filter: blur(14px)) {
+  @supports (backdrop-filter: blur(10px)) {
     @media (min-width: 768px) and (hover: hover) {
       .show-card {
-        backdrop-filter: blur(14px);
+        background: rgba(var(--polaris-navy-rgb), 0.6);
+        backdrop-filter: blur(10px);
       }
     }
-  }
-
-  .show-card::before {
-    content: "";
-    position: absolute;
-    inset: 1.15rem auto 1.15rem 1.15rem;
-    width: 1px;
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--polaris-star-rgb), 0.38) 0%,
-      rgba(var(--polaris-star-rgb), 0.08) 100%
-    );
-    opacity: 0.7;
-    pointer-events: none;
   }
 
   .show-card:hover {
     transform: translateY(-4px);
     border-color: rgba(var(--polaris-star-rgb), 0.2);
-    box-shadow:
-      0 18px 50px rgba(0, 0, 0, 0.24),
-      0 0 0 1px rgba(var(--polaris-star-rgb), 0.08) inset;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
   .show-card__eyebrow {
@@ -1988,7 +1946,6 @@
     justify-content: space-between;
     gap: 1rem;
     margin-bottom: 1rem;
-    padding-left: 1rem;
   }
 
   .show-card__logo {
@@ -1996,10 +1953,7 @@
     height: 2.5rem;
     flex-shrink: 0;
     border-radius: 9999px;
-    border: 1px solid rgba(var(--polaris-star-rgb), 0.14);
-    box-shadow:
-      0 0 0 3px rgba(var(--polaris-star-rgb), 0.05),
-      0 8px 18px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(var(--polaris-star-rgb), 0.15);
     object-fit: cover;
   }
 
@@ -2007,8 +1961,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-bottom: 1.15rem;
-    padding-left: 1rem;
+    margin-bottom: 1.25rem;
   }
 
   .show-card__platform {
@@ -2023,7 +1976,7 @@
     text-transform: uppercase;
     color: var(--polaris-star);
     background: rgba(var(--polaris-star-rgb), 0.08);
-    border: 1px solid rgba(var(--polaris-star-rgb), 0.12);
+    border: 1px solid rgba(var(--polaris-star-rgb), 0.15);
     border-radius: 9999px;
   }
 
@@ -2036,26 +1989,20 @@
 
   .show-card__title {
     font-family: var(--font-serif);
-    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: 0.02em;
-    color: var(--polaris-star-bright);
+    color: var(--polaris-star);
     margin: 0;
-    max-width: 34rem;
   }
 
   .show-card__meta {
     display: grid;
     gap: 1rem;
-    padding-left: 1rem;
   }
 
   @media (min-width: 640px) {
-    .show-card {
-      padding: 1.6rem;
-    }
-
     .show-card__meta {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem 1.5rem;
@@ -2087,10 +2034,9 @@
 
   .show-card__meta-description {
     font-family: var(--font-sans);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.7;
-    color: var(--polaris-cream);
-    text-wrap: pretty;
+    color: var(--polaris-cream-muted);
   }
 
   .show-card__link {
