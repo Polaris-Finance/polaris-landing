@@ -1954,6 +1954,11 @@
   .footer__logo {
     height: 36px;
     width: auto;
+    transition: opacity 0.2s;
+  }
+
+  .footer__brand:hover .footer__logo {
+    opacity: 0.8;
   }
 
   .footer__links {
@@ -1986,7 +1991,7 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--polaris-cream-muted);
-    transition: color 0.3s ease;
+    transition: color 0.2s;
   }
 
   .footer__link:hover {
@@ -2008,7 +2013,8 @@
     font-family: var(--font-sans);
     font-size: 0.875rem;
     color: var(--polaris-cream-muted);
-    transition: color 0.3s ease;
+    text-decoration: none;
+    transition: color 0.2s;
   }
 
   .footer__email:hover {
