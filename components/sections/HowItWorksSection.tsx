@@ -10,7 +10,7 @@ export function HowItWorksSection() {
       <div className="mx-auto max-w-7xl">
         <h2 className="reveal section-heading">How Scalable Yield Works</h2>
         <p className="reveal section-description">
-          Polaris is a triple-engine stablecoin protocol built to solve the stablecoin &ldquo;Yield Trap&rdquo;. By monetizing pETH volatility via a bonding curve, conversion mechanics, and CDP architecture, Polaris generates uncorrelated yield that scales as the system grows without counterparty or credit risk.
+          Polaris is a triple-engine stablecoin protocol built to solve the stablecoin &ldquo;Yield Trap&rdquo;. By monetizing <abbr title="Polaris ETH — volatility-capturing collateral token">pETH</abbr> volatility via a bonding curve, conversion mechanics, and <abbr title="Collateralized Debt Position">CDP</abbr> architecture, Polaris generates uncorrelated yield that scales as the system grows without counterparty or credit risk.
         </p>
 
         <div className="reveal--scale system-diagram mt-10">
