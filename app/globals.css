@@ -745,11 +745,11 @@
     border-radius: 50%;
     background: radial-gradient(
       ellipse at center,
-      rgba(var(--polaris-star-rgb), 0.12) 0%,
-      rgba(var(--polaris-star-rgb), 0.05) 40%,
-      transparent 70%
+      rgba(var(--polaris-star-rgb), 0.07) 0%,
+      rgba(var(--polaris-star-rgb), 0.04) 25%,
+      rgba(var(--polaris-star-rgb), 0.02) 50%,
+      transparent 80%
     );
-    filter: blur(20px);
     pointer-events: none;
   }
 
