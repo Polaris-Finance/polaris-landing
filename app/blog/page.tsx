@@ -75,7 +75,6 @@ export default function BlogPage() {
 
       <section id="main-content" className="px-6 pb-20 pt-24 sm:px-10">
         <div className="mx-auto max-w-4xl">
-          <span className="section-kicker">Blog</span>
           <h1 className="section-heading">Latest Updates</h1>
           <p className="mt-4 text-lg text-cream-muted">
             Every mechanism, every design choice — covered in depth. Learn how Polaris works before it launches.
@@ -85,7 +84,7 @@ export default function BlogPage() {
           {posts.length > 0 && (
             <Link
               href={blogPostPath(posts[0].slug)}
-              className="group mt-12 block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
+              className="group mt-12 block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] transition-colors duration-200 hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
             >
               {posts[0].image && (
                 <div className="relative aspect-video w-full overflow-hidden">
@@ -94,7 +93,7 @@ export default function BlogPage() {
                     alt={posts[0].title}
                     fill
                     sizes="(min-width: 1024px) 896px, 100vw"
-                    className="object-cover transition group-hover:scale-[1.02]"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     priority
                   />
                 </div>
@@ -111,7 +110,7 @@ export default function BlogPage() {
                   <span aria-hidden="true">·</span>
                   <span>{posts[0].readingTime} min read</span>
                 </div>
-                <h2 className="font-serif text-2xl text-star transition group-hover:text-[var(--polaris-cream)] sm:text-3xl">
+                <h2 className="font-serif text-2xl text-star transition-colors group-hover:text-[var(--polaris-cream)] sm:text-3xl">
                   {posts[0].title}
                 </h2>
                 <p className="text-[0.95rem] leading-relaxed text-cream-muted sm:text-base">{posts[0].description}</p>
@@ -121,12 +120,12 @@ export default function BlogPage() {
 
           {/* Remaining posts in two-column grid */}
           {posts.length > 1 && (
-            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
               {posts.slice(1).map((post) => (
                 <Link
                   key={post.slug}
                   href={blogPostPath(post.slug)}
-                  className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] backdrop-blur-sm transition hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
+                  className="group block overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.1)] bg-[rgba(var(--polaris-navy-rgb),0.5)] transition-colors duration-200 hover:border-[rgba(232,220,196,0.25)] hover:bg-[rgba(var(--polaris-navy-rgb),0.7)]"
                 >
                   {post.image && (
                     <div className="relative aspect-video w-full overflow-hidden">
@@ -135,7 +134,7 @@ export default function BlogPage() {
                         alt={post.title}
                         fill
                         sizes="(min-width: 1024px) 448px, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover transition group-hover:scale-[1.02]"
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       />
                     </div>
                   )}
@@ -151,7 +150,7 @@ export default function BlogPage() {
                       <span aria-hidden="true">·</span>
                       <span>{post.readingTime} min read</span>
                     </div>
-                    <h2 className="font-serif text-xl text-star transition group-hover:text-[var(--polaris-cream)]">
+                    <h2 className="font-serif text-xl text-star transition-colors group-hover:text-[var(--polaris-cream)]">
                       {post.title}
                     </h2>
                     <p className="text-[0.92rem] leading-6 text-cream-muted">{post.description}</p>
