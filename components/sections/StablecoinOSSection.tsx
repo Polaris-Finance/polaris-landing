@@ -11,15 +11,18 @@ export function StablecoinOSSection() {
           The Polaris StablecoinOS is a framework to steward Polaris growth and enable selected projects to deploy their own decentralized stablecoin while benefiting from shared liquidity and protocol-level integrations.
         </p>
 
-        <div className="reveal-stagger editorial-blocks mt-10">
+        <div className="reveal-stagger narrative-timeline mt-10">
           {stablecoinOSMilestones.map((milestone, index) => (
-            <div key={`os-milestone-${index}`} className="editorial-block">
-              <h3 className="editorial-block__title">{milestone.title}</h3>
-              <ul className="editorial-block__content space-y-2">
-                {milestone.bullets.map((bullet, bulletIndex) => (
-                  <li key={`os-${index}-bullet-${bulletIndex}`}>{bullet}</li>
-                ))}
-              </ul>
+            <div key={`os-milestone-${index}`} className="narrative-step">
+              <span className="narrative-step__marker" aria-hidden="true" />
+              <div className="narrative-step__body">
+                <h3 className="narrative-step__title">{milestone.title}</h3>
+                <ul className="narrative-step__description space-y-2">
+                  {milestone.bullets.map((bullet, bulletIndex) => (
+                    <li key={`os-${index}-bullet-${bulletIndex}`}>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
