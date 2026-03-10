@@ -6,7 +6,7 @@ export function BenefitsSection() {
       <div className="mx-auto max-w-7xl">
         <h2 className="reveal section-heading">Our Principles: The North Star of Ethereum</h2>
         <p className="reveal section-description">
-          We&apos;ve been in the trenches for too long to see the space we&apos;ve dedicated our lives to neutralized. Polaris is our ultimate answer to the centralization of DeFi.
+          We&apos;ve been in the trenches for too long to see the space we&apos;ve dedicated our lives to neutralized. Polaris is our answer to the centralization of DeFi.
         </p>
 
         <div className="reveal-stagger benefits-grid mt-10">
