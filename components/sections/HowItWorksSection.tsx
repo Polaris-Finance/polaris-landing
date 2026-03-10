@@ -1,6 +1,8 @@
+import { ArrowRightIcon } from "@/components/icons";
 import { basePath } from "@/lib/basePath";
 import { narrativeMilestones } from "@/lib/pageData";
 import Image from "next/image";
+import Link from "next/link";
 
 export function HowItWorksSection() {
   return (
@@ -44,6 +46,22 @@ export function HowItWorksSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Blog callout */}
+        <div className="reveal blog-callout mt-10">
+          <div className="blog-callout__content">
+            <div className="blog-callout__text">
+              <p>The bonding curve: Polaris&apos; secret weapon.</p>
+              <p>How a single mechanism enables pETH&apos;s rising floor, guaranteed liquidity, and protocol-wide value capture.</p>
+            </div>
+          </div>
+          <div className="blog-callout__action">
+            <Link href="/blog/bonding-curve" className="blog-callout__link">
+              Read the article
+              <ArrowRightIcon className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
