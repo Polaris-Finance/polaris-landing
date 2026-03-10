@@ -65,7 +65,7 @@
 
 @layer base {
   * {
-    @apply border-white/10;
+    border-color: rgba(var(--polaris-star-rgb), 0.1);
   }
   body {
     background: var(--polaris-navy-darkest);
