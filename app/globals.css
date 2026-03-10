@@ -1920,6 +1920,10 @@
   }
 
   .footer__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0.5rem;
     font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: 500;
