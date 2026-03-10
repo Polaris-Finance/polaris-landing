@@ -1645,7 +1645,7 @@
     top: calc(1.75rem + 0.4rem + 6px); /* card padding + first dot margin-top + half dot */
     transform: translateX(-50%);
     width: 1px;
-    height: calc(100% + 5rem);
+    height: calc(100% - 1.75rem - 0.4rem - 6px - 1rem); /* stay within card: full height minus top offset minus bottom padding */
     background: linear-gradient(
       to bottom,
       var(--polaris-star-glow) 0%,
