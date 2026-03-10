@@ -460,6 +460,27 @@
   }
 }
 
+/* Respect prefers-reduced-motion: disable all continuous/looping animations */
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  .star--tiny,
+  .star--small,
+  .star--medium,
+  .star--bright,
+  .polaris-star,
+  .polaris-star-glow,
+  .polaris-glow-ring,
+  .water-ripple,
+  .water-glow,
+  .wave-surface svg,
+  .star-reflection,
+  .star-reflection-band,
+  .starfield--drift,
+  .btn-primary {
+    animation: none !important;
+  }
+}
+
 /* ============================================
    UTILITY CLASSES
    ============================================ */
