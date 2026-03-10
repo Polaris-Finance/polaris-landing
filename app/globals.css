@@ -374,7 +374,7 @@
 
 /* Hero content entrance animation */
 @keyframes heroFadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -910,7 +910,7 @@
       rgba(var(--polaris-star-rgb), 0.15) 30%,
       transparent 70%
     );
-    animation: starGlow 6s ease-in-out infinite;
+    animation: starGlow 7s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
   }
@@ -1147,7 +1147,7 @@
   }
 
   .hero-logo {
-    animation: heroFadeInUp 1s ease-out 0.2s both;
+    animation: heroFadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
   }
 
   .hero-title {
@@ -1170,7 +1170,7 @@
     max-width: 640px;
     margin: 2rem auto 0;
     line-height: 1.7;
-    animation: heroFadeInUp 1s ease-out 0.4s both;
+    animation: heroFadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.35s both;
   }
 
   .hero-cta {
@@ -1179,7 +1179,7 @@
     align-items: center;
     gap: 1rem;
     margin-top: 3rem;
-    animation: heroFadeInUp 1s ease-out 0.6s both;
+    animation: heroFadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.5s both;
   }
 
   @media (min-width: 640px) {
