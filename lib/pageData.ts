@@ -25,6 +25,9 @@ export type TokenInfo = {
 export type NarrativeMilestone = {
   title: string;
   bullets: string[];
+  blogHref?: string;
+  blogTitle?: string;
+  blogDescription?: string;
 };
 
 export type BenefitHighlight = {
@@ -93,18 +96,27 @@ export const narrativeMilestones: NarrativeMilestone[] = [
     bullets: [
       "pETH, the protocol's collateral, is minted by depositing ETH into a bonding curve, capturing volatility and translating it into yield for pUSD borrowers.",
     ],
+    blogHref: "/blog/bonding-curve",
+    blogTitle: "The Bonding Curve: Polaris' Secret Weapon",
+    blogDescription: "How a single mechanism enables pETH's rising floor, guaranteed liquidity, and protocol-wide value capture.",
   },
   {
     title: "CDP Architecture",
     bullets: [
       "Polaris harnesses a CDP architecture optimized for growth and stability: it provides maximal guarantees to pUSD holders and compelling borrowing terms to pUSD borrowers. It's flexible and can cater for assets with negative interest rates, such as gold.",
     ],
+    blogHref: "/blog/polaris-mints-anything",
+    blogTitle: "CDPs Mint Dollars. Polaris Mints Anything",
+    blogDescription: "From Maker to Liquity, CDP models shaped DeFi lending. Polaris takes the blueprint further.",
   },
   {
     title: "POLAR Issuance",
     bullets: [
       "New POLAR is minted by performing the most synergistic action possible for the protocol: burning pETH, which raises its floor price, increasing pUSD's collateralization ratio and releasing additional yield.",
     ],
+    blogHref: "/blog/burn-pETH-mint-POLAR",
+    blogTitle: "Burn pETH, Mint POLAR: The Conversion Mechanism",
+    blogDescription: "How a single primitive connects Polaris' three engines, and why every conversion strengthens the protocol.",
   },
 ];
 
