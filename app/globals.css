@@ -2306,6 +2306,8 @@
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
     background: linear-gradient(
       135deg,
       rgba(var(--polaris-navy-rgb), 0.6) 0%,

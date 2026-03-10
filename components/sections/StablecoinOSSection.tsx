@@ -28,7 +28,7 @@ export function StablecoinOSSection() {
         </div>
 
         {/* Blog callout */}
-        <div className="reveal blog-callout mt-10">
+        <Link href="/blog/pGOLD-finishing-what-digixdao-started" className="reveal blog-callout mt-10">
           <div className="blog-callout__content">
             <div className="blog-callout__text">
               <p>pGOLD: Finishing what DigixDAO started.</p>
@@ -36,12 +36,12 @@ export function StablecoinOSSection() {
             </div>
           </div>
           <div className="blog-callout__action">
-            <Link href="/blog/pGOLD-finishing-what-digixdao-started" className="blog-callout__link">
+            <span className="blog-callout__link">
               Read the article
               <ArrowRightIcon className="h-4 w-4" aria-hidden />
-            </Link>
+            </span>
           </div>
-        </div>
+        </Link>
       </div>
     </section>
   );

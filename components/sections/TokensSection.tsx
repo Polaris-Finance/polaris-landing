@@ -32,7 +32,7 @@ export function TokensSection() {
         </div>
 
         {/* Blog callout */}
-        <div className="reveal blog-callout mt-10">
+        <Link href="/blog/stewardship-not-governance" className="reveal blog-callout mt-10">
           <div className="blog-callout__content">
             <div className="blog-callout__text">
               <p>Stewardship, not Governance.</p>
@@ -40,12 +40,12 @@ export function TokensSection() {
             </div>
           </div>
           <div className="blog-callout__action">
-            <Link href="/blog/stewardship-not-governance" className="blog-callout__link">
+            <span className="blog-callout__link">
               Read the article
               <ArrowRightIcon className="h-4 w-4" aria-hidden />
-            </Link>
+            </span>
           </div>
-        </div>
+        </Link>
       </div>
     </section>
   );
