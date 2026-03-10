@@ -1105,7 +1105,7 @@
 
   .hero-tagline {
     font-family: var(--font-sans);
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(1.0625rem, 2.5vw, 1.3125rem);
     font-weight: 400;
     color: var(--polaris-cream-muted);
     max-width: 640px;
@@ -1140,7 +1140,7 @@
     justify-content: center;
     padding: 0.875rem 2rem;
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1167,7 +1167,7 @@
     justify-content: center;
     padding: 0.875rem 2rem;
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1314,14 +1314,14 @@
 
   .section-description {
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 1.0625rem;
     line-height: 1.8;
     color: var(--polaris-cream-muted);
   }
 
   @media (min-width: 768px) {
     .section-description {
-      font-size: 1.0625rem;
+      font-size: 1.125rem;
     }
   }
 
@@ -1378,7 +1378,7 @@
 
   .card__description {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--polaris-cream-muted);
   }
@@ -1444,7 +1444,7 @@
 
   .declaration__label {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
     color: var(--polaris-cream-muted);
   }
@@ -1550,7 +1550,7 @@
 
   .token-card__tagline {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--polaris-cream);
     margin-bottom: 0.875rem;
@@ -1558,7 +1558,7 @@
 
   .token-card__description {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
     color: var(--polaris-cream-muted);
   }
@@ -1663,14 +1663,14 @@
 
   .narrative-step__description {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--polaris-cream-muted);
   }
 
   @media (min-width: 768px) {
     .narrative-step__description {
-      font-size: 0.9375rem;
+      font-size: 1rem;
     }
   }
 
@@ -1685,7 +1685,7 @@
     gap: 0.4rem;
     margin-top: 0.75rem;
     font-family: var(--font-sans);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--polaris-star);
     text-decoration: none;
@@ -1762,7 +1762,7 @@
 
   .benefit-item__description {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--polaris-cream-muted);
   }
@@ -2034,7 +2034,7 @@
 
   .show-card__meta-description {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
     line-height: 1.7;
     color: var(--polaris-cream-muted);
   }
@@ -2174,7 +2174,7 @@
 
   .blog-callout__text {
     font-family: var(--font-sans);
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.7;
     color: var(--polaris-cream-muted);
   }
