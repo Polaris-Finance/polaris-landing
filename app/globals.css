@@ -1647,10 +1647,6 @@
     pointer-events: none;
   }
 
-  /* Fade connecting line on last item */
-  .narrative-step:last-child .narrative-step__marker::before {
-    height: 100%;
-  }
 
   /* Marker glow intensifies on hover */
   .narrative-step:hover .narrative-step__marker {
