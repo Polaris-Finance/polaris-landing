@@ -60,8 +60,8 @@ export default function BlogPage() {
         <div className="mx-auto max-w-4xl">
           <span className="section-kicker">Blog</span>
           <h1 className="section-heading">Latest Updates</h1>
-          <p className="mt-4 max-w-2xl text-lg text-cream-muted">
-            Exploring the frontiers of trustless stablecoin infrastructure.
+          <p className="mt-4 text-lg text-cream-muted">
+            Every mechanism, every design choice — covered in depth. Learn how Polaris works before it launches.
           </p>
 
           <div className="mt-12 grid gap-6">
