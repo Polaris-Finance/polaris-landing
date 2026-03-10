@@ -53,7 +53,7 @@ export const heroStats: HeroStat[] = [
     label: "Polaris is free of trusted assets or other offchain dependencies: the whole protocol lives onchain; transparent and auditable",
   },
   {
-    value: "Untapped yield source",
+    value: "Unique yield source",
     label: "Harnesses novel, uncorrelated yield sources by monetizing volatility and growth via a bonding curve",
   },
   {
