@@ -1,6 +1,19 @@
 import { basePath } from "@/lib/basePath";
 import Image from "next/image";
 
+// Simple seeded PRNG (mulberry32) for deterministic star positions across builds
+function mulberry32(seed: number) {
+  return function () {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const random = mulberry32(42);
+
 // Star generation constants
 const NEAR_POLARIS_PROBABILITY = 0.3;
 const POLARIS_LEFT_MIN = 40;   // % - left edge of Polaris cluster zone
@@ -11,16 +24,16 @@ const SKY_TOP_MAX = 55;        // % - stars only in upper portion of scene
 
 function generateStars(count: number, type: "tiny" | "small" | "medium" | "bright") {
   return Array.from({ length: count }, (_, i) => {
-    const isNearPolaris = type !== "bright" && Math.random() < NEAR_POLARIS_PROBABILITY;
-    const baseLeft = isNearPolaris ? POLARIS_LEFT_MIN + Math.random() * POLARIS_LEFT_RANGE : Math.random() * 100;
-    const baseTop = isNearPolaris ? POLARIS_TOP_MIN + Math.random() * POLARIS_TOP_RANGE : Math.random() * SKY_TOP_MAX;
+    const isNearPolaris = type !== "bright" && random() < NEAR_POLARIS_PROBABILITY;
+    const baseLeft = isNearPolaris ? POLARIS_LEFT_MIN + random() * POLARIS_LEFT_RANGE : random() * 100;
+    const baseTop = isNearPolaris ? POLARIS_TOP_MIN + random() * POLARIS_TOP_RANGE : random() * SKY_TOP_MAX;
 
     return {
       id: `${type}-${i}`,
       index: i,
       left: `${baseLeft}%`,
       top: `${baseTop}%`,
-      delay: `${Math.random() * 5}s`,
+      delay: `${random() * 5}s`,
       nearPolaris: isNearPolaris,
       hideOnMobile: type === "tiny" ? i >= 10 : type === "small" ? i >= 5 : type === "medium" ? i >= 2 : i >= 2,
     };
