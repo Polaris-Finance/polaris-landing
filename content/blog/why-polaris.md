@@ -30,7 +30,7 @@ The project was burdened throughout its life by its heavy reliance on governance
 
 ## USDe: A Wild Bet
 
-Ethena implemented a novel design allowing the average DeFi participant to access a new source of yield, leading to USDe quickly scaling. Similarly to Maker, **as the design aged, the number of counterparties involved increased and collateral diversified**: from the initial ETH staking/hedging strategy, involving both staking providers and CEXs now to exposure to various assets including SOL, HYPE, BNB and XRP via delta neutral trades, as well as T-Bills.
+Ethena implemented a novel design allowing the average DeFi participant to access a new source of yield, leading to USDe quickly scaling. Similarly to Maker, **as the design aged, the number of counterparties involved increased and collateral diversified**: from the initial ETH staking/hedging strategy, involving both staking providers and CEXs now to exposure to various assets including SOL, HYPE, BNB and XRP via delta neutral trades, as well as T-bills.
 
 Ethena has a bit of a self-fulfilling curse: as growth accelerates, open interest is absorbed by core and safe assets, driving the addition of more long tails and riskier assets to sustain yield. As the model scaled, it experienced yield compression on its main source, forcing it to rely on limited, riskier alternatives. 
 

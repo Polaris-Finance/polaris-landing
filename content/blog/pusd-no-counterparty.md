@@ -7,7 +7,7 @@ image: "/blog/pusd-no-counterparty-cover.png"
 ---
 
 
-Stablecoin yield today is largely borrowed from offchain sources: T-bills, CEX lending, custodial strategies. That means counterparty risk, opaque mechanics, and yields that don't scale with on-chain activity. pUSD is built differently.
+Stablecoin yield today is largely borrowed from offchain sources: T-bills, CEX lending, custodial strategies. That means counterparty risk, opaque mechanics, and yields that don't scale with onchain activity. pUSD is built differently.
 
 This article offers a deep dive into pUSD's yield mechanics: where the yield comes from, why it scales with adoption, and how the emerging ecosystem multiplies the opportunities available to holders. Let’s get right to it\!
 
