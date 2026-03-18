@@ -21,12 +21,9 @@ export function ActiveSectionNav() {
   const [activeSection, setActiveSection] = useState("");
   const pathname = usePathname();
 
-  // Only show on homepage
-  if (pathname !== "/") {
-    return null;
-  }
-
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
@@ -49,7 +46,12 @@ export function ActiveSectionNav() {
     handleScroll(); // Initial check
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
+
+  // Only show on homepage
+  if (pathname !== "/") {
+    return null;
+  }
 
   return (
     <nav
