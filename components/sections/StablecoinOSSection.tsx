@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function StablecoinOSSection() {
   return (
-    <section className="section">
+    <section id="stablecoin-os" className="section">
       <div className="mx-auto max-w-7xl">
         <h2 className="reveal section-heading">Stablecoin Operating System</h2>
         <p className="reveal section-description">

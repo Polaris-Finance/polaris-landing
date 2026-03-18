@@ -2,7 +2,7 @@ import { benefitHighlights } from "@/lib/pageData";
 
 export function BenefitsSection() {
   return (
-    <section className="section section--gradient">
+    <section id="benefits" className="section section--gradient">
       <div className="mx-auto max-w-7xl">
         <h2 className="reveal section-heading">Our Principles: The North Star of Ethereum</h2>
         <p className="reveal section-description">

@@ -78,7 +78,7 @@ const statusConfig = {
 
 export function RoadmapSection() {
   return (
-    <section className="section section--gradient">
+    <section id="roadmap" className="section section--gradient">
       <div className="mx-auto max-w-4xl">
         <h2 className="reveal section-heading">Protocol Roadmap</h2>
         <p className="reveal section-description">

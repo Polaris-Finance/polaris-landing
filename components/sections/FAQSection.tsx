@@ -221,7 +221,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section section--gradient">
+    <section id="faq" className="section section--gradient">
       <div className="mx-auto max-w-3xl">
         <h2 className="reveal section-heading">Frequently Asked Questions</h2>
         <p className="reveal section-description">

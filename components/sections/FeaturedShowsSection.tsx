@@ -6,7 +6,7 @@ import { featuredShows } from "@/lib/pageData";
 
 export function FeaturedShowsSection() {
   return (
-    <section className="section section--gradient featured-shows" aria-labelledby="featured-shows-heading">
+    <section id="featured-shows" className="section section--gradient featured-shows" aria-labelledby="featured-shows-heading">
       <div className="mx-auto max-w-7xl">
         <div className="featured-shows__grid">
           <div className="featured-shows__intro">

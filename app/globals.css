@@ -2645,6 +2645,99 @@ html {
 }
 
 /* ============================================
+   TEXT SELECTION
+   ============================================ */
+
+::selection {
+  background: var(--polaris-star);
+  color: var(--polaris-navy-darkest);
+}
+
+::-moz-selection {
+  background: var(--polaris-star);
+  color: var(--polaris-navy-darkest);
+}
+
+/* ============================================
+   EXTERNAL LINK INDICATOR
+   ============================================ */
+
+a[href^="http"]:not([href*="polarisfinance.io"])::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.25em;
+  font-size: 0.85em;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+a[href^="http"]:not([href*="polarisfinance.io"]):hover::after {
+  opacity: 1;
+  transform: translate(1px, -1px);
+}
+
+/* Skip external indicator for buttons and specific elements */
+.btn-primary::after,
+.btn-secondary::after,
+.top-nav__link::after,
+.footer__link::after,
+.blog-callout::after,
+.narrative-step__blog-link::after {
+  display: none !important;
+}
+
+/* ============================================
+   HANGING PUNCTUATION
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6,
+.font-serif {
+  text-wrap: balance;
+}
+
+/* ============================================
+   FOCUS RING ENHANCEMENT
+   ============================================ */
+
+*:focus-visible {
+  outline: 3px solid var(--polaris-star);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Enhanced focus for specific elements */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(var(--polaris-star-rgb), 0.3);
+}
+
+/* ============================================
+   PAGE TRANSITIONS
+   ============================================ */
+
+main {
+  animation: pageFadeIn 0.4s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main {
+    animation: none;
+  }
+}
+
+/* ============================================
    CUSTOM SCROLLBAR
    ============================================ */
 

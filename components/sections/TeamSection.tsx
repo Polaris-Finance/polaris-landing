@@ -28,7 +28,7 @@ const founders = [
 
 export function TeamSection() {
   return (
-    <section className="section">
+    <section id="team" className="section">
       <div className="mx-auto max-w-5xl">
         <h2 className="reveal section-heading">Built by DeFi Veterans</h2>
         <p className="reveal section-description">

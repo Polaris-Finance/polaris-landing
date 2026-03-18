@@ -30,7 +30,7 @@ const tokenPatterns = {
 
 export function TokensSection() {
   return (
-    <section className="section section--gradient section--showcase">
+    <section id="tokens" className="section section--gradient section--showcase">
       <div className="mx-auto max-w-7xl">
         <h2 className="reveal section-heading">Triple-Engine Architecture</h2>
         <p className="reveal section-description">

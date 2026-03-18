@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function HowItWorksSection() {
   return (
-    <section className="section">
+    <section id="how-it-works" className="section">
       <div className="mx-auto max-w-7xl">
         <h2 className="reveal section-heading">How Scalable Yield Works</h2>
         <p className="reveal section-description">

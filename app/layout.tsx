@@ -1,3 +1,4 @@
+import { BackToTop } from "@/components/BackToTop";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, TWITTER_HANDLE } from "@/lib/constants";
 import { homeUrl } from "@/lib/seo";
 import type { Metadata, Viewport } from "next";
@@ -92,6 +93,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <BackToTop />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}

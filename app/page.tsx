@@ -1,4 +1,5 @@
 import { Footer } from "@/components/Footer";
+import { ActiveSectionNav } from "@/components/ActiveSectionNav";
 import { JsonLd, organizationSchema, softwareApplicationSchema, websiteSchema } from "@/components/JsonLd";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import {
@@ -28,6 +29,7 @@ export default function Home() {
       <JsonLd data={websiteSchema} />
       <JsonLd data={softwareApplicationSchema} />
       <ScrollReveal />
+      <ActiveSectionNav />
 
       <TopNav />
 
