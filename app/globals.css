@@ -34,6 +34,16 @@
   /* Mountain silhouette */
   --polaris-mountain: #0d1f3c;
 
+  /* Semantic Colors */
+  --polaris-success: #7BC9A3;
+  --polaris-success-rgb: 123, 201, 163;
+  --polaris-warning: #E8C494;
+  --polaris-warning-rgb: 232, 196, 148;
+  --polaris-error: #E89494;
+  --polaris-error-rgb: 232, 148, 148;
+  --polaris-info: #94B8E8;
+  --polaris-info-rgb: 148, 184, 232;
+
   /* Typography */
   --font-serif: "Cormorant Garamond", "Times New Roman", Georgia, serif;
   --font-sans: "Inter", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
@@ -239,6 +249,21 @@
 
 .top-nav__cta-short {
   display: inline;
+}
+
+/* Analytics link highlight */
+.top-nav__link--highlighted {
+  color: var(--polaris-star);
+  background: rgba(var(--polaris-star-rgb), 0.08);
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--polaris-star-rgb), 0.15);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.top-nav__link--highlighted:hover {
+  background: rgba(var(--polaris-star-rgb), 0.12);
+  border-color: rgba(var(--polaris-star-rgb), 0.25);
 }
 
 /* Medium screens: show full logo and full CTA text */
@@ -1721,11 +1746,11 @@
 
   /* Progressive marker descent — dot drifts lower with each step */
   .narrative-step:nth-child(2) .narrative-step__marker {
-    margin-top: 2.25rem;
+    margin-top: 0.4rem;
   }
 
   .narrative-step:nth-child(3) .narrative-step__marker {
-    margin-top: 4.5rem;
+    margin-top: 0.4rem;
   }
 
   /* Connecting line — anchored to the card at the first dot's position */
@@ -2581,6 +2606,20 @@
   .prose-polaris .heading-anchor:hover {
     opacity: 1;
     color: var(--polaris-star);
+  }
+}
+
+/* ============================================
+   SMOOTH SCROLL
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 

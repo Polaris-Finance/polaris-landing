@@ -180,11 +180,29 @@ export function HeroSection() {
             We&apos;re building uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.
           </p>
           <div className="hero-cta">
-            <a href="https://x.com/polarisfinance_" className="btn-primary" target="_blank" rel="noopener noreferrer">
-              Get updates on X
+            <a 
+              href="https://analytics.testnet.polarisfinance.io/" 
+              className="btn-primary inline-flex items-center gap-2" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Explore Testnet Analytics
             </a>
-            <a href="https://t.me/polaris_ann" className="btn-secondary" target="_blank" rel="noopener noreferrer">
-              Get updates on Telegram
+            <a 
+              href="https://x.com/polarisfinance_" 
+              className="btn-secondary" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Updates on X
+            </a>
+            <a 
+              href="https://t.me/polaris_ann" 
+              className="btn-secondary" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Telegram
             </a>
           </div>
         </div>

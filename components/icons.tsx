@@ -1,6 +1,6 @@
 import { SVGProps } from "react";
 
-export { ZoomIn as ZoomInIcon } from "lucide-react";
+export { BarChart3 as BarChart3Icon, ZoomIn as ZoomInIcon } from "lucide-react";
 
 type IconProps = SVGProps<SVGSVGElement>;
 

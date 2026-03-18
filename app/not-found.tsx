@@ -9,8 +9,8 @@ export default function NotFound() {
       <TopNav />
 
       <NotFoundContent
-        title="Page not found"
-        message="The page you're looking for doesn't exist or has been moved."
+        title="This star has drifted out of view"
+        message="The page you're looking for doesn't exist or has moved to a new orbit."
         actions={
           <Link href="/" className="btn-primary inline-flex items-center gap-2">
             Return home

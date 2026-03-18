@@ -1,7 +1,8 @@
 import { ActiveTocSidebar } from "@/components/ActiveTocSidebar";
 import { BlogImageLightbox } from "@/components/BlogImageLightbox";
 import { Footer } from "@/components/Footer";
-import { ArrowLeftIcon, ArrowUpIcon } from "@/components/icons";
+import { ReadingProgress } from "@/components/ReadingProgress";
+import { ArrowLeftIcon, ArrowUpIcon, XIcon } from "@/components/icons";
 import { JsonLd, createArticleSchema, createBreadcrumbSchema } from "@/components/JsonLd";
 import { TopNav } from "@/components/TopNav";
 import { basePath } from "@/lib/basePath";
@@ -260,11 +261,15 @@ export default async function BlogPostPage({ params }: Props) {
   const markdownComponents = createMarkdownComponents(imageMetadataMap);
   const showUpdatedDate = post.lastModified.slice(0, 10) !== post.date;
 
+  const shareUrl = encodeURIComponent(blogPostUrl(slug));
+  const shareText = encodeURIComponent(post.title);
+
   return (
     <main className="relative min-h-screen overflow-x-clip bg-[var(--polaris-navy-darkest)]">
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
+      <ReadingProgress />
       <div className="blog-atmosphere" aria-hidden="true" />
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
@@ -297,10 +302,21 @@ export default async function BlogPostPage({ params }: Props) {
               {post.title}
             </h1>
             <p className="mt-6 text-xl leading-relaxed text-cream-muted">{post.description}</p>
-            <div className="mt-6 flex items-center gap-2 text-sm text-cream-muted">
-              <span>By {post.author}</span>
-              <span aria-hidden="true">·</span>
-              <span>{post.readingTime} min read</span>
+            <div className="mt-6 flex items-center justify-between gap-4 flex-wrap">
+              <div className="flex items-center gap-2 text-sm text-cream-muted">
+                <span>By {post.author}</span>
+                <span aria-hidden="true">·</span>
+                <span>{post.readingTime} min read</span>
+              </div>
+              <a
+                href={`https://x.com/intent/tweet?text=${shareText}&url=${shareUrl}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-[rgba(var(--polaris-star-rgb),0.15)] px-4 py-2 text-sm text-[var(--polaris-cream-muted)] transition-colors hover:border-[rgba(var(--polaris-star-rgb),0.3)] hover:text-[var(--polaris-star)]"
+              >
+                <XIcon className="h-4 w-4" />
+                Share on X
+              </a>
             </div>
             {post.image && (
               <div className="mt-10 overflow-hidden rounded-2xl border border-[rgba(232,220,196,0.12)]">
@@ -325,7 +341,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Content area with sticky sidebar TOC on xl */}
           <div className="relative">
             {/* Sidebar TOC — visible on xl, sticky with active highlighting */}
-            <div className="hidden xl:block absolute right-[calc(100%+1.5rem)] top-0 bottom-0 w-40">
+            <div className="hidden xl:block absolute right-[calc(100%+2rem)] top-0 bottom-0 w-56">
               <ActiveTocSidebar entries={toc} />
             </div>
 

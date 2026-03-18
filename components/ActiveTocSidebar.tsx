@@ -46,6 +46,7 @@ export function ActiveTocSidebar({ entries }: { entries: TocEntry[] }) {
       <p className="mb-3 pl-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-cream-muted">
         In this article
       </p>
+      <div className="mb-3 h-px w-full bg-gradient-to-r from-transparent via-[rgba(var(--polaris-star-rgb),0.2)] to-transparent" />
       <ul className="space-y-0.5">
         {entries.map((entry) => (
           <li key={entry.id} className={entry.level === 3 ? "ml-3" : ""}>

@@ -9,8 +9,8 @@ export default function BlogPostNotFound() {
       <TopNav />
 
       <NotFoundContent
-        title="Post not found"
-        message="The blog post you're looking for doesn't exist or has been moved."
+        title="This star has drifted out of view"
+        message="The blog post you're looking for doesn't exist or has moved to a new orbit."
         actions={
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/blog" className="btn-primary inline-flex items-center justify-center gap-2">

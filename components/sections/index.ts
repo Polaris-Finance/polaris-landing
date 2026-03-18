@@ -1,8 +1,11 @@
 export { BenefitsSection } from "./BenefitsSection";
 export { CompassDivider } from "./CompassDivider";
+export { FAQSection } from "./FAQSection";
 export { FeaturedShowsSection } from "./FeaturedShowsSection";
 export { HeroSection } from "./HeroSection";
 export { HowItWorksSection } from "./HowItWorksSection";
+export { RoadmapSection } from "./RoadmapSection";
 export { StablecoinOSSection } from "./StablecoinOSSection";
 export { StatsSection } from "./StatsSection";
+export { TeamSection } from "./TeamSection";
 export { TokensSection } from "./TokensSection";

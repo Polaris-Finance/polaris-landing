@@ -4,11 +4,14 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import {
   BenefitsSection,
   CompassDivider,
+  FAQSection,
   FeaturedShowsSection,
   HeroSection,
   HowItWorksSection,
+  RoadmapSection,
   StablecoinOSSection,
   StatsSection,
+  TeamSection,
   TokensSection,
 } from "@/components/sections";
 import { TopNav } from "@/components/TopNav";
@@ -50,7 +53,19 @@ export default function Home() {
 
       <CompassDivider />
 
+      <TeamSection />
+
+      <CompassDivider />
+
+      <RoadmapSection />
+
+      <CompassDivider />
+
       <FeaturedShowsSection />
+
+      <CompassDivider />
+
+      <FAQSection />
 
       <Footer />
     </main>
