@@ -1,6 +1,14 @@
-function CompassRose() {
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+function CompassRose({ rotation }: { rotation: number }) {
   return (
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <svg 
+      viewBox="0 0 100 100" 
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ transform: `rotate(${rotation}deg)`, transition: "transform 0.1s ease-out" }}
+    >
       <defs>
         <linearGradient id="compassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: "var(--polaris-star)", stopOpacity: 1 }} />
@@ -22,9 +30,45 @@ function CompassRose() {
 }
 
 export function CompassDivider() {
+  const [rotation, setRotation] = useState(0);
+  const dividerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Start rotation animation when visible
+            let startTime: number | null = null;
+            const animate = (timestamp: number) => {
+              if (!startTime) startTime = timestamp;
+              const progress = timestamp - startTime;
+              // Rotate 360 degrees over 2 seconds
+              const newRotation = Math.min((progress / 2000) * 360, 360);
+              setRotation(newRotation);
+              if (progress < 2000) {
+                requestAnimationFrame(animate);
+              }
+            };
+            requestAnimationFrame(animate);
+            // Stop observing after animation triggers
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (dividerRef.current) {
+      observer.observe(dividerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="compass-divider">
-      <CompassRose />
+    <div ref={dividerRef} className="compass-divider">
+      <CompassRose rotation={rotation} />
     </div>
   );
 }

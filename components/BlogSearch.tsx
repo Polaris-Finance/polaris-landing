@@ -7,6 +7,7 @@ import Image from "next/image";
 import { basePath } from "@/lib/basePath";
 import { blogPostPath } from "@/lib/seo";
 import type { BlogPostMeta } from "@/lib/blog";
+import { isNewPost, NewBadge } from "./NewBadge";
 
 type BlogSearchProps = {
   posts: BlogPostMeta[];
@@ -87,6 +88,7 @@ export function BlogSearch({ posts }: BlogSearchProps) {
               </time>
               <span aria-hidden="true">·</span>
               <span>{featuredPost.readingTime} min read</span>
+              {isNewPost(featuredPost.date) && <NewBadge />}
             </div>
             <h2 className="font-serif text-2xl text-star transition-colors group-hover:text-[var(--polaris-cream)] sm:text-3xl">
               {featuredPost.title}
@@ -129,6 +131,7 @@ export function BlogSearch({ posts }: BlogSearchProps) {
                   </time>
                   <span aria-hidden="true">·</span>
                   <span>{post.readingTime} min read</span>
+                  {isNewPost(post.date) && <NewBadge />}
                 </div>
                 <h2 className="font-serif text-xl text-star transition-colors group-hover:text-[var(--polaris-cream)]">
                   {post.title}

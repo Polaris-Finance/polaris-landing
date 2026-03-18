@@ -2645,6 +2645,34 @@ html {
 }
 
 /* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--polaris-navy-darkest);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--polaris-star-rgb), 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--polaris-star-rgb), 0.35);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--polaris-star-rgb), 0.2) var(--polaris-navy-darkest);
+}
+
+/* ============================================
    REDUCED MOTION - Accessibility & Performance
    ============================================ */
 @media (prefers-reduced-motion: reduce) {

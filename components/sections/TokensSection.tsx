@@ -3,6 +3,31 @@ import { tokens } from "@/lib/pageData";
 import Image from "next/image";
 import Link from "next/link";
 
+// Pattern backgrounds for color-blind accessibility
+const tokenPatterns = {
+  pusd: {
+    // Subtle grid pattern
+    backgroundImage: `linear-gradient(rgba(var(--polaris-star-rgb), 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(var(--polaris-star-rgb), 0.03) 1px, transparent 1px)`,
+    backgroundSize: "20px 20px",
+  },
+  peth: {
+    // Subtle dot pattern
+    backgroundImage: `radial-gradient(circle, rgba(var(--polaris-peth-rgb), 0.06) 1px, transparent 1px)`,
+    backgroundSize: "12px 12px",
+  },
+  polar: {
+    // Subtle diagonal lines
+    backgroundImage: `repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(var(--polaris-polar-rgb), 0.04) 10px,
+      rgba(var(--polaris-polar-rgb), 0.04) 12px
+    )`,
+  },
+};
+
 export function TokensSection() {
   return (
     <section className="section section--gradient section--showcase">
@@ -15,7 +40,11 @@ export function TokensSection() {
         <div className="trust-strip mt-10">
           <div className="reveal-stagger trust-strip__items">
             {tokens.map((token, index) => (
-              <div key={`token-${index}`} className={`token-card token-card--${token.color}`}>
+              <div 
+                key={`token-${index}`} 
+                className={`token-card token-card--${token.color}`}
+                style={tokenPatterns[token.color]}
+              >
                 <Image
                   src={token.iconSrc}
                   alt={`${token.name} icon`}
