@@ -220,6 +220,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
+      site: TWITTER_HANDLE,
       title: post.title,
       description: post.description,
       images: [absoluteUrl(ogImageSrc)],

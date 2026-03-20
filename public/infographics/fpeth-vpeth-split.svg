@@ -1,0 +1,323 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&amp;family=Inter:wght@400;500;600&amp;display=swap');
+      .title { font-family: 'Cormorant Garamond', Georgia, serif; fill: #F5F0E6; }
+      .label { font-family: 'Inter', Arial, sans-serif; fill: #8BA4B8; }
+      .label-bright { font-family: 'Inter', Arial, sans-serif; fill: #F5F0E6; }
+      .label-cream { font-family: 'Inter', Arial, sans-serif; fill: #E8DCC4; }
+      .token-name { font-family: 'Cormorant Garamond', Georgia, serif; fill: #F5F0E6; }
+    </style>
+
+    <!-- Background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" style="stop-color:#0d1f3c"/>
+      <stop offset="100%" style="stop-color:#050a14"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="tokenGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.4 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Token circle background gradients -->
+    <radialGradient id="pethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#0f2a4a"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+    <radialGradient id="fpethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#0f3a3a"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+    <radialGradient id="vpethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#2a2218"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+
+    <!-- Token accent gradients -->
+    <linearGradient id="pethAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ECBEB"/>
+      <stop offset="100%" style="stop-color:#7BA5C9"/>
+    </linearGradient>
+    <linearGradient id="pethDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B95B9"/>
+      <stop offset="100%" style="stop-color:#5A84A8"/>
+    </linearGradient>
+
+    <!-- Arrow markers -->
+    <marker id="arrowTeal" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#6BCAA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#D09838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- ========== BACKGROUND ========== -->
+  <rect width="1400" height="900" fill="url(#bgGradient)"/>
+
+  <!-- ========== STARFIELD ========== -->
+  <g fill="#E8DCC4">
+    <!-- Large 5-point stars -->
+    <polygon points="120,70 121.2,73 124.5,73 121.8,75.5 123,79 120,76.5 117,79 118.2,75.5 115.5,73 118.8,73" opacity="0.26"/>
+    <polygon points="1280,90 1281.2,93 1284.5,93 1281.8,95.5 1283,99 1280,96.5 1277,99 1278.2,95.5 1275.5,93 1278.8,93" opacity="0.22"/>
+    <polygon points="180,790 181.2,793 184.5,793 181.8,795.5 183,799 180,796.5 177,799 178.2,795.5 175.5,793 178.8,793" opacity="0.2"/>
+    <polygon points="1250,810 1251.2,813 1254.5,813 1251.8,815.5 1253,819 1250,816.5 1247,819 1248.2,815.5 1245.5,813 1248.8,813" opacity="0.18"/>
+    <polygon points="60,380 61.2,383 64.5,383 61.8,385.5 63,389 60,386.5 57,389 58.2,385.5 55.5,383 58.8,383" opacity="0.24"/>
+    <polygon points="1340,420 1341.2,423 1344.5,423 1341.8,425.5 1343,429 1340,426.5 1337,429 1338.2,425.5 1335.5,423 1338.8,423" opacity="0.2"/>
+    <polygon points="400,40 401.2,43 404.5,43 401.8,45.5 403,49 400,46.5 397,49 398.2,45.5 395.5,43 398.8,43" opacity="0.28"/>
+    <polygon points="1000,35 1001.2,38 1004.5,38 1001.8,40.5 1003,44 1000,41.5 997,44 998.2,40.5 995.5,38 998.8,38" opacity="0.22"/>
+
+    <!-- Medium stars -->
+    <polygon points="200,180 201,182 204,182 201.5,184 202.5,187 200,185 197.5,187 198.5,184 196,182 199,182" opacity="0.18"/>
+    <polygon points="1200,230 1201,232 1204,232 1201.5,234 1202.5,237 1200,235 1197.5,237 1198.5,234 1196,232 1199,232" opacity="0.16"/>
+    <polygon points="80,600 81,602 84,602 81.5,604 82.5,607 80,605 77.5,607 78.5,604 76,602 79,602" opacity="0.14"/>
+    <polygon points="1320,640 1321,642 1324,642 1321.5,644 1322.5,647 1320,645 1317.5,647 1318.5,644 1316,642 1319,642" opacity="0.16"/>
+    <polygon points="40,500 41,502 44,502 41.5,504 42.5,507 40,505 37.5,507 38.5,504 36,502 39,502" opacity="0.15"/>
+    <polygon points="1360,320 1361,322 1364,322 1361.5,324 1362.5,327 1360,325 1357.5,327 1358.5,324 1356,322 1359,322" opacity="0.18"/>
+    <polygon points="280,130 281,132 284,132 281.5,134 282.5,137 280,135 277.5,137 278.5,134 276,132 279,132" opacity="0.2"/>
+    <polygon points="1120,150 1121,152 1124,152 1121.5,154 1122.5,157 1120,155 1117.5,157 1118.5,154 1116,152 1119,152" opacity="0.16"/>
+
+    <!-- Small stars -->
+    <polygon points="500,30 500.6,31.5 502.2,31.5 500.9,32.6 501.4,34.2 500,33 498.6,34.2 499.1,32.6 497.8,31.5 499.4,31.5" opacity="0.12"/>
+    <polygon points="850,22 850.6,23.5 852.2,23.5 850.9,24.6 851.4,26.2 850,25 848.6,26.2 849.1,24.6 847.8,23.5 849.4,23.5" opacity="0.14"/>
+    <polygon points="130,720 130.6,721.5 132.2,721.5 130.9,722.6 131.4,724.2 130,723 128.6,724.2 129.1,722.6 127.8,721.5 129.4,721.5" opacity="0.1"/>
+    <polygon points="1270,730 1270.6,731.5 1272.2,731.5 1270.9,732.6 1271.4,734.2 1270,733 1268.6,734.2 1269.1,732.6 1267.8,731.5 1269.4,731.5" opacity="0.12"/>
+    <polygon points="310,320 310.6,321.5 312.2,321.5 310.9,322.6 311.4,324.2 310,323 308.6,324.2 309.1,322.6 307.8,321.5 309.4,321.5" opacity="0.13"/>
+    <polygon points="1090,350 1090.6,351.5 1092.2,351.5 1090.9,352.6 1091.4,354.2 1090,353 1088.6,354.2 1089.1,352.6 1087.8,351.5 1089.4,351.5" opacity="0.11"/>
+
+    <!-- Tiny dot stars -->
+    <circle cx="75" cy="120" r="1.2" opacity="0.16"/>
+    <circle cx="1310" cy="150" r="1" opacity="0.14"/>
+    <circle cx="50" cy="280" r="1.1" opacity="0.12"/>
+    <circle cx="1350" cy="540" r="1.2" opacity="0.13"/>
+    <circle cx="150" cy="510" r="1" opacity="0.1"/>
+    <circle cx="1240" cy="580" r="1.1" opacity="0.11"/>
+    <circle cx="330" cy="830" r="0.9" opacity="0.09"/>
+    <circle cx="1080" cy="840" r="1" opacity="0.08"/>
+    <circle cx="560" cy="840" r="1.1" opacity="0.1"/>
+    <circle cx="780" cy="25" r="1.2" opacity="0.14"/>
+    <circle cx="35" cy="740" r="1" opacity="0.09"/>
+    <circle cx="1370" cy="750" r="0.9" opacity="0.08"/>
+    <circle cx="240" cy="430" r="1.1" opacity="0.11"/>
+    <circle cx="1160" cy="460" r="1" opacity="0.1"/>
+    <circle cx="620" cy="18" r="0.9" opacity="0.13"/>
+    <circle cx="940" cy="840" r="1.1" opacity="0.09"/>
+    <circle cx="25" cy="180" r="1" opacity="0.12"/>
+    <circle cx="1380" cy="190" r="1.2" opacity="0.11"/>
+    <circle cx="160" cy="660" r="0.8" opacity="0.1"/>
+    <circle cx="1220" cy="700" r="1" opacity="0.09"/>
+  </g>
+
+  <!-- ========== TITLE BLOCK ========== -->
+  <text x="700" y="62" font-family="'Cormorant Garamond', Georgia, serif" font-size="56" font-weight="600" fill="#F5F0E6" text-anchor="middle" letter-spacing="0.05em">Splitting pETH</text>
+  <text x="700" y="96" font-family="'Inter', Arial, sans-serif" font-size="22" font-weight="400" fill="rgba(232,220,196,0.5)" text-anchor="middle">Two assets DeFi doesn't know it needs yet</text>
+
+  <!-- ========== pETH TOKEN (CENTER TOP) ========== -->
+  <g transform="translate(700, 180)">
+    <!-- Outer glow ring -->
+    <circle cx="0" cy="0" r="62" fill="none" stroke="#9ECBEB" stroke-width="0.5" opacity="0.12"/>
+    <circle cx="0" cy="0" r="58" fill="none" stroke="#9ECBEB" stroke-width="1" opacity="0.2"/>
+    <!-- Main circle -->
+    <circle cx="0" cy="0" r="50" fill="url(#pethCircleBg)" stroke="#7BA5C9" stroke-width="2" filter="url(#shadow)"/>
+    <!-- Polaris star -->
+    <polygon points="0,-24 1.2,-19 6,-19 2.2,-15.5 3.5,-10.5 0,-14 -3.5,-10.5 -2.2,-15.5 -6,-19 -1.2,-19" fill="#7BA5C9" fill-opacity="0.7"/>
+    <!-- ETH diamond -->
+    <g transform="translate(0, 6)">
+      <polygon points="0,-16 10,0 0,6 -10,0" fill="url(#pethAccent)" opacity="0.95"/>
+      <polygon points="0,6 10,0 0,16 -10,0" fill="url(#pethDark)" opacity="0.85"/>
+      <polygon points="0,-16 5,-3 0,-5 -5,-3" fill="#9ECBEB" opacity="0.3"/>
+    </g>
+    <!-- Label -->
+    <text x="0" y="80" font-family="'Cormorant Garamond', Georgia, serif" font-size="26" font-weight="600" fill="#9ECBEB" text-anchor="middle">pETH</text>
+  </g>
+
+  <!-- ========== SPLIT ARROWS ========== -->
+  <!-- Left arrow (teal) — from pETH to fpETH card -->
+  <line x1="668" y1="220" x2="380" y2="310"
+        stroke="#6BCAA0" stroke-width="2" opacity="0.6"
+        stroke-dasharray="8,5" marker-end="url(#arrowTeal)" stroke-linecap="round"/>
+
+  <!-- Right arrow (gold) — from pETH to vpETH card -->
+  <line x1="732" y1="220" x2="1020" y2="310"
+        stroke="#D09838" stroke-width="2" opacity="0.6"
+        stroke-dasharray="8,5" marker-end="url(#arrowGold)" stroke-linecap="round"/>
+
+  <!-- ========== fpETH CARD (LEFT) ========== -->
+  <g transform="translate(80, 320)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="570" height="470" rx="24" fill="#0d1f3c" stroke="rgba(107,202,160,0.12)" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="4" y="4" width="562" height="462" rx="22" fill="none" stroke="rgba(107,202,160,0.03)" stroke-width="1"/>
+
+    <!-- fpETH Token Circle (top center of card) -->
+    <g transform="translate(285, 60)">
+      <circle cx="0" cy="0" r="46" fill="none" stroke="#6BCAA0" stroke-width="1" opacity="0.2"/>
+      <circle cx="0" cy="0" r="40" fill="url(#fpethCircleBg)" stroke="#6BCAA0" stroke-width="2" filter="url(#shadow)"/>
+      <!-- Floor icon: horizontal line with upward arrow -->
+      <line x1="-14" y1="12" x2="14" y2="12" stroke="#6BCAA0" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+      <line x1="0" y1="10" x2="0" y2="-14" stroke="#6BCAA0" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+      <polyline points="-5,-9 0,-14 5,-9" fill="none" stroke="#6BCAA0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    </g>
+
+    <!-- Title -->
+    <text x="285" y="140" font-family="'Cormorant Garamond', Georgia, serif" font-size="36" font-weight="600" fill="#6BCAA0" text-anchor="middle">fpETH</text>
+    <text x="285" y="164" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="rgba(107,202,160,0.5)" text-anchor="middle">Floor Price Component</text>
+
+    <!-- Divider -->
+    <line x1="40" y1="182" x2="530" y2="182" stroke="#3A5068" stroke-width="1" opacity="0.25"/>
+
+    <!-- Property rows -->
+    <!-- Row 1: Yield Source -->
+    <g transform="translate(40, 205)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(107,202,160,0.15)" stroke="#6BCAA0" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Yield Source</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#F5F0E6">Bonding curve activity + conversions</text>
+    </g>
+
+    <!-- Row 2: Price Action -->
+    <g transform="translate(40, 258)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(107,202,160,0.15)" stroke="#6BCAA0" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Price Action</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#6BCAA0">Up only — ever-rising floor</text>
+    </g>
+
+    <!-- Row 3: Risk Profile -->
+    <g transform="translate(40, 311)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(107,202,160,0.15)" stroke="#6BCAA0" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Risk Profile</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#F5F0E6">No slashing, no withdrawal queue</text>
+    </g>
+
+    <!-- Row 4: Redeemable -->
+    <g transform="translate(40, 364)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(107,202,160,0.15)" stroke="#6BCAA0" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Redeemable</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#F5F0E6">Combine with vpETH to redeem pETH</text>
+    </g>
+
+    <!-- Row 5: Target Audience -->
+    <g transform="translate(40, 417)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(107,202,160,0.15)" stroke="#6BCAA0" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Target Audience</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#F5F0E6">Conservative treasuries, protocols</text>
+    </g>
+  </g>
+
+  <!-- ========== vpETH CARD (RIGHT) ========== -->
+  <g transform="translate(750, 320)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="570" height="470" rx="24" fill="#0d1f3c" stroke="rgba(208,152,56,0.12)" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="4" y="4" width="562" height="462" rx="22" fill="none" stroke="rgba(208,152,56,0.03)" stroke-width="1"/>
+
+    <!-- vpETH Token Circle (top center of card) -->
+    <g transform="translate(285, 60)">
+      <circle cx="0" cy="0" r="46" fill="none" stroke="#D09838" stroke-width="1" opacity="0.2"/>
+      <circle cx="0" cy="0" r="40" fill="url(#vpethCircleBg)" stroke="#D09838" stroke-width="2" filter="url(#shadow)"/>
+      <!-- Volatility wave/zigzag icon -->
+      <polyline points="-16,4 -8,-10 0,8 8,-10 16,4" fill="none" stroke="#D09838" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+    </g>
+
+    <!-- Title -->
+    <text x="285" y="140" font-family="'Cormorant Garamond', Georgia, serif" font-size="36" font-weight="600" fill="#D09838" text-anchor="middle">vpETH</text>
+    <text x="285" y="164" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="rgba(208,152,56,0.5)" text-anchor="middle">Volatility Component</text>
+
+    <!-- Divider -->
+    <line x1="40" y1="182" x2="530" y2="182" stroke="#3A5068" stroke-width="1" opacity="0.25"/>
+
+    <!-- Property rows -->
+    <!-- Row 1: Yield Source -->
+    <g transform="translate(40, 205)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(208,152,56,0.15)" stroke="#D09838" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Yield Source</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#F5F0E6">pETH/ETH volatility premium</text>
+    </g>
+
+    <!-- Row 2: Price Action -->
+    <g transform="translate(40, 258)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(208,152,56,0.15)" stroke="#D09838" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Price Action</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#D09838">Variable — tracks volatility above floor</text>
+    </g>
+
+    <!-- Row 3: Risk Profile -->
+    <g transform="translate(40, 311)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(208,152,56,0.15)" stroke="#D09838" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Risk Profile</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#F5F0E6">Higher risk, higher potential return</text>
+    </g>
+
+    <!-- Row 4: Utility -->
+    <g transform="translate(40, 364)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(208,152,56,0.15)" stroke="#D09838" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Utility</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#F5F0E6">Delta-neutral hedging for CDP minters</text>
+    </g>
+
+    <!-- Row 5: Target Audience -->
+    <g transform="translate(40, 417)">
+      <circle cx="6" cy="-4" r="4" fill="rgba(208,152,56,0.15)" stroke="#D09838" stroke-width="1"/>
+      <text x="20" y="0" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="500" fill="#8BA4B8">Target Audience</text>
+      <text x="20" y="26" font-family="'Inter', Arial, sans-serif" font-size="20" font-weight="400" fill="#F5F0E6">Sophisticated hedgers, yield seekers</text>
+    </g>
+  </g>
+
+  <!-- ========== VERTICAL SEPARATOR between cards ========== -->
+  <line x1="700" y1="350" x2="700" y2="760" stroke="#3A5068" stroke-width="1" stroke-dasharray="6,8" opacity="0.15"/>
+
+  <!-- ========== BOTTOM RECOMBINATION FORMULA ========== -->
+  <!-- 1 fpETH + 1 vpETH = 1 pETH -->
+  <g transform="translate(700, 840)">
+    <!-- fpETH mini token -->
+    <g transform="translate(-220, 0)">
+      <circle cx="0" cy="0" r="22" fill="url(#fpethCircleBg)" stroke="#6BCAA0" stroke-width="1.5"/>
+      <!-- Mini floor icon -->
+      <line x1="-7" y1="6" x2="7" y2="6" stroke="#6BCAA0" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+      <line x1="0" y1="5" x2="0" y2="-6" stroke="#6BCAA0" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+      <polyline points="-3,-3 0,-6 3,-3" fill="none" stroke="#6BCAA0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+      <text x="0" y="40" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" fill="#6BCAA0" text-anchor="middle">fpETH</text>
+    </g>
+
+    <!-- Plus sign -->
+    <text x="-130" y="8" font-family="'Inter', Arial, sans-serif" font-size="28" font-weight="400" fill="rgba(232,220,196,0.5)" text-anchor="middle">+</text>
+
+    <!-- vpETH mini token -->
+    <g transform="translate(-40, 0)">
+      <circle cx="0" cy="0" r="22" fill="url(#vpethCircleBg)" stroke="#D09838" stroke-width="1.5"/>
+      <!-- Mini wave icon -->
+      <polyline points="-8,2 -4,-5 0,4 4,-5 8,2" fill="none" stroke="#D09838" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+      <text x="0" y="40" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" fill="#D09838" text-anchor="middle">vpETH</text>
+    </g>
+
+    <!-- Equals sign -->
+    <text x="50" y="8" font-family="'Inter', Arial, sans-serif" font-size="28" font-weight="400" fill="rgba(232,220,196,0.5)" text-anchor="middle">=</text>
+
+    <!-- pETH mini token -->
+    <g transform="translate(140, 0)">
+      <circle cx="0" cy="0" r="22" fill="url(#pethCircleBg)" stroke="#7BA5C9" stroke-width="1.5"/>
+      <!-- Mini polaris star -->
+      <polygon points="0,-13 0.6,-10 3,-10 1.1,-8 1.8,-5.5 0,-7.5 -1.8,-5.5 -1.1,-8 -3,-10 -0.6,-10" fill="#7BA5C9" fill-opacity="0.7"/>
+      <!-- Mini ETH diamond -->
+      <g transform="translate(0, 3)">
+        <polygon points="0,-7 5,0 0,3 -5,0" fill="#9ECBEB" opacity="0.9"/>
+        <polygon points="0,3 5,0 0,7 -5,0" fill="#5A84A8" opacity="0.8"/>
+      </g>
+      <text x="0" y="40" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" fill="#9ECBEB" text-anchor="middle">pETH</text>
+    </g>
+  </g>
+
+</svg>
