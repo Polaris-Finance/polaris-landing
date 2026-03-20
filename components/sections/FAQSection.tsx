@@ -75,27 +75,27 @@ const faqs = [
           Like all DeFi protocols, Polaris carries risks that users should understand:
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Smart Contract Risk</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Smart Contract Risk</h3>
         <p>
           All protocol contracts will undergo extensive auditing and formal verification before mainnet. However, no code is ever fully risk-free.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">pETH Price Volatility</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">pETH Price Volatility</h3>
         <p>
           pETH trades at a premium to its floor price, and this premium fluctuates with market sentiment. While the floor only rises, the market price can experience volatility against ETH. Your entry price and the current floor ratio determine your maximum potential drawdown.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Oracle Risk</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Oracle Risk</h3>
         <p>
           The protocol relies on price oracles for CDP operations. While we use robust, decentralized oracle solutions, oracle failures remain a systemic risk in DeFi.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Stewardship Risk</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Stewardship Risk</h3>
         <p>
           While core protocol logic is immutable, certain parameters can be adjusted by vePOLAR holders through stewardship. This introduces stewardship risk, though bounded by hard-coded safety limits and time delays.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Liquidity Risk</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Liquidity Risk</h3>
         <p>
           While the bonding curve guarantees liquidity at the market price, extreme market conditions could affect the redemption experience.
         </p>
@@ -110,22 +110,22 @@ const faqs = [
           The Polaris bonding curve is a mathematical mechanism that creates pETH from ETH deposits with three key properties:
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">1. Guaranteed Liquidity</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">1. Guaranteed Liquidity</h3>
         <p>
           Unlike AMMs that require liquidity providers, the bonding curve itself is the counterparty. You can always swap ETH for pETH (minting) or pETH for ETH (burning) at the current curve price.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">2. Rising Floor Price</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">2. Rising Floor Price</h3>
         <p>
           Every swap pays a fee in pETH, which is burned. Each burn reduces supply, which increases the floor price—the minimum redemption value of pETH in ETH terms. <strong className="text-[var(--polaris-cream)]">This floor never decreases.</strong>
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">3. POLAR Conversion</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">3. POLAR Conversion</h3>
         <p>
           New POLAR tokens can only be minted by burning pETH through a conversion auction. This mechanism spikes the floor price upward, creates demand for pETH, and connects the three Polaris tokens (pETH, pUSD, POLAR).
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">The Formula</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">The Formula</h3>
         <p>
           The curve follows <code className="bg-[rgba(var(--polaris-star-rgb),0.1)] px-1.5 py-0.5 rounded text-[var(--polaris-cream)]">price = alpha × supply^beta</code>, where beta (~0.3) keeps pETH closely coupled to ETH while allowing enough volatility for interesting dynamics.
         </p>
@@ -143,7 +143,7 @@ const faqs = [
           The Polaris testnet allows you to experiment with core protocol mechanics using valueless test tokens.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Available Actions</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Available Actions</h3>
         <ul className="mt-2 ml-5 list-disc space-y-1">
           <li>Deposit ETH into the bonding curve to mint pETH</li>
           <li>Swap between ETH and pETH to observe curve pricing</li>
@@ -153,7 +153,7 @@ const faqs = [
           <li>Monitor all activity via the Testnet Analytics dashboard</li>
         </ul>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">What to Observe</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">What to Observe</h3>
         <ul className="mt-2 ml-5 list-disc space-y-1">
           <li>How the pETH floor price rises with each swap</li>
           <li>The relationship between pETH market price and floor price</li>
@@ -161,7 +161,7 @@ const faqs = [
           <li>Liquidation dynamics and Stability Pool gains</li>
         </ul>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Getting Started</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Getting Started</h3>
         <p>
           The testnet requires a special version of wETH that we distribute. Users interested in trying out should <strong className="text-[var(--polaris-cream)]">DM Polaris on <a href="https://x.com/polarisfinance_" target="_blank" rel="noopener noreferrer" className="text-[var(--polaris-star)] hover:underline">Twitter/X</a></strong> to request access.
         </p>
@@ -176,12 +176,12 @@ const faqs = [
           The <strong className="text-[var(--polaris-cream)]">Stablecoin Operating System (StablecoinOS)</strong> is Polaris&apos;s framework for ecosystem growth and protocol expansion.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Core Concept</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Core Concept</h3>
         <p>
           While the core Polaris protocol (pETH bonding curve, pUSD CDP) is immutable, the StablecoinOS enables controlled evolution through:
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Parameter Stewardship</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Parameter Stewardship</h3>
         <p className="mb-2">vePOLAR holders can adjust quantitative parameters within hard-coded safety bounds:</p>
         <ul className="ml-5 list-disc space-y-1">
           <li>Interest rate curves</li>
@@ -189,22 +189,22 @@ const faqs = [
           <li>Stability Pool reward splits</li>
         </ul>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Fork Licensing</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Fork Licensing</h3>
         <p>
           Teams can deploy their own stablecoins (pGOLD, pCHF, etc.) using Polaris infrastructure. Licensing requires vePOLAR holder approval and includes revenue sharing.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Ecosystem Integration</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Ecosystem Integration</h3>
         <p>
           Frontends, integrators, and yield aggregators can join the StablecoinOS, gaining access to protocol incentives based on gauge voting.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">One pETH, Many Stablecoins</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">One pETH, Many Stablecoins</h3>
         <p>
           All forks share the same pETH collateral. Whether you&apos;re borrowing pUSD, pGOLD, or pCHF, your collateral is the same rising-floor asset. This creates network effects: more stablecoins = more pETH demand = higher floor price = better collateral for everyone.
         </p>
         
-        <h4 className="mt-4 font-serif text-[var(--polaris-star)]">Separation of Concerns</h4>
+        <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Separation of Concerns</h3>
         <ul className="mt-2 ml-5 list-disc space-y-1">
           <li><strong className="text-[var(--polaris-cream)]">Core Protocol:</strong> Immutable, handles pETH and pUSD</li>
           <li><strong className="text-[var(--polaris-cream)]">StablecoinOS:</strong> Evolvable, handles growth and ecosystem</li>

@@ -208,9 +208,9 @@ test.describe('Accessibility', () => {
       for (let i = 0; i < count; i++) {
         const box = await navLinks.nth(i).boundingBox();
         if (box) {
-          // WCAG recommends 44x44px minimum for touch targets
-          expect(box.width, `Nav link ${i + 1} too narrow`).toBeGreaterThanOrEqual(44);
-          expect(box.height, `Nav link ${i + 1} too short`).toBeGreaterThanOrEqual(44);
+          // WCAG recommends 44x44px minimum for touch targets (round to handle sub-pixel rendering)
+          expect(Math.round(box.width), `Nav link ${i + 1} too narrow`).toBeGreaterThanOrEqual(44);
+          expect(Math.round(box.height), `Nav link ${i + 1} too short`).toBeGreaterThanOrEqual(44);
         }
       }
     });

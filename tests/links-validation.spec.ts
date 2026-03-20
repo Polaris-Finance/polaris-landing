@@ -158,14 +158,16 @@ test.describe('Link Validation', () => {
       await page.goto('/');
 
       // Scroll to bottom
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-      await page.waitForTimeout(500);
+      await page.locator('.footer').scrollIntoViewIfNeeded();
+      await page.waitForTimeout(300);
 
       const backToTop = page.locator('a[href="#top"], a[href="#"], button[aria-label*="top"]').first();
 
       if (await backToTop.count() > 0) {
         await backToTop.click();
-        await page.waitForTimeout(500);
+
+        // Wait for smooth scroll to complete (poll instead of fixed timeout)
+        await page.waitForFunction(() => window.scrollY < 100, { timeout: 5000 });
 
         const scrollY = await page.evaluate(() => window.scrollY);
         expect(scrollY).toBeLessThan(100);

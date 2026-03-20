@@ -428,12 +428,12 @@ test.describe('Full Page Scroll Test', () => {
       await page.goto('/');
       await page.waitForLoadState('domcontentloaded');
 
-      // Scroll to absolute bottom
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-      await page.waitForTimeout(200);
+      // Scroll footer into view directly (avoids issues with page height growing after scroll)
+      const footer = page.locator('.footer');
+      await footer.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(500);
 
       // Footer should be fully visible
-      const footer = page.locator('.footer');
       const footerBox = await footer.boundingBox();
       const viewportBottom = await page.evaluate(() => window.scrollY + window.innerHeight);
 
