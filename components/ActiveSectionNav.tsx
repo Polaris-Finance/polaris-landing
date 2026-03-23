@@ -11,7 +11,6 @@ const sections = [
   { id: "tokens", label: "Tokens" },
   { id: "stablecoin-os", label: "OS" },
   { id: "benefits", label: "Principles" },
-  { id: "team", label: "Team" },
   { id: "roadmap", label: "Roadmap" },
   { id: "featured-shows", label: "Media" },
   { id: "faq", label: "FAQ" },

@@ -7,5 +7,4 @@ export { HowItWorksSection } from "./HowItWorksSection";
 export { RoadmapSection } from "./RoadmapSection";
 export { StablecoinOSSection } from "./StablecoinOSSection";
 export { StatsSection } from "./StatsSection";
-export { TeamSection } from "./TeamSection";
 export { TokensSection } from "./TokensSection";

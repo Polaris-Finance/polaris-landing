@@ -12,7 +12,6 @@ import {
   RoadmapSection,
   StablecoinOSSection,
   StatsSection,
-  TeamSection,
   TokensSection,
 } from "@/components/sections";
 import { TopNav } from "@/components/TopNav";
@@ -52,10 +51,6 @@ export default function Home() {
       <CompassDivider />
 
       <BenefitsSection />
-
-      <CompassDivider />
-
-      <TeamSection />
 
       <CompassDivider />
 
