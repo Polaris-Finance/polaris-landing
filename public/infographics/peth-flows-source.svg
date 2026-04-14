@@ -1,0 +1,397 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap');
+      .title { font-family: 'Cormorant Garamond', Georgia, serif; fill: #F5F0E6; }
+      .label { font-family: 'Inter', Arial, sans-serif; fill: #8BA4B8; }
+      .label-bright { font-family: 'Inter', Arial, sans-serif; fill: #F5F0E6; }
+      .label-cream { font-family: 'Inter', Arial, sans-serif; fill: #E8DCC4; }
+      .label-blue { font-family: 'Inter', Arial, sans-serif; fill: #9ECBEB; }
+      .label-purple { font-family: 'Inter', Arial, sans-serif; fill: #B8A8DF; }
+      .label-green { font-family: 'Inter', Arial, sans-serif; fill: #6BCAA0; }
+      .step-num { font-family: 'Cormorant Garamond', Georgia, serif; fill: #E8DCC4; }
+    </style>
+
+    <!-- Background gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="48%" r="70%">
+      <stop offset="0%" style="stop-color:#0d1f3c"/>
+      <stop offset="100%" style="stop-color:#050a14"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="chartGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="iconGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="floorGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.1  0 1 0 0 0.05  0 0 1 0 0  0 0 0 0.7 0" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Token circle backgrounds -->
+    <radialGradient id="ethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#142d4f"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+    <radialGradient id="pethCircleBg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#0f2a4a"/>
+      <stop offset="100%" style="stop-color:#0d1f3c"/>
+    </radialGradient>
+
+    <!-- Token diamond gradients -->
+    <linearGradient id="pethAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ECBEB"/>
+      <stop offset="100%" style="stop-color:#7BA5C9"/>
+    </linearGradient>
+    <linearGradient id="pethDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B95B9"/>
+      <stop offset="100%" style="stop-color:#5A84A8"/>
+    </linearGradient>
+
+    <!-- Flame gradients (from rising-floor-mechanism) -->
+    <linearGradient id="flameGradient" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="50%" style="stop-color:#F7931E"/>
+      <stop offset="100%" style="stop-color:#FFD23F"/>
+    </linearGradient>
+    <linearGradient id="flameInner" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" style="stop-color:#F7931E"/>
+      <stop offset="100%" style="stop-color:#FFD23F"/>
+    </linearGradient>
+
+    <!-- Flow sparkle gradient (cream/teal blend for "ecosystem yield") -->
+    <radialGradient id="flowGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6BCAA0;stop-opacity:0.35"/>
+      <stop offset="100%" style="stop-color:#6BCAA0;stop-opacity:0"/>
+    </radialGradient>
+
+    <!-- Arrow markers (chevron) -->
+    <marker id="arrowCream" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#E8DCC4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#7BA5C9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#6BCAA0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowSlate" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,1 L8,5 L2,9" fill="none" stroke="#8BA4B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- ============================================================ -->
+  <!-- BACKGROUND                                                    -->
+  <!-- ============================================================ -->
+  <rect width="1400" height="820" fill="url(#bgGradient)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.03">
+    <line x1="100" y1="0" x2="100" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="500" y1="0" x2="500" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="1100" y1="0" x2="1100" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="1200" y1="0" x2="1200" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+    <line x1="1300" y1="0" x2="1300" y2="820" stroke="#F5F0E6" stroke-width="1"/>
+  </g>
+
+  <!-- Sparse stars -->
+  <g fill="#E8DCC4">
+    <circle cx="120" cy="80" r="1.1" opacity="0.18"/>
+    <circle cx="1280" cy="60" r="1.2" opacity="0.16"/>
+    <circle cx="1340" cy="240" r="1" opacity="0.13"/>
+    <circle cx="60" cy="380" r="1.2" opacity="0.12"/>
+    <circle cx="1370" cy="510" r="1.1" opacity="0.14"/>
+    <circle cx="50" cy="700" r="1" opacity="0.11"/>
+    <circle cx="1330" cy="780" r="1.2" opacity="0.13"/>
+    <polygon points="240,40 241.2,43 244.5,43 241.8,45.5 243,49 240,46.5 237,49 238.2,45.5 235.5,43 238.8,43" opacity="0.22"/>
+    <polygon points="1080,40 1081.2,43 1084.5,43 1081.8,45.5 1083,49 1080,46.5 1077,49 1078.2,45.5 1075.5,43 1078.8,43" opacity="0.2"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- TITLE                                                         -->
+  <!-- ============================================================ -->
+  <text x="700" y="68" class="title" font-size="48" font-weight="500" text-anchor="middle" letter-spacing="0.04em">Where the pETH Flow Comes From</text>
+  <text x="700" y="102" class="label-cream" font-size="20" font-weight="400" text-anchor="middle" opacity="0.55" letter-spacing="0.02em">Each pETH burn does three positive jobs before a single token is distributed</text>
+
+  <!-- ============================================================ -->
+  <!-- BONDING CURVE CARD (LEFT)                                     -->
+  <!-- ============================================================ -->
+  <rect x="60" y="140" width="720" height="620" rx="24" fill="#0d1f3c" stroke="rgba(232,220,196,0.12)" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="64" y="144" width="712" height="612" rx="22" fill="none" stroke="rgba(232,220,196,0.03)" stroke-width="1"/>
+
+  <!-- Card title -->
+  <text x="420" y="186" class="title" font-size="24" font-weight="500" text-anchor="middle">Polaris Bonding Curve</text>
+  <text x="420" y="210" class="label" font-size="14" font-weight="400" text-anchor="middle" opacity="0.7">burns shrink supply &#x2192; ETH released &#x2192; bought back as pETH</text>
+
+  <!-- Bonding curve group: canonical coords translated by (-275, +95).
+       Original chart origin (415,600) -> (140,695). End (885,180) -> (610,275).
+       floor_supply x: 311.3   |   current_supply x: 485
+       floor price y: 395      |   market price y: 275 -->
+  <g transform="translate(-275,95)">
+    <!-- Axes -->
+    <line x1="415" y1="600" x2="885" y2="600" stroke="#3A5068" stroke-width="1.5"/>
+    <line x1="415" y1="600" x2="415" y2="170" stroke="#3A5068" stroke-width="1.5"/>
+
+    <!-- Y-axis label only (X-axis context comes from brackets below) -->
+    <text transform="translate(395,400) rotate(-90)" class="label" font-size="13" text-anchor="middle" font-weight="500" letter-spacing="0.06em">PRICE</text>
+
+    <!-- ===== ZONE FILLS (4 canonical zones) ===== -->
+    <!-- Zone 1: Released ETH (purple) -->
+    <path d="M415.0,600.0 L415.0,591.6 L415.0,583.2 L415.1,574.8 L415.2,566.4 L415.5,558.0 L415.8,549.6 L416.3,541.2 L416.9,532.8 L417.7,524.4 L418.8,516.0 L420.0,507.6 L421.5,499.2 L423.3,490.8 L425.3,482.4 L427.7,474.0 L430.4,465.6 L433.5,457.2 L436.9,448.8 L440.8,440.4 L445.1,432.0 L449.8,423.6 L455.0,415.2 L460.7,406.8 L467.0,398.4 L473.8,390.0 L482.0,380.6 L490.2,372.0 L498.4,364.0 L506.6,356.4 L514.9,349.4 L523.1,342.7 L531.3,336.3 L539.5,330.2 L547.8,324.4 L556.0,318.8 L564.2,313.5 L572.5,308.3 L580.7,303.3 L586.3,300.0 L586.3,600 Z" fill="#9B8FCF" opacity="0.42"/>
+
+    <!-- Zone 2: pUSD backing (cream) -->
+    <path d="M586.3,300.0 L588.9,298.5 L597.1,293.8 L605.4,289.3 L613.6,284.8 L621.8,280.6 L630.0,276.4 L638.2,272.3 L646.5,268.3 L654.7,264.4 L662.9,260.6 L671.1,256.9 L679.4,253.3 L687.6,249.7 L695.8,246.3 L704.0,242.8 L712.3,239.5 L720.5,236.2 L728.7,232.9 L737.0,229.8 L745.2,226.6 L753.4,223.6 L760.0,221.1 L760.0,600 L586.3,600 Z" fill="#E8DCC4" opacity="0.20"/>
+
+    <!-- Zone 3: pETH market cap (teal) -->
+    <path d="M586.3,180 L885.0,180.0 L876.8,182.5 L868.5,185.0 L860.3,187.5 L852.1,190.0 L843.9,192.6 L835.7,195.2 L827.4,197.9 L819.2,200.6 L811.0,203.3 L802.8,206.1 L794.5,208.9 L786.3,211.7 L778.1,214.6 L769.9,217.6 L761.6,220.5 L753.4,223.6 L745.2,226.6 L737.0,229.8 L728.7,232.9 L720.5,236.2 L712.3,239.5 L704.0,242.8 L695.8,246.3 L687.6,249.7 L679.4,253.3 L671.1,256.9 L662.9,260.6 L654.7,264.4 L646.5,268.3 L638.2,272.3 L630.0,276.4 L621.8,280.6 L613.6,284.8 L605.4,289.3 L597.1,293.8 L588.9,298.5 L586.3,300.0 Z" fill="#6BCAA0" opacity="0.22"/>
+
+    <!-- Zone 4: ETH reserve (steel blue) -->
+    <path d="M760.0,221.1 L761.6,220.5 L769.9,217.6 L778.1,214.6 L786.3,211.7 L794.5,208.9 L802.8,206.1 L811.0,203.3 L819.2,200.6 L827.4,197.9 L835.7,195.2 L843.9,192.6 L852.1,190.0 L860.3,187.5 L868.5,185.0 L876.8,182.5 L885.0,180.0 L885.0,600 L760.0,600 Z" fill="#7BA5C9" opacity="0.25"/>
+
+    <!-- ===== REFERENCE LINES ===== -->
+    <!-- Floor price horizontal dashed -->
+    <line x1="415" y1="300" x2="586.3" y2="300" stroke="#E8DCC4" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.6"/>
+    <!-- Current supply vertical dashed -->
+    <line x1="760" y1="221.1" x2="760" y2="600" stroke="#9ECBEB" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.55"/>
+    <!-- Market price horizontal dashed -->
+    <line x1="415" y1="180" x2="885" y2="180" stroke="#E8DCC4" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.55"/>
+
+    <!-- ===== BONDING CURVE LINE ===== -->
+    <path d="M415.0,600.0 L415.0,591.6 L415.0,583.2 L415.1,574.8 L415.2,566.4 L415.5,558.0 L415.8,549.6 L416.3,541.2 L416.9,532.8 L417.7,524.4 L418.8,516.0 L420.0,507.6 L421.5,499.2 L423.3,490.8 L425.3,482.4 L427.7,474.0 L430.4,465.6 L433.5,457.2 L436.9,448.8 L440.8,440.4 L445.1,432.0 L449.8,423.6 L455.0,415.2 L460.7,406.8 L467.0,398.4 L473.8,390.0 L482.0,380.6 L490.2,372.0 L498.4,364.0 L506.6,356.4 L514.9,349.4 L523.1,342.7 L531.3,336.3 L539.5,330.2 L547.8,324.4 L556.0,318.8 L564.2,313.5 L572.5,308.3 L580.7,303.3 L588.9,298.5 L597.1,293.8 L605.4,289.3 L613.6,284.8 L621.8,280.6 L630.0,276.4 L638.2,272.3 L646.5,268.3 L654.7,264.4 L662.9,260.6 L671.1,256.9 L679.4,253.3 L687.6,249.7 L695.8,246.3 L704.0,242.8 L712.3,239.5 L720.5,236.2 L728.7,232.9 L737.0,229.8 L745.2,226.6 L753.4,223.6 L761.6,220.5 L769.9,217.6 L778.1,214.6 L786.3,211.7 L794.5,208.9 L802.8,206.1 L811.0,203.3 L819.2,200.6 L827.4,197.9 L835.7,195.2 L843.9,192.6 L852.1,190.0 L860.3,187.5 L868.5,185.0 L876.8,182.5 L885.0,180.0" fill="none" stroke="#F5F0E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#chartGlow)"/>
+
+    <!-- Floor price label + dot -->
+    <text x="420" y="293" class="label-cream" font-size="13" font-weight="500">floor price</text>
+    <circle cx="586.3" cy="300" r="5" fill="#F5F0E6" filter="url(#softGlow)"/>
+    <circle cx="586.3" cy="300" r="3" fill="#E8DCC4"/>
+
+    <!-- Market price label + dot -->
+    <text x="420" y="173" class="label-bright" font-size="13" font-weight="500">market price</text>
+    <circle cx="885" cy="180" r="5" fill="#F5F0E6" filter="url(#softGlow)"/>
+    <circle cx="885" cy="180" r="3" fill="#9ECBEB"/>
+
+    <!-- ===== AREA LABELS ===== -->
+    <text x="500" y="510" class="label" font-size="18" text-anchor="middle" fill="#9B8FCF" opacity="0.95" font-weight="500">released</text>
+    <text x="500" y="532" class="label" font-size="18" text-anchor="middle" fill="#9B8FCF" opacity="0.95" font-weight="500">ETH</text>
+
+    <text x="673" y="465" class="label" font-size="18" text-anchor="middle" fill="#E8DCC4" opacity="0.85" font-weight="500">pUSD</text>
+    <text x="673" y="487" class="label" font-size="14" text-anchor="middle" fill="#E8DCC4" opacity="0.55">backing</text>
+
+    <text x="670" y="205" class="label" font-size="18" text-anchor="middle" fill="#6BCAA0" opacity="0.95" font-weight="500">pETH market cap</text>
+
+    <text x="828" y="416" class="label" font-size="18" text-anchor="middle" fill="#7BA5C9" opacity="0.9" font-weight="500">ETH</text>
+    <text x="828" y="437" class="label" font-size="18" text-anchor="middle" fill="#7BA5C9" opacity="0.9" font-weight="500">reserve</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- BURNED / CURRENT BRACKETS BELOW X-AXIS                       -->
+  <!-- chart x-axis at y=695, floor_supply x=311.3, current_x=485  -->
+  <!-- ============================================================ -->
+  <g>
+    <!-- Burned bracket (purple) — origin to floor_supply -->
+    <line x1="140" y1="708" x2="140" y2="720" stroke="#B8A8DF" stroke-width="1.8" opacity="0.85"/>
+    <line x1="140" y1="720" x2="311.3" y2="720" stroke="#B8A8DF" stroke-width="1.8" opacity="0.85"/>
+    <line x1="311.3" y1="720" x2="311.3" y2="708" stroke="#B8A8DF" stroke-width="1.8" opacity="0.85"/>
+    <text x="225.65" y="742" font-family="'Inter', Arial, sans-serif" fill="#B8A8DF" font-size="16" text-anchor="middle" font-weight="500" letter-spacing="0.06em">burned</text>
+
+    <!-- Current bracket (cream) — floor_supply to current_supply line -->
+    <line x1="311.3" y1="708" x2="311.3" y2="720" stroke="#E8DCC4" stroke-width="1.8" opacity="0.75"/>
+    <line x1="311.3" y1="720" x2="485" y2="720" stroke="#E8DCC4" stroke-width="1.8" opacity="0.75"/>
+    <line x1="485" y1="720" x2="485" y2="708" stroke="#E8DCC4" stroke-width="1.8" opacity="0.75"/>
+    <text x="398.15" y="742" class="label-cream" font-size="16" text-anchor="middle" font-weight="500" letter-spacing="0.06em">current</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- IMPACT INDICATOR ARROWS (cream upward, mirroring mockup)     -->
+  <!-- Floor price line is at y=395, market price line at y=275     -->
+  <!-- ============================================================ -->
+  <!-- Floor price upward indicator (left side of chart) -->
+  <g>
+    <line x1="115" y1="415" x2="115" y2="378" stroke="#E8DCC4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrowCream)" filter="url(#floorGlow)"/>
+    <text x="106" y="403" class="label-cream" font-size="12" text-anchor="end" font-weight="600">floor</text>
+    <text x="106" y="418" class="label-cream" font-size="12" text-anchor="end" font-weight="600">&#x2191;</text>
+  </g>
+
+  <!-- Market price upward indicator (right side of chart) -->
+  <g>
+    <line x1="635" y1="295" x2="635" y2="258" stroke="#9ECBEB" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrowBlue)" filter="url(#floorGlow)"/>
+    <text x="644" y="282" class="label-blue" font-size="12" text-anchor="start" font-weight="600">market</text>
+    <text x="644" y="297" class="label-blue" font-size="12" text-anchor="start" font-weight="600">&#x2191;</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- RIGHT COLUMN: 3 STEP CARDS                                    -->
+  <!-- x=810 to 1340, three cards stacked                            -->
+  <!-- ============================================================ -->
+
+  <!-- ============== STEP 1: pETH BURNED ============== -->
+  <g>
+    <!-- Card -->
+    <rect x="810" y="170" width="540" height="160" rx="20" fill="#0d1f3c" stroke="rgba(232,220,196,0.18)" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="814" y="174" width="532" height="152" rx="18" fill="none" stroke="rgba(232,220,196,0.04)" stroke-width="1"/>
+
+    <!-- Number badge -->
+    <g transform="translate(852, 250)">
+      <circle cx="0" cy="0" r="26" fill="#0a1628" stroke="#E8DCC4" stroke-width="2"/>
+      <text x="0" y="0" font-family="'Inter', Arial, sans-serif" font-size="22" font-weight="600" fill="#E8DCC4" text-anchor="middle" dominant-baseline="central">1</text>
+    </g>
+
+    <!-- pETH icon with prominent flame -->
+    <g transform="translate(945, 258)">
+      <!-- Warm burn aura behind icon -->
+      <circle cx="0" cy="-2" r="52" fill="#FF6B35" fill-opacity="0.06"/>
+      <circle cx="0" cy="-2" r="46" fill="#F7931E" fill-opacity="0.05"/>
+      <!-- pETH circle (warm-tinted stroke to suggest heat) -->
+      <circle cx="0" cy="0" r="38" fill="url(#pethCircleBg)" stroke="#D4A552" stroke-width="2" stroke-opacity="0.55" filter="url(#shadow)"/>
+      <!-- pETH diamond (mini star removed; replaced by big flame) -->
+      <g transform="translate(0, 8)">
+        <polygon points="0,-12 12,0 0,5 -12,0" fill="url(#pethAccent)"/>
+        <polygon points="0,5 12,0 0,17 -12,0" fill="url(#pethDark)"/>
+        <polygon points="0,-12 5,-2 0,-3 -5,-2" fill="#B8D4F0" opacity="0.35"/>
+      </g>
+      <!-- BIG flame above the icon -->
+      <g transform="translate(0, -76) scale(2.4)" filter="url(#iconGlow)">
+        <path d="M0,18 C-4,18 -8,14 -8,10 C-8,6 -5,4 -4,2 C-5,5 -3,7 0,5 C-1,8 2,10 4,8 C3,10 5,12 8,10 C8,14 4,18 0,18 Z" fill="url(#flameGradient)"/>
+        <path d="M0,16 C-3,16 -4,13 -4,10 C-4,8 -1,6 0,8 C1,6 4,8 4,10 C4,13 3,16 0,16 Z" fill="url(#flameInner)"/>
+        <ellipse cx="0" cy="13" rx="1.5" ry="2" fill="#FFF7E0"/>
+      </g>
+    </g>
+
+    <!-- Title + subtitle -->
+    <text x="1005" y="245" class="label-bright" font-size="24" font-weight="600">pETH burned</text>
+    <text x="1005" y="271" class="label-cream" font-size="14" font-weight="400" opacity="0.55">swap fees &#xb7; POLAR conversions</text>
+
+    <!-- Impact pill (bottom-right) -->
+    <g transform="translate(1196, 290)">
+      <rect x="0" y="0" width="138" height="30" rx="15" fill="rgba(232,220,196,0.1)" stroke="#E8DCC4" stroke-width="1.3" stroke-opacity="0.75"/>
+      <text x="16" y="20" class="label-cream" font-size="14" font-weight="600">&#x2191;</text>
+      <text x="32" y="20" class="label-cream" font-size="13" font-weight="500">floor price up</text>
+    </g>
+  </g>
+
+  <!-- Arrow Step 1 -> Step 2 -->
+  <line x1="1080" y1="345" x2="1080" y2="380" stroke="#E8DCC4" stroke-width="2" opacity="0.7" marker-end="url(#arrowCream)"/>
+
+  <!-- ============== STEP 2: ETH RELEASED -> pETH ============== -->
+  <g>
+    <rect x="810" y="395" width="540" height="160" rx="20" fill="#0d1f3c" stroke="rgba(158,203,235,0.22)" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="814" y="399" width="532" height="152" rx="18" fill="none" stroke="rgba(232,220,196,0.04)" stroke-width="1"/>
+
+    <!-- Number badge -->
+    <g transform="translate(852, 475)">
+      <circle cx="0" cy="0" r="26" fill="#0a1628" stroke="#E8DCC4" stroke-width="2"/>
+      <text x="0" y="0" font-family="'Inter', Arial, sans-serif" font-size="22" font-weight="600" fill="#E8DCC4" text-anchor="middle" dominant-baseline="central">2</text>
+    </g>
+
+    <!-- ETH -> pETH composite -->
+    <g>
+      <!-- ETH icon -->
+      <g transform="translate(915, 475)">
+        <circle cx="0" cy="0" r="30" fill="url(#ethCircleBg)" stroke="#627D92" stroke-width="1.6" stroke-opacity="0.6" filter="url(#shadow)"/>
+        <polygon points="0,-14 10,0 0,6 -10,0" fill="#7BA5C9" opacity="0.95"/>
+        <polygon points="0,6 10,0 0,16 -10,0" fill="#5A84A8" opacity="0.85"/>
+        <polygon points="0,-14 5,-3 0,-5 -5,-3" fill="#9ECBEB" opacity="0.35"/>
+      </g>
+
+      <!-- Arrow with "swap" pill -->
+      <line x1="950" y1="475" x2="1003" y2="475" stroke="#9ECBEB" stroke-width="2" marker-end="url(#arrowBlue)"/>
+      <rect x="958" y="465" width="42" height="20" rx="9" fill="#0d1f3c" stroke="#9ECBEB" stroke-width="1" opacity="0.95"/>
+      <text x="979" y="479" class="label-blue" font-size="11" text-anchor="middle" font-weight="500">swap</text>
+
+      <!-- pETH icon -->
+      <g transform="translate(1042, 475)">
+        <circle cx="0" cy="0" r="30" fill="url(#pethCircleBg)" stroke="#7BA5C9" stroke-width="1.6" stroke-opacity="0.65" filter="url(#shadow)"/>
+        <polygon points="0,-15 1.5,-11 5.5,-11 2.5,-8.5 3.6,-4.5 0,-7 -3.6,-4.5 -2.5,-8.5 -5.5,-11 -1.5,-11" fill="#9ECBEB" fill-opacity="0.85"/>
+        <g transform="translate(0, 5)">
+          <polygon points="0,-9 9,0 0,4 -9,0" fill="url(#pethAccent)"/>
+          <polygon points="0,4 9,0 0,13 -9,0" fill="url(#pethDark)"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Title + subtitle -->
+    <text x="1090" y="468" class="label-bright" font-size="24" font-weight="600">ETH bought back</text>
+    <text x="1090" y="494" class="label-cream" font-size="14" font-weight="400" opacity="0.55">swapped against the bonding curve</text>
+
+    <!-- Impact pill (bottom-right) -->
+    <g transform="translate(1196, 515)">
+      <rect x="0" y="0" width="138" height="30" rx="15" fill="rgba(158,203,235,0.12)" stroke="#9ECBEB" stroke-width="1.3" stroke-opacity="0.8"/>
+      <text x="16" y="20" class="label-blue" font-size="14" font-weight="600">&#x2191;</text>
+      <text x="32" y="20" class="label-blue" font-size="13" font-weight="500">market price up</text>
+    </g>
+  </g>
+
+  <!-- Arrow Step 2 -> Step 3 -->
+  <line x1="1080" y1="570" x2="1080" y2="605" stroke="#E8DCC4" stroke-width="2" opacity="0.7" marker-end="url(#arrowCream)"/>
+
+  <!-- ============== STEP 3: pETH FLOW DISTRIBUTED ============== -->
+  <g>
+    <rect x="810" y="620" width="540" height="160" rx="20" fill="#0d1f3c" stroke="rgba(107,202,160,0.28)" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect x="814" y="624" width="532" height="152" rx="18" fill="none" stroke="rgba(232,220,196,0.04)" stroke-width="1"/>
+
+    <!-- Number badge -->
+    <g transform="translate(852, 700)">
+      <circle cx="0" cy="0" r="26" fill="#0a1628" stroke="#E8DCC4" stroke-width="2"/>
+      <text x="0" y="0" font-family="'Inter', Arial, sans-serif" font-size="22" font-weight="600" fill="#E8DCC4" text-anchor="middle" dominant-baseline="central">3</text>
+    </g>
+
+    <!-- pETH icon with green ecosystem glow -->
+    <g transform="translate(945, 700)">
+      <circle cx="0" cy="0" r="56" fill="url(#flowGlow)"/>
+      <circle cx="0" cy="0" r="40" fill="url(#pethCircleBg)" stroke="#6BCAA0" stroke-width="1.8" stroke-opacity="0.7" filter="url(#shadow)"/>
+      <!-- larger star -->
+      <g filter="url(#softGlow)">
+        <polygon points="0,-22 2,-17 7.2,-17 3,-14 4.5,-9 0,-12 -4.5,-9 -3,-14 -7.2,-17 -2,-17" fill="#B8E6CC" fill-opacity="0.95"/>
+      </g>
+      <!-- pETH diamond -->
+      <g transform="translate(0, 6)">
+        <polygon points="0,-12 12,0 0,5 -12,0" fill="url(#pethAccent)"/>
+        <polygon points="0,5 12,0 0,17 -12,0" fill="url(#pethDark)"/>
+        <polygon points="0,-12 5,-2 0,-3 -5,-2" fill="#B8D4F0" opacity="0.35"/>
+      </g>
+    </g>
+
+    <!-- Title + subtitle -->
+    <text x="1005" y="685" class="label-bright" font-size="24" font-weight="600">pETH Flow</text>
+    <text x="1005" y="711" class="label-cream" font-size="14" font-weight="400" opacity="0.55">routed to whitelisted CDPs &#xb7; vaults &#xb7; markets</text>
+
+    <!-- Impact pill (bottom-right, matching steps 1 & 2) -->
+    <g transform="translate(1196, 740)">
+      <rect x="0" y="0" width="138" height="30" rx="15" fill="rgba(107,202,160,0.12)" stroke="#6BCAA0" stroke-width="1.3" stroke-opacity="0.85"/>
+      <text x="14" y="20" class="label-green" font-size="14" font-weight="700">&#x2731;</text>
+      <text x="30" y="20" class="label-green" font-size="13" font-weight="500">ecosystem yield</text>
+    </g>
+  </g>
+
+</svg>
