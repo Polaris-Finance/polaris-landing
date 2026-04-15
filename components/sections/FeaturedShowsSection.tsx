@@ -14,7 +14,7 @@ export function FeaturedShowsSection() {
               Transmission Log
             </h2>
             <p className="reveal section-description">
-              Start here for the long-form interviews and shows that unpack the Polaris thesis in full.
+              Start here for the long-form interviews, podcast episodes, and live talks that unpack the Polaris thesis in full.
             </p>
           </div>
 
@@ -76,7 +76,7 @@ export function FeaturedShowsSection() {
                         rel="noopener noreferrer"
                         aria-label={`Open ${show.name} (opens in new window)`}
                       >
-                        Open episode
+                        Open recording
                         <ArrowRightIcon className="h-4 w-4" aria-hidden />
                       </a>
                     </dd>

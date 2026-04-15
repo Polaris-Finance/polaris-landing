@@ -180,6 +180,26 @@ export const benefitHighlights: BenefitHighlight[] = [
 
 export const featuredShows: FeaturedShow[] = [
   {
+    name: "Polaris at $0TVL Hour: A Bonding Curve-Based Stablecoin Operating System for DeFi",
+    host: "Stable Summit",
+    hostLogoSrc: "/hosts/stable-summit.jpg",
+    teamMembers: ["Laurens"],
+    dateIso: "2026-03-28",
+    dateLabel: "March 28, 2026",
+    href: "https://www.youtube.com/watch?v=pMyw8K9mikU",
+    platform: "Conference",
+  },
+  {
+    name: "Flipping USDC: Why Decentralized Stablecoins Need a New Collateral Thesis",
+    host: "Stable Summit",
+    hostLogoSrc: "/hosts/stable-summit.jpg",
+    teamMembers: ["TokenBrice"],
+    dateIso: "2026-03-27",
+    dateLabel: "March 27, 2026",
+    href: "https://www.youtube.com/watch?v=0Ec2OmJTnWQ",
+    platform: "Conference",
+  },
+  {
     name: "Breaking the USDT-USDC Duopoly",
     host: "Blocmates",
     hostLogoSrc: "/hosts/blocmates.jpg",
