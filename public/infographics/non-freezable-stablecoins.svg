@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" fill="none" role="img" aria-labelledby="title desc">
-  <title id="title">Only 0.0545% of stablecoins qualify as decentralized</title>
+  <title id="title">Only 0.05% of stablecoins qualify as decentralized</title>
   <desc id="desc">Polaris infographic showing 184.79 million dollars in non-freezable stablecoins against 338.9 billion dollars in total stablecoin circulation.</desc>
   <defs>
     <style>
@@ -353,7 +353,7 @@
   <!-- Massive percent headline (crisp, NO filter) -->
   <text x="80" y="360" class="serif"
         font-size="184" font-weight="500" letter-spacing="-0.025em"
-        fill="#F5F0E6">0.0545%</text>
+        fill="#F5F0E6">0.05%</text>
 
   <!-- Under-rule -->
   <line x1="80" y1="395" x2="280" y2="395"
@@ -389,7 +389,7 @@
   <!-- Explanatory italic line (bumped 14 → 19) -->
   <text x="80" y="648" class="sans"
         font-size="19" font-weight="400" font-style="italic" letter-spacing="0.02em"
-        fill="#E8DCC4" fill-opacity="0.5">trustless issuance &#8212; no actor can freeze or censor.</text>
+        fill="#E8DCC4" fill-opacity="0.5">trustless issuance = no actor can freeze or censor.</text>
 
   <!-- Source line (bumped 13 → 16 so it remains hierarchically secondary but readable) -->
   <text x="80" y="798" class="sans"
@@ -430,7 +430,7 @@
   <!-- Annotation below the tick, below the bar (bumped for legibility) -->
   <text x="1320" y="867" text-anchor="end" class="sans"
         font-size="15" font-weight="500" letter-spacing="0.08em"
-        fill="#E8DCC4" fill-opacity="0.75">&#8776; 0.0545%</text>
+        fill="#E8DCC4" fill-opacity="0.75">&#8776; 0.05%</text>
 
   <!-- ================= TOKEN LOGOS (bottom, centered) ================= -->
   <g transform="translate(420, 872)">
