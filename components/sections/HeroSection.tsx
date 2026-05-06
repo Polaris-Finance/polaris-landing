@@ -181,12 +181,12 @@ export function HeroSection() {
           </p>
           <div className="hero-cta">
             <a 
-              href="https://analytics.testnet.polarisfinance.io/" 
+              href="https://testnet.polarisfinance.io/" 
               className="btn-primary inline-flex items-center gap-2" 
               target="_blank" 
               rel="noopener noreferrer"
             >
-              Explore Testnet Analytics
+              Try Testnet
             </a>
             <a 
               href="https://x.com/polarisfinance_" 
