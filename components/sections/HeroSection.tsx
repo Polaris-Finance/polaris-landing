@@ -181,7 +181,7 @@ export function HeroSection() {
           </p>
           <div className="hero-cta">
             <a 
-              href="https://testnet.polarisfinance.io/" 
+              href="https://app.testnet.polarisfinance.io/" 
               className="btn-primary inline-flex items-center gap-2" 
               target="_blank" 
               rel="noopener noreferrer"
