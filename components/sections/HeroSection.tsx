@@ -174,7 +174,7 @@ export function HeroSection() {
         <div className="hero-star-zone" aria-hidden="true" />
         <div className="hero-text-content">
           <div className="hero-logo">
-            <h1 className="hero-title">Self-Scaling Stablecoin Operating System</h1>
+            <h1 className="hero-title">Onchain Yield Engine</h1>
           </div>
           <p className="hero-tagline">
             We&apos;re building uncorrelated, scalable returns without T-Bills, without CEXs, without compromises.
