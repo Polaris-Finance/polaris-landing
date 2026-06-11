@@ -44,7 +44,7 @@ const faqs = [
     content: (
       <>
         <p>
-          Polaris is currently in <strong className="text-[var(--polaris-cream)]">gated testnet phase</strong> on Sepolia. Access is limited to select participants while we refine the protocol and gather feedback.
+          Polaris is currently in <strong className="text-[var(--polaris-cream)]">public testnet phase</strong> on Sepolia. Anyone can try the protocol while we refine it and gather feedback.
         </p>
         <p className="mt-4">
           You can explore live protocol metrics, including:
@@ -163,7 +163,7 @@ const faqs = [
         
         <h3 className="mt-4 font-serif text-[var(--polaris-star)]">Getting Started</h3>
         <p>
-          The testnet requires a special version of wETH that we distribute. Users interested in trying out should <strong className="text-[var(--polaris-cream)]">DM Polaris on <a href="https://x.com/polarisfinance_" target="_blank" rel="noopener noreferrer" className="text-[var(--polaris-star)] hover:underline">Twitter/X</a></strong> to request access.
+          The testnet is public: open the <a href="https://app.testnet.polarisfinance.io/" target="_blank" rel="noopener noreferrer" className="text-[var(--polaris-star)] hover:underline">testnet app</a>, connect your wallet, and start experimenting. If you have questions or need help getting set up, reach out on <a href="https://x.com/polarisfinance_" target="_blank" rel="noopener noreferrer" className="text-[var(--polaris-star)] hover:underline">X</a>.
         </p>
       </>
     )
@@ -247,13 +247,15 @@ export function FAQSection() {
                   }`}
                 />
               </button>
-              <div 
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+              <div
+                className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
+                  openIndex === index ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                 }`}
               >
-                <div className="px-6 pb-6 text-[var(--polaris-cream-muted)] leading-relaxed">
-                  {faq.content}
+                <div className="overflow-hidden">
+                  <div className="px-6 pb-6 text-[var(--polaris-cream-muted)] leading-relaxed">
+                    {faq.content}
+                  </div>
                 </div>
               </div>
             </div>

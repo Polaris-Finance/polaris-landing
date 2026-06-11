@@ -496,3 +496,33 @@ test.describe('Visual Regression Snapshots', () => {
     });
   });
 });
+
+test.describe('FAQ Accordion', () => {
+  test('every FAQ answer expands fully on mobile (no clipping)', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+
+    const items = page.locator('#faq .space-y-4 > div');
+    const count = await items.count();
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i++) {
+      const item = items.nth(i);
+      await item.scrollIntoViewIfNeeded();
+
+      // First item is open by default; opening another closes the previous one
+      if (i > 0) {
+        await item.locator('button').click();
+      }
+
+      // After the expand transition, the answer wrapper must not clip its content
+      const answerWrapper = item.locator('.grid > div').first();
+      await expect
+        .poll(async () => answerWrapper.evaluate(el => el.scrollHeight - el.clientHeight))
+        .toBeLessThanOrEqual(1);
+      await expect
+        .poll(async () => answerWrapper.evaluate(el => el.clientHeight))
+        .toBeGreaterThan(0);
+    }
+  });
+});

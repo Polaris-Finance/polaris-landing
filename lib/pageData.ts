@@ -62,7 +62,7 @@ export const heroStats: HeroStat[] = [
   },
   {
     value: "Immutable & trustless",
-    label: "Fully onchain, immutable and extensively verified: simulations, agent-based modeling and Tier-1 audits.",
+    label: "Fully onchain and immutable, verified through simulations and agent-based modeling, with Tier-1 audits ahead of mainnet.",
   },
 ];
 
@@ -172,7 +172,7 @@ export const benefitHighlights: BenefitHighlight[] = [
   {
     title: "Built by a team with 7 years of stablecoin experience",
     bullets: [
-      "The Polaris team is composed of experienced Solidity developers who shipped several stablecoins. They learned from their experience, and are joined by DeFi legends to face the final boss.",
+      "The Polaris team is composed of experienced Solidity developers who shipped several stablecoins. The model builds on research by Liquity founder Robert Lauko, and Liquity's original devs are contributing their expertise to this next chapter.",
     ],
     Icon: AwardIcon,
   },
