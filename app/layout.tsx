@@ -20,7 +20,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const fullTitle = `${SITE_NAME} - Self-Scaling Stablecoin Operating System`;
+const fullTitle = `${SITE_NAME} - Onchain Yield Engine`;
 const canonicalHomeUrl = homeUrl();
 
 export const metadata: Metadata = {

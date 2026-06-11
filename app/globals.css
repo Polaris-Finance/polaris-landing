@@ -166,6 +166,7 @@
 /* Mobile-first: show emblem by default, full logo on wider screens */
 .top-nav__logo--full {
   display: none;
+  height: 23px;
 }
 
 .top-nav__logo--emblem {
@@ -291,8 +292,8 @@
     padding: 8px 32px;
   }
 
-  .top-nav__logo {
-    height: 36px;
+  .top-nav__logo--full {
+    height: 23px;
   }
 
   .top-nav__links {
@@ -1977,7 +1978,7 @@
   }
 
   .footer__logo {
-    height: 36px;
+    height: 23px;
     width: auto;
     transition: opacity 0.2s;
   }
