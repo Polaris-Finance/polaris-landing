@@ -14,6 +14,7 @@ const sections = [
   { id: "roadmap", label: "Roadmap" },
   { id: "featured-shows", label: "Media" },
   { id: "faq", label: "FAQ" },
+  { id: "testnet", label: "Testnet" },
 ];
 
 export function ActiveSectionNav() {

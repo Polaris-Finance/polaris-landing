@@ -1,4 +1,5 @@
 export { BenefitsSection } from "./BenefitsSection";
+export { ClosingCtaSection } from "./ClosingCtaSection";
 export { CompassDivider } from "./CompassDivider";
 export { FAQSection } from "./FAQSection";
 export { FeaturedShowsSection } from "./FeaturedShowsSection";

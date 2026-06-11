@@ -4,6 +4,7 @@ import { JsonLd, organizationSchema, softwareApplicationSchema, websiteSchema } 
 import { ScrollReveal } from "@/components/ScrollReveal";
 import {
   BenefitsSection,
+  ClosingCtaSection,
   CompassDivider,
   FAQSection,
   FeaturedShowsSection,
@@ -63,6 +64,10 @@ export default function Home() {
       <CompassDivider />
 
       <FAQSection />
+
+      <CompassDivider />
+
+      <ClosingCtaSection />
 
       <Footer />
     </main>
