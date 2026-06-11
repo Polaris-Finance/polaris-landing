@@ -46,3 +46,7 @@ yarn-error.log*
 next-env.d.ts
 
 tasks/todo.md
+
+# local design-tooling state
+.playwright-mcp/
+.impeccable/
