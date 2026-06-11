@@ -14,8 +14,8 @@ export function Footer() {
             <Image
               src={`${basePath}/full-logo.svg`}
               alt="Polaris"
-              width={159}
-              height={40}
+              width={91}
+              height={23}
               className="footer__logo"
             />
           </Link>

@@ -16,8 +16,8 @@ export function TopNav() {
         <Image
           src={`${basePath}/full-logo.svg`}
           alt="Polaris"
-          width={159}
-          height={40}
+          width={91}
+          height={23}
           className="top-nav__logo top-nav__logo--full"
         />
         <Image

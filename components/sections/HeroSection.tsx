@@ -160,7 +160,7 @@ export function HeroSection() {
         <div className="polaris-glow-ring" />
         <div className="polaris-star-glow" />
         <Image
-          src={`${basePath}/emblem.svg`}
+          src={`${basePath}/hero-polar-star.svg`}
           alt="Polaris star"
           width={320}
           height={320}
